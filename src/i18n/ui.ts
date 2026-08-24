@@ -32,7 +32,6 @@ export interface UiStrings {
 
   table: {
     option: string
-    input: string
     cost: string
     risk: string
     reward: string
@@ -49,6 +48,7 @@ export interface UiStrings {
   }
   followUpShort: { combo: string; pressure: string; neutral: string; none: string }
   situation: { showFull: string; hideFull: string }
+  browse: { groups: string; situations: string; notWritten: string; coverage: string }
 
   risk: { label: string; safe: string; low: string; medium: string; high: string; extreme: string }
   reward: {
@@ -77,7 +77,6 @@ export interface UiStrings {
   followUp: { combo: string; pressure: string; neutral: string; none: string }
   position: { midscreen: string; nearCorner: string; cornered: string }
 
-  preview: { badge: string; heading: string; body: string; sampleNote: string }
   roadmap: { heading: string; done: string; inProgress: string; planned: string }
   footer: { disclaimer: string; trademark: string; source: string; policy: string }
 }
@@ -113,14 +112,13 @@ const zhHant: UiStrings = {
 
   table: {
     option: '選項',
-    input: '指令',
     cost: '消耗',
     risk: '風險',
     reward: '回報',
     followUp: '成功後',
     hpLoss: '失敗扣血',
     difficulty: '難度 /5',
-    mix: '比例',
+    mix: '建議比例',
     expandAll: '全部展開',
     collapseAll: '全部收合',
     detailHint: '點任一列看完整說明',
@@ -130,6 +128,12 @@ const zhHant: UiStrings = {
   },
   followUpShort: { combo: '連段', pressure: '續攻', neutral: '中立', none: '讓出' },
   situation: { showFull: '完整說明', hideFull: '收起說明' },
+  browse: {
+    groups: '情境群組',
+    situations: '情境',
+    notWritten: '尚未撰寫',
+    coverage: '已完成',
+  },
 
   risk: { label: '風險', safe: '安全', low: '低', medium: '中', high: '高', extreme: '極高' },
   reward: { label: '回報', none: '無', low: '低', medium: '中', high: '高', extreme: '極高' },
@@ -161,12 +165,6 @@ const zhHant: UiStrings = {
   },
   position: { midscreen: '場中', nearCorner: '靠角', cornered: '完全角落' },
 
-  preview: {
-    badge: '骨架預覽',
-    heading: '設計系統與資料模型已就位',
-    body: '以下是實際會用的版面與分級樣式。內容資料層（情境 A–K、通用選項庫、相剋矩陣）正在建置中。',
-    sampleNote: '這是一個示範條目，用來驗證版面與分級呈現。',
-  },
   roadmap: { heading: '建置進度', done: '完成', inProgress: '進行中', planned: '待做' },
   footer: {
     disclaimer: '非官方同人攻略，與 CAPCOM 無關聯，也未經其授權或背書。',
@@ -207,14 +205,13 @@ const en: UiStrings = {
 
   table: {
     option: 'Option',
-    input: 'Input',
     cost: 'Cost',
     risk: 'Risk',
     reward: 'Reward',
     followUp: 'If it works',
     hpLoss: 'Health cost',
     difficulty: 'Exec /5',
-    mix: 'Mix',
+    mix: 'Suggested mix',
     expandAll: 'Expand all',
     collapseAll: 'Collapse all',
     detailHint: 'Select any row for the full read',
@@ -224,6 +221,12 @@ const en: UiStrings = {
   },
   followUpShort: { combo: 'Combo', pressure: 'Keep turn', neutral: 'Neutral', none: 'Give turn' },
   situation: { showFull: 'Full read', hideFull: 'Hide' },
+  browse: {
+    groups: 'Groups',
+    situations: 'Situations',
+    notWritten: 'Not written yet',
+    coverage: 'Written',
+  },
 
   risk: { label: 'Risk', safe: 'Safe', low: 'Low', medium: 'Medium', high: 'High', extreme: 'Extreme' },
   reward: { label: 'Reward', none: 'None', low: 'Low', medium: 'Medium', high: 'High', extreme: 'Extreme' },
@@ -256,12 +259,6 @@ const en: UiStrings = {
   },
   position: { midscreen: 'Midscreen', nearCorner: 'Near corner', cornered: 'Cornered' },
 
-  preview: {
-    badge: 'Skeleton preview',
-    heading: 'Design system and data model are in place',
-    body: 'Below is the real layout and tier styling. The content layer (situations A–K, the universal option library, the relation matrix) is being built.',
-    sampleNote: 'A sample entry, here to prove out the layout and tier rendering.',
-  },
   roadmap: { heading: 'Build progress', done: 'Done', inProgress: 'In progress', planned: 'Planned' },
   footer: {
     disclaimer: 'Unofficial fan-made guide. Not affiliated with, authorised by, or endorsed by CAPCOM.',
@@ -302,14 +299,13 @@ const ja: UiStrings = {
 
   table: {
     option: '選択肢',
-    input: 'コマンド',
     cost: '消費',
     risk: 'リスク',
     reward: 'リターン',
     followUp: '成功時',
     hpLoss: '被ダメージ',
     difficulty: '難易度 /5',
-    mix: '割合',
+    mix: '推奨割合',
     expandAll: 'すべて展開',
     collapseAll: 'すべて折りたたむ',
     detailHint: '行を選ぶと詳細が開きます',
@@ -319,6 +315,12 @@ const ja: UiStrings = {
   },
   followUpShort: { combo: 'コンボ', pressure: '継続', neutral: '五分', none: '明け渡す' },
   situation: { showFull: '詳細を読む', hideFull: '閉じる' },
+  browse: {
+    groups: 'グループ',
+    situations: '状況',
+    notWritten: '未執筆',
+    coverage: '執筆済み',
+  },
 
   risk: { label: 'リスク', safe: '安全', low: '低', medium: '中', high: '高', extreme: '極大' },
   reward: { label: 'リターン', none: 'なし', low: '低', medium: '中', high: '高', extreme: '極大' },
@@ -351,12 +353,6 @@ const ja: UiStrings = {
   },
   position: { midscreen: '画面中央', nearCorner: '画面端寄り', cornered: '画面端' },
 
-  preview: {
-    badge: 'スケルトンプレビュー',
-    heading: 'デザインシステムとデータモデルを構築済み',
-    body: '以下は実際に使用するレイアウトと段階表示です。コンテンツ層（状況 A〜K、汎用選択肢、相性表）は構築中です。',
-    sampleNote: 'レイアウトと段階表示の検証用サンプルです。',
-  },
   roadmap: { heading: '進捗', done: '完了', inProgress: '進行中', planned: '未着手' },
   footer: {
     disclaimer: '非公式のファン制作ガイドです。CAPCOM とは無関係で、許諾も承認も受けていません。',

@@ -103,7 +103,14 @@ export interface FailureOutcome {
   positionLoss?: I18nText
 }
 
-export interface Option {
+/**
+ * What an option *is* — written once, referenced by id from everywhere.
+ *
+ * Deliberately does not carry risk, reward or outcomes: those depend on the
+ * situation, not the option. "Back jump" is a reasonable midscreen answer and
+ * close to indefensible fully cornered, and that difference is the content.
+ */
+export interface OptionDef {
   id: string
   /** 'both' for things usable from either seat, e.g. Drive Impact. */
   side: Side | 'both'
@@ -113,24 +120,39 @@ export interface Option {
   /** Numpad + button notation, e.g. "6 + LP+LK". */
   input: string
   cost: Cost
+  difficulty: Difficulty
+  /** True when the option only exists on some characters (reversals, etc.). */
+  characterSpecific: boolean
+  /**
+   * Show the notation in the detail panel.
+   *
+   * Off by default: anyone reading a situational guide already knows how to
+   * tech a throw, and a row of button glyphs for LP+LK is noise. On where the
+   * motion genuinely varies — character reversals, Super Arts — because there
+   * the input is real information.
+   */
+  showInput?: boolean
+}
+
+/**
+ * How one option grades in one situation. This is where the guide's actual
+ * judgment lives, which is why it hangs off the situation and not the option.
+ */
+export interface OptionEval {
+  optionId: string
   risk: RiskTier
   reward: RewardTier
   onSuccess: SuccessOutcome
   onFail: FailureOutcome
-  /** Option ids on the other side of the matrix that beat this. */
+  /** Ids of options on the other side of the matrix that beat this here. */
   counteredBy: string[]
-  difficulty: Difficulty
   /** Suggested share of a mixup, e.g. "30-40%". Omit where it is situational. */
   mixRatio?: string
-  /** True when the option only exists on some characters (reversals, etc.). */
-  characterSpecific: boolean
+  notes?: I18nText
   verified: Verification
   sources?: Source[]
-  notes?: I18nText
 }
 
-/** Optional, user-supplied annotated capture. Diagrams stand on their own; this
- *  slot exists so screenshots can be added later without touching code. */
 export interface Screenshot {
   /** Path under /public, e.g. "shots/corner-wakeup.webp". */
   src: string
@@ -154,8 +176,8 @@ export interface Situation {
   /** Your own drive bands where this situation reads differently. */
   myDrive?: DriveBand[]
   opponentDrive?: DriveBand[]
-  /** Ordered option ids; the order is the recommended reading order. */
-  options: string[]
+  /** Ordered; the order is the recommended reading order. */
+  evaluations: OptionEval[]
   screenshots?: Screenshot[]
 }
 
@@ -173,9 +195,9 @@ export interface CharacterOverlay {
   id: string
   name: I18nText
   /** Options this character adds (reversals, unique escapes). */
-  addsOptions: Option[]
+  addsOptions: OptionDef[]
   /** Overrides for universal options, keyed by option id. */
-  overrides?: Record<string, Partial<Pick<Option, 'risk' | 'reward' | 'notes' | 'mixRatio'>>>
+  overrides?: Record<string, Partial<Pick<OptionEval, 'risk' | 'reward' | 'notes' | 'mixRatio'>>>
   /** Which of this character's moves cause which knockdown type. */
   knockdowns?: { move: string; type: KnockdownType; note?: I18nText }[]
   /** Author-facing completeness, surfaced as coverage in the UI. */

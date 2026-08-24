@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react'
 import { OptionDetail } from './OptionDetail'
-import { InputNotation } from './viz/InputNotation'
 import { HpLossBar } from './viz/HpLossBar'
 import { RewardPips, RiskPips } from './viz/Tier'
 import { useT } from '~/i18n/useT'
-import type { Option, RewardTier, RiskTier } from '~/data/schema'
+import type { OptionRow } from '~/data'
+import type { RewardTier, RiskTier } from '~/data/schema'
 
 const RISK_ORDER: Record<RiskTier, number> = {
   safe: 0,
@@ -23,19 +23,19 @@ const REWARD_ORDER: Record<RewardTier, number> = {
 }
 
 /** Upper bound of a band like "25-40%" — what it costs when it goes badly. */
-function hpLossValue(option: Option): number {
-  const numbers = option.onFail.hpLoss.match(/\d+(?:\.\d+)?/g)
+function hpLossValue(row: OptionRow): number {
+  const numbers = row.evaluation.onFail.hpLoss.match(/\d+(?:\.\d+)?/g)
   return numbers ? Number(numbers[numbers.length - 1]) : 0
 }
 
 type SortKey = 'risk' | 'reward' | 'hpLoss' | 'difficulty'
 type SortState = { key: SortKey; dir: 'asc' | 'desc' } | null
 
-const SORTERS: Record<SortKey, (option: Option) => number> = {
-  risk: (o) => RISK_ORDER[o.risk],
-  reward: (o) => REWARD_ORDER[o.reward],
+const SORTERS: Record<SortKey, (row: OptionRow) => number> = {
+  risk: (r) => RISK_ORDER[r.evaluation.risk],
+  reward: (r) => REWARD_ORDER[r.evaluation.reward],
   hpLoss: hpLossValue,
-  difficulty: (o) => o.difficulty,
+  difficulty: (r) => r.def.difficulty,
 }
 
 /**
@@ -47,19 +47,19 @@ const SORTERS: Record<SortKey, (option: Option) => number> = {
  * authored order is a real state you can return to, because the schema treats
  * it as the recommended reading order rather than an accident of the file.
  */
-export function OptionTable({ options }: { options: Option[] }) {
+export function OptionTable({ rows: input }: { rows: OptionRow[] }) {
   const { t, text } = useT()
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set())
   const [sort, setSort] = useState<SortState>(null)
 
   const rows = useMemo(() => {
-    if (!sort) return options
+    if (!sort) return input
     const get = SORTERS[sort.key]
     const sign = sort.dir === 'asc' ? 1 : -1
-    return [...options].sort((a, b) => sign * (get(a) - get(b)))
-  }, [options, sort])
+    return [...input].sort((a, b) => sign * (get(a) - get(b)))
+  }, [input, sort])
 
-  const allOpen = open.size === options.length
+  const allOpen = open.size === input.length
 
   function toggle(id: string): void {
     setOpen((previous) => {
@@ -128,7 +128,7 @@ export function OptionTable({ options }: { options: Option[] }) {
           <button
             type="button"
             className="linkish"
-            onClick={() => setOpen(allOpen ? new Set() : new Set(options.map((o) => o.id)))}
+            onClick={() => setOpen(allOpen ? new Set() : new Set(input.map((r) => r.def.id)))}
           >
             {allOpen ? t.table.collapseAll : t.table.expandAll}
           </button>
@@ -140,9 +140,6 @@ export function OptionTable({ options }: { options: Option[] }) {
           <thead>
             <tr>
               <th scope="col">{t.table.option}</th>
-              <th scope="col" className="col--md">
-                {t.table.input}
-              </th>
               <th scope="col" className="col--lg">
                 {t.table.cost}
               </th>
@@ -159,14 +156,14 @@ export function OptionTable({ options }: { options: Option[] }) {
             </tr>
           </thead>
           <tbody>
-            {rows.map((option) => {
-              const isOpen = open.has(option.id)
-              const detailId = `detail-${option.id}`
+            {rows.map(({ def, evaluation }) => {
+              const isOpen = open.has(def.id)
+              const detailId = `detail-${def.id}`
               return [
                 <tr
-                  key={option.id}
+                  key={def.id}
                   className={`opt-row ${isOpen ? 'is-open' : ''}`}
-                  onClick={() => toggle(option.id)}
+                  onClick={() => toggle(def.id)}
                 >
                   <th scope="row" className="opt-row__name">
                     <button
@@ -178,54 +175,51 @@ export function OptionTable({ options }: { options: Option[] }) {
                       // let its own click bubble up and undo the toggle.
                       onClick={(event) => {
                         event.stopPropagation()
-                        toggle(option.id)
+                        toggle(def.id)
                       }}
                     >
                       <span className="opt-row__chevron" aria-hidden="true">
                         ▸
                       </span>
-                      <span>{text(option.name)}</span>
-                      {option.characterSpecific && (
+                      <span>{text(def.name)}</span>
+                      {def.characterSpecific && (
                         <span className="opt-row__flag" aria-hidden="true">
                           ★
                         </span>
                       )}
                     </button>
                   </th>
-                  <td className="col--md">
-                    <InputNotation input={option.input} />
-                  </td>
                   <td className="col--lg mono">
-                    {option.cost.drive === 0 && option.cost.sa === 0
+                    {def.cost.drive === 0 && def.cost.sa === 0
                       ? '—'
                       : [
-                          option.cost.drive > 0 ? `${option.cost.drive}D` : null,
-                          option.cost.sa > 0 ? `SA${option.cost.sa}` : null,
+                          def.cost.drive > 0 ? `${def.cost.drive}D` : null,
+                          def.cost.sa > 0 ? `SA${def.cost.sa}` : null,
                         ]
                           .filter(Boolean)
                           .join(' ')}
                   </td>
                   <td>
-                    <RiskPips tier={option.risk} />
+                    <RiskPips tier={evaluation.risk} />
                   </td>
                   <td>
-                    <RewardPips tier={option.reward} />
+                    <RewardPips tier={evaluation.reward} />
                   </td>
                   <td className="col--md">
-                    <span className={`follow follow--${option.onSuccess.followUp}`}>
-                      {t.followUpShort[option.onSuccess.followUp]}
+                    <span className={`follow follow--${evaluation.onSuccess.followUp}`}>
+                      {t.followUpShort[evaluation.onSuccess.followUp]}
                     </span>
                   </td>
                   <td className="opt-row__hp">
-                    <HpLossBar value={option.onFail.hpLoss} />
+                    <HpLossBar value={evaluation.onFail.hpLoss} />
                   </td>
-                  <td className="col--lg mono">{option.difficulty}</td>
-                  <td className="col--lg mono">{option.mixRatio ?? '—'}</td>
+                  <td className="col--lg mono">{def.difficulty}</td>
+                  <td className="col--lg mono">{evaluation.mixRatio ?? '—'}</td>
                 </tr>,
                 isOpen ? (
-                  <tr key={`${option.id}-detail`} className="opt-detail-row">
-                    <td colSpan={9} id={detailId}>
-                      <OptionDetail option={option} />
+                  <tr key={`${def.id}-detail`} className="opt-detail-row">
+                    <td colSpan={8} id={detailId}>
+                      <OptionDetail row={{ def, evaluation }} />
                     </td>
                   </tr>
                 ) : null,

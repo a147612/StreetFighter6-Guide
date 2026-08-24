@@ -62,12 +62,28 @@ Vite · React · TypeScript，無 UI 框架依賴。內容資料以型別約束 
 
 ```
 src/
-├─ data/schema.ts        資料模型（雙向矩陣、倒地類型、查證標記）
+├─ data/
+│  ├─ schema.ts          資料模型（選項定義 / 情境評價分離、雙向矩陣、查證標記）
+│  ├─ options.ts         選項登錄表（攻守共 32 項，只有身分，沒有評價）
+│  ├─ situations/        情境內容，一個群組一個檔案
+│  └─ index.ts           registry 與 join
 ├─ i18n/                 介面字串（三語，型別強制完整）
 ├─ components/glass/     Liquid Glass — CSS 層 + 折射層 React 移植
 ├─ components/viz/       SVG 圖表元件
 └─ styles/               設計 token（深淺色、風險/回報分級）
 ```
+
+### 內容進度
+
+| 群組 | 狀態 |
+|---|---|
+| A 倒地起身 | 6 情境 · 30 筆評價 |
+| B–H 其餘防守 | 撰寫中 |
+| I–K 進攻 | 待做 |
+
+`npm run validate` 會用 esbuild 打包資料層後實際 import 進來檢查引用完整性：
+懸空的選項 id、重複 id、標成 `sourced` 卻沒有來源、空白的語言欄位（`tsc` 抓不到這個，
+因為空字串仍是合法字串）都會讓 CI 失敗。
 
 ## 致謝與授權
 

@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Topbar } from './components/Topbar'
 import { OptionTable } from './components/OptionTable'
+import { SituationNav } from './components/SituationNav'
 import { GlassPanel } from './components/glass/GlassPanel'
 import { Segmented } from './components/Segmented'
 import { useT } from './i18n/useT'
-import { PREVIEW_OPTIONS, PREVIEW_SITUATION } from './data/preview'
+import { SITUATIONS, getSituation, resolveRows, situationsInGroup } from './data'
 import type { I18nText, Side } from './data/schema'
 
 const REPO_URL = 'https://github.com/a147612/StreetFighter6-Guide'
@@ -33,11 +34,19 @@ const ROADMAP: RoadmapItem[] = [
     },
   },
   {
+    state: 'done',
+    label: {
+      'zh-Hant': '情境 A 倒地起身：6 個情境、30 筆評價（起身時機、場中、角落、硬倒地、Drive Rush 起攻、Shimmy）',
+      en: 'Group A, waking up: 6 situations, 30 evaluations (rise timing, midscreen, corner, hard knockdown, Drive Rush oki, shimmy)',
+      ja: 'グループA 起き上がり：6状況・30評価（起き上がりのタイミング、中央、画面端、ハードダウン、DR起き攻め、シミー）',
+    },
+  },
+  {
     state: 'active',
     label: {
-      'zh-Hant': '防守情境 A–H：倒地起身、防禦被壓、投擲距離、Burnout、中距離、對空、Drive Impact、逆轉判斷',
-      en: 'Defensive situations A–H: wakeup, blockstrings, throw range, Burnout, neutral, anti-air, Drive Impact, comeback reads',
-      ja: '守り側の状況 A〜H：起き上がり、連係ガード、投げ間合い、バーンアウト、中距離、対空、ドライブインパクト、逆転判断',
+      'zh-Hant': '防守情境 B–H：防禦被壓、投擲距離、Burnout、中距離、對空、Drive Impact、逆轉判斷',
+      en: 'Defensive groups B–H: blockstrings, throw range, Burnout, neutral, anti-air, Drive Impact, comeback reads',
+      ja: '守り側 B〜H：連係ガード、投げ間合い、バーンアウト、中距離、対空、ドライブインパクト、逆転判断',
     },
   },
   {
@@ -85,6 +94,19 @@ const ROADMAP: RoadmapItem[] = [
 export default function App() {
   const { t, text } = useT()
   const [side, setSide] = useState<Side>('defense')
+  const [groupId, setGroupId] = useState('A')
+  const [situationId, setSituationId] = useState(SITUATIONS[0]?.id ?? '')
+
+  const situation = getSituation(situationId)
+  const rows = useMemo(() => (situation ? resolveRows(situation) : []), [situation])
+
+  /** Picking a group jumps to its first situation; leaving the reader on a
+   *  situation from the previous group would be a dead end. */
+  function pickGroup(next: string): void {
+    setGroupId(next)
+    const first = situationsInGroup(next)[0]
+    if (first) setSituationId(first.id)
+  }
 
   return (
     <div className="liquid-glass-backdrop app" id="top">
@@ -96,10 +118,7 @@ export default function App() {
 
       <main id="main" className="shell app__main">
         <section className="hero">
-          <div className="hero__row">
-            <h1 className="hero__title">{t.appName}</h1>
-            <span className="liquid-glass-chip hero__badge small">{t.preview.badge}</span>
-          </div>
+          <h1 className="hero__title">{t.appName}</h1>
           <p className="hero__tagline">{t.tagline}</p>
 
           <div className="hero__side">
@@ -116,26 +135,32 @@ export default function App() {
           </div>
         </section>
 
-        {side === 'defense' ? (
+        {side === 'defense' && situation ? (
           <section className="stack" aria-labelledby="situation-heading">
+            <SituationNav
+              side={side}
+              groupId={groupId}
+              situationId={situationId}
+              onPickGroup={pickGroup}
+              onPickSituation={setSituationId}
+            />
+
             <div className="card card--padded situation">
               <span className="situation__group mono">
-                {PREVIEW_SITUATION.group}
+                {situation.group}
                 {' · '}
-                {PREVIEW_SITUATION.position.map((p) => t.position[p]).join(' / ')}
+                {situation.position.map((p) => t.position[p]).join(' / ')}
               </span>
-              <h2 id="situation-heading">{text(PREVIEW_SITUATION.name)}</h2>
-              <p className="situation__brief">{text(PREVIEW_SITUATION.brief)}</p>
+              <h2 id="situation-heading">{text(situation.name)}</h2>
+              <p className="situation__brief">{text(situation.brief)}</p>
 
               <details className="disclosure">
                 <summary>{t.situation.showFull}</summary>
-                <p className="muted">{text(PREVIEW_SITUATION.summary)}</p>
+                <p className="muted">{text(situation.summary)}</p>
               </details>
             </div>
 
-            <OptionTable options={PREVIEW_OPTIONS} />
-
-            <p className="small faint">{t.preview.sampleNote}</p>
+            <OptionTable key={situation.id} rows={rows} />
           </section>
         ) : (
           <section className="card card--padded stack">
@@ -144,7 +169,7 @@ export default function App() {
               {text({
                 'zh-Hant':
                   '進攻層（I–K）的資料模型已就位 —— 起攻依「用什麼招打倒對手」與位置分類，壓制節奏依對手的 Drive 存量分類。內容正在建置中。',
-                en: 'The offensive layer (I–K) is modelled: oki keyed on how the knockdown happened plus position, pressure pacing keyed on the opponent’s Drive. Content is being written.',
+                en: 'The offensive layer (I–K) is modelled: oki keyed on how the knockdown happened plus position, pressure pacing keyed on the opponent\u2019s Drive. Content is being written.',
                 ja: '攻め側（I〜K）のデータモデルは構築済み。起き攻めは「どの技でダウンを取ったか」と位置で分類し、攻めの緩急は相手のドライブ残量で分類する。内容は執筆中。',
               })}
             </p>

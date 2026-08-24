@@ -2,111 +2,136 @@
 /**
  * Referential integrity for the content layer.
  *
- * `tsc` already guarantees the *shape* of every entry — including that all three
- * locales are present, since I18nText is a total Record. What it cannot check is
- * whether the ids entries point at actually exist. That is this script's only
- * job, and it runs in CI before the build.
+ * `tsc` already guarantees the shape of every entry, including that all three
+ * locales are present — I18nText is a total Record, so a missing translation is
+ * a compile error. What it cannot check is whether the ids entries point at
+ * actually exist, and that is this script's job.
+ *
+ * The data lives in TypeScript (for exactly that locale guarantee), so it is
+ * bundled with esbuild — already present as a Vite dependency — and imported.
+ * Checking the real module beats regexing the source.
  */
-import { readdir, readFile } from 'node:fs/promises'
-import { join, relative } from 'node:path'
+import { mkdtemp, rm } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { pathToFileURL } from 'node:url'
+import { build } from 'esbuild'
 
-const DATA_DIR = new URL('../src/data/', import.meta.url).pathname
+const ENTRY = new URL('../src/data/index.ts', import.meta.url).pathname
 const LOCALES = ['zh-Hant', 'en', 'ja']
 
 const errors = []
 const warnings = []
 
-async function jsonFiles(dir) {
-  const found = []
-  for (const entry of await readdir(dir, { withFileTypes: true })) {
-    const path = join(dir, entry.name)
-    if (entry.isDirectory()) found.push(...(await jsonFiles(path)))
-    else if (entry.name.endsWith('.json')) found.push(path)
-  }
-  return found
+const workDir = await mkdtemp(join(tmpdir(), 'sf6g-validate-'))
+const outfile = join(workDir, 'data.mjs')
+
+try {
+  await build({
+    entryPoints: [ENTRY],
+    outfile,
+    bundle: true,
+    format: 'esm',
+    platform: 'node',
+    logLevel: 'silent',
+  })
+} catch (error) {
+  console.error('error  data failed to bundle:\n' + error.message)
+  await rm(workDir, { recursive: true, force: true })
+  process.exit(1)
 }
 
-/** Walk every object, flagging any that looks like a partial I18nText. */
-function checkLocales(value, path, file) {
-  if (Array.isArray(value)) {
-    value.forEach((item, i) => checkLocales(item, `${path}[${i}]`, file))
-    return
-  }
-  if (value === null || typeof value !== 'object') return
+const { OPTIONS, SITUATIONS } = await import(pathToFileURL(outfile).href)
+await rm(workDir, { recursive: true, force: true })
 
-  const keys = Object.keys(value)
-  const localeKeys = keys.filter((k) => LOCALES.includes(k))
-  if (localeKeys.length > 0 && localeKeys.length < LOCALES.length) {
-    const missing = LOCALES.filter((l) => !localeKeys.includes(l))
-    errors.push(`${file}: ${path} is missing ${missing.join(', ')}`)
-  }
-  for (const [key, child] of Object.entries(value)) {
-    checkLocales(child, path ? `${path}.${key}` : key, file)
-  }
-}
-
-const files = await jsonFiles(DATA_DIR).catch(() => [])
-
-if (files.length === 0) {
-  console.log(
-    'validate-data: no JSON data files yet — the content layer still lives in TypeScript,\n' +
-      '               where tsc enforces the shape. Nothing to check.',
-  )
-  process.exit(0)
-}
+/* ── Options ─────────────────────────────────────────────────────── */
 
 const optionIds = new Set()
-const situations = []
-const options = []
+for (const option of OPTIONS) {
+  if (optionIds.has(option.id)) errors.push(`duplicate option id "${option.id}"`)
+  optionIds.add(option.id)
+  checkLocales(option.name, `option "${option.id}" name`)
+}
 
-for (const file of files) {
-  const label = relative(process.cwd(), file)
-  let parsed
-  try {
-    parsed = JSON.parse(await readFile(file, 'utf8'))
-  } catch (error) {
-    errors.push(`${label}: not valid JSON — ${error.message}`)
-    continue
+/* ── Situations ──────────────────────────────────────────────────── */
+
+const situationIds = new Set()
+let evaluationCount = 0
+let sourcedCount = 0
+
+for (const situation of SITUATIONS) {
+  const where = `situation "${situation.id}"`
+  if (situationIds.has(situation.id)) errors.push(`duplicate ${where}`)
+  situationIds.add(situation.id)
+
+  for (const field of ['name', 'brief', 'summary']) {
+    checkLocales(situation[field], `${where} ${field}`)
   }
 
-  checkLocales(parsed, '', label)
+  if (situation.evaluations.length === 0) {
+    errors.push(`${where} has no evaluations`)
+  }
 
-  for (const entry of Array.isArray(parsed) ? parsed : [parsed]) {
-    if (!entry || typeof entry !== 'object') continue
-    if (Array.isArray(entry.counteredBy)) {
-      if (optionIds.has(entry.id)) errors.push(`${label}: duplicate option id "${entry.id}"`)
-      optionIds.add(entry.id)
-      options.push({ ...entry, file: label })
-    } else if (Array.isArray(entry.options)) {
-      situations.push({ ...entry, file: label })
+  const seen = new Set()
+  for (const evaluation of situation.evaluations) {
+    evaluationCount++
+    if (evaluation.verified === 'sourced') {
+      sourcedCount++
+      if (!evaluation.sources || evaluation.sources.length === 0) {
+        errors.push(`${where} marks "${evaluation.optionId}" sourced with no sources`)
+      }
+    }
+
+    if (seen.has(evaluation.optionId)) {
+      errors.push(`${where} grades "${evaluation.optionId}" twice`)
+    }
+    seen.add(evaluation.optionId)
+
+    if (!optionIds.has(evaluation.optionId)) {
+      errors.push(`${where} references unknown option "${evaluation.optionId}"`)
+    }
+
+    checkLocales(evaluation.onSuccess.text, `${where} / ${evaluation.optionId} onSuccess`)
+    checkLocales(evaluation.onFail.text, `${where} / ${evaluation.optionId} onFail`)
+    if (evaluation.onFail.positionLoss) {
+      checkLocales(evaluation.onFail.positionLoss, `${where} / ${evaluation.optionId} positionLoss`)
+    }
+    if (evaluation.notes) {
+      checkLocales(evaluation.notes, `${where} / ${evaluation.optionId} notes`)
+    }
+
+    // counteredBy crosses to the other side of the matrix, so it may point at
+    // an option whose own evaluations are not written yet. The *name* must
+    // resolve though, or the reader sees a raw id.
+    for (const id of evaluation.counteredBy) {
+      if (!optionIds.has(id)) {
+        errors.push(`${where} / "${evaluation.optionId}" counteredBy unknown "${id}"`)
+      }
+    }
+
+    if (!evaluation.onFail.hpLoss.match(/\d/)) {
+      warnings.push(`${where} / "${evaluation.optionId}" hpLoss has no number`)
     }
   }
 }
 
-for (const situation of situations) {
-  for (const id of situation.options) {
-    if (!optionIds.has(id)) {
-      errors.push(`${situation.file}: situation "${situation.id}" references unknown option "${id}"`)
-    }
+function checkLocales(value, where) {
+  if (!value || typeof value !== 'object') {
+    errors.push(`${where} is not a localised string`)
+    return
   }
+  const missing = LOCALES.filter((locale) => !value[locale] || !value[locale].trim())
+  if (missing.length > 0) errors.push(`${where} is missing ${missing.join(', ')}`)
 }
 
-// counteredBy crosses the offense/defense boundary, so it legitimately dangles
-// while one side of the matrix is still being written. Report, do not fail.
-for (const option of options) {
-  for (const id of option.counteredBy) {
-    if (!optionIds.has(id)) {
-      warnings.push(`${option.file}: option "${option.id}" is counteredBy unknown "${id}"`)
-    }
-  }
-}
+for (const warning of warnings) console.warn(`warn   ${warning}`)
+for (const error of errors) console.error(`error  ${error}`)
 
-for (const warning of warnings) console.warn(`warn  ${warning}`)
-for (const error of errors) console.error(`error ${error}`)
-
+const estimated = evaluationCount - sourcedCount
 console.log(
-  `validate-data: ${files.length} file(s), ${optionIds.size} option(s), ` +
-    `${situations.length} situation(s), ${errors.length} error(s), ${warnings.length} warning(s)`,
+  `validate-data: ${OPTIONS.length} options, ${SITUATIONS.length} situations, ` +
+    `${evaluationCount} evaluations (${sourcedCount} sourced / ${estimated} estimated), ` +
+    `${errors.length} error(s), ${warnings.length} warning(s)`,
 )
 
 process.exit(errors.length > 0 ? 1 : 0)
