@@ -1,7 +1,10 @@
 import { useT } from '~/i18n/useT'
 import { InputNotation } from './viz/InputNotation'
 import { VerifiedTag } from './viz/VerifiedTag'
+import { RewardPips } from './viz/Tier'
+import { OutcomeCell } from './viz/OutcomeCell'
 import { getOption, type OptionRow } from '~/data'
+import { counteredBy } from '~/data/schema'
 
 /**
  * Everything the table row leaves out, plus everything a narrow screen had to
@@ -39,6 +42,20 @@ export function OptionDetail({ row }: { row: OptionRow }) {
         <div>
           <dt>{t.option.cost}</dt>
           <dd className="mono">{costLabel}</dd>
+        </div>
+        <div>
+          <dt>{t.table.reward}</dt>
+          <dd>
+            <RewardPips tier={evaluation.reward} />
+          </dd>
+        </div>
+        <div>
+          <dt>{t.option.followUp}</dt>
+          <dd>
+            <span className={`follow follow--${evaluation.onSuccess.followUp}`}>
+              {t.followUpShort[evaluation.onSuccess.followUp]}
+            </span>
+          </dd>
         </div>
         <div>
           <dt>{t.option.difficulty}</dt>
@@ -90,12 +107,33 @@ export function OptionDetail({ row }: { row: OptionRow }) {
 
       {evaluation.notes && <p className="detail__notes small">{text(evaluation.notes)}</p>}
 
-      {evaluation.counteredBy.length > 0 && (
+      {evaluation.versus.length > 0 && (
+        <div className="detail__versus">
+          <p className="option__label">{t.outcome.header}</p>
+          <ul className="versus-list">
+            {evaluation.versus.map((entry) => {
+              const opponent = getOption(entry.vs)
+              const name = opponent ? text(opponent.name) : entry.vs
+              return (
+                <li key={entry.vs} className="versus-list__item">
+                  <OutcomeCell outcome={entry.outcome} opponentName={name} />
+                  <span className="versus-list__name">{name}</span>
+                  <span className={`versus-list__verdict oc-text oc-text--${entry.outcome}`}>
+                    {t.outcome[entry.outcome]}
+                  </span>
+                  {entry.note && <span className="versus-list__note muted">{text(entry.note)}</span>}
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      )}
+
+      {/* Derived from the outcomes above, so the two can never disagree. */}
+      {counteredBy(evaluation).length > 0 && (
         <p className="detail__countered small">
           <span className="option__label">{t.option.counteredBy}</span>
-          {evaluation.counteredBy.map((id) => {
-            // Resolved against the same registry the offensive layer will fill
-            // in, so these read as the opponent's actual choices, not as ids.
+          {counteredBy(evaluation).map((id) => {
             const other = getOption(id)
             return (
               <span key={id} className="counter-chip">

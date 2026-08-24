@@ -47,6 +47,27 @@ export interface UiStrings {
     sortDesc: string
   }
   followUpShort: { combo: string; pressure: string; neutral: string; none: string }
+  outcome: {
+    header: string
+    legend: string
+    notApplicable: string
+    bigWin: string
+    win: string
+    even: string
+    loss: string
+    bigLoss: string
+  }
+  category: {
+    timing: string
+    block: string
+    tech: string
+    drive: string
+    movement: string
+    contest: string
+    strike: string
+    throw: string
+    bait: string
+  }
   situation: { showFull: string; hideFull: string }
   browse: { groups: string; situations: string; notWritten: string; coverage: string }
 
@@ -127,6 +148,27 @@ const zhHant: UiStrings = {
     sortDesc: '由高到低',
   },
   followUpShort: { combo: '連段', pressure: '續攻', neutral: '中立', none: '讓出' },
+  outcome: {
+    header: '對手的選擇',
+    legend: '你的結果',
+    notApplicable: '不相關',
+    bigWin: '大勝',
+    win: '小勝',
+    even: '平手',
+    loss: '小虧',
+    bigLoss: '大虧',
+  },
+  category: {
+    timing: '起身時機',
+    block: '防禦',
+    tech: '解摔',
+    drive: 'Drive 系統',
+    movement: '位移逃脫',
+    contest: '搶攻反擊',
+    strike: '打擊',
+    throw: '投擲',
+    bait: '誘導',
+  },
   situation: { showFull: '完整說明', hideFull: '收起說明' },
   browse: {
     groups: '情境群組',
@@ -220,6 +262,27 @@ const en: UiStrings = {
     sortDesc: 'High to low',
   },
   followUpShort: { combo: 'Combo', pressure: 'Keep turn', neutral: 'Neutral', none: 'Give turn' },
+  outcome: {
+    header: 'Their choice',
+    legend: 'Your result',
+    notApplicable: 'Not relevant',
+    bigWin: 'Big win',
+    win: 'Win',
+    even: 'Even',
+    loss: 'Loss',
+    bigLoss: 'Big loss',
+  },
+  category: {
+    timing: 'Rise timing',
+    block: 'Blocking',
+    tech: 'Throw tech',
+    drive: 'Drive system',
+    movement: 'Movement',
+    contest: 'Contest it',
+    strike: 'Strikes',
+    throw: 'Throws',
+    bait: 'Baits',
+  },
   situation: { showFull: 'Full read', hideFull: 'Hide' },
   browse: {
     groups: 'Groups',
@@ -314,6 +377,27 @@ const ja: UiStrings = {
     sortDesc: '高い順',
   },
   followUpShort: { combo: 'コンボ', pressure: '継続', neutral: '五分', none: '明け渡す' },
+  outcome: {
+    header: '相手の選択',
+    legend: 'こちらの結果',
+    notApplicable: '無関係',
+    bigWin: '大勝ち',
+    win: '勝ち',
+    even: '五分',
+    loss: '負け',
+    bigLoss: '大負け',
+  },
+  category: {
+    timing: '起き上がり',
+    block: 'ガード',
+    tech: '投げ抜け',
+    drive: 'ドライブ',
+    movement: '移動',
+    contest: '割り込み',
+    strike: '打撃',
+    throw: '投げ',
+    bait: '誘い',
+  },
   situation: { showFull: '詳細を読む', hideFull: '閉じる' },
   browse: {
     groups: 'グループ',

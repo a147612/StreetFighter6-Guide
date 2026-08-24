@@ -36,9 +36,9 @@ const ROADMAP: RoadmapItem[] = [
   {
     state: 'done',
     label: {
-      'zh-Hant': '情境 A 倒地起身：6 個情境、30 筆評價（起身時機、場中、角落、硬倒地、Drive Rush 起攻、Shimmy）',
-      en: 'Group A, waking up: 6 situations, 30 evaluations (rise timing, midscreen, corner, hard knockdown, Drive Rush oki, shimmy)',
-      ja: 'グループA 起き上がり：6状況・30評価（起き上がりのタイミング、中央、画面端、ハードダウン、DR起き攻め、シミー）',
+      'zh-Hant': '情境 A 倒地起身：6 個情境、33 筆評價、相剋矩陣（起身時機、場中、角落、硬倒地、Drive Rush 起攻、Shimmy）',
+      en: 'Group A, waking up: 6 situations, 33 evaluations with the relation matrix (rise timing, midscreen, corner, hard knockdown, Drive Rush oki, shimmy)',
+      ja: 'グループA 起き上がり：6状況・33評価・相性表（起き上がりのタイミング、中央、画面端、ハードダウン、DR起き攻め、シミー）',
     },
   },
   {
@@ -60,9 +60,9 @@ const ROADMAP: RoadmapItem[] = [
   {
     state: 'planned',
     label: {
-      'zh-Hant': 'SVG 圖解：位置圖、時間軸、相剋熱圖、決策流程',
-      en: 'SVG diagrams: position maps, frame timelines, relation heatmap, decision flows',
-      ja: 'SVG 図解：位置図、フレーム時間軸、相性ヒートマップ、判断フロー',
+      'zh-Hant': 'SVG 圖解：位置圖、frame 時間軸、決策流程',
+      en: 'SVG diagrams: position maps, frame timelines, decision flows',
+      ja: 'SVG 図解：位置図、フレーム時間軸、判断フロー',
     },
   },
   {
@@ -160,7 +160,11 @@ export default function App() {
               </details>
             </div>
 
-            <OptionTable key={situation.id} rows={rows} />
+            <OptionTable
+              key={situation.id}
+              rows={rows}
+              opponentOptions={situation.opponentOptions}
+            />
           </section>
         ) : (
           <section className="card card--padded stack">

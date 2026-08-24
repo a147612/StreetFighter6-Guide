@@ -53,6 +53,35 @@ export type FollowUp =
 
 export type Position = 'midscreen' | 'nearCorner' | 'cornered'
 
+/**
+ * What kind of answer this is. Drives grouping in the table: a reader comparing
+ * "should I tech or delay-tech" wants those two adjacent, not separated by a
+ * jump and a reversal because that is the order they were written in.
+ */
+export type Category =
+  | 'timing'
+  | 'block'
+  | 'tech'
+  | 'drive'
+  | 'movement'
+  | 'contest'
+  | 'strike'
+  | 'throw'
+  | 'bait'
+
+/** Reading order for category groups within a situation. */
+export const CATEGORY_ORDER: readonly Category[] = [
+  'timing',
+  'block',
+  'tech',
+  'drive',
+  'movement',
+  'contest',
+  'strike',
+  'throw',
+  'bait',
+]
+
 /** Drive gauge, banded rather than exact: the decision changes at the band
  *  boundaries, not at every bar. */
 export type DriveBand = 'burnout' | 'low' | 'mid' | 'high'
@@ -115,6 +144,12 @@ export interface OptionDef {
   /** 'both' for things usable from either seat, e.g. Drive Impact. */
   side: Side | 'both'
   name: I18nText
+  /**
+   * Column header in the relation matrix, where a full name does not fit.
+   * "Shimmy (walk back to bait the tech)" wraps to three lines in a 3rem
+   * column and stops being readable; "Shimmy" does not. Falls back to `name`.
+   */
+  short?: I18nText
   /** Community aliases, per locale, so search finds 暴れ / mash / abare alike. */
   aka?: Partial<Record<Locale, string[]>>
   /** Numpad + button notation, e.g. "6 + LP+LK". */
@@ -123,6 +158,7 @@ export interface OptionDef {
   difficulty: Difficulty
   /** True when the option only exists on some characters (reversals, etc.). */
   characterSpecific: boolean
+  category: Category
   /**
    * Show the notation in the detail panel.
    *
@@ -132,6 +168,15 @@ export interface OptionDef {
    * the input is real information.
    */
   showInput?: boolean
+}
+
+/** What happens when this option meets one specific opponent choice. */
+export interface Versus {
+  /** Opponent option id; must be one of the situation's `opponentOptions`. */
+  vs: string
+  /** Stated from *your* side: 'bigWin' means you come out well ahead. */
+  outcome: Outcome
+  note?: I18nText
 }
 
 /**
@@ -144,8 +189,15 @@ export interface OptionEval {
   reward: RewardTier
   onSuccess: SuccessOutcome
   onFail: FailureOutcome
-  /** Ids of options on the other side of the matrix that beat this here. */
-  counteredBy: string[]
+  /**
+   * Outcome against each of the situation's opponent options — the row of the
+   * relation matrix. "What does this beat" is the question the aggregate risk
+   * and reward tiers cannot answer, and it is usually the one being asked.
+   *
+   * `counteredBy` used to be authored separately and is now derived from this
+   * (everything that grades a loss), so the two cannot disagree.
+   */
+  versus: Versus[]
   /** Suggested share of a mixup, e.g. "30-40%". Omit where it is situational. */
   mixRatio?: string
   notes?: I18nText
@@ -176,6 +228,11 @@ export interface Situation {
   /** Your own drive bands where this situation reads differently. */
   myDrive?: DriveBand[]
   opponentDrive?: DriveBand[]
+  /**
+   * Opponent options that form the columns of this situation's matrix, in
+   * display order. Every evaluation grades every one of them.
+   */
+  opponentOptions: string[]
   /** Ordered; the order is the recommended reading order. */
   evaluations: OptionEval[]
   screenshots?: Screenshot[]
@@ -202,6 +259,13 @@ export interface CharacterOverlay {
   knockdowns?: { move: string; type: KnockdownType; note?: I18nText }[]
   /** Author-facing completeness, surfaced as coverage in the UI. */
   coverage: 'stub' | 'partial' | 'complete'
+}
+
+/** Losses, derived — never authored alongside `versus`. */
+export function counteredBy(evaluation: OptionEval): string[] {
+  return evaluation.versus
+    .filter((entry) => entry.outcome === 'loss' || entry.outcome === 'bigLoss')
+    .map((entry) => entry.vs)
 }
 
 export const RISK_TIERS: readonly RiskTier[] = ['safe', 'low', 'medium', 'high', 'extreme']

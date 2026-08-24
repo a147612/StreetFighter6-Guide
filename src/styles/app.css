@@ -492,25 +492,6 @@
   background: var(--surface-sunken);
 }
 
-/* ── Responsive columns ──────────────────────────────────────────────
-   Columns step out as the viewport narrows, but the detail panel carries the
-   full record — so a dropped column is relocated, never lost. */
-.col--md,
-.col--lg {
-  display: none;
-}
-
-@media (min-width: 46rem) {
-  .col--md {
-    display: table-cell;
-  }
-}
-
-@media (min-width: 64rem) {
-  .col--lg {
-    display: table-cell;
-  }
-}
 
 /* ── Tier pips ───────────────────────────────────────────────────── */
 .tier {
@@ -994,4 +975,205 @@ html[data-theme='dark'] .notation__btn--h {
   background: var(--surface-inset);
   color: var(--text-muted);
   white-space: nowrap;
+}
+
+/* ── Relation matrix ─────────────────────────────────────────────────
+   Aggregate tiers say how dangerous an option is; the matrix says what it
+   beats, which is usually the question. A 2D relation does not compress to a
+   phone width, so the table scrolls sideways with the option name pinned —
+   losing sight of which row you are reading is the one failure that would
+   make the whole thing useless. */
+.opt-table__spanrow th {
+  padding-bottom: 0;
+  border: 0;
+}
+
+.opt-table__spanhead {
+  text-align: center !important;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+}
+
+.opt-table__name {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  min-width: 8.5rem;
+  background: var(--surface);
+}
+
+.opt-table thead .opt-table__name {
+  z-index: 3;
+}
+
+.opt-row:hover .opt-table__name,
+.opt-row.is-open .opt-table__name {
+  background: var(--surface-sunken);
+}
+
+.opt-row.is-open .opt-table__name {
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.opt-table__vs {
+  width: 3.2rem;
+  text-align: center !important;
+  vertical-align: middle;
+}
+
+.opt-table thead .opt-table__vs {
+  font-weight: 600;
+  white-space: nowrap;
+  font-size: var(--step--1);
+  color: var(--text);
+  cursor: help;
+}
+
+.opt-table__agg {
+  border-left: 1px solid var(--border);
+}
+
+/* Category grouping: like sits with like, so comparing two techs does not mean
+   reading past a jump and a reversal. */
+.opt-table__group th {
+  padding-block: var(--space-2);
+  background: var(--surface-sunken);
+  border-block: 1px solid var(--border);
+}
+
+.opt-table__group span {
+  position: sticky;
+  left: var(--space-3);
+  display: inline-block;
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+
+/* ── Outcome cells ───────────────────────────────────────────────────
+   Signs, not colour alone: ++ / + / = / − / −− reads as a magnitude in
+   greyscale and to a colour-blind reader. Colour is the second channel. */
+.oc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.1rem;
+  padding: 0.1rem 0.3rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.05em;
+  cursor: help;
+}
+
+.oc--bigWin {
+  background: var(--risk-safe-soft);
+  color: var(--risk-safe);
+  outline: 1px solid var(--risk-safe);
+}
+
+.oc--win {
+  background: var(--risk-safe-soft);
+  color: var(--risk-safe);
+}
+
+.oc--even {
+  background: var(--surface-inset);
+  color: var(--text-faint);
+}
+
+.oc--loss {
+  background: var(--risk-high-soft);
+  color: var(--risk-high);
+}
+
+.oc--bigLoss {
+  background: var(--risk-extreme-soft);
+  color: var(--risk-extreme);
+  outline: 1px solid var(--risk-extreme);
+}
+
+/* Not graded is a real state, not a zero — some choices simply do not meet. */
+.oc--na {
+  background: none;
+  color: var(--text-faint);
+  opacity: 0.5;
+}
+
+.oc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
+
+.oc-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-muted);
+}
+
+.oc-text--bigWin,
+.oc-text--win {
+  color: var(--risk-safe);
+}
+
+.oc-text--even {
+  color: var(--text-faint);
+}
+
+.oc-text--loss {
+  color: var(--risk-high);
+}
+
+.oc-text--bigLoss {
+  color: var(--risk-extreme);
+}
+
+/* ── Versus breakdown in the detail panel ────────────────────────── */
+.detail__versus {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.versus-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-1);
+}
+
+@media (min-width: 56rem) {
+  .versus-list {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-1) var(--space-4);
+  }
+}
+
+.versus-list__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  font-size: var(--step--1);
+}
+
+.versus-list__name {
+  flex: 1;
+  min-width: 0;
+}
+
+.versus-list__verdict {
+  font-weight: 650;
 }

@@ -47,10 +47,13 @@ await rm(workDir, { recursive: true, force: true })
 /* ── Options ─────────────────────────────────────────────────────── */
 
 const optionIds = new Set()
+const optionCategory = new Map()
 for (const option of OPTIONS) {
   if (optionIds.has(option.id)) errors.push(`duplicate option id "${option.id}"`)
   optionIds.add(option.id)
+  optionCategory.set(option.id, option.category)
   checkLocales(option.name, `option "${option.id}" name`)
+  if (!option.category) errors.push(`option "${option.id}" has no category`)
 }
 
 /* ── Situations ──────────────────────────────────────────────────── */
@@ -70,6 +73,12 @@ for (const situation of SITUATIONS) {
 
   if (situation.evaluations.length === 0) {
     errors.push(`${where} has no evaluations`)
+  }
+
+  const columns = new Set(situation.opponentOptions ?? [])
+  if (columns.size === 0) errors.push(`${where} declares no opponentOptions`)
+  for (const id of columns) {
+    if (!optionIds.has(id)) errors.push(`${where} opponentOptions has unknown "${id}"`)
   }
 
   const seen = new Set()
@@ -100,16 +109,31 @@ for (const situation of SITUATIONS) {
       checkLocales(evaluation.notes, `${where} / ${evaluation.optionId} notes`)
     }
 
-    // counteredBy crosses to the other side of the matrix, so it may point at
-    // an option whose own evaluations are not written yet. The *name* must
-    // resolve though, or the reader sees a raw id.
-    for (const id of evaluation.counteredBy) {
-      if (!optionIds.has(id)) {
-        errors.push(`${where} / "${evaluation.optionId}" counteredBy unknown "${id}"`)
+    // Matrix row: every graded opponent must be one of the situation's
+    // columns, or the outcome is authored into a cell that never renders.
+    const graded = new Set()
+    for (const entry of evaluation.versus) {
+      if (!optionIds.has(entry.vs)) {
+        errors.push(`${where} / "${evaluation.optionId}" grades unknown option "${entry.vs}"`)
+      } else if (!columns.has(entry.vs)) {
+        errors.push(
+          `${where} / "${evaluation.optionId}" grades "${entry.vs}", ` +
+            `which is not one of this situation's opponentOptions`,
+        )
       }
+      if (graded.has(entry.vs)) {
+        errors.push(`${where} / "${evaluation.optionId}" grades "${entry.vs}" twice`)
+      }
+      graded.add(entry.vs)
+      if (entry.note) checkLocales(entry.note, `${where} / ${evaluation.optionId} vs ${entry.vs}`)
+    }
+    if (graded.size === 0) {
+      warnings.push(`${where} / "${evaluation.optionId}" grades no opponent option`)
     }
 
-    if (!evaluation.onFail.hpLoss.match(/\d/)) {
+    if (!optionCategory.has(evaluation.optionId)) {
+      // Already reported as an unknown option above.
+    } else if (!evaluation.onFail.hpLoss.match(/\d/)) {
       warnings.push(`${where} / "${evaluation.optionId}" hpLoss has no number`)
     }
   }
