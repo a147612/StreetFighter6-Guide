@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
+import { Fragment, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { OptionDetail } from './OptionDetail'
 import { HpLossBar } from './viz/HpLossBar'
 import { OutcomeCell, OutcomeLegend } from './viz/OutcomeCell'
@@ -84,14 +84,33 @@ export function OptionTable({
    * scrollport's width so the panel can pin itself to exactly the visible area.
    */
   const scroller = useRef<HTMLDivElement | null>(null)
-  useEffect(() => {
+
+  // Deliberately no dependency array: republish on every commit, so expanding a
+  // row is itself a correction. A ResizeObserver alone was not enough — its
+  // callback can be missed while the tab is hidden, and the stale width then
+  // survives until the next resize, leaving the panel sized for the wrong
+  // viewport. Measuring on commit plus on resize cannot go stale unobserved.
+  useLayoutEffect(() => {
     const node = scroller.current
     if (!node) return
-    const publish = () => node.style.setProperty('--scroller-w', `${node.clientWidth}px`)
-    publish()
+    node.style.setProperty('--scroller-w', `${node.clientWidth}px`)
+  })
+
+  useLayoutEffect(() => {
+    const node = scroller.current
+    if (!node) return
+    const publish = (): void => {
+      node.style.setProperty('--scroller-w', `${node.clientWidth}px`)
+    }
+    window.addEventListener('resize', publish, { passive: true })
+    document.addEventListener('visibilitychange', publish)
     const observer = new ResizeObserver(publish)
     observer.observe(node)
-    return () => observer.disconnect()
+    return () => {
+      window.removeEventListener('resize', publish)
+      document.removeEventListener('visibilitychange', publish)
+      observer.disconnect()
+    }
   }, [])
 
   function toggle(id: string): void {
@@ -157,10 +176,16 @@ export function OptionTable({
       <div className="scroll-x card" ref={scroller}>
         <table className="opt-table">
           <thead>
+            <tr className="opt-table__spanrow">
+              <th className="opt-table__name" />
+              <th className="opt-table__spanhead" colSpan={columns.length} scope="colgroup">
+                <span>{t.outcome.theirAxis}</span>
+              </th>
+              <th colSpan={2} />
+            </tr>
             <tr>
-              <th scope="col" className="opt-table__name opt-table__corner">
-                <span className="opt-table__axis">{t.outcome.myAxis}</span>
-                <span className="opt-table__axis opt-table__axis--their">{t.outcome.theirAxis}</span>
+              <th scope="col" className="opt-table__name">
+                {t.outcome.myAxis}
               </th>
               {columns.map(({ id, def }) => (
                 <th

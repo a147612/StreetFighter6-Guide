@@ -67,9 +67,7 @@ for (const situation of SITUATIONS) {
   if (situationIds.has(situation.id)) errors.push(`duplicate ${where}`)
   situationIds.add(situation.id)
 
-  for (const field of ['name', 'brief', 'summary']) {
-    checkLocales(situation[field], `${where} ${field}`)
-  }
+  checkLocales(situation.name, `${where} name`)
 
   if (situation.evaluations.length === 0) {
     errors.push(`${where} has no evaluations`)

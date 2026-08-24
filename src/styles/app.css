@@ -1131,21 +1131,6 @@ html[data-theme='dark'] .notation__btn--h {
 /* ── Matrix header ───────────────────────────────────────────────────
    The corner cell names both axes, which is what the spanning row it replaced
    never managed to do while costing a whole row of height. */
-.opt-table__corner {
-  vertical-align: bottom;
-}
-
-.opt-table__axis {
-  display: block;
-  font-size: var(--step--1);
-  font-weight: 600;
-  line-height: 1.35;
-  white-space: nowrap;
-}
-
-.opt-table__axis--their {
-  color: var(--accent-fg);
-}
 
 .opt-table thead .opt-table__vs {
   vertical-align: bottom;
@@ -1202,20 +1187,12 @@ html[data-theme='dark'] .notation__btn--h {
    disclosure; the table is the thing being looked at. */
 .sithead {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  padding-bottom: var(--space-1);
-  border-bottom: 1px solid var(--border);
-}
-
-.sithead__top {
-  display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: var(--space-2) var(--space-3);
 }
 
-.sithead__top h2 {
+.sithead h2 {
   font-size: var(--step-2);
 }
 
@@ -1259,4 +1236,107 @@ html[data-theme='dark'] .notation__btn--h {
   width: var(--scroller-w, 100%);
   max-width: 100%;
   box-sizing: border-box;
+}
+
+/* ── Default mix ─────────────────────────────────────────────────────
+   The actionable summary, above the table: proportions from the midpoint of
+   each authored band, with the band itself kept in the legend because that is
+   the honest number. */
+.mixblock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.mixblock__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+}
+
+.mixblock__head h3 {
+  font-size: var(--step-1);
+}
+
+.mixblock__axis {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.mixblock__axislabel {
+  color: var(--text-faint);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mix {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.mix__bar {
+  display: flex;
+  height: 0.65rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: var(--surface-inset);
+}
+
+.mix__seg {
+  height: 100%;
+  cursor: help;
+}
+
+.mix__seg + .mix__seg {
+  border-left: 1px solid var(--surface);
+}
+
+.mix__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mix__legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+}
+
+.mix__dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  flex: none;
+}
+
+/* The opponent-column label is bracketed over exactly those columns, so it
+   reads as their heading rather than as a caption floating over the table. */
+.opt-table__spanhead {
+  padding-bottom: var(--space-1) !important;
+  text-align: center !important;
+  border-bottom: 1px solid var(--border) !important;
+  background: var(--surface-sunken);
+}
+
+.opt-table__spanhead span {
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.opt-table__spanrow > th {
+  border-bottom: 0;
 }

@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Topbar } from './components/Topbar'
 import { OptionTable } from './components/OptionTable'
+import { DefaultMix } from './components/viz/DefaultMix'
 import { SituationNav } from './components/SituationNav'
 import { GlassPanel } from './components/glass/GlassPanel'
 import { Segmented } from './components/Segmented'
@@ -36,9 +37,9 @@ const ROADMAP: RoadmapItem[] = [
   {
     state: 'done',
     label: {
-      'zh-Hant': '情境 A 倒地起身：6 個情境、33 筆評價、相剋矩陣（起身時機、場中、角落、硬倒地、Drive Rush 起攻、Shimmy）',
-      en: 'Group A, waking up: 6 situations, 33 evaluations with the relation matrix (rise timing, midscreen, corner, hard knockdown, Drive Rush oki, shimmy)',
-      ja: 'グループA 起き上がり：6状況・33評価・相性表（起き上がりのタイミング、中央、画面端、ハードダウン、DR起き攻め、シミー）',
+      'zh-Hant': '情境 A 倒地起身：場中／靠角／角落三個位置、34 筆評價、相剋矩陣、預設打法',
+      en: 'Group A, waking up: midscreen / near-corner / cornered, 34 evaluations, relation matrix and default mix',
+      ja: 'グループA 起き上がり：中央／端寄り／画面端の3状況・34評価・相性表・基本の配分',
     },
   },
   {
@@ -141,20 +142,13 @@ export default function App() {
         {side === 'defense' && situation ? (
           <section className="stack" aria-labelledby="situation-heading">
             <div className="sithead">
-              <div className="sithead__top">
-                <h2 id="situation-heading">{text(situation.name)}</h2>
-                <span className="sithead__where mono">
-                  {situation.group}
-                  {' · '}
-                  {situation.position.map((p) => t.position[p]).join(' / ')}
-                </span>
-              </div>
-              <p className="sithead__brief">{text(situation.brief)}</p>
-              <details className="disclosure">
-                <summary>{t.situation.showFull}</summary>
-                <p className="muted sithead__summary">{text(situation.summary)}</p>
-              </details>
+              <h2 id="situation-heading">{text(situation.name)}</h2>
+              <span className="sithead__where mono">
+                {situation.position.map((p) => t.position[p]).join(' / ')}
+              </span>
             </div>
+
+            <DefaultMix rows={rows} />
 
             <OptionTable
               key={situation.id}

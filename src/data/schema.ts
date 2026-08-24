@@ -224,17 +224,20 @@ export interface Screenshot {
   caption: I18nText
 }
 
+/**
+ * A situation is a position and a game state, never an opponent tendency.
+ *
+ * "They keep shimmying" was a situation here once, and it should not have been:
+ * it is a column of the matrix. Knowing what they favour means reading down
+ * that column, not switching to a different page. Keeping the situation axis
+ * purely positional is what makes the list scannable.
+ */
 export interface Situation {
   id: string
   side: Side
   /** Group letter: A-H defense, I-K offense. */
   group: string
   name: I18nText
-  /** One line, always shown. The scannable framing. */
-  brief: I18nText
-  /** The full read, behind a disclosure. Authored short and long rather than
-   *  truncated, so neither version is a fragment. */
-  summary: I18nText
   position: Position[]
   /** Offensive situations only. */
   knockdownType?: KnockdownType

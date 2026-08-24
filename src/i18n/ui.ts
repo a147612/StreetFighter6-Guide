@@ -70,7 +70,7 @@ export interface UiStrings {
     throw: string
     bait: string
   }
-  situation: { showFull: string; hideFull: string }
+  mix: { heading: string; note: string }
   browse: { groups: string; situations: string; notWritten: string; coverage: string }
 
   risk: { label: string; safe: string; low: string; medium: string; high: string; extreme: string }
@@ -152,8 +152,8 @@ const zhHant: UiStrings = {
   followUpShort: { combo: '連段', pressure: '續攻', neutral: '中立', none: '讓出' },
   outcome: {
     header: '對手的選擇',
-    myAxis: '我的選擇 ↓',
-    theirAxis: '對手的選擇 →',
+    myAxis: '我的選擇',
+    theirAxis: '對手的選擇',
     legend: '你的結果',
     notApplicable: '不相關',
     bigWin: '大勝',
@@ -173,7 +173,10 @@ const zhHant: UiStrings = {
     throw: '投擲',
     bait: '誘導',
   },
-  situation: { showFull: '完整說明', hideFull: '收起說明' },
+  mix: {
+    heading: '預設打法',
+    note: '建議的混合比例。沒有固定比例的選項不列入。',
+  },
   browse: {
     groups: '情境群組',
     situations: '情境',
@@ -268,8 +271,8 @@ const en: UiStrings = {
   followUpShort: { combo: 'Combo', pressure: 'Keep turn', neutral: 'Neutral', none: 'Give turn' },
   outcome: {
     header: 'Their choice',
-    myAxis: 'My choice ↓',
-    theirAxis: 'Their choice →',
+    myAxis: 'My choice',
+    theirAxis: 'Their choice',
     legend: 'Your result',
     notApplicable: 'Not relevant',
     bigWin: 'Big win',
@@ -289,7 +292,10 @@ const en: UiStrings = {
     throw: 'Throws',
     bait: 'Baits',
   },
-  situation: { showFull: 'Full read', hideFull: 'Hide' },
+  mix: {
+    heading: 'Default mix',
+    note: 'Suggested proportions. Options without a fixed share are left out.',
+  },
   browse: {
     groups: 'Groups',
     situations: 'Situations',
@@ -385,8 +391,8 @@ const ja: UiStrings = {
   followUpShort: { combo: 'コンボ', pressure: '継続', neutral: '五分', none: '明け渡す' },
   outcome: {
     header: '相手の選択',
-    myAxis: '自分の選択 ↓',
-    theirAxis: '相手の選択 →',
+    myAxis: '自分の選択',
+    theirAxis: '相手の選択',
     legend: 'こちらの結果',
     notApplicable: '無関係',
     bigWin: '大勝ち',
@@ -406,7 +412,10 @@ const ja: UiStrings = {
     throw: '投げ',
     bait: '誘い',
   },
-  situation: { showFull: '詳細を読む', hideFull: '閉じる' },
+  mix: {
+    heading: '基本の配分',
+    note: '推奨する混ぜ方の目安。固定の割合がない択は除外している。',
+  },
   browse: {
     groups: 'グループ',
     situations: '状況',
