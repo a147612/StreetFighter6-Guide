@@ -85,7 +85,7 @@ const DEFENSIVE: OptionDef[] = [
   {
     id: 'throw-tech',
     side: 'defense',
-    name: { 'zh-Hant': '解投', en: 'Throw tech', ja: '投げ抜け' },
+    name: { 'zh-Hant': '解摔', en: 'Throw tech', ja: '投げ抜け' },
     origin: 'throw tech',
     hint: {
       'zh-Hant': '在被摔的瞬間按 LP+LK 解開摔投。',
@@ -102,10 +102,10 @@ const DEFENSIVE: OptionDef[] = [
   {
     id: 'delayed-tech',
     side: 'defense',
-    name: { 'zh-Hant': '延遲解投', en: 'Delay tech', ja: '遅らせ投げ抜け' },
+    name: { 'zh-Hant': '延遲解摔', en: 'Delay tech', ja: '遅らせ投げ抜け' },
     origin: 'delay tech',
     hint: {
-      'zh-Hant': '晚一點才按解投。打擊會先被你擋下，摔投還來得及解。',
+      'zh-Hant': '晚一點才按解摔。打擊會先被你擋下，摔投還來得及解。',
       en: 'Tech late: a strike gets blocked first, a throw still breaks.',
       ja: '投げ抜けを遅らせて入力する。打撃は先にガードでき、投げにも間に合う。',
     },
@@ -330,14 +330,14 @@ const OFFENSIVE: OptionDef[] = [
   {
     id: 'meaty',
     side: 'offense',
-    name: { 'zh-Hant': '壓持續', en: 'Meaty', ja: '重ね' },
+    name: { 'zh-Hant': '壓起身', en: 'Meaty', ja: '重ね' },
     origin: 'meaty',
     hint: {
       'zh-Hant': '算好時間出招，讓攻擊在你剛起身的瞬間才打中，出招方會更有利。',
       en: 'An attack timed so it connects on the frame you stand up, leaving them more advantage.',
       ja: '起き上がりの瞬間に当たるようタイミングを計った攻撃。出した側の有利が増える。',
     },
-    short: { 'zh-Hant': '壓持續', en: 'Meaty', ja: '重ね' },
+    short: { 'zh-Hant': '壓起身', en: 'Meaty', ja: '重ね' },
     aka: { 'zh-Hant': ['疊招'], en: ['meaty'], ja: ['重ね'] },
     input: '5 MP',
     cost: { drive: 0, sa: 0 },
@@ -351,7 +351,7 @@ const OFFENSIVE: OptionDef[] = [
     name: { 'zh-Hant': '摔投', en: 'Throw', ja: '投げ' },
     origin: 'throw',
     hint: {
-      'zh-Hant': '普通投擲。防禦擋不住，只能解投或用位移躲開。',
+      'zh-Hant': '普通投擲。防禦擋不住，只能解摔或用位移躲開。',
       en: 'A normal throw. Blocking does nothing; you tech it or move out of range.',
       ja: '通常投げ。ガードでは防げず、投げ抜けか移動で回避するしかない。',
     },
@@ -368,7 +368,7 @@ const OFFENSIVE: OptionDef[] = [
     name: { 'zh-Hant': '退康', en: 'Shimmy', ja: 'シミー' },
     origin: 'shimmy',
     hint: {
-      'zh-Hant': '故意後退一步騙你按解投，再懲罰你解投落空的硬直。',
+      'zh-Hant': '故意後退一步騙你按解摔，再懲罰你解摔落空的硬直。',
       en: 'Walking back to bait your tech, then punishing the whiffed tech animation.',
       ja: 'わざと一歩下がって投げ抜けを誘い、空振りの硬直を狩る。',
     },
@@ -386,7 +386,7 @@ const OFFENSIVE: OptionDef[] = [
     name: { 'zh-Hant': '延遲打擊', en: 'Delayed attack', ja: '遅らせ打撃' },
     origin: 'delay',
     hint: {
-      'zh-Hant': '故意慢一拍才出招，專門打中你按解投的那一瞬間。',
+      'zh-Hant': '故意慢一拍才出招，專門打中你按解摔的那一瞬間。',
       en: 'Deliberately hitting late, so the strike lands on your tech input.',
       ja: 'わざと遅らせて出し、投げ抜けの入力に打撃を重ねる。',
     },

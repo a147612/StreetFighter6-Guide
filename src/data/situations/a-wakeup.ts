@@ -21,7 +21,7 @@ export const GROUP_A: Situation[] = [
       ja: '画面中央でダウン',
     },
     position: ['midscreen'],
-    opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'drive-rush-pressure', 'bait-block', 'anti-air'],
+    opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
     evaluations: [
       {
         optionId: 'quick-rise',
@@ -29,7 +29,7 @@ export const GROUP_A: Situation[] = [
         reward: 'low',
         onSuccess: {
           text: {
-            'zh-Hant': '比對手預期的早起來，他算好的壓持續會落在你已經能防禦之後。',
+            'zh-Hant': '比對手預期的早起來，他算好的壓起身會落在你已經能防禦之後。',
             en: 'You are up before they planned for, so their timed meaty lands after you can already block.',
             ja: '相手の想定より早く起き、重ねが自分のガードが間に合った後に来る。',
           },
@@ -37,7 +37,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手就是照快起的時間點算的，你起來那一格正好吃到最好時機的壓持續或摔投。',
+            'zh-Hant': '對手就是照快起的時間點算的，你起來那一格正好吃到最好時機的壓起身或摔投。',
             en: 'They timed it for a quick rise: the frame you stand up is the frame it arrives, at its best timing.',
             ja: '相手は受身のタイミングに合わせており、起き上がった瞬間に最良のタイミングで重なる。',
           },
@@ -47,7 +47,6 @@ export const GROUP_A: Situation[] = [
         versus: [
           { vs: 'meaty', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'win' },
-          { vs: 'drive-rush-pressure', outcome: 'even' },
         ],
         mixRatio: '50-70%',
         verified: 'estimated',
@@ -81,7 +80,6 @@ export const GROUP_A: Situation[] = [
         versus: [
           { vs: 'meaty', outcome: 'bigWin' },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'drive-rush-pressure', outcome: 'loss' },
         ],
         mixRatio: '30-50%',
         verified: 'estimated',
@@ -125,7 +123,6 @@ export const GROUP_A: Situation[] = [
             },
           },
           { vs: 'delayed-attack', outcome: 'win' },
-          { vs: 'drive-rush-pressure', outcome: 'even' },
         ],
         mixRatio: '20-30%',
         verified: 'estimated',
@@ -141,7 +138,7 @@ export const GROUP_A: Situation[] = [
         reward: 'low',
         onSuccess: {
           text: {
-            'zh-Hant': '晚一點按，壓持續先被你擋下，摔投還來得及解。一次覆蓋兩個最常見的選擇。',
+            'zh-Hant': '晚一點按，壓起身先被你擋下，摔投還來得及解。一次覆蓋兩個最常見的選擇。',
             en: 'Teching late means the meaty is blocked first while a throw still breaks. It covers the two most common choices at once.',
             ja: '入力を遅らせることで重ねはガードでき、投げには間に合う。最も多い二択の両方を同時にカバーする。',
           },
@@ -149,7 +146,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手也把打擊延遲了，正好打在你按解投的那一刻。counter hit，傷害和連段長度都上一階。',
+            'zh-Hant': '對手也把打擊延遲了，正好打在你按解摔的那一刻。counter hit，傷害和連段長度都上一階。',
             en: 'They delayed too, landing on your tech input — a counter hit, raising both damage and combo length a tier.',
             ja: '相手も遅らせており、投げ抜けの入力に重なる。カウンターヒットとなりダメージもコンボも一段上がる。',
           },
@@ -161,7 +158,6 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'shimmy', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
-          { vs: 'drive-rush-pressure', outcome: 'even' },
         ],
         mixRatio: '30-40%',
         verified: 'estimated',
@@ -180,7 +176,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手沒摔，而是後退看你按。解投有硬直，你吃到完整懲罰。',
+            'zh-Hant': '對手沒摔，而是後退看你按。解摔有硬直，你吃到完整懲罰。',
             en: 'They did not throw; they walked back and watched you press. The tech has recovery, so you eat a full punish.',
             ja: '相手は投げずに下がって見ていた。投げ抜けには硬直があり、フルコンボの反撃を受ける。',
           },
@@ -192,7 +188,6 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'drive-rush-pressure', outcome: 'loss' },
         ],
         mixRatio: '15-25%',
         verified: 'estimated',
@@ -223,7 +218,6 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'loss' },
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'win' },
-          { vs: 'drive-rush-pressure', outcome: 'win' },
         ],
         mixRatio: '20-30%',
         verified: 'estimated',
@@ -251,18 +245,17 @@ export const GROUP_A: Situation[] = [
           driveLoss: 1,
         },
         versus: [
-          { vs: 'meaty', outcome: 'win' },
-          { vs: 'throw', outcome: 'bigLoss' },
-          { vs: 'delayed-attack', outcome: 'win' },
           {
-            vs: 'drive-rush-pressure',
-            outcome: 'bigWin',
+            vs: 'meaty',
+            outcome: 'win',
             note: {
-              'zh-Hant': '對手花動力槽買到的就是「打擊更快到」，而動力衝擊專門吃打擊。',
-              en: 'What they bought with the bar is a faster strike, and armour is built to eat strikes.',
-              ja: 'ゲージで買ったのは「速く届く打撃」であり、アーマーは打撃を食べるためにある。',
+              'zh-Hant': '對打擊特別有效，包含用動力箭步衝進來接的那一下 —— 對手花格買到的就是「打擊更快到」，而霸體專門吃打擊。',
+              en: 'Especially good against strikes, including one set up by a Drive Rush: what the bar bought is a faster strike, and armour is built to eat strikes.',
+              ja: '打撃全般に強く、ドライブラッシュから繋げる打撃にも有効。ゲージで買ったのは「速く届く打撃」であり、アーマーは打撃を食べるためにある。',
             },
           },
+          { vs: 'throw', outcome: 'bigLoss' },
+          { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
@@ -282,7 +275,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '後衝刺沒有無敵、收招長。壓持續或延遲打擊會抓到你落地那段，通常是 counter hit。',
+            'zh-Hant': '後衝刺沒有無敵、收招長。壓起身或延遲打擊會抓到你落地那段，通常是 counter hit。',
             en: 'No invincibility, long recovery. A meaty or delayed attack catches the tail of it, usually as a counter hit.',
             ja: '無敵はなく硬直も長い。重ねや遅らせ打撃に着地部分を狩られ、多くはカウンターヒットになる。',
           },
@@ -292,9 +285,8 @@ export const GROUP_A: Situation[] = [
         versus: [
           { vs: 'meaty', outcome: 'loss' },
           { vs: 'throw', outcome: 'win' },
-          { vs: 'shimmy', outcome: 'win' },
+          { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'drive-rush-pressure', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
         verified: 'estimated',
@@ -323,9 +315,16 @@ export const GROUP_A: Situation[] = [
         versus: [
           { vs: 'meaty', outcome: 'loss' },
           { vs: 'throw', outcome: 'win' },
-          { vs: 'shimmy', outcome: 'win' },
+          {
+            vs: 'shimmy',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '對手退康時已經退開並在看你，反而更有餘裕對空。跳過去撞上一個正在觀察的對手，不是好交換。',
+              en: 'A shimmying opponent has already stepped back and is watching, which gives them more time to anti-air, not less. Jumping into someone who is observing is a bad trade.',
+              ja: 'シミー中の相手は既に下がって様子を見ており、対空する余裕がむしろ増えている。観察している相手に跳び込むのは分の悪い交換。',
+            },
+          },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'drive-rush-pressure', outcome: 'even' },
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
         ],
@@ -352,7 +351,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '被壓持續吃掉，輕攻擊還沒出來就 counter hit 接完整連段。',
+            'zh-Hant': '被壓起身吃掉，輕攻擊還沒出來就 counter hit 接完整連段。',
             en: 'Stuffed by the meaty; your light never came out — counter hit into a full combo.',
             ja: '重ねに潰され、弱攻撃は出る前にカウンターヒットからフルコンボ。',
           },
@@ -364,21 +363,28 @@ export const GROUP_A: Situation[] = [
             vs: 'meaty',
             outcome: 'bigLoss',
             note: {
-              'zh-Hant': '壓持續一定比你的輕攻擊先到 —— 這不是機率問題，是順序問題。',
+              'zh-Hant': '壓起身一定比你的輕攻擊先到 —— 這不是機率問題，是順序問題。',
               en: 'The meaty is out before your light by construction. This is not a probability, it is an ordering.',
               ja: '重ねは構造上こちらの弱攻撃より先に出る。確率ではなく順序の問題。',
             },
           },
           { vs: 'throw', outcome: 'win' },
-          { vs: 'shimmy', outcome: 'win' },
+          {
+            vs: 'shimmy',
+            outcome: 'even',
+            note: {
+              'zh-Hant': '要打得到才算。對手退得夠遠，你的輕攻擊就是落空，接著被懲罰。',
+              en: 'Only counts if it reaches. Back far enough and your light whiffs, and the punish follows.',
+              ja: '届いてこその択。相手が十分下がっていれば弱攻撃は空振りし、そのまま狩られる。',
+            },
+          },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
-          { vs: 'drive-rush-pressure', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '5-10%',
         verified: 'estimated',
         notes: {
-          'zh-Hant': '低頻。價值不在勝率，而在於讓對手不敢無限延遲 —— 完全不按的人會被延遲打擊吃掉所有解投。',
+          'zh-Hant': '低頻。價值不在勝率，而在於讓對手不敢無限延遲 —— 完全不按的人會被延遲打擊吃掉所有解摔。',
           en: 'Keep it rare. The value is not the win rate but the threat: never pressing lets them delay forever and eat every tech you have.',
           ja: '低頻度で。価値は勝率ではなく抑止力にある。まったく暴れなければ、無限に遅らされて投げ抜けを全て狩られる。',
         },
@@ -410,7 +416,6 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'bigWin' },
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
-          { vs: 'drive-rush-pressure', outcome: 'bigWin' },
           {
             vs: 'bait-block',
             outcome: 'bigLoss',
@@ -441,7 +446,7 @@ export const GROUP_A: Situation[] = [
       ja: '画面端寄りでダウン',
     },
     position: ['nearCorner'],
-    opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'drive-rush-pressure', 'bait-block', 'anti-air'],
+    opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
     evaluations: [
       {
         optionId: 'quick-rise',
@@ -449,7 +454,7 @@ export const GROUP_A: Situation[] = [
         reward: 'low',
         onSuccess: {
           text: {
-            'zh-Hant': '比對手預期的早起來，他算好的壓持續會落在你已經能防禦之後。',
+            'zh-Hant': '比對手預期的早起來，他算好的壓起身會落在你已經能防禦之後。',
             en: 'You are up before they planned for, so their timed meaty lands after you can already block.',
             ja: '相手の想定より早く起き、重ねが自分のガードが間に合った後に来る。',
           },
@@ -457,7 +462,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手就是照快起的時間點算的，你起來那一格正好吃到最好時機的壓持續或摔投。',
+            'zh-Hant': '對手就是照快起的時間點算的，你起來那一格正好吃到最好時機的壓起身或摔投。',
             en: 'They timed it for a quick rise: the frame you stand up is the frame it arrives, at its best timing.',
             ja: '相手は受身のタイミングに合わせており、起き上がった瞬間に最良のタイミングで重なる。',
           },
@@ -467,7 +472,6 @@ export const GROUP_A: Situation[] = [
         versus: [
           { vs: 'meaty', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'win' },
-          { vs: 'drive-rush-pressure', outcome: 'even' },
         ],
         mixRatio: '50-70%',
         verified: 'estimated',
@@ -501,7 +505,6 @@ export const GROUP_A: Situation[] = [
         versus: [
           { vs: 'meaty', outcome: 'bigWin' },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'drive-rush-pressure', outcome: 'loss' },
         ],
         mixRatio: '30-50%',
         verified: 'estimated',
@@ -545,7 +548,6 @@ export const GROUP_A: Situation[] = [
             },
           },
           { vs: 'delayed-attack', outcome: 'win' },
-          { vs: 'drive-rush-pressure', outcome: 'even' },
         ],
         mixRatio: '20-30%',
         verified: 'estimated',
@@ -561,7 +563,7 @@ export const GROUP_A: Situation[] = [
         reward: 'low',
         onSuccess: {
           text: {
-            'zh-Hant': '晚一點按，壓持續先被你擋下，摔投還來得及解。一次覆蓋兩個最常見的選擇。',
+            'zh-Hant': '晚一點按，壓起身先被你擋下，摔投還來得及解。一次覆蓋兩個最常見的選擇。',
             en: 'Teching late means the meaty is blocked first while a throw still breaks. It covers the two most common choices at once.',
             ja: '入力を遅らせることで重ねはガードでき、投げには間に合う。最も多い二択の両方を同時にカバーする。',
           },
@@ -569,7 +571,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手也把打擊延遲了，正好打在你按解投的那一刻。counter hit，傷害和連段長度都上一階。',
+            'zh-Hant': '對手也把打擊延遲了，正好打在你按解摔的那一刻。counter hit，傷害和連段長度都上一階。',
             en: 'They delayed too, landing on your tech input — a counter hit, raising both damage and combo length a tier.',
             ja: '相手も遅らせており、投げ抜けの入力に重なる。カウンターヒットとなりダメージもコンボも一段上がる。',
           },
@@ -581,7 +583,6 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'shimmy', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
-          { vs: 'drive-rush-pressure', outcome: 'even' },
         ],
         mixRatio: '30-40%',
         verified: 'estimated',
@@ -600,7 +601,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手沒摔，而是後退看你按。解投有硬直，你吃到完整懲罰。',
+            'zh-Hant': '對手沒摔，而是後退看你按。解摔有硬直，你吃到完整懲罰。',
             en: 'They did not throw; they walked back and watched you press. The tech has recovery, so you eat a full punish.',
             ja: '相手は投げずに下がって見ていた。投げ抜けには硬直があり、フルコンボの反撃を受ける。',
           },
@@ -612,7 +613,6 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'drive-rush-pressure', outcome: 'loss' },
         ],
         mixRatio: '15-25%',
         verified: 'estimated',
@@ -643,7 +643,6 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'loss' },
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'win' },
-          { vs: 'drive-rush-pressure', outcome: 'win' },
         ],
         mixRatio: '20-30%',
         verified: 'estimated',
@@ -671,18 +670,17 @@ export const GROUP_A: Situation[] = [
           driveLoss: 1,
         },
         versus: [
-          { vs: 'meaty', outcome: 'win' },
-          { vs: 'throw', outcome: 'bigLoss' },
-          { vs: 'delayed-attack', outcome: 'win' },
           {
-            vs: 'drive-rush-pressure',
-            outcome: 'bigWin',
+            vs: 'meaty',
+            outcome: 'win',
             note: {
-              'zh-Hant': '對手花動力槽買到的就是「打擊更快到」，而動力衝擊專門吃打擊。',
-              en: 'What they bought with the bar is a faster strike, and armour is built to eat strikes.',
-              ja: 'ゲージで買ったのは「速く届く打撃」であり、アーマーは打撃を食べるためにある。',
+              'zh-Hant': '對打擊特別有效，包含用動力箭步衝進來接的那一下 —— 對手花格買到的就是「打擊更快到」，而霸體專門吃打擊。',
+              en: 'Especially good against strikes, including one set up by a Drive Rush: what the bar bought is a faster strike, and armour is built to eat strikes.',
+              ja: '打撃全般に強く、ドライブラッシュから繋げる打撃にも有効。ゲージで買ったのは「速く届く打撃」であり、アーマーは打撃を食べるためにある。',
             },
           },
+          { vs: 'throw', outcome: 'bigLoss' },
+          { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
@@ -702,7 +700,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '後衝刺沒有無敵、收招長。壓持續或延遲打擊會抓到你落地那段，通常是 counter hit。',
+            'zh-Hant': '後衝刺沒有無敵、收招長。壓起身或延遲打擊會抓到你落地那段，通常是 counter hit。',
             en: 'No invincibility, long recovery. A meaty or delayed attack catches the tail of it, usually as a counter hit.',
             ja: '無敵はなく硬直も長い。重ねや遅らせ打撃に着地部分を狩られ、多くはカウンターヒットになる。',
           },
@@ -712,9 +710,8 @@ export const GROUP_A: Situation[] = [
         versus: [
           { vs: 'meaty', outcome: 'loss' },
           { vs: 'throw', outcome: 'win' },
-          { vs: 'shimmy', outcome: 'win' },
+          { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'drive-rush-pressure', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
         verified: 'estimated',
@@ -743,9 +740,16 @@ export const GROUP_A: Situation[] = [
         versus: [
           { vs: 'meaty', outcome: 'loss' },
           { vs: 'throw', outcome: 'win' },
-          { vs: 'shimmy', outcome: 'win' },
+          {
+            vs: 'shimmy',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '對手退康時已經退開並在看你，反而更有餘裕對空。跳過去撞上一個正在觀察的對手，不是好交換。',
+              en: 'A shimmying opponent has already stepped back and is watching, which gives them more time to anti-air, not less. Jumping into someone who is observing is a bad trade.',
+              ja: 'シミー中の相手は既に下がって様子を見ており、対空する余裕がむしろ増えている。観察している相手に跳び込むのは分の悪い交換。',
+            },
+          },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'drive-rush-pressure', outcome: 'even' },
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
         ],
@@ -772,7 +776,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '被壓持續吃掉，輕攻擊還沒出來就 counter hit 接完整連段。',
+            'zh-Hant': '被壓起身吃掉，輕攻擊還沒出來就 counter hit 接完整連段。',
             en: 'Stuffed by the meaty; your light never came out — counter hit into a full combo.',
             ja: '重ねに潰され、弱攻撃は出る前にカウンターヒットからフルコンボ。',
           },
@@ -784,21 +788,28 @@ export const GROUP_A: Situation[] = [
             vs: 'meaty',
             outcome: 'bigLoss',
             note: {
-              'zh-Hant': '壓持續一定比你的輕攻擊先到 —— 這不是機率問題，是順序問題。',
+              'zh-Hant': '壓起身一定比你的輕攻擊先到 —— 這不是機率問題，是順序問題。',
               en: 'The meaty is out before your light by construction. This is not a probability, it is an ordering.',
               ja: '重ねは構造上こちらの弱攻撃より先に出る。確率ではなく順序の問題。',
             },
           },
           { vs: 'throw', outcome: 'win' },
-          { vs: 'shimmy', outcome: 'win' },
+          {
+            vs: 'shimmy',
+            outcome: 'even',
+            note: {
+              'zh-Hant': '要打得到才算。對手退得夠遠，你的輕攻擊就是落空，接著被懲罰。',
+              en: 'Only counts if it reaches. Back far enough and your light whiffs, and the punish follows.',
+              ja: '届いてこその択。相手が十分下がっていれば弱攻撃は空振りし、そのまま狩られる。',
+            },
+          },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
-          { vs: 'drive-rush-pressure', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '5-10%',
         verified: 'estimated',
         notes: {
-          'zh-Hant': '低頻。價值不在勝率，而在於讓對手不敢無限延遲 —— 完全不按的人會被延遲打擊吃掉所有解投。',
+          'zh-Hant': '低頻。價值不在勝率，而在於讓對手不敢無限延遲 —— 完全不按的人會被延遲打擊吃掉所有解摔。',
           en: 'Keep it rare. The value is not the win rate but the threat: never pressing lets them delay forever and eat every tech you have.',
           ja: '低頻度で。価値は勝率ではなく抑止力にある。まったく暴れなければ、無限に遅らされて投げ抜けを全て狩られる。',
         },
@@ -830,7 +841,6 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'bigWin' },
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
-          { vs: 'drive-rush-pressure', outcome: 'bigWin' },
           {
             vs: 'bait-block',
             outcome: 'bigLoss',
@@ -861,7 +871,7 @@ export const GROUP_A: Situation[] = [
       ja: '画面端でダウン',
     },
     position: ['cornered'],
-    opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'drive-rush-pressure', 'bait-block', 'anti-air'],
+    opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
     evaluations: [
       {
         optionId: 'quick-rise',
@@ -869,7 +879,7 @@ export const GROUP_A: Situation[] = [
         reward: 'low',
         onSuccess: {
           text: {
-            'zh-Hant': '比對手預期的早起來，他算好的壓持續會落在你已經能防禦之後。',
+            'zh-Hant': '比對手預期的早起來，他算好的壓起身會落在你已經能防禦之後。',
             en: 'You are up before they planned for, so their timed meaty lands after you can already block.',
             ja: '相手の想定より早く起き、重ねが自分のガードが間に合った後に来る。',
           },
@@ -877,7 +887,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手就是照快起的時間點算的，你起來那一格正好吃到最好時機的壓持續或摔投。',
+            'zh-Hant': '對手就是照快起的時間點算的，你起來那一格正好吃到最好時機的壓起身或摔投。',
             en: 'They timed it for a quick rise: the frame you stand up is the frame it arrives, at its best timing.',
             ja: '相手は受身のタイミングに合わせており、起き上がった瞬間に最良のタイミングで重なる。',
           },
@@ -887,7 +897,6 @@ export const GROUP_A: Situation[] = [
         versus: [
           { vs: 'meaty', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'win' },
-          { vs: 'drive-rush-pressure', outcome: 'even' },
         ],
         mixRatio: '50-70%',
         verified: 'estimated',
@@ -921,7 +930,6 @@ export const GROUP_A: Situation[] = [
         versus: [
           { vs: 'meaty', outcome: 'bigWin' },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'drive-rush-pressure', outcome: 'loss' },
         ],
         mixRatio: '30-50%',
         verified: 'estimated',
@@ -965,7 +973,6 @@ export const GROUP_A: Situation[] = [
             },
           },
           { vs: 'delayed-attack', outcome: 'win' },
-          { vs: 'drive-rush-pressure', outcome: 'even' },
         ],
         mixRatio: '20-30%',
         verified: 'estimated',
@@ -981,7 +988,7 @@ export const GROUP_A: Situation[] = [
         reward: 'low',
         onSuccess: {
           text: {
-            'zh-Hant': '晚一點按，壓持續先被你擋下，摔投還來得及解。一次覆蓋兩個最常見的選擇。',
+            'zh-Hant': '晚一點按，壓起身先被你擋下，摔投還來得及解。一次覆蓋兩個最常見的選擇。',
             en: 'Teching late means the meaty is blocked first while a throw still breaks. It covers the two most common choices at once.',
             ja: '入力を遅らせることで重ねはガードでき、投げには間に合う。最も多い二択の両方を同時にカバーする。',
           },
@@ -989,7 +996,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手也把打擊延遲了，正好打在你按解投的那一刻。counter hit，傷害和連段長度都上一階。',
+            'zh-Hant': '對手也把打擊延遲了，正好打在你按解摔的那一刻。counter hit，傷害和連段長度都上一階。',
             en: 'They delayed too, landing on your tech input — a counter hit, raising both damage and combo length a tier.',
             ja: '相手も遅らせており、投げ抜けの入力に重なる。カウンターヒットとなりダメージもコンボも一段上がる。',
           },
@@ -1001,7 +1008,6 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'shimmy', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
-          { vs: 'drive-rush-pressure', outcome: 'even' },
         ],
         mixRatio: '30-40%',
         verified: 'estimated',
@@ -1020,7 +1026,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手沒摔，而是後退看你按。解投有硬直，你吃到完整懲罰。',
+            'zh-Hant': '對手沒摔，而是後退看你按。解摔有硬直，你吃到完整懲罰。',
             en: 'They did not throw; they walked back and watched you press. The tech has recovery, so you eat a full punish.',
             ja: '相手は投げずに下がって見ていた。投げ抜けには硬直があり、フルコンボの反撃を受ける。',
           },
@@ -1032,7 +1038,6 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'drive-rush-pressure', outcome: 'loss' },
         ],
         mixRatio: '15-25%',
         verified: 'estimated',
@@ -1063,7 +1068,6 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'loss' },
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'win' },
-          { vs: 'drive-rush-pressure', outcome: 'win' },
         ],
         mixRatio: '20-30%',
         verified: 'estimated',
@@ -1096,18 +1100,17 @@ export const GROUP_A: Situation[] = [
           driveLoss: 1,
         },
         versus: [
-          { vs: 'meaty', outcome: 'win' },
-          { vs: 'throw', outcome: 'bigLoss' },
-          { vs: 'delayed-attack', outcome: 'win' },
           {
-            vs: 'drive-rush-pressure',
-            outcome: 'bigWin',
+            vs: 'meaty',
+            outcome: 'win',
             note: {
-              'zh-Hant': '對手花動力槽買到的就是「打擊更快到」，而動力衝擊專門吃打擊。',
-              en: 'What they bought with the bar is a faster strike, and armour is built to eat strikes.',
-              ja: 'ゲージで買ったのは「速く届く打撃」であり、アーマーは打撃を食べるためにある。',
+              'zh-Hant': '對打擊特別有效，包含用動力箭步衝進來接的那一下 —— 對手花格買到的就是「打擊更快到」，而霸體專門吃打擊。',
+              en: 'Especially good against strikes, including one set up by a Drive Rush: what the bar bought is a faster strike, and armour is built to eat strikes.',
+              ja: '打撃全般に強く、ドライブラッシュから繋げる打撃にも有効。ゲージで買ったのは「速く届く打撃」であり、アーマーは打撃を食べるためにある。',
             },
           },
+          { vs: 'throw', outcome: 'bigLoss' },
+          { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
@@ -1119,7 +1122,7 @@ export const GROUP_A: Situation[] = [
         reward: 'none',
         onSuccess: {
           text: {
-            'zh-Hant': '躲過摔投，起始位移也足以讓算好時間的壓持續落空。角落退不了多遠，但「退一點」跟「不退」對壓持續是兩回事。',
+            'zh-Hant': '躲過摔投，起始位移也足以讓算好時間的壓起身落空。角落退不了多遠，但「退一點」跟「不退」對壓起身是兩回事。',
             en: 'Avoids the throw, and the initial movement makes a tightly timed meaty whiff. There is barely ground to give, but a little and none are different things to a meaty.',
             ja: '投げを避けられ、初動だけでもタイミングの詰まった重ねを空振りさせられる。下がれる距離は僅かだが、「少し動く」と「動かない」は別物。',
           },
@@ -1127,7 +1130,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '後衝刺沒有無敵、收招長。壓持續或延遲打擊會抓到你落地那段，通常是 counter hit。',
+            'zh-Hant': '後衝刺沒有無敵、收招長。壓起身或延遲打擊會抓到你落地那段，通常是 counter hit。',
             en: 'No invincibility, long recovery. A meaty or delayed attack catches the tail of it, usually as a counter hit.',
             ja: '無敵はなく硬直も長い。重ねや遅らせ打撃に着地部分を狩られ、多くはカウンターヒットになる。',
           },
@@ -1139,12 +1142,11 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'drive-rush-pressure', outcome: 'bigLoss' },
         ],
         mixRatio: '5%',
         verified: 'estimated',
         notes: {
-          'zh-Hant': '角落只剩「讓壓持續落空」的價值，位移那半等於沒有。對手用動力箭步追就完全失效。',
+          'zh-Hant': '角落只剩「讓壓起身落空」的價值，位移那半等於沒有。對手用動力箭步追就完全失效。',
           en: 'Cornered, only the meaty-whiffing half survives; the movement half does nothing. Chased with Drive Rush it stops working entirely.',
           ja: '画面端では「重ねを空振りさせる」価値しか残らず、移動としては機能しない。DRで追われれば完全に無効。',
         },
@@ -1173,18 +1175,25 @@ export const GROUP_A: Situation[] = [
         versus: [
           { vs: 'meaty', outcome: 'loss' },
           { vs: 'throw', outcome: 'win' },
-          { vs: 'shimmy', outcome: 'win' },
+          {
+            vs: 'shimmy',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '對手退康時已經退開並在看你，反而更有餘裕對空。跳過去撞上一個正在觀察的對手，不是好交換。',
+              en: 'A shimmying opponent has already stepped back and is watching, which gives them more time to anti-air, not less. Jumping into someone who is observing is a bad trade.',
+              ja: 'シミー中の相手は既に下がって様子を見ており、対空する余裕がむしろ増えている。観察している相手に跳び込むのは分の悪い交換。',
+            },
+          },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'drive-rush-pressure', outcome: 'even' },
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
         ],
         mixRatio: '5-10%',
         verified: 'estimated',
         notes: {
-          'zh-Hant': '回報最高也最容易被讀。最好在對手剛剛壓空一次之後用 —— 那是他最沒準備對空的時候。',
-          en: 'The highest payoff and the easiest to read. Use it right after a setup of theirs has whiffed, when they are least ready to anti-air.',
-          ja: 'リターンが最も高く、最も読まれやすい。相手の重ねが空振りした直後、対空の準備が最も薄い瞬間に使う。',
+          'zh-Hant': '回報最高也最容易被讀。最好在對手剛剛壓空一次之後用 —— 那是他最沒準備對空的時候。另外角落被打下來不一定是最差結果：空中互毆換到的有時候等於一次犧牲打，落地後反而拿回一次進攻權。',
+          en: 'The highest payoff and the easiest to read. Use it right after a setup of theirs has whiffed, when they are least ready to anti-air. And being knocked out of it is not uniformly the worst case: an air-to-air trade can amount to a sacrifice that hands you back a turn on landing.',
+          ja: 'リターンが最も高く、最も読まれやすい。相手の重ねが空振りした直後、対空の準備が最も薄い瞬間に使う。また画面端で撃ち落とされることが常に最悪とは限らない。空中での相打ちは捨て身の一撃となり、着地後にこちらの攻め番が戻ることもある。',
         },
       },
       {
@@ -1237,7 +1246,7 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '被壓持續吃掉，輕攻擊還沒出來就 counter hit 接完整連段。',
+            'zh-Hant': '被壓起身吃掉，輕攻擊還沒出來就 counter hit 接完整連段。',
             en: 'Stuffed by the meaty; your light never came out — counter hit into a full combo.',
             ja: '重ねに潰され、弱攻撃は出る前にカウンターヒットからフルコンボ。',
           },
@@ -1249,21 +1258,28 @@ export const GROUP_A: Situation[] = [
             vs: 'meaty',
             outcome: 'bigLoss',
             note: {
-              'zh-Hant': '壓持續一定比你的輕攻擊先到 —— 這不是機率問題，是順序問題。',
+              'zh-Hant': '壓起身一定比你的輕攻擊先到 —— 這不是機率問題，是順序問題。',
               en: 'The meaty is out before your light by construction. This is not a probability, it is an ordering.',
               ja: '重ねは構造上こちらの弱攻撃より先に出る。確率ではなく順序の問題。',
             },
           },
           { vs: 'throw', outcome: 'win' },
-          { vs: 'shimmy', outcome: 'win' },
+          {
+            vs: 'shimmy',
+            outcome: 'even',
+            note: {
+              'zh-Hant': '要打得到才算。對手退得夠遠，你的輕攻擊就是落空，接著被懲罰。',
+              en: 'Only counts if it reaches. Back far enough and your light whiffs, and the punish follows.',
+              ja: '届いてこその択。相手が十分下がっていれば弱攻撃は空振りし、そのまま狩られる。',
+            },
+          },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
-          { vs: 'drive-rush-pressure', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '5-10%',
         verified: 'estimated',
         notes: {
-          'zh-Hant': '低頻。價值不在勝率，而在於讓對手不敢無限延遲 —— 完全不按的人會被延遲打擊吃掉所有解投。',
+          'zh-Hant': '低頻。價值不在勝率，而在於讓對手不敢無限延遲 —— 完全不按的人會被延遲打擊吃掉所有解摔。',
           en: 'Keep it rare. The value is not the win rate but the threat: never pressing lets them delay forever and eat every tech you have.',
           ja: '低頻度で。価値は勝率ではなく抑止力にある。まったく暴れなければ、無限に遅らされて投げ抜けを全て狩られる。',
         },
@@ -1295,7 +1311,6 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'bigWin' },
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
-          { vs: 'drive-rush-pressure', outcome: 'bigWin' },
           {
             vs: 'bait-block',
             outcome: 'bigLoss',

@@ -933,18 +933,6 @@ html[data-theme='dark'] .notation__btn--h {
    phone width, so the table scrolls sideways with the option name pinned —
    losing sight of which row you are reading is the one failure that would
    make the whole thing useless. */
-.opt-table__spanrow th {
-  padding-bottom: 0;
-  border: 0;
-}
-
-.opt-table__spanhead {
-  text-align: center !important;
-  font-size: var(--step--1);
-  font-weight: 600;
-  color: var(--text-faint);
-  letter-spacing: 0.04em;
-}
 
 .opt-table__name {
   position: sticky;
@@ -981,8 +969,15 @@ html[data-theme='dark'] .notation__btn--h {
   cursor: help;
 }
 
-.opt-table__agg {
-  border-left: 1px solid var(--border);
+/* Two vertical dividers bracket the opponent block: one after your own column,
+   one before the aggregates. The grouping is carried by the rules rather than
+   by a label row of its own. */
+.opt-table__name {
+  border-right: 1px solid var(--border-strong);
+}
+
+.opt-table__agg--first {
+  border-left: 1px solid var(--border-strong);
 }
 
 /* Category grouping: like sits with like, so comparing two techs does not mean
@@ -1321,22 +1316,3 @@ html[data-theme='dark'] .notation__btn--h {
   flex: none;
 }
 
-/* The opponent-column label is bracketed over exactly those columns, so it
-   reads as their heading rather than as a caption floating over the table. */
-.opt-table__spanhead {
-  padding-bottom: var(--space-1) !important;
-  text-align: center !important;
-  border-bottom: 1px solid var(--border) !important;
-  background: var(--surface-sunken);
-}
-
-.opt-table__spanhead span {
-  font-size: var(--step--1);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
-}
-
-.opt-table__spanrow > th {
-  border-bottom: 0;
-}

@@ -20,9 +20,13 @@ const GLYPH: Record<Outcome, string> = {
 export function OutcomeCell({
   outcome,
   opponentName,
+  /** In the versus list the name and verdict are already spelled out beside the
+   *  cell, so repeating them here only makes a screen reader say it twice. */
+  labelled = true,
 }: {
   outcome: Outcome | undefined
   opponentName: string
+  labelled?: boolean
 }) {
   const { t } = useT()
 
@@ -40,9 +44,11 @@ export function OutcomeCell({
   return (
     <span className={`oc oc--${outcome}`} title={`${opponentName}: ${t.outcome[outcome]}`}>
       <span aria-hidden="true">{GLYPH[outcome]}</span>
-      <span className="visually-hidden">
-        {opponentName}: {t.outcome[outcome]}
-      </span>
+      {labelled && (
+        <span className="visually-hidden">
+          {opponentName}: {t.outcome[outcome]}
+        </span>
+      )}
     </span>
   )
 }

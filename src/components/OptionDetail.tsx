@@ -129,7 +129,7 @@ export function OptionDetail({ row }: { row: OptionRow }) {
                   className="versus-list__item"
                   title={opponent?.hint ? text(opponent.hint) : name}
                 >
-                  <OutcomeCell outcome={entry.outcome} opponentName={name} />
+                  <OutcomeCell outcome={entry.outcome} opponentName={name} labelled={false} />
                   <span className="versus-list__name">{name}</span>
                   <span className={`versus-list__verdict oc-text oc-text--${entry.outcome}`}>
                     {t.outcome[entry.outcome]}

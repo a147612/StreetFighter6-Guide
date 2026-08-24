@@ -130,12 +130,21 @@ export function OptionTable({
     })
   }
 
-  function SortHeader({ sortKey, label }: { sortKey: SortKey; label: string }) {
+  function SortHeader({
+    sortKey,
+    label,
+    first = false,
+  }: {
+    sortKey: SortKey
+    label: string
+    /** Carries the divider that closes the opponent block. */
+    first?: boolean
+  }) {
     const active = sort?.key === sortKey
     return (
       <th
         scope="col"
-        className="opt-table__agg"
+        className={`opt-table__agg ${first ? 'opt-table__agg--first' : ''}`}
         aria-sort={active ? (sort.dir === 'asc' ? 'ascending' : 'descending') : 'none'}
       >
         <button
@@ -176,13 +185,6 @@ export function OptionTable({
       <div className="scroll-x card" ref={scroller}>
         <table className="opt-table">
           <thead>
-            <tr className="opt-table__spanrow">
-              <th className="opt-table__name" />
-              <th className="opt-table__spanhead" colSpan={columns.length} scope="colgroup">
-                <span>{t.outcome.theirAxis}</span>
-              </th>
-              <th colSpan={2} />
-            </tr>
             <tr>
               <th scope="col" className="opt-table__name">
                 {t.outcome.myAxis}
@@ -201,7 +203,7 @@ export function OptionTable({
                   {def!.origin && <span className="opt-table__vsorigin">{def!.origin}</span>}
                 </th>
               ))}
-              <SortHeader sortKey="risk" label={t.table.risk} />
+              <SortHeader sortKey="risk" label={t.table.risk} first />
               <SortHeader sortKey="hpLoss" label={t.table.hpLoss} />
             </tr>
           </thead>
@@ -260,7 +262,7 @@ export function OptionTable({
                           />
                         </td>
                       ))}
-                      <td className="opt-table__agg">
+                      <td className="opt-table__agg opt-table__agg--first">
                         <RiskPips tier={evaluation.risk} />
                       </td>
                       <td className="opt-table__agg opt-row__hp">

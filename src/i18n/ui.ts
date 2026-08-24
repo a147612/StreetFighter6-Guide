@@ -50,7 +50,6 @@ export interface UiStrings {
   outcome: {
     header: string
     myAxis: string
-    theirAxis: string
     legend: string
     notApplicable: string
     bigWin: string
@@ -153,8 +152,7 @@ const zhHant: UiStrings = {
   outcome: {
     header: '對手的選擇',
     myAxis: '我的選擇',
-    theirAxis: '對手的選擇',
-    legend: '你的結果',
+    legend: '對上對手的選擇，你的結果',
     notApplicable: '不相關',
     bigWin: '大勝',
     win: '小勝',
@@ -272,8 +270,7 @@ const en: UiStrings = {
   outcome: {
     header: 'Their choice',
     myAxis: 'My choice',
-    theirAxis: 'Their choice',
-    legend: 'Your result',
+    legend: 'Your result against their choice',
     notApplicable: 'Not relevant',
     bigWin: 'Big win',
     win: 'Win',
@@ -392,8 +389,7 @@ const ja: UiStrings = {
   outcome: {
     header: '相手の選択',
     myAxis: '自分の選択',
-    theirAxis: '相手の選択',
-    legend: 'こちらの結果',
+    legend: '相手の選択に対する自分の結果',
     notApplicable: '無関係',
     bigWin: '大勝ち',
     win: '勝ち',
