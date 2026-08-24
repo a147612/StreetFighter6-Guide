@@ -21,41 +21,26 @@ const ROADMAP: RoadmapItem[] = [
   {
     state: 'done',
     label: {
-      'zh-Hant': '設計系統、主題切換、三語骨架、部署管線',
-      en: 'Design system, theming, trilingual shell, deploy pipeline',
-      ja: 'デザインシステム、テーマ切替、三言語の基盤、デプロイ',
+      'zh-Hant': '設計系統、主題切換、三語骨架、部署管線、資料模型',
+      en: 'Design system, theming, trilingual shell, deploy pipeline, data model',
+      ja: 'デザインシステム、テーマ切替、三言語の基盤、デプロイ、データモデル',
     },
   },
   {
     state: 'done',
     label: {
-      'zh-Hant': '資料模型（雙向相剋矩陣、倒地類型、查證標記）',
-      en: 'Data model (two-way relation matrix, knockdown types, verification flags)',
-      ja: 'データモデル（双方向の相性表、ダウン種別、検証フラグ）',
-    },
-  },
-  {
-    state: 'done',
-    label: {
-      'zh-Hant': '情境 A 倒地起身：場中／靠角／角落三個位置、34 筆評價、相剋矩陣、預設打法',
-      en: 'Group A, waking up: midscreen / near-corner / cornered, 34 evaluations, relation matrix and default mix',
-      ja: 'グループA 起き上がり：中央／端寄り／画面端の3状況・34評価・相性表・基本の配分',
-    },
-  },
-  {
-    state: 'active',
-    label: {
-      'zh-Hant': '防守情境 B–H：防禦被壓、投擲距離、Burnout、中距離、對空、Drive Impact、逆轉判斷',
-      en: 'Defensive groups B–H: blockstrings, throw range, Burnout, neutral, anti-air, Drive Impact, comeback reads',
-      ja: '守り側 B〜H：連係ガード、投げ間合い、バーンアウト、中距離、対空、ドライブインパクト、逆転判断',
+      'zh-Hant':
+        '防守情境 A–H 全部完成：18 個情境、134 筆評價、相剋矩陣與預設打法（倒地起身、防禦中被壓、貼身對峙、Burnout、立回、對空、動力衝擊、血量門檻）',
+      en: 'Defensive groups A–H complete: 18 situations, 134 evaluations, relation matrix and default mix (wakeup, pressure, close quarters, Burnout, neutral, anti-air, Drive Impact, life thresholds)',
+      ja: '守り側 A〜H 完了：18状況・134評価・相性表と基本の配分（起き上がり、ガード中、至近距離、バーンアウト、立ち回り、対空、DI、体力ライン）',
     },
   },
   {
     state: 'planned',
     label: {
       'zh-Hant': '進攻情境 I–K：起攻（依倒地類型與位置）、壓制節奏、連段抉擇',
-      en: 'Offensive situations I–K: oki by knockdown type and position, pressure pacing, combo choices',
-      ja: '攻め側の状況 I〜K：ダウン種別と位置別の起き攻め、攻めの緩急、コンボ選択',
+      en: 'Offensive groups I–K: oki by knockdown type and position, pressure pacing, combo choices',
+      ja: '攻め側 I〜K：ダウン種別と位置別の起き攻め、攻めの緩急、コンボ選択',
     },
   },
   {
@@ -69,9 +54,9 @@ const ROADMAP: RoadmapItem[] = [
   {
     state: 'planned',
     label: {
-      'zh-Hant': '搜尋、速查模式、術語表、攻/守視角切換',
-      en: 'Search, quick-reference mode, glossary, offense/defense view toggle',
-      ja: '検索、早見表モード、用語集、攻守の視点切替',
+      'zh-Hant': '搜尋、速查模式、術語表',
+      en: 'Search, quick-reference mode, glossary',
+      ja: '検索、早見表モード、用語集',
     },
   },
   {
@@ -90,6 +75,7 @@ const ROADMAP: RoadmapItem[] = [
       ja: '項目ごとに検証し、estimated を出典とバージョン付きの sourced に置き換える',
     },
   },
+
 ]
 
 export default function App() {

@@ -1,6 +1,13 @@
 import type { OptionDef, OptionEval, Situation } from './schema'
 import { getOption } from './options'
 import { GROUP_A } from './situations/a-wakeup'
+import { GROUP_B } from './situations/b-blockstring'
+import { GROUP_C } from './situations/c-close-quarters'
+import { GROUP_D } from './situations/d-burnout'
+import { GROUP_E } from './situations/e-neutral'
+import { GROUP_F } from './situations/f-anti-air'
+import { GROUP_G } from './situations/g-drive-impact'
+import { GROUP_H } from './situations/h-life-threshold'
 
 export * from './schema'
 export { OPTIONS, getOption } from './options'
@@ -11,7 +18,16 @@ export interface OptionRow {
   evaluation: OptionEval
 }
 
-export const SITUATIONS: Situation[] = [...GROUP_A]
+export const SITUATIONS: Situation[] = [
+  ...GROUP_A,
+  ...GROUP_B,
+  ...GROUP_C,
+  ...GROUP_D,
+  ...GROUP_E,
+  ...GROUP_F,
+  ...GROUP_G,
+  ...GROUP_H,
+]
 
 const SITUATIONS_BY_ID = new Map(SITUATIONS.map((situation) => [situation.id, situation]))
 
@@ -46,12 +62,12 @@ export const GROUPS = [
   {
     id: 'B',
     side: 'defense' as const,
-    name: { 'zh-Hant': '防禦中被壓', en: 'Under a blockstring', ja: '連係をガード中' },
+    name: { 'zh-Hant': '防禦中被壓', en: 'Under pressure', ja: 'ガード中' },
   },
   {
     id: 'C',
     side: 'defense' as const,
-    name: { 'zh-Hant': '投擲距離', en: 'Throw range', ja: '投げ間合い' },
+    name: { 'zh-Hant': '貼身對峙', en: 'Close quarters', ja: '至近距離' },
   },
   {
     id: 'D',
@@ -61,7 +77,7 @@ export const GROUPS = [
   {
     id: 'E',
     side: 'defense' as const,
-    name: { 'zh-Hant': '中距離', en: 'Neutral', ja: '中距離' },
+    name: { 'zh-Hant': '立回（間合管理）', en: 'Neutral', ja: '立ち回り' },
   },
   {
     id: 'F',
@@ -76,7 +92,7 @@ export const GROUPS = [
   {
     id: 'H',
     side: 'defense' as const,
-    name: { 'zh-Hant': '逆轉判斷', en: 'Comeback reads', ja: '逆転判断' },
+    name: { 'zh-Hant': '血量門檻', en: 'Life thresholds', ja: '体力ライン' },
   },
   {
     id: 'I',
