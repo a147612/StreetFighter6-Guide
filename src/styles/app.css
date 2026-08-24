@@ -251,36 +251,6 @@
   box-shadow: var(--focus-ring);
 }
 
-/* ── Hero ────────────────────────────────────────────────────────── */
-.hero {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.hero__row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.hero__title {
-  font-size: var(--step-3);
-}
-
-.hero__badge {
-  color: var(--text-muted);
-}
-
-.hero__tagline {
-  max-width: 52ch;
-  color: var(--text-muted);
-}
-
-.hero__side {
-  margin-top: var(--space-2);
-}
 
 /* ── Disclosure ──────────────────────────────────────────────────────
    Native <details>: the whole point is to move prose out of the scan path, and
@@ -322,26 +292,6 @@
   color: var(--text);
 }
 
-/* ── Situation header ────────────────────────────────────────────── */
-.situation h2 {
-  font-size: var(--step-2);
-  margin-block: var(--space-2) var(--space-1);
-}
-
-.situation__group {
-  display: inline-block;
-  padding: 0.1rem 0.5rem;
-  border-radius: var(--radius-sm);
-  background: var(--accent-soft);
-  color: var(--accent-fg);
-  font-size: var(--step--1);
-  font-weight: 600;
-}
-
-.situation__brief {
-  max-width: 74ch;
-  margin-bottom: var(--space-2);
-}
 
 /* ── Option table ────────────────────────────────────────────────── */
 .table-block {
@@ -1176,4 +1126,137 @@ html[data-theme='dark'] .notation__btn--h {
 
 .versus-list__verdict {
   font-weight: 650;
+}
+
+/* ── Matrix header ───────────────────────────────────────────────────
+   The corner cell names both axes, which is what the spanning row it replaced
+   never managed to do while costing a whole row of height. */
+.opt-table__corner {
+  vertical-align: bottom;
+}
+
+.opt-table__axis {
+  display: block;
+  font-size: var(--step--1);
+  font-weight: 600;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.opt-table__axis--their {
+  color: var(--accent-fg);
+}
+
+.opt-table thead .opt-table__vs {
+  vertical-align: bottom;
+}
+
+.opt-table__vsname {
+  display: block;
+  line-height: 1.3;
+}
+
+/* The English term rides along: for many readers it identifies the concept
+   faster than the translation does. */
+.opt-table__vsorigin {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--text-faint);
+  line-height: 1.3;
+}
+
+/* ── Plain-language hint in the detail ───────────────────────────── */
+.detail__hint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-size: var(--step-0);
+  color: var(--text-muted);
+}
+
+.detail__origin {
+  padding: 0.05rem 0.45rem;
+  border-radius: 9999px;
+  background: var(--surface-inset);
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  white-space: nowrap;
+}
+
+/* ── Browse bar ──────────────────────────────────────────────────────
+   Side toggle and navigation share one band so the table starts near the top
+   of the page. This gets consulted between matches; scrolling past a hero to
+   reach the answer is the wrong shape for that. */
+.browse {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* ── Situation header ────────────────────────────────────────────────
+   A title strip rather than a panel. The full read is one line of prose and a
+   disclosure; the table is the thing being looked at. */
+.sithead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-bottom: var(--space-1);
+  border-bottom: 1px solid var(--border);
+}
+
+.sithead__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+}
+
+.sithead__top h2 {
+  font-size: var(--step-2);
+}
+
+.sithead__where {
+  padding: 0.05rem 0.45rem;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent-fg);
+  font-size: var(--step--1);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sithead__brief {
+  max-width: 78ch;
+  color: var(--text-muted);
+}
+
+/* Summaries are authored as two short paragraphs separated by a newline. */
+.sithead__summary {
+  white-space: pre-line;
+  max-width: 78ch;
+}
+
+.disclosure--foot {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.disclosure--foot > summary {
+  color: var(--text-muted);
+}
+
+/* The detail cell spans the full matrix width, so on a narrow screen its prose
+   ran off the right edge and could only be read by scrolling the table
+   sideways. Pin the panel to the scrollport and size it to match. */
+.opt-detail-row .detail {
+  position: sticky;
+  left: 0;
+  width: var(--scroller-w, 100%);
+  max-width: 100%;
+  box-sizing: border-box;
 }

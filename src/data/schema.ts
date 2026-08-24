@@ -150,6 +150,19 @@ export interface OptionDef {
    * column and stops being readable; "Shimmy" does not. Falls back to `name`.
    */
   short?: I18nText
+  /**
+   * The community's English term. Fighting-game vocabulary travels as English
+   * and Japanese loanwords, so for a lot of readers "meaty" identifies the
+   * thing faster than any translation of it does. Shown alongside the name,
+   * not instead of it.
+   */
+  origin?: string
+  /**
+   * One plain sentence saying what the option actually is. The names are jargon
+   * by necessity — this is what makes them learnable in place, without sending
+   * the reader off to a glossary mid-lookup.
+   */
+  hint?: I18nText
   /** Community aliases, per locale, so search finds 暴れ / mash / abare alike. */
   aka?: Partial<Record<Locale, string[]>>
   /** Numpad + button notation, e.g. "6 + LP+LK". */

@@ -49,6 +49,8 @@ export interface UiStrings {
   followUpShort: { combo: string; pressure: string; neutral: string; none: string }
   outcome: {
     header: string
+    myAxis: string
+    theirAxis: string
     legend: string
     notApplicable: string
     bigWin: string
@@ -150,6 +152,8 @@ const zhHant: UiStrings = {
   followUpShort: { combo: '連段', pressure: '續攻', neutral: '中立', none: '讓出' },
   outcome: {
     header: '對手的選擇',
+    myAxis: '我的選擇 ↓',
+    theirAxis: '對手的選擇 →',
     legend: '你的結果',
     notApplicable: '不相關',
     bigWin: '大勝',
@@ -264,6 +268,8 @@ const en: UiStrings = {
   followUpShort: { combo: 'Combo', pressure: 'Keep turn', neutral: 'Neutral', none: 'Give turn' },
   outcome: {
     header: 'Their choice',
+    myAxis: 'My choice ↓',
+    theirAxis: 'Their choice →',
     legend: 'Your result',
     notApplicable: 'Not relevant',
     bigWin: 'Big win',
@@ -379,6 +385,8 @@ const ja: UiStrings = {
   followUpShort: { combo: 'コンボ', pressure: '継続', neutral: '五分', none: '明け渡す' },
   outcome: {
     header: '相手の選択',
+    myAxis: '自分の選択 ↓',
+    theirAxis: '相手の選択 →',
     legend: 'こちらの結果',
     notApplicable: '無関係',
     bigWin: '大勝ち',

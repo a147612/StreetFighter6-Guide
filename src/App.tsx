@@ -117,26 +117,17 @@ export default function App() {
       <Topbar />
 
       <main id="main" className="shell app__main">
-        <section className="hero">
-          <h1 className="hero__title">{t.appName}</h1>
-          <p className="hero__tagline">{t.tagline}</p>
-
-          <div className="hero__side">
-            <Segmented<Side>
-              label={t.side.label}
-              value={side}
-              onChange={setSide}
-              options={[
-                { value: 'defense', label: t.side.defense },
-                { value: 'offense', label: t.side.offense },
-              ]}
-              compact
-            />
-          </div>
-        </section>
-
-        {side === 'defense' && situation ? (
-          <section className="stack" aria-labelledby="situation-heading">
+        <div className="browse">
+          <Segmented<Side>
+            label={t.side.label}
+            value={side}
+            onChange={setSide}
+            options={[
+              { value: 'defense', label: t.side.defense },
+              { value: 'offense', label: t.side.offense },
+            ]}
+          />
+          {side === 'defense' && (
             <SituationNav
               side={side}
               groupId={groupId}
@@ -144,19 +135,24 @@ export default function App() {
               onPickGroup={pickGroup}
               onPickSituation={setSituationId}
             />
+          )}
+        </div>
 
-            <div className="card card--padded situation">
-              <span className="situation__group mono">
-                {situation.group}
-                {' · '}
-                {situation.position.map((p) => t.position[p]).join(' / ')}
-              </span>
-              <h2 id="situation-heading">{text(situation.name)}</h2>
-              <p className="situation__brief">{text(situation.brief)}</p>
-
+        {side === 'defense' && situation ? (
+          <section className="stack" aria-labelledby="situation-heading">
+            <div className="sithead">
+              <div className="sithead__top">
+                <h2 id="situation-heading">{text(situation.name)}</h2>
+                <span className="sithead__where mono">
+                  {situation.group}
+                  {' · '}
+                  {situation.position.map((p) => t.position[p]).join(' / ')}
+                </span>
+              </div>
+              <p className="sithead__brief">{text(situation.brief)}</p>
               <details className="disclosure">
                 <summary>{t.situation.showFull}</summary>
-                <p className="muted">{text(situation.summary)}</p>
+                <p className="muted sithead__summary">{text(situation.summary)}</p>
               </details>
             </div>
 
@@ -181,7 +177,7 @@ export default function App() {
         )}
 
         {/* Meta, not product — collapsed so it does not compete with the table. */}
-        <details className="card card--padded disclosure disclosure--block">
+        <details className="disclosure disclosure--foot">
           <summary>{t.roadmap.heading}</summary>
           <ol className="roadmap">
             {ROADMAP.map((item, i) => (

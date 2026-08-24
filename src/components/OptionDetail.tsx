@@ -28,6 +28,15 @@ export function OptionDetail({ row }: { row: OptionRow }) {
 
   return (
     <div className="detail">
+      {/* The names are jargon by necessity; this makes them learnable in place
+          rather than sending the reader to a glossary mid-lookup. */}
+      {(def.origin || def.hint) && (
+        <p className="detail__hint">
+          {def.origin && <span className="detail__origin">{def.origin}</span>}
+          {def.hint && text(def.hint)}
+        </p>
+      )}
+
       <dl className="detail__meta">
         {/* Only where the motion actually varies by character. Everyone reading
             this already knows how to tech a throw. */}
@@ -115,7 +124,11 @@ export function OptionDetail({ row }: { row: OptionRow }) {
               const opponent = getOption(entry.vs)
               const name = opponent ? text(opponent.name) : entry.vs
               return (
-                <li key={entry.vs} className="versus-list__item">
+                <li
+                  key={entry.vs}
+                  className="versus-list__item"
+                  title={opponent?.hint ? text(opponent.hint) : name}
+                >
                   <OutcomeCell outcome={entry.outcome} opponentName={name} />
                   <span className="versus-list__name">{name}</span>
                   <span className={`versus-list__verdict oc-text oc-text--${entry.outcome}`}>

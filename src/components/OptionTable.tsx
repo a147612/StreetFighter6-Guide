@@ -1,4 +1,4 @@
-import { Fragment, useMemo, useState } from 'react'
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { OptionDetail } from './OptionDetail'
 import { HpLossBar } from './viz/HpLossBar'
 import { OutcomeCell, OutcomeLegend } from './viz/OutcomeCell'
@@ -77,6 +77,23 @@ export function OptionTable({
   const allOpen = open.size === input.length
   const colSpan = 2 + columns.length + 2
 
+  /**
+   * The detail row lives inside the horizontally scrolling table, so its cell is
+   * as wide as the whole matrix — which pushed the prose off the right edge on a
+   * phone and made it readable only by scrolling sideways. Publish the
+   * scrollport's width so the panel can pin itself to exactly the visible area.
+   */
+  const scroller = useRef<HTMLDivElement | null>(null)
+  useEffect(() => {
+    const node = scroller.current
+    if (!node) return
+    const publish = () => node.style.setProperty('--scroller-w', `${node.clientWidth}px`)
+    publish()
+    const observer = new ResizeObserver(publish)
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
   function toggle(id: string): void {
     setOpen((previous) => {
       const next = new Set(previous)
@@ -137,23 +154,26 @@ export function OptionTable({
         </div>
       </div>
 
-      <div className="scroll-x card">
+      <div className="scroll-x card" ref={scroller}>
         <table className="opt-table">
           <thead>
-            <tr className="opt-table__spanrow">
-              <th />
-              <th className="opt-table__spanhead" colSpan={columns.length} scope="colgroup">
-                {t.outcome.header} →
-              </th>
-              <th colSpan={2} />
-            </tr>
             <tr>
-              <th scope="col" className="opt-table__name">
-                {t.table.option}
+              <th scope="col" className="opt-table__name opt-table__corner">
+                <span className="opt-table__axis">{t.outcome.myAxis}</span>
+                <span className="opt-table__axis opt-table__axis--their">{t.outcome.theirAxis}</span>
               </th>
               {columns.map(({ id, def }) => (
-                <th key={id} scope="col" className="opt-table__vs" title={text(def!.name)}>
-                  <span>{text(def!.short ?? def!.name)}</span>
+                <th
+                  key={id}
+                  scope="col"
+                  className="opt-table__vs"
+                  title={def!.hint ? text(def!.hint) : text(def!.name)}
+                >
+                  {/* The English term rides along with the translation: for a
+                      lot of readers "meaty" identifies the thing faster than
+                      any Chinese rendering of it does. */}
+                  <span className="opt-table__vsname">{text(def!.short ?? def!.name)}</span>
+                  {def!.origin && <span className="opt-table__vsorigin">{def!.origin}</span>}
                 </th>
               ))}
               <SortHeader sortKey="risk" label={t.table.risk} />
@@ -188,6 +208,7 @@ export function OptionTable({
                           className="opt-row__toggle"
                           aria-expanded={isOpen}
                           aria-controls={detailId}
+                          title={def.hint ? text(def.hint) : undefined}
                           // The whole row is a target for touch; the button must
                           // not let its click bubble up and undo the toggle.
                           onClick={(event) => {
