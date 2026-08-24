@@ -206,21 +206,28 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '撥擋防不住摔投。傷害不高，但花掉的動力槽拿不回來，起攻循環繼續。',
-            en: 'Parry does not stop throws. Low damage, but the Drive is spent and the loop continues.',
-            ja: 'パリィは投げを防げない。ダメージは軽いが消費したドライブは戻らず、ループは続く。',
+            'zh-Hant': '撥擋防不住摔投，而且在撥擋的動作與收招中被摔是「懲罰反擊摔投」—— 不能解、傷害多七成、再扣一格動力槽，還是強制倒地。這比一般被摔貴得多。',
+            en: 'Parry does not stop throws, and being thrown during the parry or its recovery is a Punish Counter throw: untechable, 70% extra damage, another bar of Drive gone, and a hard knockdown. Far more expensive than an ordinary throw.',
+            ja: 'パリィは投げを防げず、パリィ中および硬直中に投げられるとパニッシュカウンター投げになる。抜けられず、ダメージ70%増、ドライブをさらに1本失い、ハードダウンまで付く。通常の投げよりはるかに高くつく。',
           },
-          hpLoss: '10-15%',
-          driveLoss: 1,
+          hpLoss: '18-25%',
+          driveLoss: 2,
         },
         versus: [
           { vs: 'meaty', outcome: 'win' },
-          { vs: 'throw', outcome: 'loss' },
+          { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'win' },
         ],
         mixRatio: '20-30%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
+            patch: '2026-08 查閱',
+            note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'drive-impact',
@@ -285,11 +292,23 @@ export const GROUP_A: Situation[] = [
         versus: [
           { vs: 'meaty', outcome: 'loss' },
           { vs: 'throw', outcome: 'win' },
-          { vs: 'shimmy', outcome: 'even' },
+          { vs: 'shimmy', outcome: 'win' },
           { vs: 'delayed-attack', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://www.hotspawn.com/street-fighter/guide/street-fighter-6-how-to-play-defense',
+            patch: '2026-08 查閱',
+            note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
+        notes: {
+          'zh-Hant': '後衝刺有投擲無敵，而且退開之後對手的退康懲罰也構不到 —— 對付愛用退康的對手，這是場中最有效的一手。角落沒有空間，這個優勢就消失了。',
+          en: 'A backdash is throw-invincible and takes you out of range, so a shimmy has nothing left to punish. Against a shimmy-heavy opponent it is the strongest midscreen answer. Cornered there is no ground to gain, and that advantage disappears.',
+          ja: 'バックダッシュは投げ無敵を持ち、下がることでシミーの狩りも届かなくなる。シミーを多用する相手には画面中央で最も有効な一手。画面端では下がる空間がなく、その利点は消える。',
+        },
       },
       {
         optionId: 'jump-forward',
@@ -631,21 +650,28 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '撥擋防不住摔投。傷害不高，但花掉的動力槽拿不回來，起攻循環繼續。',
-            en: 'Parry does not stop throws. Low damage, but the Drive is spent and the loop continues.',
-            ja: 'パリィは投げを防げない。ダメージは軽いが消費したドライブは戻らず、ループは続く。',
+            'zh-Hant': '撥擋防不住摔投，而且在撥擋的動作與收招中被摔是「懲罰反擊摔投」—— 不能解、傷害多七成、再扣一格動力槽，還是強制倒地。這比一般被摔貴得多。',
+            en: 'Parry does not stop throws, and being thrown during the parry or its recovery is a Punish Counter throw: untechable, 70% extra damage, another bar of Drive gone, and a hard knockdown. Far more expensive than an ordinary throw.',
+            ja: 'パリィは投げを防げず、パリィ中および硬直中に投げられるとパニッシュカウンター投げになる。抜けられず、ダメージ70%増、ドライブをさらに1本失い、ハードダウンまで付く。通常の投げよりはるかに高くつく。',
           },
-          hpLoss: '10-15%',
-          driveLoss: 1,
+          hpLoss: '18-25%',
+          driveLoss: 2,
         },
         versus: [
           { vs: 'meaty', outcome: 'win' },
-          { vs: 'throw', outcome: 'loss' },
+          { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'win' },
         ],
         mixRatio: '20-30%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
+            patch: '2026-08 查閱',
+            note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'drive-impact',
@@ -710,11 +736,23 @@ export const GROUP_A: Situation[] = [
         versus: [
           { vs: 'meaty', outcome: 'loss' },
           { vs: 'throw', outcome: 'win' },
-          { vs: 'shimmy', outcome: 'even' },
+          { vs: 'shimmy', outcome: 'win' },
           { vs: 'delayed-attack', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://www.hotspawn.com/street-fighter/guide/street-fighter-6-how-to-play-defense',
+            patch: '2026-08 查閱',
+            note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
+        notes: {
+          'zh-Hant': '後衝刺有投擲無敵，而且退開之後對手的退康懲罰也構不到 —— 對付愛用退康的對手，這是場中最有效的一手。角落沒有空間，這個優勢就消失了。',
+          en: 'A backdash is throw-invincible and takes you out of range, so a shimmy has nothing left to punish. Against a shimmy-heavy opponent it is the strongest midscreen answer. Cornered there is no ground to gain, and that advantage disappears.',
+          ja: 'バックダッシュは投げ無敵を持ち、下がることでシミーの狩りも届かなくなる。シミーを多用する相手には画面中央で最も有効な一手。画面端では下がる空間がなく、その利点は消える。',
+        },
       },
       {
         optionId: 'jump-forward',
@@ -1056,21 +1094,28 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '撥擋防不住摔投。傷害不高，但花掉的動力槽拿不回來，起攻循環繼續。',
-            en: 'Parry does not stop throws. Low damage, but the Drive is spent and the loop continues.',
-            ja: 'パリィは投げを防げない。ダメージは軽いが消費したドライブは戻らず、ループは続く。',
+            'zh-Hant': '撥擋防不住摔投，而且在撥擋的動作與收招中被摔是「懲罰反擊摔投」—— 不能解、傷害多七成、再扣一格動力槽，還是強制倒地。這比一般被摔貴得多。',
+            en: 'Parry does not stop throws, and being thrown during the parry or its recovery is a Punish Counter throw: untechable, 70% extra damage, another bar of Drive gone, and a hard knockdown. Far more expensive than an ordinary throw.',
+            ja: 'パリィは投げを防げず、パリィ中および硬直中に投げられるとパニッシュカウンター投げになる。抜けられず、ダメージ70%増、ドライブをさらに1本失い、ハードダウンまで付く。通常の投げよりはるかに高くつく。',
           },
-          hpLoss: '10-15%',
-          driveLoss: 1,
+          hpLoss: '18-25%',
+          driveLoss: 2,
         },
         versus: [
           { vs: 'meaty', outcome: 'bigWin' },
-          { vs: 'throw', outcome: 'loss' },
+          { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'win' },
         ],
         mixRatio: '20-30%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
+            patch: '2026-08 查閱',
+            note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '角落唯一評價比場中更高的選項 —— 它的回報是位置，而位置正是你最缺的。',
           en: 'The one option that grades higher cornered than midscreen: its payoff is position, which is exactly what you are short of.',

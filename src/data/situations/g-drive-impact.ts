@@ -103,21 +103,28 @@ export const GROUP_G: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '撥擋防不住摔投。對手看穿你在等動力衝擊，直接走過來摔。',
-            en: 'Parry does not stop throws. Read as waiting for the Impact, they simply walk in and throw.',
-            ja: 'パリィは投げを防げない。DI待ちと読まれれば歩いて投げられる。',
+            'zh-Hant': '撥擋防不住摔投，而且在撥擋的動作與收招中被摔是「懲罰反擊摔投」—— 不能解、傷害多七成、再扣一格動力槽，還是強制倒地。這比一般被摔貴得多。',
+            en: 'Parry does not stop throws, and being thrown during the parry or its recovery is a Punish Counter throw: untechable, 70% extra damage, another bar of Drive gone, and a hard knockdown. Far more expensive than an ordinary throw.',
+            ja: 'パリィは投げを防げず、パリィ中および硬直中に投げられるとパニッシュカウンター投げになる。抜けられず、ダメージ70%増、ドライブをさらに1本失い、ハードダウンまで付く。通常の投げよりはるかに高くつく。',
           },
-          hpLoss: '15-25%',
-          driveLoss: 1,
+          hpLoss: '18-25%',
+          driveLoss: 2,
         },
         versus: [
           { vs: 'drive-impact', outcome: 'win' },
           { vs: 'blockstring', outcome: 'win' },
-          { vs: 'throw', outcome: 'loss' },
+          { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'poke', outcome: 'win' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
+            patch: '2026-08 查閱',
+            note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '比反撞穩得多：撥擋錯了只是被摔，反撞錯了是吃一整套。',
           en: 'Much steadier than counter-impacting: a wrong parry costs a throw, a wrong impact costs a full combo.',
@@ -269,9 +276,9 @@ export const GROUP_G: Situation[] = [
         mixRatio: '35-45%',
         verified: 'estimated',
         notes: {
-          'zh-Hant': '牆邊被動力衝擊「撞到」是這個遊戲最貴的單一失誤 —— 撞牆接完整連段。所以在牆邊，擋住就是勝利。',
-          en: 'Being *hit* by a Drive Impact at the wall is the single most expensive mistake available: a wall splat into a full combo. Cornered, blocking it is the win.',
-          ja: '画面端でDIに「当たる」ことはゲーム中最も高くつくミス。壁やられからフルコンボになる。画面端ではガードできた時点で勝ちである。',
+          'zh-Hant': '牆邊被動力衝擊「撞到」是這個遊戲最貴的單一失誤 —— 撞牆接完整連段。所以在牆邊，擋住就是勝利。唯一的例外是你正在 Burnout：那種情況下擋住一樣會被撞牆暈眩，防禦救不了你。',
+          en: 'Being *hit* by a Drive Impact at the wall is the single most expensive mistake available: a wall splat into a full combo. Cornered, blocking it is the win. The one exception is being in Burnout, where the wall splat stuns you on block too and blocking does not save you.',
+          ja: '画面端でDIに「当たる」ことはゲーム中最も高くつくミス。壁やられからフルコンボになる。画面端ではガードできた時点で勝ちである。唯一の例外はバーンアウト中で、その場合はガードしても壁やられからスタンするため、ガードでは助からない。',
         },
       },
       {
@@ -324,21 +331,28 @@ export const GROUP_G: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '撥擋防不住摔投。對手看穿你在等動力衝擊，直接走過來摔。',
-            en: 'Parry does not stop throws. Read as waiting for the Impact, they simply walk in and throw.',
-            ja: 'パリィは投げを防げない。DI待ちと読まれれば歩いて投げられる。',
+            'zh-Hant': '撥擋防不住摔投，而且在撥擋的動作與收招中被摔是「懲罰反擊摔投」—— 不能解、傷害多七成、再扣一格動力槽，還是強制倒地。這比一般被摔貴得多。',
+            en: 'Parry does not stop throws, and being thrown during the parry or its recovery is a Punish Counter throw: untechable, 70% extra damage, another bar of Drive gone, and a hard knockdown. Far more expensive than an ordinary throw.',
+            ja: 'パリィは投げを防げず、パリィ中および硬直中に投げられるとパニッシュカウンター投げになる。抜けられず、ダメージ70%増、ドライブをさらに1本失い、ハードダウンまで付く。通常の投げよりはるかに高くつく。',
           },
-          hpLoss: '15-25%',
-          driveLoss: 1,
+          hpLoss: '18-25%',
+          driveLoss: 2,
         },
         versus: [
           { vs: 'drive-impact', outcome: 'win' },
           { vs: 'blockstring', outcome: 'win' },
-          { vs: 'throw', outcome: 'loss' },
+          { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'poke', outcome: 'win' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
+            patch: '2026-08 查閱',
+            note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '比反撞穩得多：撥擋錯了只是被摔，反撞錯了是吃一整套。',
           en: 'Much steadier than counter-impacting: a wrong parry costs a throw, a wrong impact costs a full combo.',

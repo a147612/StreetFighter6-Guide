@@ -194,22 +194,29 @@ export const GROUP_C: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '撥擋防不住摔投，而且動力槽在你按住的時候一直掉。',
-            en: 'Parry does not stop throws, and Drive drains the whole time you hold it.',
-            ja: 'パリィは投げを防げず、押している間ドライブを消費し続ける。',
+            'zh-Hant': '撥擋防不住摔投，而且在撥擋的動作與收招中被摔是「懲罰反擊摔投」—— 不能解、傷害多七成、再扣一格動力槽，還是強制倒地。這比一般被摔貴得多。',
+            en: 'Parry does not stop throws, and being thrown during the parry or its recovery is a Punish Counter throw: untechable, 70% extra damage, another bar of Drive gone, and a hard knockdown. Far more expensive than an ordinary throw.',
+            ja: 'パリィは投げを防げず、パリィ中および硬直中に投げられるとパニッシュカウンター投げになる。抜けられず、ダメージ70%増、ドライブをさらに1本失い、ハードダウンまで付く。通常の投げよりはるかに高くつく。',
           },
-          hpLoss: '10-15%',
-          driveLoss: 1,
+          hpLoss: '18-25%',
+          driveLoss: 2,
         },
         versus: [
-          { vs: 'throw', outcome: 'loss' },
+          { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'poke', outcome: 'win' },
           { vs: 'low-overhead-mix', outcome: 'even' },
           { vs: 'dash-in', outcome: 'win' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
+            patch: '2026-08 查閱',
+            note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'mash-light',
@@ -241,11 +248,18 @@ export const GROUP_C: Situation[] = [
           { vs: 'dash-in', outcome: 'win' },
         ],
         mixRatio: '5-10%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '摔投 5F / 輕拳 4F / 同格打擊優先，來源未標註遊戲版本',
+          },
+        ],
         notes: {
-          'zh-Hant': '對手有利的時候按最快的招也還是慢 —— 這裡的速點只該用來嚇阻，不是用來贏。',
-          en: 'While they are plus even your fastest button is late. Mashing here is a deterrent, not a way to win.',
-          ja: '相手有利の状況では最速の技でも遅い。ここでの暴れは抑止であって勝ち筋ではない。',
+          'zh-Hant': '摔投是 5 frame，多數角色的輕拳是 4 frame，而且同一格相遇時打擊贏摔投 —— 所以對手只有 +1 或更少的時候，速點其實贏得掉他的摔投。+2 以上才是真的來不及。',
+          en: 'Throws are 5 frames, most jabs are 4, and a strike beats a throw when they meet on the same frame. So at +1 or less a jab genuinely beats their throw; only from +2 does it stop working.',
+          ja: '投げは5F、多くのキャラの弱パンチは4Fで、同フレームで噛み合えば打撃が投げに勝つ。つまり相手が+1以下なら暴れは実際に投げを潰せる。+2以上で初めて間に合わなくなる。',
         },
       },
       {
@@ -471,22 +485,29 @@ export const GROUP_C: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '撥擋防不住摔投，而且動力槽在你按住的時候一直掉。',
-            en: 'Parry does not stop throws, and Drive drains the whole time you hold it.',
-            ja: 'パリィは投げを防げず、押している間ドライブを消費し続ける。',
+            'zh-Hant': '撥擋防不住摔投，而且在撥擋的動作與收招中被摔是「懲罰反擊摔投」—— 不能解、傷害多七成、再扣一格動力槽，還是強制倒地。這比一般被摔貴得多。',
+            en: 'Parry does not stop throws, and being thrown during the parry or its recovery is a Punish Counter throw: untechable, 70% extra damage, another bar of Drive gone, and a hard knockdown. Far more expensive than an ordinary throw.',
+            ja: 'パリィは投げを防げず、パリィ中および硬直中に投げられるとパニッシュカウンター投げになる。抜けられず、ダメージ70%増、ドライブをさらに1本失い、ハードダウンまで付く。通常の投げよりはるかに高くつく。',
           },
-          hpLoss: '10-15%',
-          driveLoss: 1,
+          hpLoss: '18-25%',
+          driveLoss: 2,
         },
         versus: [
-          { vs: 'throw', outcome: 'loss' },
+          { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'poke', outcome: 'win' },
           { vs: 'low-overhead-mix', outcome: 'even' },
           { vs: 'dash-in', outcome: 'win' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
+            patch: '2026-08 查閱',
+            note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'mash-light',

@@ -36,9 +36,9 @@ export const GROUP_D: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '被摔，或是被必殺技的削減血量打到見底 —— Burnout 期間削血可以直接把你打死。',
-            en: 'Thrown, or chipped out: while burnt out, chip damage from specials can kill you outright.',
-            ja: '投げられるか削り殺される。バーンアウト中は必殺技の削りで直接倒される。',
+            'zh-Hant': '被摔，或是被削血打死 —— Burnout 期間擋下必殺技與 SA 會吃到原傷害 25% 的削血，血量低的時候擋著也會輸。',
+            en: 'Thrown, or chipped out: blocked specials and Supers deal 25% of their normal damage as chip while burnt out, so blocking can lose you the round outright.',
+            ja: '投げられるか削り殺される。バーンアウト中は必殺技やSAをガードしても本来の25%の削りを受け、体力が低ければガードしていても負ける。',
           },
           hpLoss: '20-30%',
           driveLoss: 0,
@@ -52,11 +52,18 @@ export const GROUP_D: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '40-50%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '防禦硬直 +4F、必殺技削血 25%、力盡中被撞牆會暈眩；來源未標註遊戲版本',
+          },
+        ],
         notes: {
-          'zh-Hant': 'Burnout 期間所有動力技能都不能用 —— 撥擋、衝擊、反攻、箭步全部消失。這才是 Burnout 真正的代價，不是那點血。',
-          en: 'Every Drive move is gone during Burnout: parry, impact, reversal and rush all disappear. That, not the chip, is what Burnout actually costs.',
-          ja: 'バーンアウト中はドライブ技が全て使えない。パリィ、インパクト、リバーサル、ラッシュが消える。削りではなくこれこそがバーンアウトの本当の代償。',
+          'zh-Hant': 'Burnout 期間所有動力技能都不能用 —— 撥擋、衝擊、反攻、箭步全部消失。而且防禦硬直每一下多 4 frame（原本 +1 的招會變成 +5），對手的連防會直接變成沒有空隙。',
+          en: 'Every Drive move is gone during Burnout: parry, impact, reversal and rush all disappear. On top of that every block adds 4 frames of blockstun — a move that was +1 becomes +5 — so their strings simply stop having gaps.',
+          ja: 'バーンアウト中はドライブ技が全て使えない。パリィ、インパクト、リバーサル、ラッシュが消える。さらにガード硬直が1回につき4F増え、+1だった技が+5になるため、相手の連係から隙間が消える。',
         },
       },
       {
@@ -73,9 +80,9 @@ export const GROUP_D: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手延遲打擊抓到解摔輸入。Burnout 的防禦硬直更長，所以他的空隙比平常更好抓。',
-            en: 'A delayed attack catches the tech input, and longer Burnout blockstun makes those windows easier for them to find.',
-            ja: '遅らせ打撃に投げ抜けを狩られる。バーンアウト中はガード硬直が長く、相手は隙間を作りやすい。',
+            'zh-Hant': '對手延遲打擊抓到解摔輸入。Burnout 每次防禦多 4 frame 硬直，所以對手能延遲的範圍比平常大得多。',
+            en: 'A delayed attack catches the tech input, and the extra 4 frames of Burnout blockstun give them a far wider window to delay into.',
+            ja: '遅らせ打撃に投げ抜けを狩られる。バーンアウト中はガード硬直が1回4F増えるため、相手が遅らせられる幅がはるかに広い。',
           },
           hpLoss: '35-50%',
           driveLoss: 0,
@@ -88,7 +95,14 @@ export const GROUP_D: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '防禦硬直 +4F、必殺技削血 25%、力盡中被撞牆會暈眩；來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'throw-tech',
@@ -249,9 +263,9 @@ export const GROUP_D: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '被摔，或是被必殺技的削減血量打到見底 —— Burnout 期間削血可以直接把你打死。',
-            en: 'Thrown, or chipped out: while burnt out, chip damage from specials can kill you outright.',
-            ja: '投げられるか削り殺される。バーンアウト中は必殺技の削りで直接倒される。',
+            'zh-Hant': '被摔，或是被削血打死 —— Burnout 期間擋下必殺技與 SA 會吃到原傷害 25% 的削血，血量低的時候擋著也會輸。',
+            en: 'Thrown, or chipped out: blocked specials and Supers deal 25% of their normal damage as chip while burnt out, so blocking can lose you the round outright.',
+            ja: '投げられるか削り殺される。バーンアウト中は必殺技やSAをガードしても本来の25%の削りを受け、体力が低ければガードしていても負ける。',
           },
           hpLoss: '20-30%',
           driveLoss: 0,
@@ -265,19 +279,26 @@ export const GROUP_D: Situation[] = [
             vs: 'drive-impact',
             outcome: 'bigLoss',
             note: {
-              'zh-Hant': '角落 + Burnout + 對手的動力衝擊 = 撞牆確定，接完整連段。這是遊戲裡最貴的單一情境。',
-              en: 'Cornered, burnt out, and their Drive Impact: a guaranteed wall splat into a full combo. The single most expensive spot in the game.',
-              ja: '画面端かつバーンアウト状態で相手のドライブインパクト。壁やられが確定しフルコンボに繋がる。ゲーム中で最も代償の大きい状況。',
+              'zh-Hant': '角落 + Burnout + 對手的動力衝擊 = 撞牆並且暈眩，而且**擋住也一樣會暈**，暈眩期間無法掙脫。這不是「被打到很痛」，是連正確防禦都救不了你 —— 全遊戲最貴的單一情境。',
+              en: 'Cornered, burnt out, and their Drive Impact: a wall splat that stuns — and it stuns on block as well as on hit, with no mashing out. This is not "getting hit hurts", it is the one spot where blocking correctly does not save you. The most expensive situation in the game.',
+              ja: '画面端かつバーンアウト状態で相手のドライブインパクト。壁やられからスタンし、しかもヒットだけでなくガードしてもスタンする（もがいて抜けられない）。「当たると痛い」ではなく「正しくガードしても助からない」唯一の状況であり、ゲーム中で最も代償が大きい。',
             },
           },
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '40-50%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '防禦硬直 +4F、必殺技削血 25%、力盡中被撞牆會暈眩；來源未標註遊戲版本',
+          },
+        ],
         notes: {
-          'zh-Hant': 'Burnout 期間所有動力技能都不能用 —— 撥擋、衝擊、反攻、箭步全部消失。這才是 Burnout 真正的代價，不是那點血。',
-          en: 'Every Drive move is gone during Burnout: parry, impact, reversal and rush all disappear. That, not the chip, is what Burnout actually costs.',
-          ja: 'バーンアウト中はドライブ技が全て使えない。パリィ、インパクト、リバーサル、ラッシュが消える。削りではなくこれこそがバーンアウトの本当の代償。',
+          'zh-Hant': 'Burnout 期間所有動力技能都不能用 —— 撥擋、衝擊、反攻、箭步全部消失。而且防禦硬直每一下多 4 frame（原本 +1 的招會變成 +5），對手的連防會直接變成沒有空隙。',
+          en: 'Every Drive move is gone during Burnout: parry, impact, reversal and rush all disappear. On top of that every block adds 4 frames of blockstun — a move that was +1 becomes +5 — so their strings simply stop having gaps.',
+          ja: 'バーンアウト中はドライブ技が全て使えない。パリィ、インパクト、リバーサル、ラッシュが消える。さらにガード硬直が1回につき4F増え、+1だった技が+5になるため、相手の連係から隙間が消える。',
         },
       },
       {
@@ -294,9 +315,9 @@ export const GROUP_D: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手延遲打擊抓到解摔輸入。Burnout 的防禦硬直更長，所以他的空隙比平常更好抓。',
-            en: 'A delayed attack catches the tech input, and longer Burnout blockstun makes those windows easier for them to find.',
-            ja: '遅らせ打撃に投げ抜けを狩られる。バーンアウト中はガード硬直が長く、相手は隙間を作りやすい。',
+            'zh-Hant': '對手延遲打擊抓到解摔輸入。Burnout 每次防禦多 4 frame 硬直，所以對手能延遲的範圍比平常大得多。',
+            en: 'A delayed attack catches the tech input, and the extra 4 frames of Burnout blockstun give them a far wider window to delay into.',
+            ja: '遅らせ打撃に投げ抜けを狩られる。バーンアウト中はガード硬直が1回4F増えるため、相手が遅らせられる幅がはるかに広い。',
           },
           hpLoss: '45-60%',
           driveLoss: 0,
@@ -309,7 +330,14 @@ export const GROUP_D: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '防禦硬直 +4F、必殺技削血 25%、力盡中被撞牆會暈眩；來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'throw-tech',

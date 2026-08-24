@@ -171,12 +171,12 @@ export const GROUP_E: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '撥擋防不住摔投，也擋不住對手直接衝進來近身。',
-            en: 'Parry does not stop a throw, nor them simply dashing into your face.',
-            ja: 'パリィは投げを防げず、単純に近づかれることも止められない。',
+            'zh-Hant': '撥擋防不住摔投，而且在撥擋的動作與收招中被摔是「懲罰反擊摔投」—— 不能解、傷害多七成、再扣一格動力槽，還是強制倒地。這比一般被摔貴得多。',
+            en: 'Parry does not stop throws, and being thrown during the parry or its recovery is a Punish Counter throw: untechable, 70% extra damage, another bar of Drive gone, and a hard knockdown. Far more expensive than an ordinary throw.',
+            ja: 'パリィは投げを防げず、パリィ中および硬直中に投げられるとパニッシュカウンター投げになる。抜けられず、ダメージ70%増、ドライブをさらに1本失い、ハードダウンまで付く。通常の投げよりはるかに高くつく。',
           },
-          hpLoss: '15-25%',
-          driveLoss: 1,
+          hpLoss: '18-25%',
+          driveLoss: 2,
         },
         versus: [
           { vs: 'projectile', outcome: 'bigWin' },
@@ -185,7 +185,14 @@ export const GROUP_E: Situation[] = [
           { vs: 'jump-in', outcome: 'loss' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
+            patch: '2026-08 查閱',
+            note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '對付投射物角色的核心工具 —— 撥擋一發等於把對手的牽制轉成你的推進資源。',
           en: 'The core tool against a zoner: one parry converts their keepaway into your advancing resource.',
@@ -426,12 +433,12 @@ export const GROUP_E: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '撥擋防不住摔投，也擋不住對手直接衝進來近身。',
-            en: 'Parry does not stop a throw, nor them simply dashing into your face.',
-            ja: 'パリィは投げを防げず、単純に近づかれることも止められない。',
+            'zh-Hant': '撥擋防不住摔投，而且在撥擋的動作與收招中被摔是「懲罰反擊摔投」—— 不能解、傷害多七成、再扣一格動力槽，還是強制倒地。這比一般被摔貴得多。',
+            en: 'Parry does not stop throws, and being thrown during the parry or its recovery is a Punish Counter throw: untechable, 70% extra damage, another bar of Drive gone, and a hard knockdown. Far more expensive than an ordinary throw.',
+            ja: 'パリィは投げを防げず、パリィ中および硬直中に投げられるとパニッシュカウンター投げになる。抜けられず、ダメージ70%増、ドライブをさらに1本失い、ハードダウンまで付く。通常の投げよりはるかに高くつく。',
           },
-          hpLoss: '15-25%',
-          driveLoss: 1,
+          hpLoss: '18-25%',
+          driveLoss: 2,
         },
         versus: [
           { vs: 'projectile', outcome: 'bigWin' },
@@ -440,7 +447,14 @@ export const GROUP_E: Situation[] = [
           { vs: 'jump-in', outcome: 'loss' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
+            patch: '2026-08 查閱',
+            note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '對付投射物角色的核心工具 —— 撥擋一發等於把對手的牽制轉成你的推進資源。',
           en: 'The core tool against a zoner: one parry converts their keepaway into your advancing resource.',

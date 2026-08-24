@@ -105,6 +105,17 @@ src/
 
 合計 18 個情境、134 筆評價。**每個群組只用一個分類軸** —— 混合軸是這份指南最早的設計錯誤。
 
+### 查證
+
+第一輪對照外部資料的結果：**21 筆已從 `estimated` 升為 `sourced`**，並修正了數處低估。
+主要來源為 [SuperCombo Wiki](https://wiki.supercombo.gg/w/Street_Fighter_6/Defense)、
+[Hotspawn 防禦指南](https://www.hotspawn.com/street-fighter/guide/street-fighter-6-how-to-play-defense)、
+[Street Fighter Wiki](https://streetfighter.fandom.com/wiki/Drive_Parry) 與
+[EventHubs](https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/)。
+
+這些來源都沒有標註遊戲版本，所以 `patch` 欄位記錄的是**查閱日期**而非版本號，並在來源
+註記中寫明。這是刻意的：假裝有版本號比誠實說「不知道是哪一版」更糟。
+
 `npm run validate` 會用 esbuild 打包資料層後實際 import 進來檢查引用完整性：
 懸空的選項 id、重複 id、標成 `sourced` 卻沒有來源、空白的語言欄位（`tsc` 抓不到這個，
 因為空字串仍是合法字串）都會讓 CI 失敗。
