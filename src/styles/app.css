@@ -1,0 +1,571 @@
+/* ── Shell ───────────────────────────────────────────────────────── */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  padding-block: var(--space-3) 0;
+}
+
+.app__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--space-5), 4vw, var(--space-7));
+  padding-block: clamp(var(--space-5), 5vw, var(--space-7));
+}
+
+/* ── Topbar ──────────────────────────────────────────────────────────
+   A floating rounded bar rather than a full-bleed one: the radius is what the
+   refraction lens is shaped from, and an edge-to-edge bar has no rim to bend
+   anything through. */
+.topbar {
+  position: sticky;
+  top: var(--space-3);
+  z-index: 20;
+  width: min(var(--shell-max), calc(100% - 2 * var(--space-4)));
+  margin-inline: auto;
+  border-radius: var(--radius-lg);
+}
+
+.topbar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-5);
+  min-height: var(--topbar-h);
+  padding-block: var(--space-2);
+}
+
+.topbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: inherit;
+  text-decoration: none;
+  font-weight: 650;
+  font-size: var(--step-1);
+  letter-spacing: -0.01em;
+}
+
+.topbar__mark {
+  font-size: 1.15em;
+  line-height: 1;
+}
+
+.topbar__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+}
+
+/* ── Segmented control ───────────────────────────────────────────────
+   Inside a glass panel, so it paints no surface of its own (no track fill, no
+   border): an opaque child would cover the refracted backdrop, which is the
+   whole effect. The active state is carried by colour, weight and an
+   underline — foreground marks, not a background. */
+.segmented {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.segmented--compact {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+}
+
+.segmented__legend {
+  padding: 0;
+  font-size: var(--step--1);
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.segmented__track {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.segmented__option {
+  position: relative;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--glass-duration) var(--glass-ease);
+}
+
+.segmented__option input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+}
+
+.segmented__option:hover {
+  color: var(--text);
+}
+
+.segmented__option.is-active {
+  color: var(--accent-fg);
+  font-weight: 650;
+}
+
+.segmented__option.is-active::after {
+  content: '';
+  position: absolute;
+  inset-inline: var(--space-2);
+  bottom: 1px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.segmented__option:has(input:focus-visible) {
+  box-shadow: var(--focus-ring);
+}
+
+/* ── Hero ────────────────────────────────────────────────────────── */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding-top: var(--space-3);
+}
+
+.hero__badge {
+  color: var(--text-muted);
+}
+
+.hero__title {
+  font-size: var(--step-3);
+  margin: 0;
+}
+
+.hero__tagline {
+  max-width: 46ch;
+  font-size: var(--step-1);
+  color: var(--text-muted);
+}
+
+.hero__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+.hero__side .segmented__option {
+  font-size: var(--step-0);
+  padding-inline: var(--space-3);
+}
+
+.hero__side-hint {
+  max-width: 52ch;
+}
+
+/* ── Situation header ────────────────────────────────────────────── */
+.situation-head h2 {
+  font-size: var(--step-2);
+  margin-block: var(--space-2);
+}
+
+.situation-head p {
+  max-width: 72ch;
+}
+
+.situation-head__group {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent-fg);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.situation-head__note {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+}
+
+/* ── Option grid ─────────────────────────────────────────────────── */
+.option-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 26rem), 1fr));
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: clamp(var(--space-4), 2vw, var(--space-5));
+}
+
+.option__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.option__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.option__title h3 {
+  font-size: var(--step-1);
+}
+
+.option__flag {
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-full, 9999px);
+  background: var(--accent-soft);
+  color: var(--accent-fg);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.option__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  padding-block: var(--space-3);
+  border-block: 1px solid var(--border);
+}
+
+.option__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.option__label {
+  font-size: var(--step--1);
+  color: var(--text-faint);
+}
+
+.option__tiers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.option__outcomes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.outcome {
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--outcome-accent, var(--border-strong));
+  background: var(--outcome-bg, var(--surface-sunken));
+}
+
+.outcome--success {
+  --outcome-accent: var(--reward-medium);
+  --outcome-bg: var(--reward-medium-soft);
+}
+
+.outcome--fail {
+  --outcome-accent: var(--risk-high);
+  --outcome-bg: var(--risk-high-soft);
+}
+
+.outcome h4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  font-size: var(--step-0);
+}
+
+.outcome__tag {
+  padding: 0.05rem 0.45rem;
+  border-radius: 9999px;
+  border: 1px solid var(--outcome-accent);
+  color: var(--outcome-accent);
+  font-size: var(--step--1);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.outcome p {
+  font-size: var(--step-0);
+}
+
+.outcome p + p {
+  margin-top: var(--space-2);
+}
+
+.option__notes {
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--surface-sunken);
+  color: var(--text-muted);
+}
+
+.option__countered {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+}
+
+.option__countered-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.option__countered code {
+  padding: 0.05rem 0.4rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-inset);
+  color: var(--text-muted);
+}
+
+/* ── Tier badges ─────────────────────────────────────────────────── */
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background: var(--tier-bg);
+  color: var(--tier-fg);
+  font-size: var(--step--1);
+}
+
+.tier-badge__label {
+  color: var(--text-muted);
+}
+
+.tier-badge__value {
+  font-weight: 650;
+}
+
+.pips {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.pip {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+}
+
+/* ── Verified tag ────────────────────────────────────────────────── */
+.verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 9999px;
+  border: 1px dashed var(--border-strong);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  white-space: nowrap;
+  cursor: help;
+}
+
+.verified--sourced {
+  border-style: solid;
+  border-color: var(--risk-safe);
+  color: var(--risk-safe);
+}
+
+/* ── Input notation ──────────────────────────────────────────────── */
+.notation {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.notation__dir {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-inset);
+  color: var(--text);
+}
+
+.notation__dir svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.notation__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.85rem;
+  height: 1.35rem;
+  padding-inline: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-on-solid);
+}
+
+/* Punches round, kicks square — limb readable without reading the letters. */
+.notation__btn--p {
+  border-radius: 9999px;
+}
+
+.notation__btn--k {
+  border-radius: var(--radius-sm);
+}
+
+.notation__btn--l {
+  background: #2563eb;
+}
+
+.notation__btn--m {
+  background: #ca8a04;
+}
+
+.notation__btn--h {
+  background: #dc2626;
+}
+
+html[data-theme='dark'] .notation__btn--l {
+  background: #3b82f6;
+}
+
+html[data-theme='dark'] .notation__btn--m {
+  background: #eab308;
+}
+
+html[data-theme='dark'] .notation__btn--h {
+  background: #ef4444;
+}
+
+.notation__word {
+  padding: 0.05rem 0.35rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-inset);
+  color: var(--text-muted);
+  font-size: var(--step--1);
+}
+
+/* ── Roadmap ─────────────────────────────────────────────────────── */
+.roadmap {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.roadmap__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--surface-sunken);
+}
+
+.roadmap__state {
+  flex: none;
+  min-width: 4.5rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 9999px;
+  font-weight: 650;
+  text-align: center;
+}
+
+.roadmap__item--done .roadmap__state {
+  background: var(--risk-safe-soft);
+  color: var(--risk-safe);
+}
+
+.roadmap__item--active .roadmap__state {
+  background: var(--accent-soft);
+  color: var(--accent-fg);
+}
+
+.roadmap__item--planned .roadmap__state {
+  background: var(--surface-inset);
+  color: var(--text-faint);
+}
+
+.roadmap__item--planned {
+  color: var(--text-muted);
+}
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+.footer {
+  width: min(var(--shell-max), calc(100% - 2 * var(--space-4)));
+  margin: var(--space-6) auto var(--space-4);
+  border-radius: var(--radius-lg);
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-block: var(--space-4);
+}
+
+.footer__links {
+  margin-top: var(--space-2);
+}
+
+/* ── Narrow screens ──────────────────────────────────────────────────
+   The switchers stack before the brand does; a hidden legend would save space
+   but it is the only thing naming what each row of options controls. */
+@media (max-width: 46rem) {
+  /* Three stacked switchers is ~40% of a phone viewport. Until they move into a
+     settings popover, let the bar scroll away instead of pinning that much of
+     the screen shut — this page gets read between matches, on a phone. */
+  .topbar {
+    position: static;
+  }
+
+  .topbar__inner {
+    justify-content: flex-start;
+  }
+
+  .topbar__controls {
+    width: 100%;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-3);
+  }
+
+  .segmented {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+}

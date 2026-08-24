@@ -1,0 +1,77 @@
+# SF6 情境對策 · SF6 Situations
+
+Street Fighter 6 的情境決策查詢工具 —— 每個情境下有哪些選擇，各自的**風險**、**回報**，以及成功後**能不能延續攻勢**。攻守雙向、三語（繁體中文 / English / 日本語）。
+
+A situational decision reference for Street Fighter 6: for every situation, what your options are, what each one **risks**, what it **pays**, and whether your turn continues. Both sides of the interaction, in three languages.
+
+> [!IMPORTANT]
+> **非官方同人攻略。** 與 CAPCOM 無關聯，也未經其授權或背書。
+> Street Fighter 6 © CAPCOM。商標與著作權歸原權利人所有。
+>
+> **Unofficial fan-made guide.** Not affiliated with, authorised by, or endorsed by CAPCOM.
+
+---
+
+## 這個專案在做什麼
+
+大部分攻略告訴你「這招 −4 frame」。這份指南要回答的是**下一步該按什麼**：
+
+- 我在角落倒地，對手站在我身上 —— 解摔、延遲解摔、Parry、速點、後跳、無敵技，哪個值得？
+- 每個選擇失敗會扣多少血、掉多少 Drive、位置會變多差？
+- 成功之後我拿到什麼 —— 一套連段、保住主導權、還是只是逃掉但把回合讓出去？
+- 我用投擲把對手打倒、他在角落、我有 3 格 Drive —— 我能做什麼？（攻方資料通常沒人整理）
+
+## 三個設計決定
+
+**1. 選項寫一次，情境引用它。**
+情境是「位置 × 狀態 × 資源」的組合加上一串選項 id，不是選項的副本。「解摔」只存在一份。
+
+**2. 攻守是同一份相剋矩陣的兩個讀法。**
+矩陣的一格是（進攻選項 × 防守選項 → 結果）。守方視角讀「列」，攻方視角讀「行」。關係不會寫兩遍，所以兩個視角不可能對不上。
+
+**3. 每一筆都標記 `estimated` 或 `sourced`。**
+定性分級與傷害級距先做，覆蓋所有情境；精確 frame data 與數字之後逐項補上，附來源連結與遊戲版本號。UI 上明確區分兩者 —— **估計值永遠不會被當成事實呈現**。
+
+## 圖片政策
+
+所有圖解都是自製 SVG（位置圖、frame 時間軸、相剋熱圖、指令記號）。**本專案不收錄任何 CAPCOM 官方素材** —— 沒有 logo、沒有角色立繪、沒有遊戲 UI 圖示、沒有從遊戲檔案抽出的圖片。
+
+依據 [Capcom Video Policy](https://www.capcomusa.com/video-policy/)，拆解遊戲內元素單獨散布是明文禁止的，而自製的衍生美術是允許的。自製 SVG 落在允許的那一邊 —— 而且對「角落倒地、對手貼身、我有 3 格 Drive」這種狀態，示意圖本來就比截圖清楚。
+
+資料模型有一個選填的 `screenshots` 欄位，供之後補上**自行拍攝並加註**的教學圖；圖解本身不依賴它。本專案不設付費牆、不掛廣告。
+
+## 開發
+
+```bash
+npm install
+npm run dev        # http://localhost:5173/StreetFighter6-Guide/
+npm run build      # tsc -b && vite build
+npm run validate   # 資料引用完整性檢查
+```
+
+推到 `main` 會由 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) 自動建置並發佈到 GitHub Pages。
+部署到根路徑的平台（Cloudflare Pages、Netlify）時用 `BASE_PATH=/ npm run build`。
+
+## 技術
+
+Vite · React · TypeScript，無 UI 框架依賴。內容資料以型別約束 —— 三語任一漏翻、引用不存在的選項 id，都會讓 `tsc` 失敗而不是靜默降級。
+
+主題預設跟隨系統設定（`prefers-color-scheme`），可手動覆寫為淺色 / 深色。
+
+### 目錄
+
+```
+src/
+├─ data/schema.ts        資料模型（雙向矩陣、倒地類型、查證標記）
+├─ i18n/                 介面字串（三語，型別強制完整）
+├─ components/glass/     Liquid Glass — CSS 層 + 折射層 React 移植
+├─ components/viz/       SVG 圖表元件
+└─ styles/               設計 token（深淺色、風險/回報分級）
+```
+
+## 致謝與授權
+
+Liquid Glass 的 UI 基底來自 [stormaref/LiquidGlassSkill](https://github.com/stormaref/LiquidGlassSkill)（MIT）；其折射場公式源自 [dashersw/liquid-glass-js](https://github.com/dashersw/liquid-glass-js)（MIT, © 2025 Armagan Amcalar）。移植版保留原著作權標示於
+[`src/components/glass/refraction.ts`](src/components/glass/refraction.ts)。
+
+本專案原始碼採用 MIT 授權（見 [LICENSE](LICENSE)）。攻略內容供個人學習參考使用。

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>SF6 情境對策 | Street Fighter 6 Situational Guide</title>
+    <meta
+      name="description"
+      content="Street Fighter 6 situational decision guide — risk, reward and follow-up for every defensive and offensive option. Unofficial fan-made reference. 繁體中文 / English / 日本語"
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A5%8B%3C/text%3E%3C/svg%3E" />
+    <script>
+      // Theme + language before first paint, or the page flashes the wrong one.
+      // Absent a saved choice we follow the OS; `data-theme` is only ever set
+      // to a concrete value so the CSS never has to guess.
+      (function () {
+        try {
+          var saved = localStorage.getItem('sf6g:theme');
+          var dark = saved === 'dark' || saved === 'light'
+            ? saved === 'dark'
+            : matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+
+          var locale = localStorage.getItem('sf6g:locale');
+          if (locale !== 'zh-Hant' && locale !== 'en' && locale !== 'ja') {
+            var nav = (navigator.languages || [navigator.language || 'en']).join(',');
+            locale = /\bja\b/i.test(nav) ? 'ja' : /\bzh\b/i.test(nav) ? 'zh-Hant' : 'en';
+          }
+          document.documentElement.lang = locale;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

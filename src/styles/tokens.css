@@ -1,0 +1,175 @@
+/*
+ * Project tokens, layered on top of liquid-glass.css.
+ *
+ * Two deliberate departures from the stock glass recipe, both in service of
+ * "this is a reference you read under time pressure":
+ *
+ *  1. The ambient mesh runs at ~half the stock alpha. Glass still has colour to
+ *     refract (the panel never reads as a gray box), but a dense risk table no
+ *     longer sits on a light show.
+ *  2. Content surfaces are OPAQUE. Glass is for chrome — topbar, switchers,
+ *     popovers, chips. Matrices, option tables and frame timelines get a solid
+ *     high-contrast card, because the busiest part of the backdrop is exactly
+ *     where the numbers would land.
+ */
+
+/* ── Ambient mesh, halved ─────────────────────────────────────────── */
+:root,
+html[data-theme='light'] {
+  --glass-mesh-violet: rgba(139, 92, 246, 0.1);
+  --glass-mesh-pink: rgba(236, 72, 153, 0.08);
+  --glass-mesh-cyan: rgba(6, 182, 212, 0.07);
+  --glass-mesh-corner-top: rgba(79, 70, 229, 0.025);
+  --glass-mesh-corner-bottom: rgba(67, 56, 202, 0.03);
+}
+
+html[data-theme='dark'] {
+  --glass-mesh-violet: rgba(139, 92, 246, 0.13);
+  --glass-mesh-pink: rgba(236, 72, 153, 0.1);
+  --glass-mesh-cyan: rgba(6, 182, 212, 0.09);
+  --glass-mesh-corner-top: rgba(99, 102, 241, 0.07);
+  --glass-mesh-corner-bottom: rgba(79, 70, 229, 0.15);
+}
+
+/* ── Theme-independent ────────────────────────────────────────────── */
+:root {
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', 'PingFang TC',
+    'Microsoft JhengHei', 'Hiragino Sans', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Noto Sans Mono', monospace;
+
+  --step--1: clamp(0.78rem, 0.76rem + 0.1vw, 0.83rem);
+  --step-0: clamp(0.9rem, 0.87rem + 0.15vw, 0.97rem);
+  --step-1: clamp(1.05rem, 1rem + 0.25vw, 1.19rem);
+  --step-2: clamp(1.25rem, 1.15rem + 0.5vw, 1.55rem);
+  --step-3: clamp(1.5rem, 1.32rem + 0.9vw, 2.1rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 20px;
+
+  --shell-max: 78rem;
+  --topbar-h: 3.5rem;
+}
+
+/* Japanese and Chinese share code points with different preferred glyphs;
+   order the stack per document language rather than shipping one compromise. */
+html[lang='ja'] {
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans',
+    'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', Meiryo, sans-serif;
+}
+
+/* ── Content surfaces + text (opaque) ─────────────────────────────── */
+:root,
+html[data-theme='light'] {
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #f1f3f7;
+  --surface-inset: #e9ecf2;
+
+  --border: rgba(30, 33, 45, 0.12);
+  --border-strong: rgba(30, 33, 45, 0.24);
+
+  --text: #1c1f28;
+  --text-muted: #565d6e;
+  --text-faint: #858c9c;
+  --text-on-solid: #ffffff;
+
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-soft: rgba(79, 70, 229, 0.1);
+  --accent-fg: #4338ca;
+
+  --card-shadow: 0 1px 2px rgba(20, 22, 30, 0.06), 0 6px 18px rgba(20, 22, 30, 0.06);
+  --focus-ring: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+}
+
+html[data-theme='dark'] {
+  --surface: #15161c;
+  --surface-raised: #1c1e26;
+  --surface-sunken: #101116;
+  --surface-inset: #0c0d11;
+
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.22);
+
+  --text: #eceef4;
+  --text-muted: #a2a8b8;
+  --text-faint: #737a8c;
+  --text-on-solid: #0a0a0c;
+
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --accent-soft: rgba(129, 140, 248, 0.14);
+  --accent-fg: #a5b4fc;
+
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.4);
+  --focus-ring: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+}
+
+/* ── Risk scale (danger intensity) ────────────────────────────────────
+   Never the only signal: every tier also carries a glyph and a filled-pip
+   count, so the scale survives greyscale printing and colour blindness. */
+:root,
+html[data-theme='light'] {
+  --risk-safe: #0f766e;
+  --risk-low: #4d7c0f;
+  --risk-medium: #b45309;
+  --risk-high: #c2410c;
+  --risk-extreme: #b91c1c;
+
+  --risk-safe-soft: rgba(15, 118, 110, 0.1);
+  --risk-low-soft: rgba(77, 124, 15, 0.1);
+  --risk-medium-soft: rgba(180, 83, 9, 0.11);
+  --risk-high-soft: rgba(194, 65, 12, 0.11);
+  --risk-extreme-soft: rgba(185, 28, 28, 0.11);
+
+  /* Reward scale (payoff intensity) — a separate hue family from risk so a
+     glance never confuses "big payoff" with "big danger". */
+  --reward-none: #64748b;
+  --reward-low: #0369a1;
+  --reward-medium: #4338ca;
+  --reward-high: #6d28d9;
+  --reward-extreme: #a21caf;
+
+  --reward-none-soft: rgba(100, 116, 139, 0.1);
+  --reward-low-soft: rgba(3, 105, 161, 0.1);
+  --reward-medium-soft: rgba(67, 56, 202, 0.1);
+  --reward-high-soft: rgba(109, 40, 217, 0.1);
+  --reward-extreme-soft: rgba(162, 28, 175, 0.1);
+}
+
+html[data-theme='dark'] {
+  --risk-safe: #5eead4;
+  --risk-low: #bef264;
+  --risk-medium: #fcd34d;
+  --risk-high: #fdba74;
+  --risk-extreme: #fca5a5;
+
+  --risk-safe-soft: rgba(94, 234, 212, 0.14);
+  --risk-low-soft: rgba(190, 242, 100, 0.14);
+  --risk-medium-soft: rgba(252, 211, 77, 0.14);
+  --risk-high-soft: rgba(253, 186, 116, 0.14);
+  --risk-extreme-soft: rgba(252, 165, 165, 0.14);
+
+  --reward-none: #94a3b8;
+  --reward-low: #7dd3fc;
+  --reward-medium: #a5b4fc;
+  --reward-high: #c4b5fd;
+  --reward-extreme: #f0abfc;
+
+  --reward-none-soft: rgba(148, 163, 184, 0.14);
+  --reward-low-soft: rgba(125, 211, 252, 0.14);
+  --reward-medium-soft: rgba(165, 180, 252, 0.14);
+  --reward-high-soft: rgba(196, 181, 253, 0.14);
+  --reward-extreme-soft: rgba(240, 171, 252, 0.14);
+}
