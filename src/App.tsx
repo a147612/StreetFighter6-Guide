@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Topbar } from './components/Topbar'
-import { OptionCard } from './components/OptionCard'
+import { OptionTable } from './components/OptionTable'
 import { GlassPanel } from './components/glass/GlassPanel'
 import { Segmented } from './components/Segmented'
 import { useT } from './i18n/useT'
@@ -96,8 +96,10 @@ export default function App() {
 
       <main id="main" className="shell app__main">
         <section className="hero">
-          <span className="liquid-glass-chip hero__badge small">{t.preview.badge}</span>
-          <h1 className="hero__title">{t.appName}</h1>
+          <div className="hero__row">
+            <h1 className="hero__title">{t.appName}</h1>
+            <span className="liquid-glass-chip hero__badge small">{t.preview.badge}</span>
+          </div>
           <p className="hero__tagline">{t.tagline}</p>
 
           <div className="hero__side">
@@ -111,30 +113,29 @@ export default function App() {
               ]}
               compact
             />
-            <p className="hero__side-hint muted small">{t.sideHint[side]}</p>
           </div>
         </section>
 
         {side === 'defense' ? (
           <section className="stack" aria-labelledby="situation-heading">
-            <div className="card card--padded situation-head">
-              <div className="situation-head__top">
-                <span className="situation-head__group mono">
-                  {PREVIEW_SITUATION.group}
-                  {' · '}
-                  {PREVIEW_SITUATION.position.map((p) => t.position[p]).join(' / ')}
-                </span>
-              </div>
+            <div className="card card--padded situation">
+              <span className="situation__group mono">
+                {PREVIEW_SITUATION.group}
+                {' · '}
+                {PREVIEW_SITUATION.position.map((p) => t.position[p]).join(' / ')}
+              </span>
               <h2 id="situation-heading">{text(PREVIEW_SITUATION.name)}</h2>
-              <p className="muted">{text(PREVIEW_SITUATION.summary)}</p>
-              <p className="small faint situation-head__note">{t.preview.sampleNote}</p>
+              <p className="situation__brief">{text(PREVIEW_SITUATION.brief)}</p>
+
+              <details className="disclosure">
+                <summary>{t.situation.showFull}</summary>
+                <p className="muted">{text(PREVIEW_SITUATION.summary)}</p>
+              </details>
             </div>
 
-            <div className="option-grid">
-              {PREVIEW_OPTIONS.map((option) => (
-                <OptionCard key={option.id} option={option} />
-              ))}
-            </div>
+            <OptionTable options={PREVIEW_OPTIONS} />
+
+            <p className="small faint">{t.preview.sampleNote}</p>
           </section>
         ) : (
           <section className="card card--padded stack">
@@ -150,8 +151,9 @@ export default function App() {
           </section>
         )}
 
-        <section className="card card--padded stack" aria-labelledby="roadmap-heading">
-          <h2 id="roadmap-heading">{t.roadmap.heading}</h2>
+        {/* Meta, not product — collapsed so it does not compete with the table. */}
+        <details className="card card--padded disclosure disclosure--block">
+          <summary>{t.roadmap.heading}</summary>
           <ol className="roadmap">
             {ROADMAP.map((item, i) => (
               <li key={i} className={`roadmap__item roadmap__item--${item.state}`}>
@@ -166,7 +168,7 @@ export default function App() {
               </li>
             ))}
           </ol>
-        </section>
+        </details>
       </main>
 
       <GlassPanel as="footer" className="footer">

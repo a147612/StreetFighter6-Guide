@@ -100,14 +100,24 @@ export function useLiquidGlass<T extends HTMLElement>(
       debounce = setTimeout(schedule, 180)
     }
 
+    /** requestAnimationFrame does not fire in a hidden tab, so a page opened in
+     *  the background never gets its first bake — and would stay on the plain
+     *  blur fallback after the tab is brought forward, until something happened
+     *  to resize it. Re-schedule when the page becomes visible. */
+    const onVisibilityChange = (): void => {
+      if (document.visibilityState === 'visible') schedule()
+    }
+
     const observer = new ResizeObserver(schedule)
     observer.observe(host)
     window.addEventListener('resize', onWindowResize, { passive: true })
+    document.addEventListener('visibilitychange', onVisibilityChange)
     schedule()
 
     return () => {
       observer.disconnect()
       window.removeEventListener('resize', onWindowResize)
+      document.removeEventListener('visibilitychange', onVisibilityChange)
       clearTimeout(debounce)
       cancelAnimationFrame(frame)
       release()

@@ -143,6 +143,10 @@ export interface Situation {
   /** Group letter: A-H defense, I-K offense. */
   group: string
   name: I18nText
+  /** One line, always shown. The scannable framing. */
+  brief: I18nText
+  /** The full read, behind a disclosure. Authored short and long rather than
+   *  truncated, so neither version is a fragment. */
   summary: I18nText
   position: Position[]
   /** Offensive situations only. */

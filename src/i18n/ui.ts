@@ -20,9 +20,35 @@ export interface UiStrings {
   side: { label: string; defense: string; offense: string }
   sideHint: { defense: string; offense: string }
 
-  theme: { label: string; system: string; light: string; dark: string }
+  theme: {
+    label: string
+    system: string
+    light: string
+    dark: string
+    clickToSwitch: string
+  }
   localeLabel: string
   refraction: { label: string; on: string; off: string; unsupported: string }
+
+  table: {
+    option: string
+    input: string
+    cost: string
+    risk: string
+    reward: string
+    followUp: string
+    hpLoss: string
+    difficulty: string
+    mix: string
+    expandAll: string
+    collapseAll: string
+    detailHint: string
+    sortDefault: string
+    sortAsc: string
+    sortDesc: string
+  }
+  followUpShort: { combo: string; pressure: string; neutral: string; none: string }
+  situation: { showFull: string; hideFull: string }
 
   risk: { label: string; safe: string; low: string; medium: string; high: string; extreme: string }
   reward: {
@@ -70,7 +96,13 @@ const zhHant: UiStrings = {
     offense: '我打倒了對手 —— 依位置與倒地類型我能做什麼',
   },
 
-  theme: { label: '主題', system: '跟隨系統', light: '淺色', dark: '深色' },
+  theme: {
+    label: '主題',
+    system: '跟隨系統',
+    light: '淺色',
+    dark: '深色',
+    clickToSwitch: '點擊切換為',
+  },
   localeLabel: '語言',
   refraction: {
     label: '玻璃折射',
@@ -78,6 +110,26 @@ const zhHant: UiStrings = {
     off: '關閉',
     unsupported: '此瀏覽器不支援（僅 Chromium）',
   },
+
+  table: {
+    option: '選項',
+    input: '指令',
+    cost: '消耗',
+    risk: '風險',
+    reward: '回報',
+    followUp: '成功後',
+    hpLoss: '失敗扣血',
+    difficulty: '難度 /5',
+    mix: '比例',
+    expandAll: '全部展開',
+    collapseAll: '全部收合',
+    detailHint: '點任一列看完整說明',
+    sortDefault: '建議順序',
+    sortAsc: '由低到高',
+    sortDesc: '由高到低',
+  },
+  followUpShort: { combo: '連段', pressure: '續攻', neutral: '中立', none: '讓出' },
+  situation: { showFull: '完整說明', hideFull: '收起說明' },
 
   risk: { label: '風險', safe: '安全', low: '低', medium: '中', high: '高', extreme: '極高' },
   reward: { label: '回報', none: '無', low: '低', medium: '中', high: '高', extreme: '極高' },
@@ -138,7 +190,13 @@ const en: UiStrings = {
     offense: 'I knocked them down — what I get, by position and knockdown type',
   },
 
-  theme: { label: 'Theme', system: 'System', light: 'Light', dark: 'Dark' },
+  theme: {
+    label: 'Theme',
+    system: 'System',
+    light: 'Light',
+    dark: 'Dark',
+    clickToSwitch: 'Click to switch to',
+  },
   localeLabel: 'Language',
   refraction: {
     label: 'Glass refraction',
@@ -146,6 +204,26 @@ const en: UiStrings = {
     off: 'Off',
     unsupported: 'Not supported in this browser (Chromium only)',
   },
+
+  table: {
+    option: 'Option',
+    input: 'Input',
+    cost: 'Cost',
+    risk: 'Risk',
+    reward: 'Reward',
+    followUp: 'If it works',
+    hpLoss: 'Health cost',
+    difficulty: 'Exec /5',
+    mix: 'Mix',
+    expandAll: 'Expand all',
+    collapseAll: 'Collapse all',
+    detailHint: 'Select any row for the full read',
+    sortDefault: 'Suggested order',
+    sortAsc: 'Low to high',
+    sortDesc: 'High to low',
+  },
+  followUpShort: { combo: 'Combo', pressure: 'Keep turn', neutral: 'Neutral', none: 'Give turn' },
+  situation: { showFull: 'Full read', hideFull: 'Hide' },
 
   risk: { label: 'Risk', safe: 'Safe', low: 'Low', medium: 'Medium', high: 'High', extreme: 'Extreme' },
   reward: { label: 'Reward', none: 'None', low: 'Low', medium: 'Medium', high: 'High', extreme: 'Extreme' },
@@ -207,7 +285,13 @@ const ja: UiStrings = {
     offense: 'ダウンを取った —— 位置とダウン種別ごとにできること',
   },
 
-  theme: { label: 'テーマ', system: 'システム設定', light: 'ライト', dark: 'ダーク' },
+  theme: {
+    label: 'テーマ',
+    system: 'システム設定',
+    light: 'ライト',
+    dark: 'ダーク',
+    clickToSwitch: 'クリックで切替:',
+  },
   localeLabel: '言語',
   refraction: {
     label: 'ガラス屈折',
@@ -215,6 +299,26 @@ const ja: UiStrings = {
     off: 'オフ',
     unsupported: 'このブラウザでは非対応（Chromium のみ）',
   },
+
+  table: {
+    option: '選択肢',
+    input: 'コマンド',
+    cost: '消費',
+    risk: 'リスク',
+    reward: 'リターン',
+    followUp: '成功時',
+    hpLoss: '被ダメージ',
+    difficulty: '難易度 /5',
+    mix: '割合',
+    expandAll: 'すべて展開',
+    collapseAll: 'すべて折りたたむ',
+    detailHint: '行を選ぶと詳細が開きます',
+    sortDefault: '推奨順',
+    sortAsc: '低い順',
+    sortDesc: '高い順',
+  },
+  followUpShort: { combo: 'コンボ', pressure: '継続', neutral: '五分', none: '明け渡す' },
+  situation: { showFull: '詳細を読む', hideFull: '閉じる' },
 
   risk: { label: 'リスク', safe: '安全', low: '低', medium: '中', high: '高', extreme: '極大' },
   reward: { label: 'リターン', none: 'なし', low: '低', medium: '中', high: '高', extreme: '極大' },

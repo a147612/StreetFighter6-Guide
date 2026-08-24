@@ -18,6 +18,11 @@ export const PREVIEW_SITUATION: Situation = {
     en: 'Cornered wakeup, opponent right on top of you',
     ja: '画面端でダウン、相手が密着',
   },
+  brief: {
+    'zh-Hant': '沒有退路，所以每個選項的代價都比場中更重。',
+    en: 'No space behind you, so every option costs more than it would midscreen.',
+    ja: '後ろに逃げ場がないため、どの選択肢も画面中央より代償が大きい。',
+  },
   summary: {
     'zh-Hant':
       '你被打到角落並倒地，對手站在你身上等你起來。沒有退路，所以每個選項的代價都比場中更重 —— 後跳幾乎沒有空間，而失敗的懲罰會把你留在同一個位置再來一次。',
