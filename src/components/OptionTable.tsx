@@ -165,7 +165,15 @@ export function OptionTable({
       // table left below it; otherwise it hangs over the next section.
       const show = head.bottom < pin && body.bottom > pin + head.height
       setStuck(show)
-      if (!show) return
+      if (!show) {
+        // Clear the measured geometry. It is `position: fixed`, so a stale
+        // pixel width left over from a wider layout is a box the page can be
+        // scrolled sideways to reach — invisible, but it widens the document.
+        ghostNode.style.top = ''
+        ghostNode.style.left = ''
+        ghostNode.style.width = ''
+        return
+      }
       const box = scrollerNode.getBoundingClientRect()
       ghostNode.style.top = `${pin}px`
       ghostNode.style.left = `${box.left}px`
@@ -380,6 +388,7 @@ export function OptionTable({
                           <OutcomeCell
                             outcome={outcomes.get(id)}
                             opponentName={text(opponent!.name)}
+                            shortName={text(opponent!.short ?? opponent!.name)}
                           />
                         </td>
                       ))}

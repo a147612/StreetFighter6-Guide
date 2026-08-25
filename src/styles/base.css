@@ -115,6 +115,16 @@ samp {
   padding: clamp(var(--space-4), 2.5vw, var(--space-5));
 }
 
+/* …and the page is held to that. Any element that escapes its box — a stale
+   fixed position, a stray min-width — otherwise widens the layout viewport,
+   which on a phone shows up as a blank strip on the right when you pinch out.
+   `clip` rather than `hidden` because `hidden` would make the root a scroll
+   container and stop the topbar sticking. */
+html,
+body {
+  overflow-x: clip;
+}
+
 /* Wide content must scroll inside its own box; the page body never does. */
 .scroll-x {
   overflow-x: auto;

@@ -607,6 +607,14 @@
   gap: var(--space-2);
 }
 
+/* A source URL is one long unbreakable token, which on a phone ran off the
+   right edge — and once the page stopped scrolling sideways, ran off it
+   invisibly. Break inside the URL rather than letting it decide the width. */
+.detail__sources a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .detail__countered code {
   padding: 0.05rem 0.4rem;
   border-radius: var(--radius-sm);
@@ -1111,23 +1119,43 @@ html[data-theme='dark'] .notation__btn--h {
   }
 }
 
+/* Badge, name, verdict on one line with the verdict pinned right; the note gets
+   its own line underneath. As a single flex row the note was a sibling of the
+   name, so a long one squeezed the name until it wrapped into the badge. */
 .versus-list__item {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    'badge name verdict'
+    'note  note note';
   align-items: center;
-  gap: var(--space-2);
+  column-gap: var(--space-2);
+  row-gap: 0.15rem;
   padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-sm);
   background: var(--surface);
   font-size: var(--step--1);
 }
 
+.versus-list__item > :first-child {
+  grid-area: badge;
+}
+
 .versus-list__name {
-  flex: 1;
+  grid-area: name;
   min-width: 0;
 }
 
 .versus-list__verdict {
+  grid-area: verdict;
+  justify-self: end;
+  white-space: nowrap;
   font-weight: 650;
+}
+
+.versus-list__note {
+  grid-area: note;
+  line-height: 1.45;
 }
 
 /* ── Matrix header ───────────────────────────────────────────────────
@@ -1927,4 +1955,133 @@ html[data-theme='dark'] .notation__btn--h {
 
 .glossary .opt-row__hp {
   min-width: 0;
+}
+
+/* Carried in every cell for screen readers, revealed only where the column
+   heading is gone. */
+.oc__who {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ── The matrix on a phone ────────────────────────────────────────────
+   Seven columns do not fit in 375px, and the sideways-scrolling version asks
+   the reader to hold a row in their head while they drag. So below 46rem the
+   same markup reflows into one card per option: the name, then its risk and
+   cost, then every outcome as a chip that names its own column. The chips come
+   from the label already inside each cell for screen readers — there is no
+   second component to keep in sync, which is the mistake the pinned header
+   taught. Above 46rem nothing here applies and the table is a table. */
+@media (max-width: 46rem) {
+  .opt-table,
+  .opt-table tbody {
+    display: block;
+  }
+
+  /* The headings move into the cells, so the header row has nothing left to do
+     — and with no header to pin, its floating copy has nothing to copy. */
+  .opt-table thead,
+  .opt-stickyhead {
+    display: none;
+  }
+
+  .opt-table__group th {
+    display: block;
+    border-radius: var(--radius-sm);
+  }
+
+  .opt-table__group span {
+    position: static;
+  }
+
+  .opt-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem 0.4rem;
+    padding: var(--space-2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .opt-row__name,
+  .opt-table__vs,
+  .opt-table__agg {
+    display: flex;
+    align-items: center;
+    width: auto;
+    padding: 0;
+    border: 0;
+  }
+
+  /* Name on its own line, then risk and cost, then the chips. The pseudo-element
+     is the line break between the second row and the third. */
+  .opt-row__name {
+    order: 0;
+    flex: 1 1 100%;
+    position: static;
+    background: none;
+    box-shadow: none;
+  }
+
+  .opt-table__agg {
+    order: 1;
+    gap: var(--space-2);
+  }
+
+  .opt-row::after {
+    content: '';
+    order: 2;
+    flex-basis: 100%;
+    height: 0;
+  }
+
+  .opt-table__vs {
+    order: 3;
+    padding: 0.1rem 0.4rem 0.1rem 0.5rem;
+    border-radius: 9999px;
+    background: var(--surface-sunken);
+    text-align: left !important;
+  }
+
+  /* An ungraded cell is a real state and the wide table shows it as a dot in
+     its column. Out of the grid there is no column to be a gap in, so a chip
+     reading "not relevant" about nothing in particular is just noise. */
+  .opt-table__vs:has(.oc--na) {
+    display: none;
+  }
+
+  .opt-table__vs .oc__who {
+    position: static;
+    width: auto;
+    height: auto;
+    margin-right: 0.35rem;
+    clip: auto;
+    clip-path: none;
+    white-space: nowrap;
+    overflow: visible;
+    color: var(--text-muted);
+    font-size: var(--step--1);
+  }
+
+  /* The detail panel is already a block; it just needs the full card width
+     rather than the published scrollport width the wide table needs. */
+  .opt-detail-row,
+  .opt-detail-row > td {
+    display: block;
+    width: auto;
+  }
+
+  .opt-detail-row > td > .detail {
+    width: auto;
+    max-width: none;
+  }
+
+  .scroll-x:has(.opt-table) {
+    overflow-x: visible;
+  }
 }
