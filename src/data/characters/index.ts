@@ -1125,6 +1125,20 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 23,
     reversals: [
       {
+        move: 'Coward Crouch',
+        input: '2 PP',
+        invincibility: {
+          'zh-Hant': '第 9 幀起低姿態，可按住最多 148 幀 —— 鑽過中段用的，不是起身反擊',
+          en: 'Low profile from frame 9, holdable up to 148 — a tool for ducking overheads, not a wakeup escape',
+          ja: '9F目から低姿勢、最大148Fまで持続。中段をかいくぐる用途で、起き上がりの切り返しではない',
+        },
+        cost: {
+          'zh-Hant': '無消耗',
+          en: 'Free',
+          ja: '消費なし',
+        },
+      },
+      {
         move: 'Vertical Rolling Attack (OD)',
         input: '[2]8 KK',
         invincibility: {
@@ -1405,17 +1419,44 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['reversal'],
     overrides: {
-      'super-reversal': {
+      reversal: {
         notes: {
-          'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
-          en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
-          ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
+          'zh-Hant': 'JP 的起身反擊是當身（Amnesia）而不是無敵技。OD 版從第 1 幀就同時涵蓋打擊與摔投，而且 20 幀的窗口比一般無敵技的 10 幀寬得多 —— 對延遲打擊特別有效。',
+          en: 'JP\'s wakeup answer is a counter, not an invincible reversal. The OD version covers strikes and throws from frame 1, and its 20-frame window is far wider than a typical reversal\'s 10 — which makes it unusually good against delayed attacks.',
+          ja: 'JPの切り返しは無敵技ではなく当て身（Amnesia）。OD版は1F目から打撃と投げの両方をカバーし、20Fの受付は通常の無敵技の10Fよりはるかに広いため、遅らせ打撃に特に強い。',
         },
       },
     },
     reversals: [
+      {
+        move: 'Amnesia (OD)',
+        input: '22 KK',
+        invincibility: {
+          'zh-Hant': '反擊打擊與摔投，1-20 幀 —— 窗口長達 20 幀，比無敵技更容易抓到延遲打擊。成功是 +131 的巨大回報',
+          en: 'Counters strikes and throws, frames 1-20. A 20-frame window catches delayed attacks far more easily than a DP, and connecting is a huge +131',
+          ja: '打撃と投げを1-20Fで返す。20Fの長い受付は遅らせ打撃も拾いやすく、成立時は+131と見返りが非常に大きい',
+        },
+        cost: {
+          'zh-Hant': '2 格動力槽',
+          en: '2 Drive bars',
+          ja: 'ドライブ2ゲージ',
+        },
+      },
+      {
+        move: 'Amnesia',
+        input: '22 K',
+        invincibility: {
+          'zh-Hant': '只反擊打擊，3-18 幀。防不住摔投，起身第 1-2 幀也沒有覆蓋',
+          en: 'Counters strikes only, frames 3-18. Does not stop throws, and the first two frames of wakeup are uncovered',
+          ja: '打撃のみを3-18Fで返す。投げは防げず、起き上がり最初の2Fも空く',
+        },
+        cost: {
+          'zh-Hant': '無消耗',
+          en: 'Free',
+          ja: '消費なし',
+        },
+      },
       {
         move: 'Chornobog (SA1)',
         input: '236236 P',
@@ -1493,6 +1534,20 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     reversals: [
+      {
+        move: 'Tundra Storm',
+        input: '22 HK',
+        invincibility: {
+          'zh-Hant': '只反擊「站立踢擊」（含普通技、必殺技、動力衝擊）—— 範圍極窄，不能當通用起身反擊',
+          en: 'Parries standing kick attacks only, including specials and Drive Impacts — far too narrow to be a general wakeup answer',
+          ja: '立ちキック攻撃のみを返す（必殺技やDIも対象）。範囲が狭すぎて汎用の切り返しにはならない',
+        },
+        cost: {
+          'zh-Hant': '無消耗',
+          en: 'Free',
+          ja: '消費なし',
+        },
+      },
       {
         move: 'Aerial Russian Slam (SA1)',
         input: '236236 K',
@@ -1573,17 +1628,44 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['reversal'],
     overrides: {
-      'super-reversal': {
+      reversal: {
         notes: {
-          'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
-          en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
-          ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
+          'zh-Hant': 'Ingrid 的起身反擊是吸收型當身（Sun Veil）而不是無敵技。只有 OD 版從第 1 幀起同時吃打擊與摔投；一般版第 6 幀才開始，而且不吃摔投。',
+          en: 'Ingrid\'s wakeup answer is an absorbing counter, not an invincible reversal. Only the OD version covers strikes and throws from frame 1; the normal version starts on frame 6 and does not cover throws at all.',
+          ja: 'イングリッドの切り返しは吸収型の当て身（Sun Veil）で無敵技ではない。1F目から打撃と投げの両方をカバーするのはOD版のみで、通常版は6F開始かつ投げには対応しない。',
         },
       },
     },
     reversals: [
+      {
+        move: 'Sun Veil (OD)',
+        input: '22 KK',
+        invincibility: {
+          'zh-Hant': '吸收打擊、摔投與投射物，1-20 幀。吸到之後轉為攻擊，命中 +52',
+          en: 'Absorbs strikes, throws and projectiles, frames 1-20, then transitions into an attack for +52 on hit',
+          ja: '打撃・投げ・飛び道具を1-20Fで吸収し、そのまま攻撃に移行して命中時+52',
+        },
+        cost: {
+          'zh-Hant': '2 格動力槽',
+          en: '2 Drive bars',
+          ja: 'ドライブ2ゲージ',
+        },
+      },
+      {
+        move: 'Sun Veil',
+        input: '22 K',
+        invincibility: {
+          'zh-Hant': '只吸收打擊與投射物，6-20 幀。防不住摔投，而且第 1-5 幀沒有覆蓋 —— 對算好時間的壓起身來不及',
+          en: 'Absorbs strikes and projectiles only, frames 6-20. No throw coverage, and frames 1-5 are uncovered, so a well-timed meaty lands first',
+          ja: '打撃と飛び道具のみを6-20Fで吸収。投げは防げず1-5Fも空くため、重ねられた打撃には間に合わない',
+        },
+        cost: {
+          'zh-Hant': '無消耗',
+          en: 'Free',
+          ja: '消費なし',
+        },
+      },
       {
         move: 'Shining Sun (SA1)',
         input: '236236 K',
@@ -1906,6 +1988,20 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     reversals: [
+      {
+        move: 'Focus Force (OD)',
+        input: '214 KK',
+        invincibility: {
+          'zh-Hant': '霸體 3-10 幀（按住可延長到 55 幀）。霸體不是無敵 —— 照樣被摔，也照樣扣血',
+          en: 'Armor on frames 3-10, holdable to 55. Armor is not invincibility: throws still get you and the hit still hurts',
+          ja: 'アーマー3-10F（押し続けで55Fまで）。アーマーは無敵ではなく投げは通り、ダメージも受ける',
+        },
+        cost: {
+          'zh-Hant': '2 格動力槽',
+          en: '2 Drive bars',
+          ja: 'ドライブ2ゲージ',
+        },
+      },
       {
         move: 'Limit Decoupler (SA1)',
         input: '236236 P',
@@ -2257,6 +2353,20 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     reversals: [
       {
+        move: 'Tomahawk Buster (OD)',
+        input: '623 PP',
+        invincibility: {
+          'zh-Hant': '對空與「摔投」無敵 1-10 幀 —— 打得贏摔投，但打不贏地面的壓起身',
+          en: 'Anti-air and throw invincible frames 1-10 — it beats the throw but not a grounded meaty',
+          ja: '対空と投げ無敵1-10F。投げには勝てるが地上の重ねには勝てない',
+        },
+        cost: {
+          'zh-Hant': '2 格動力槽',
+          en: '2 Drive bars',
+          ja: 'ドライブ2ゲージ',
+        },
+      },
+      {
         move: 'Breezing Hawk (SA1)',
         input: '236236 P',
         invincibility: {
@@ -2424,6 +2534,20 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     reversals: [
+      {
+        move: 'Javelin of Marisa (SA1)',
+        input: '236236 P',
+        invincibility: {
+          'zh-Hant': '全身霸體兩下，2-23 幀。吃得下壓起身，但霸體防不住摔投',
+          en: 'Two hits of full-body armor, frames 2-23. Eats a meaty, but armor does not stop a throw',
+          ja: '全身アーマー2発、2-23F。重ねは受け止められるが、アーマーは投げを防げない',
+        },
+        cost: {
+          'zh-Hant': 'SA1',
+          en: 'SA1',
+          ja: 'SA1',
+        },
+      },
       {
         move: 'Meteorite (SA2)',
         input: '214214 P',

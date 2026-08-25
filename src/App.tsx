@@ -96,9 +96,9 @@ const ROADMAP: RoadmapItem[] = [
     state: 'done',
     label: {
       'zh-Hant':
-        '角色層補齊全 31 隻。其中 13 隻沒有完全無敵的 OD 升龍類招式，選了他們會直接把那一列從表格移除',
-      en: 'Character layer complete for all 31. Thirteen have no fully invincible OD reversal; picking one removes that row from every table',
-      ja: 'キャラ別レイヤーを全31体に拡大。うち13体は完全無敵のOD昇龍系を持たず、選ぶとその行が表から消える',
+        '角色層補齊全 31 隻。其中 11 隻沒有能同時擋掉打擊與摔投的 OD 起身反擊，選了他們會直接把那一列從表格移除',
+      en: 'Character layer complete for all 31. Eleven have no OD wakeup escape covering both strike and throw; picking one removes that row from every table',
+      ja: 'キャラ別レイヤーを全31体に拡大。うち11体は打撃と投げの両方に対応するOD切り返しを持たず、選ぶとその行が表から消える',
     },
   },
   {

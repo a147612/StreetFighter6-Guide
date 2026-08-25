@@ -69,15 +69,17 @@ A situational decision reference for Street Fighter 6: for every situation, what
 
 全 31 隻角色。角色層主要做的是**減法**：
 
-**31 隻裡有 13 隻沒有完全無敵的 OD 升龍類招式** —— A.K.I.、Alex、C. Viper、Dhalsim、E. Honda、
-Ingrid、JP、Kimberly、Lily、M. Bison、Manon、Marisa、Zangief。選了他們，「OD 無敵技」那一列會
-直接從所有表格消失 —— 讓讀者照著一個他按不出來的按鈕做計畫，比沒看到更糟。
+**31 隻裡有 11 隻沒有能同時擋掉打擊與摔投的 OD 起身反擊** —— A.K.I.、Alex、C. Viper、Dhalsim、
+E. Honda、Kimberly、Lily、M. Bison、Manon、Marisa、Zangief。選了他們，「OD 起身反擊」那一列會直接
+從所有表格消失。
 
-原始資料還抓到兩個摘要看不出來的陷阱：Dhalsim 的 **SA1 完全沒有無敵**（要 SA2 以上才能凹）、
-Kimberly 的 Hidden Variable 無敵是**第 19 幀才開始**，再怎麼「完全無敵」也不能當起身反擊。
+**起身反擊不等於無敵技。** 多數角色是完全無敵的 OD 升龍，但 JP 的 **Amnesia（22K）** 和 Ingrid 的
+**Sun Veil（22K）** 是當身／吸收型 —— OD 版一樣從第 1 幀同時涵蓋打擊與摔投，而且窗口長達 20 幀，
+比典型無敵技的 10 幀更容易抓到延遲打擊。機制不同，作用相同。
 
-另外多數角色的 LP/MP/HP 升龍**只有對空無敵**，打不贏算好時間點的壓起身；要在起身打穿打擊和
-摔投，必須用 OD 版（2 格）或無敵 SA。這點修正了通用層原本的錯誤評分。
+原始資料還抓到幾個摘要看不出來的細節：Dhalsim 的 **SA1 完全沒有無敵**；Kimberly 的 Hidden Variable
+無敵是**第 19 幀才開始**，再怎麼「完全無敵」也不是起身反擊；Lily 的 OD Tomahawk Buster 是
+**對空＋摔投**無敵，打得贏摔投但打不贏地面壓起身。
 
 血量差異也在角色面板上：Akuma 9,000、Zangief 11,000，表格裡的百分比要各自乘 1.11 / 0.91。
 
