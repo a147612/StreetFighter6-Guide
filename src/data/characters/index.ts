@@ -23,7 +23,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ケン',
     },
     health: 10000,
-    removesOptions: ['command-grab'],
+    removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     reversals: [
       {
@@ -190,7 +190,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     latin: 'Gouki',
     health: 9000,
-    removesOptions: ['command-grab'],
+    removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     reversals: [
       {
@@ -282,7 +282,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ルーク',
     },
     health: 10000,
-    removesOptions: ['command-grab'],
+    removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     reversals: [
       {
@@ -370,7 +370,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'リュウ',
     },
     health: 10000,
-    removesOptions: ['command-grab', 'super-reversal'],
+    removesOptions: ['command-grab', 'super-reversal', 'air-throw'],
     backdashFrames: 23,
     reversals: [
       {
@@ -694,7 +694,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'サガット',
     },
     health: 10000,
-    removesOptions: ['command-grab'],
+    removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     reversals: [
       {
@@ -781,7 +781,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
-    removesOptions: ['command-grab'],
+    removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     reversals: [
       {
@@ -859,7 +859,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'エド',
     },
     health: 10000,
-    removesOptions: ['command-grab'],
+    removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     reversals: [
       {
@@ -1043,7 +1043,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         input: '[4] 6 P',
       },
     },
-    removesOptions: ['command-grab'],
+    removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     reversals: [
       {
@@ -1133,7 +1133,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         input: '41236 K',
       },
     },
-    removesOptions: ['projectile'],
+    removesOptions: ['projectile', 'air-throw'],
     backdashFrames: 25,
     reversals: [
       {
@@ -1211,6 +1211,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ブランカ',
     },
     health: 10000,
+    removesOptions: ['air-throw'],
     overrides: {
       'anti-air': {
         input: '[2] 8 K',
@@ -1401,7 +1402,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
-    removesOptions: ['command-grab'],
+    removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     reversals: [
       {
@@ -1484,7 +1485,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
-    removesOptions: ['command-grab', 'projectile', 'super-reversal'],
+    removesOptions: ['command-grab', 'projectile', 'super-reversal', 'air-throw'],
     backdashFrames: 23,
     reversals: [
       {
@@ -1548,6 +1549,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'JP',
     },
     health: 10000,
+    removesOptions: ['air-throw'],
     backdashFrames: 23,
     overrides: {
       'command-grab': {
@@ -1770,7 +1772,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'イングリッド',
     },
     health: 10000,
-    removesOptions: ['command-grab'],
+    removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     overrides: {
       'anti-air': {
@@ -1875,7 +1877,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 25,
-    removesOptions: ['projectile', 'reversal'],
+    removesOptions: ['projectile', 'reversal', 'air-throw'],
     overrides: {
       'anti-air': {
         input: '236 K',
@@ -1975,7 +1977,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['reversal'],
+    removesOptions: ['reversal', 'air-throw'],
     overrides: {
       'anti-air': {
         input: '236 HP',
@@ -2048,7 +2050,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10500,
     backdashFrames: 23,
-    removesOptions: ['projectile', 'reversal'],
+    removesOptions: ['projectile', 'reversal', 'air-throw'],
     overrides: {
       'command-grab': {
         input: '41236 P',
@@ -2138,7 +2140,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['command-grab', 'reversal'],
+    removesOptions: ['command-grab', 'reversal', 'air-throw'],
     overrides: {
       'super-reversal': {
         note: {
@@ -2225,7 +2227,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['command-grab', 'reversal'],
+    removesOptions: ['command-grab', 'reversal', 'air-throw'],
     overrides: {
       'super-reversal': {
         note: {
@@ -2378,20 +2380,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           ja: 'SA3',
         },
       },
-      {
-        move: 'Sumo Smash (OD)',
-        input: '[2]8 PP',
-        invincibility: {
-          'zh-Hant': '僅投擲無敵 5-13 幀，防不住打擊',
-          en: 'Throw invincible frames 5-13 only; strikes still hit',
-          ja: '5-13F投げ無敵のみ。打撃は通る',
-        },
-        cost: {
-          'zh-Hant': '2 格動力槽',
-          en: '2 Drive bars',
-          ja: 'ドライブ2ゲージ',
-        },
-      },
     ],
     knockdowns: [
       { move: 'Triple Slap (OD)', type: 'hard', advantage: '+45' },
@@ -2517,7 +2505,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 24,
-    removesOptions: ['projectile', 'reversal'],
+    removesOptions: ['projectile', 'reversal', 'air-throw'],
     overrides: {
       'command-grab': {
         input: '360 P',
@@ -2627,7 +2615,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     latin: 'Vega',
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['command-grab', 'reversal'],
+    removesOptions: ['command-grab', 'reversal', 'air-throw'],
     overrides: {
       'super-reversal': {
         note: {
@@ -2700,7 +2688,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10500,
     backdashFrames: 25,
-    removesOptions: ['command-grab', 'projectile', 'reversal'],
+    removesOptions: ['command-grab', 'projectile', 'reversal', 'air-throw'],
     overrides: {
       'super-reversal': {
         note: {

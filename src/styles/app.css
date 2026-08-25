@@ -872,6 +872,43 @@ html[data-theme='dark'] .notation__btn--h {
   white-space: nowrap;
 }
 
+/* ── What the opponent seat did ──────────────────────────────────────
+   Printed in both directions, including "nothing changed" — see MatchupNote
+   for why a silent filter is worse than a loud one. Dashed while it is only
+   reporting, solid once it has actually taken a column away. */
+.matchup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem var(--space-2);
+  margin: 0;
+  padding: 0.4rem 0.7rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+}
+
+.matchup--cut {
+  border-style: solid;
+  border-color: var(--border-strong);
+}
+
+.matchup__who {
+  color: var(--text);
+  font-weight: 650;
+}
+
+/* Struck through, not merely greyed: the column is gone, and that has to
+   survive a reader who cannot separate the two greys. */
+.matchup__chip {
+  padding: 0.1rem 0.5rem;
+  border-radius: 9999px;
+  background: var(--surface-inset);
+  color: var(--text-faint);
+  text-decoration: line-through;
+  white-space: nowrap;
+}
+
 /* ── Relation matrix ─────────────────────────────────────────────────
    Aggregate tiers say how dangerous an option is; the matrix says what it
    beats, which is usually the question. A 2D relation does not compress to a
@@ -1447,6 +1484,53 @@ html[data-theme='dark'] .notation__btn--h {
   font-weight: 400;
 }
 
+/* ── The matchup row ─────────────────────────────────────────────────
+   Two pickers that look alike, so the thing between them carries the meaning:
+   me on the left, them on the right, in reading order in all three locales. */
+.charpick-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
+
+.charpick-row__vs {
+  color: var(--text-faint);
+  font-size: var(--step--1);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+
+/* Sunken rather than raised: the opponent seat is the one you often leave
+   unset, and it should not compete with the seat you always fill in. */
+.charpick--them .charpick__trigger {
+  background: var(--surface-sunken);
+}
+
+/* Side by side is two lines of text plus two pills — more than a phone has.
+   Stacked, the legends already say which is which, so the `vs` is redundant. */
+@media (max-width: 40rem) {
+  .charpick-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .charpick-row__vs {
+    display: none;
+  }
+
+  .charpick {
+    justify-content: space-between;
+  }
+
+  /* Equal width, not width-to-fit: stacked, two pills sized to "Ken" and to
+     "Zangief" have different left edges, and the ragged column reads as a
+     layout accident rather than as two of the same control. */
+  .charpick__trigger {
+    flex: 1;
+  }
+}
+
 .charpick {
   display: flex;
   align-items: center;
@@ -1634,6 +1718,34 @@ html[data-theme='dark'] .notation__btn--h {
   background: var(--risk-extreme-soft);
   color: var(--risk-extreme);
   font-size: var(--step--1);
+  font-weight: 600;
+}
+
+/* The identical fact, from the other seat. "No OD wakeup escape" is a warning
+   about your own character and a gap in theirs, and colouring both red would
+   have told the reader to worry about the good news. */
+.charpanel__warn--theirs {
+  background: var(--reward-high-soft);
+  color: var(--reward-high);
+}
+
+/* auto-fit, not `1fr 1fr`: with only one seat picked the single card should
+   fill the row rather than sit in a half-width column beside a hole. */
+.charpanels {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+
+.charpanel--them {
+  background: var(--surface-sunken);
+}
+
+.charpanel__seat {
+  padding: 0.05rem 0.45rem;
+  border-radius: 9999px;
+  background: var(--surface-inset);
+  color: var(--text-muted);
   font-weight: 600;
 }
 

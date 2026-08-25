@@ -275,12 +275,25 @@ for (const character of CHARACTERS ?? []) {
 
   for (const [id, override] of Object.entries(character.overrides ?? {})) {
     if (!optionIds.has(id)) errors.push(`${where} overrides unknown option "${id}"`)
-    if (override.notes) checkLocales(override.notes, `${where} override ${id} notes`)
+    if (override.note) checkLocales(override.note, `${where} override ${id} note`)
   }
 
   for (const reversal of character.reversals ?? []) {
     checkLocales(reversal.invincibility, `${where} reversal "${reversal.move}" invincibility`)
     checkLocales(reversal.cost, `${where} reversal "${reversal.move}" cost`)
+  }
+
+  // `move` is the React key for both lists, so a repeat drops a row on render
+  // rather than showing it twice — which is how Honda carried the same OD Sumo
+  // Smash entry at both ends of his reversals with only a console warning.
+  for (const key of ['reversals', 'knockdowns']) {
+    const seenMoves = new Set()
+    for (const entry of character[key] ?? []) {
+      if (seenMoves.has(entry.move)) {
+        errors.push(`${where} lists "${entry.move}" twice under ${key}`)
+      }
+      seenMoves.add(entry.move)
+    }
   }
 
   // An overlay that neither removes anything nor lists a reversal is a stub
@@ -290,6 +303,63 @@ for (const character of CHARACTERS ?? []) {
   }
   if (!character.sources || character.sources.length === 0) {
     errors.push(`${where} has no source`)
+  }
+}
+
+/* ── The matchup layer ────────────────────────────────────────────────
+   `removesOptions` is read from both seats: as your character it removes rows,
+   as the opponent it removes columns. Only four of the twenty-five column ids
+   are character-specific, so this is a small surface — and it was silently
+   empty. `air-throw` appeared in nobody's list, because for as long as nothing
+   filtered columns nothing could tell; the hint named four characters when
+   nine have one, and no check could have caught it. These can. */
+
+const roster = CHARACTERS ?? []
+const columnIds = new Set()
+const rowIds = new Set()
+for (const situation of SITUATIONS) {
+  for (const id of situation.opponentOptions ?? []) columnIds.add(id)
+  for (const evaluation of situation.evaluations) rowIds.add(evaluation.optionId)
+}
+
+const removedBy = new Map()
+for (const character of roster) {
+  for (const id of character.removesOptions ?? []) {
+    removedBy.set(id, (removedBy.get(id) ?? 0) + 1)
+  }
+}
+
+for (const id of columnIds) {
+  if (!optionsById.get(id)?.characterSpecific) continue
+  const count = removedBy.get(id) ?? 0
+  if (count === 0) {
+    errors.push(
+      `"${id}" is a character-specific column that no character removes — ` +
+        `the opponent filter can never fire for it, so the roster claim in its ` +
+        `hint is unchecked by anything`,
+    )
+  } else if (count === roster.length) {
+    errors.push(`"${id}" is removed by all ${count} characters, so the column is unreachable`)
+  }
+}
+
+for (const [id, count] of removedBy) {
+  if (!rowIds.has(id) && !columnIds.has(id)) {
+    warnings.push(
+      `${count} character(s) remove "${id}", which is neither graded as a row ` +
+        `nor listed as a column anywhere — the removal does nothing`,
+    )
+  }
+}
+
+/** Matchup pages that actually differ from the universal table. Printed, like
+ *  the no-OD-reversal count, because it is a number that must not drift
+ *  silently: it is the whole yield of the opponent seat. */
+let cutPages = 0
+for (const situation of SITUATIONS) {
+  for (const character of roster) {
+    const gone = new Set(character.removesOptions ?? [])
+    if ((situation.opponentOptions ?? []).some((id) => gone.has(id))) cutPages++
   }
 }
 
@@ -310,6 +380,7 @@ console.log(
   `validate-data: ${OPTIONS.length} options, ${SITUATIONS.length} situations, ` +
     `${characterIds.size} characters (${noReversalCount} with no OD reversal), ` +
     `${evaluationCount} evaluations (${sourcedCount} sourced / ${estimated} estimated), ` +
+    `${cutPages}/${SITUATIONS.length * roster.length} matchup pages drop a column, ` +
     `${errors.length} error(s), ${warnings.length} warning(s)`,
 )
 

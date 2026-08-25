@@ -4,6 +4,7 @@ import { OptionTable } from './components/OptionTable'
 import { DefaultMix } from './components/viz/DefaultMix'
 import { CharacterPanel } from './components/CharacterPanel'
 import { CharacterPicker } from './components/CharacterPicker'
+import { MatchupNote } from './components/MatchupNote'
 import { StageDiagram } from './components/viz/StageDiagram'
 import { SearchOverlay } from './components/SearchOverlay'
 import { GlossaryView } from './components/GlossaryView'
@@ -12,16 +13,8 @@ import { SituationNav } from './components/SituationNav'
 import { GlassPanel } from './components/glass/GlassPanel'
 import { Segmented } from './components/Segmented'
 import { useT } from './i18n/useT'
-import {
-  GROUPS,
-  SITUATIONS,
-  applyOverlay,
-  getCharacter,
-  getSituation,
-  resolveRows,
-  situationsInGroup,
-} from './data'
-import { useCharacter } from './lib/prefs'
+import { GROUPS, SITUATIONS, getCharacter, getSituation, resolveMatchup, situationsInGroup } from './data'
+import { useCharacter, useOpponent } from './lib/prefs'
 import type { Side } from './data/schema'
 
 const REPO_URL = 'https://github.com/a147612/StreetFighter6-Guide'
@@ -37,10 +30,15 @@ export default function App() {
   const [glossary, setGlossary] = useState(false)
   const [targetOption, setTargetOption] = useState<string | undefined>(undefined)
   const characterId = useCharacter()
+  const opponentId = useOpponent()
   const situation = getSituation(situationId)
-  const rows = useMemo(
-    () => (situation ? applyOverlay(resolveRows(situation), getCharacter(characterId)) : []),
-    [situation, characterId],
+  /** Both seats at once: my character decides the rows, theirs the columns. */
+  const matchup = useMemo(
+    () =>
+      situation
+        ? resolveMatchup(situation, getCharacter(characterId), getCharacter(opponentId))
+        : { rows: [], opponentOptions: [], removedColumns: [] },
+    [situation, characterId, opponentId],
   )
 
   /** Picking a group jumps to its first situation; leaving the reader on a
@@ -156,7 +154,16 @@ export default function App() {
               { value: 'offense', label: t.side.offense },
             ]}
           />
-          <CharacterPicker />
+          {/* One line, two seats. The `vs` is not decoration: with two
+              identical-looking pickers side by side, it is the only thing
+              saying which way round they are. */}
+          <div className="charpick-row">
+            <CharacterPicker />
+            <span className="charpick-row__vs" aria-hidden="true">
+              vs
+            </span>
+            <CharacterPicker seat="them" />
+          </div>
           <SituationNav
             side={side}
             groupId={groupId}
@@ -185,14 +192,19 @@ export default function App() {
               </div>
             </div>
 
-            <CharacterPanel />
+            <div className="charpanels">
+              <CharacterPanel />
+              <CharacterPanel seat="them" />
+            </div>
 
-            <DefaultMix rows={rows} />
+            <DefaultMix rows={matchup.rows} />
+
+            <MatchupNote removed={matchup.removedColumns} />
 
             <OptionTable
               key={situation.id}
-              rows={rows}
-              opponentOptions={situation.opponentOptions}
+              rows={matchup.rows}
+              opponentOptions={matchup.opponentOptions}
               openOptionId={targetOption}
             />
           </section>

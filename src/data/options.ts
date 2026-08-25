@@ -440,9 +440,9 @@ const DEFENSIVE: OptionDef[] = [
     origin: 'command grab',
     hint: {
       'zh-Hant':
-        '轉圈或半圓輸入的投技。**解不掉** —— 這是它跟普通摔投最大的差別，對手純防禦、延遲解摔、動力撥擋通通沒用，而且傷害和起攻都遠高於普通摔。代價是距離短，而且理論上跳、後衝刺、無敵技都躲得掉 —— 但**發生從 5 幀到 45 幀，差距極大**：桑吉爾夫、莉莉、金伯莉的是 5 幀，跟普通摔一樣快，反應不了；布蘭卡的要 32-45 幀，看得到。選了角色會顯示他的實際情況。31 隻有 11 隻有。',
-      en: 'A throw on a 360 or half-circle motion. **It cannot be teched** — that is the whole difference from a normal throw, and it makes just blocking, delay teching and Drive Parry all useless. It also does far more damage and gives far better oki. The price is short range, and in principle jumping, backdashing or a reversal all escape it — but **startup runs from 5 frames to 45**, which changes everything: Zangief, Lily and Kimberly are at 5, as fast as a normal throw and unreactable, while Blanka is 32-45 and visible. Pick a character to see which. Eleven of the thirty-one have one.',
-      ja: '360や半回転で出す投げ技。**抜けられない**のが通常投げとの決定的な違いで、ガード・遅らせ投げ抜け・パリィのいずれも無効になる。ダメージも起き攻めも通常投げより遥かに上。代償は間合いの短さで、理屈の上ではジャンプ・バックダッシュ・無敵技で逃げられる ——ただし**発生は5Fから45Fまで幅がある**。ザンギエフ・リリー・キンバリーは5Fで通常投げと同速、反応は不可能。ブランカは32-45Fで見える。キャラを選べば実際の値が出る。31キャラ中11キャラが所持。',
+        '轉圈或半圓輸入的投技。**解不掉** —— 這是它跟普通摔投最大的差別，對手純防禦、延遲解摔、動力撥擋通通沒用，而且傷害和起攻都遠高於普通摔。代價是距離短，而且理論上跳、後衝刺、無敵技都躲得掉 —— 但**發生從 5 幀到 45 幀，差距極大**：桑吉爾夫、莉莉、金伯莉、瑪濃（重手）、艾力克斯（重手／OD）是 5 幀，跟普通摔一樣快，反應不了；E.本田 6 幀、傑米 8 幀、嘉米 10 幀；A.K.I. 11 幀起、JP 25 幀起、布蘭卡 32-45 幀，看得到。選了角色會顯示他的實際指令。31 隻有 11 隻有。',
+      en: 'A throw on a 360 or half-circle motion. **It cannot be teched** — that is the whole difference from a normal throw, and it makes just blocking, delay teching and Drive Parry all useless. It also does far more damage and gives far better oki. The price is short range, and in principle jumping, backdashing or a reversal all escape it — but **startup runs from 5 frames to 45**, which changes everything: Zangief, Lily, Kimberly, Manon (HP) and Alex (HP or OD) are at 5, as fast as a normal throw and unreactable; E. Honda is 6, Jamie 8 and Cammy 10; A.K.I. is 11 and up, JP 25 and up, and Blanka 32-45, which is visible. Pick a character to see the motion. Eleven of the thirty-one have one.',
+      ja: '360や半回転で出す投げ技。**抜けられない**のが通常投げとの決定的な違いで、ガード・遅らせ投げ抜け・パリィのいずれも無効になる。ダメージも起き攻めも通常投げより遥かに上。代償は間合いの短さで、理屈の上ではジャンプ・バックダッシュ・無敵技で逃げられる ——ただし**発生は5Fから45Fまで幅がある**。ザンギエフ・リリー・キンバリー・マノン（強）・アレックス（強／OD）は5Fで通常投げと同速、反応は不可能。E.本田6F、ジェイミー8F、キャミィ10F。A.K.I.は11F以上、JPは25F以上、ブランカは32-45Fで見える。キャラを選べば実際のコマンドが出る。31キャラ中11キャラが所持。',
     },
     aka: { 'zh-Hant': ['指令抓', '大投'], en: ['command throw'], ja: ['コマ投げ'] },
     input: '',
@@ -629,18 +629,19 @@ const OFFENSIVE: OptionDef[] = [
     origin: 'air throw',
     hint: {
       'zh-Hant':
-        '在空中抓住跳過來的對手。**只有四隻角色真的有**：凱爾（前／後空中投，5 幀，全場唯一的專用空中投）、桑吉爾夫（Borscht Dynamite，空中 360）、金伯莉（Sprint > Arc Step > P）、Alex（空中膝擊，只抓得到空中的人）。其他 27 隻跳過來的時候不會有這一手 —— 這一欄是「對手的選擇」，而本站的角色層模型的是你自己的角色，所以它不會隨你選的角色消失。知道對手是誰的時候，自己把這一欄跳過。',
-      en: 'Grabbing an opponent out of the air. **Only four characters have one**: Guile (forward and back air throws, 5 frames — the only dedicated one on the roster), Zangief (Borscht Dynamite, an air 360), Kimberly (Sprint > Arc Step > P) and Alex (Aerial Knee Smash, which only catches airborne opponents). The other twenty-seven cannot do this when they jump at you. This column is the *opponent\'s* option and the character layer here models *your* character, so it does not disappear when you pick one — when you know who you are fighting, skip the column yourself.',
-      ja: '空中の相手を掴む投げ。**実際に持っているのは4キャラだけ**：ガイル（前／後の空中投げ、5F、ロスター唯一の専用空中投げ）、ザンギエフ（ボルシチダイナマイト、空中360）、キンバリー（Sprint > Arc Step > P）、アレックス（エアリアルニースマッシュ、空中の相手にしか当たらない）。残る27キャラは飛び込んできてもこの択を持たない。この列は「相手の選択肢」であり、本サイトのキャラレイヤーは自分のキャラを扱うため、キャラを選んでも消えない。相手が誰か分かっているときは自分で読み飛ばすこと。',
+        '在空中抓住跳過來的對手。**31 隻裡有 9 隻有**：嘉米、春麗、凱爾（前／後兩種）、蛛俐、艾蓮娜、拉希德、E.本田都是 5 幀、1200 傷害的專用空中投；桑吉爾夫的是 Borscht Dynamite（跳躍中 360+K，2900 傷害），金伯莉的是 Bushin Izuna Otoshi（Sprint > Arc Step > P）。其他 22 隻一旦跳起來就沒有這一手 —— **選了對手角色，這一欄會整欄消失。**',
+      en: 'Grabbing an opponent out of the air. **Nine of the thirty-one have one**: Cammy, Chun-Li, Guile (forward and back), Juri, Elena, Rashid and E. Honda all get the standard 5-frame, 1200-damage air throw; Zangief has Borscht Dynamite (an air 360 for 2900) and Kimberly has Bushin Izuna Otoshi off Sprint > Arc Step. The other twenty-two have nothing of the kind once they leave the ground — **pick the opponent and this whole column disappears.**',
+      ja: '空中の相手を掴む投げ。**31キャラ中9キャラが所持**：キャミィ、春麗、ガイル（前／後）、ジュリ、エレナ、ラシード、E.本田は5F・1200ダメージの通常空中投げ。ザンギエフはボルシチダイナマイト（空中360+K、2900）、キンバリーはSprint > Arc Step > Pの武神イズナ落とし。残る22キャラは空中でこの択を持たない ——**相手キャラを選べばこの列ごと消える。**',
     },
     short: { 'zh-Hant': '空中摔投', en: 'Air throw', ja: '空中投げ' },
     input: '',
     cost: { drive: 0, sa: 0 },
     difficulty: 3,
     /**
-     * True, but inert: this option is only ever an `opponentOptions` column, and
-     * `applyOverlay` filters rows. `removesOptions: ['air-throw']` would do
-     * nothing, so the four-character list lives in the hint above instead.
+     * Only ever an `opponentOptions` column — and since the opponent seat
+     * filters columns, twenty-two of the thirty-one now drop it. It was inert
+     * until then, which is how a four-character list survived in the hint that
+     * should have named nine.
      */
     characterSpecific: true,
     category: 'throw',

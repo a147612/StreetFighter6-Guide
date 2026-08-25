@@ -4,7 +4,7 @@ import { useCharacterName } from './CharacterName'
 import { CharacterFace } from './viz/CharacterFace'
 import { CHARACTERS, getCharacter } from '~/data'
 import type { CharacterOverlay, I18nText } from '~/data/schema'
-import { characterStore, useCharacter } from '~/lib/prefs'
+import { characterStore, opponentStore, useCharacter, useOpponent } from '~/lib/prefs'
 import { useDialog } from '~/lib/useDialog'
 import { useT } from '~/i18n/useT'
 
@@ -65,19 +65,31 @@ function haystack(character: CharacterOverlay): string {
  * Picking a character, as a grid rather than a dropdown.
  *
  * A thirty-one-entry `<select>` is a scroll through a column of text, which is
- * the slowest way to find a name you already know the look of. The grid also
- * has room for the two facts that actually change the tables underneath —
- * health, and whether there is an OD wakeup escape at all — so the choice can
- * be made on what it does rather than on the name alone.
+ * the slowest way to find a name you already know the look of.
+ *
+ * One component, two seats. `me` picks whose options the rows are; `them` picks
+ * whose options the columns are. They read different stores and say different
+ * things, but a second copy of the grid would have been a second copy of the
+ * search, the focus trap and the tile — so the difference is four strings.
  */
-export function CharacterPicker() {
-  const selectedId = useCharacter()
+export function CharacterPicker({ seat = 'me' }: { seat?: 'me' | 'them' }) {
+  // Both hooks, unconditionally: one of them is the answer and the other costs
+  // a subscription. Choosing which hook to call would be the rules-of-hooks bug
+  // that black-screened the page the last time this component grew a branch.
+  const mineId = useCharacter()
+  const theirsId = useOpponent()
+  const opponentSeat = seat === 'them'
+  const selectedId = opponentSeat ? theirsId : mineId
+  const store = opponentSeat ? opponentStore : characterStore
+  const legendId = `charpick-legend-${seat}`
+  const valueId = `charpick-value-${seat}`
   const { t, text } = useT()
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState('')
   const inputRef = useRef<HTMLInputElement | null>(null)
   const dialog = useDialog(open, () => setOpen(false))
   const selected = getCharacter(selectedId)
+  const noneLabel = opponentSeat ? t.character.anyOpponent : t.character.universal
 
   /**
    * Sorted by the Latin name in every language, deliberately.
@@ -106,26 +118,26 @@ export function CharacterPicker() {
   }, [open])
 
   function choose(id: string): void {
-    characterStore.set(id)
+    store.set(id)
     setOpen(false)
   }
 
   return (
-    <div className="charpick">
-      <span className="segmented__legend" id="charpick-legend">
-        {t.character.label}
+    <div className={`charpick ${opponentSeat ? 'charpick--them' : ''}`}>
+      <span className="segmented__legend" id={legendId}>
+        {opponentSeat ? t.character.theirs : t.character.mine}
       </span>
       <button
         type="button"
         className="charpick__trigger"
         aria-haspopup="dialog"
         aria-expanded={open}
-        aria-labelledby="charpick-legend charpick-value"
+        aria-labelledby={`${legendId} ${valueId}`}
         onClick={() => setOpen(true)}
       >
         {selected && <CharacterAvatar id={selected.id} name={text(selected.name)} size="sm" />}
-        <span id="charpick-value" className="charpick__value">
-          {selected ? <TriggerName name={selected.name} latin={selected.latin} /> : t.character.universal}
+        <span id={valueId} className="charpick__value">
+          {selected ? <TriggerName name={selected.name} latin={selected.latin} /> : noneLabel}
         </span>
         <svg viewBox="0 0 16 16" aria-hidden="true" className="control__chevron">
           <path
@@ -153,7 +165,7 @@ export function CharacterPicker() {
             className="charpick__panel"
             role="dialog"
             aria-modal="true"
-            aria-label={t.character.pick}
+            aria-label={opponentSeat ? t.character.pickOpponent : t.character.pick}
           >
             <div className="charpick__head">
               <input
@@ -183,7 +195,9 @@ export function CharacterPicker() {
 
             <div className="charpick__grid">
               {/* Not a character, but the same kind of choice: leaving the
-                  tables universal is a position, not an absence of one. */}
+                  tables universal is a position, not an absence of one. On the
+                  opponent seat it is the stronger one — every column standing
+                  is the table you should be able to beat anybody with. */}
               <button
                 type="button"
                 className={`chartile ${selectedId === '' ? 'is-active' : ''}`}
@@ -192,7 +206,7 @@ export function CharacterPicker() {
                 <span className="avatar avatar--md avatar--none" aria-hidden="true">
                   ✱
                 </span>
-                <span className="chartile__name">{t.character.universal}</span>
+                <span className="chartile__name">{noneLabel}</span>
               </button>
 
               {matches.map((character) => {

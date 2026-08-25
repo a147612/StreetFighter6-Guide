@@ -349,7 +349,16 @@ export interface CharacterOverlay {
   /** From the character's own stats. The percentage bands assume 10,000. */
   health: number
   backdashFrames?: number
-  /** Options this character does not have; removed from every table. */
+  /**
+   * Options this character does not have.
+   *
+   * Seat-neutral, and read from both seats: as *your* character it removes
+   * rows, and as the *opponent* it removes columns — along with every outcome
+   * authored against them. So this list is the whole matchup layer, which is
+   * also why an entry missing from it is invisible rather than wrong-looking:
+   * `air-throw` was listed by nobody for as long as nothing read it as a
+   * column, and the four-character list in its hint should have named nine.
+   */
   removesOptions?: string[]
   /**
    * Adjustments applied to an option wherever it appears.

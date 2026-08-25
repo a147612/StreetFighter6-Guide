@@ -151,12 +151,21 @@ export function useLocale(): { locale: Locale; setLocale: (next: Locale) => void
   return { locale, setLocale: localeStore.set }
 }
 
-/* ── Character ────────────────────────────────────────────────────────
-   '' means the universal tables with no overlay applied. */
+/* ── Characters, two seats ────────────────────────────────────────────
+   '' means no overlay: the universal tables for `character`, every column left
+   standing for `opponent`. Two stores rather than one pair, because the seats
+   are set from different places and only one of them is usually known — you
+   always know who you picked, and often do not care who they picked. */
 
 export const characterStore = createStore<string>('character', read('character') ?? '', () => {})
 
 export function useCharacter(): string {
   return useSyncExternalStore(characterStore.subscribe, characterStore.get, () => '')
+}
+
+export const opponentStore = createStore<string>('opponent', read('opponent') ?? '', () => {})
+
+export function useOpponent(): string {
+  return useSyncExternalStore(opponentStore.subscribe, opponentStore.get, () => '')
 }
 

@@ -72,6 +72,10 @@ export function resolveRows(situation: Situation): OptionRow[] {
  * Subtraction first: an option the character does not have is removed rather
  * than shown with a bad grade, because a reader planning around a button they
  * cannot press is worse off than one who never saw it.
+ *
+ * Rows only. `removesOptions` is a statement about the character, not about a
+ * seat — the same list decides which *columns* survive when that character is
+ * the opponent, and `resolveMatchup` below is where that half happens.
  */
 export function applyOverlay(rows: OptionRow[], character?: CharacterOverlay): OptionRow[] {
   if (!character) return rows
@@ -96,6 +100,60 @@ export function applyOverlay(rows: OptionRow[], character?: CharacterOverlay): O
         ...(override.input ? { inputIsCharacters: true as const } : {}),
       }
     })
+}
+
+/** A situation resolved for one matchup: my rows, their columns. */
+export interface MatchupView {
+  rows: OptionRow[]
+  /** The columns that survive, in the situation's authored order. */
+  opponentOptions: string[]
+  /** The columns the opponent does not have. Named rather than merely dropped:
+   *  ninety-two percent of cells are the same in every matchup, so a table that
+   *  silently loses a column reads as a table that was never matchup-aware. */
+  removedColumns: OptionDef[]
+}
+
+/**
+ * Read a situation from inside one matchup.
+ *
+ * Two seats, one overlay type. `me` filters the rows — options I do not have.
+ * `them` filters the columns — options the opponent does not have, and with
+ * them every outcome authored against those columns, so `counteredBy` and the
+ * detail list cannot go on naming a button nobody in this match can press.
+ *
+ * Only four of the twenty-five column ids vary by character (`projectile`,
+ * `reversal`, `super-reversal`, `air-throw`), which is the honest size of this:
+ * it subtracts what cannot happen, it does not re-grade what can. A matchup
+ * where nothing is removed is the common case, not a bug.
+ */
+export function resolveMatchup(
+  situation: Situation,
+  me?: CharacterOverlay,
+  them?: CharacterOverlay,
+): MatchupView {
+  const rows = applyOverlay(resolveRows(situation), me)
+  const gone = new Set(them?.removesOptions ?? [])
+  const removedIds = situation.opponentOptions.filter((id) => gone.has(id))
+  if (removedIds.length === 0) {
+    return { rows, opponentOptions: situation.opponentOptions, removedColumns: [] }
+  }
+  return {
+    rows: rows.map((row) =>
+      row.evaluation.versus.some((entry) => gone.has(entry.vs))
+        ? {
+            ...row,
+            evaluation: {
+              ...row.evaluation,
+              versus: row.evaluation.versus.filter((entry) => !gone.has(entry.vs)),
+            },
+          }
+        : row,
+    ),
+    opponentOptions: situation.opponentOptions.filter((id) => !gone.has(id)),
+    removedColumns: removedIds
+      .map((id) => getOption(id))
+      .filter((def): def is OptionDef => Boolean(def)),
+  }
 }
 
 /** Group letters, in reading order. A–H defend, I–K attack. */

@@ -73,10 +73,13 @@ export interface UiStrings {
   stage: { me: string; them: string; pointBlank: string; close: string; mid: string; long: string }
   glossary: { intro: string; origin: string; what: string; note: string; open: string }
   character: {
-    label: string
+    mine: string
+    theirs: string
     universal: string
+    anyOpponent: string
     universalHint: string
     pick: string
+    pickOpponent: string
     filter: string
     close: string
     empty: string
@@ -88,6 +91,10 @@ export interface UiStrings {
     invincibility: string
     cost: string
   }
+  /** What picking an opponent did to the table. Stated either way: a matchup
+   *  that changes nothing has to say so, or a filter that quietly did nothing
+   *  reads as a filter that is broken. */
+  matchup: { removed: string; same: string }
   browse: { groups: string; situations: string; notWritten: string; coverage: string }
 
   risk: { label: string; safe: string; low: string; medium: string; high: string; extreme: string }
@@ -198,10 +205,13 @@ const zhHant: UiStrings = {
     bait: '誘導',
   },
   character: {
-    label: '角色',
+    mine: '我的角色',
+    theirs: '對手角色',
     universal: '通用',
+    anyOpponent: '不指定',
     universalHint: '全角色共通',
     pick: '選擇角色',
+    pickOpponent: '選擇對手角色',
     filter: '搜尋角色…',
     close: '關閉',
     empty: '沒有符合的角色',
@@ -212,6 +222,10 @@ const zhHant: UiStrings = {
     coverage: '角色資料完整度',
     invincibility: '無敵',
     cost: '消耗',
+  },
+  matchup: {
+    removed: '這隻對手沒有的選項，已從表中移除',
+    same: '這個情境沒有差別 —— 對手的選項跟通用表完全一樣',
   },
   glossary: {
     intro: '三種語言並排，方便對照日文或英文攻略裡的說法。括號裡是同義的別稱。',
@@ -348,10 +362,13 @@ const en: UiStrings = {
     bait: 'Baits',
   },
   character: {
-    label: 'Character',
+    mine: 'Your character',
+    theirs: 'Opponent',
     universal: 'Universal',
+    anyOpponent: 'Any',
     universalHint: 'Every character',
     pick: 'Pick a character',
+    pickOpponent: 'Pick the opponent',
     filter: 'Filter characters…',
     close: 'Close',
     empty: 'No character matches',
@@ -362,6 +379,10 @@ const en: UiStrings = {
     coverage: 'Character data',
     invincibility: 'Invincibility',
     cost: 'Cost',
+  },
+  matchup: {
+    removed: 'Removed — this opponent does not have',
+    same: 'No difference here — this opponent has every column the universal table lists',
   },
   glossary: {
     intro: 'All three languages side by side, so a Japanese or English guide maps onto what you read here. Aliases follow the main name.',
@@ -499,10 +520,13 @@ const ja: UiStrings = {
     bait: '誘い',
   },
   character: {
-    label: 'キャラ',
+    mine: '自分のキャラ',
+    theirs: '相手キャラ',
     universal: '汎用',
+    anyOpponent: '指定なし',
     universalHint: '全キャラ共通',
     pick: 'キャラを選ぶ',
+    pickOpponent: '相手キャラを選ぶ',
     filter: 'キャラを検索…',
     close: '閉じる',
     empty: '該当するキャラなし',
@@ -513,6 +537,10 @@ const ja: UiStrings = {
     coverage: 'キャラデータ',
     invincibility: '無敵',
     cost: '消費',
+  },
+  matchup: {
+    removed: 'この相手が持たない択を表から除外した',
+    same: 'この状況では差がない —— 相手は汎用表の択をすべて持っている',
   },
   glossary: {
     intro: '三言語を並べて表示する。日本語や英語の攻略で使われる呼び方との対応が取れる。括弧内は別称。',

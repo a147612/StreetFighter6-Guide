@@ -2,7 +2,7 @@ import { useCharacterName } from './CharacterName'
 import { InputNotation } from './viz/InputNotation'
 import { getCharacter } from '~/data'
 import type { CharacterOverlay } from '~/data/schema'
-import { useCharacter } from '~/lib/prefs'
+import { useCharacter, useOpponent } from '~/lib/prefs'
 import { useT } from '~/i18n/useT'
 
 /**
@@ -15,27 +15,34 @@ import { useT } from '~/i18n/useT'
  * universal — but it costs two bars and deals white damage, which is a
  * different option, not the same one.
  */
-export function CharacterPanel() {
-  const id = useCharacter()
-  const character = getCharacter(id)
+export function CharacterPanel({ seat = 'me' }: { seat?: 'me' | 'them' }) {
+  // Both hooks every render — see CharacterPicker for the black screen that
+  // taught this component the rule.
+  const mineId = useCharacter()
+  const theirsId = useOpponent()
+  const character = getCharacter(seat === 'them' ? theirsId : mineId)
   // The "no character picked" case is a whole-component absence, so it is a
   // separate component rather than an early return inside one. An early return
   // above a hook is a crash the moment anything below it needs state, which is
   // exactly what happened when the name became bilingual: two hooks on
   // Universal, three on a character, and React unmounted the page on the switch.
   if (!character) return null
-  return <CharacterCard character={character} />
+  return <CharacterCard character={character} seat={seat} />
 }
 
-function CharacterCard({ character }: { character: CharacterOverlay }) {
+function CharacterCard({ character, seat }: { character: CharacterOverlay; seat: 'me' | 'them' }) {
   const { t, text } = useT()
   const { primary, latin } = useCharacterName(character.name, character.latin)
   const hasOdReversal = !character.removesOptions?.includes('reversal')
   const source = character.sources?.[0]
+  const theirs = seat === 'them'
 
   return (
-    <details className="card card--padded charpanel">
+    <details className={`card card--padded charpanel ${theirs ? 'charpanel--them' : ''}`}>
       <summary>
+        <span className="charpanel__seat small">
+          {theirs ? t.character.theirs : t.character.mine}
+        </span>
         <span className="charpanel__name">
           {primary}
           {latin && <span className="charpanel__latin faint">{latin}</span>}
@@ -43,7 +50,11 @@ function CharacterCard({ character }: { character: CharacterOverlay }) {
         <span className="charpanel__stat mono">
           {t.character.health} {character.health.toLocaleString()}
         </span>
-        {!hasOdReversal && <span className="charpanel__warn">{t.character.noReversal}</span>}
+        {!hasOdReversal && (
+          <span className={`charpanel__warn ${theirs ? 'charpanel__warn--theirs' : ''}`}>
+            {t.character.noReversal}
+          </span>
+        )}
       </summary>
 
       <div className="charpanel__body">
