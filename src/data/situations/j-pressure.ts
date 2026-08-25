@@ -122,6 +122,79 @@ export const GROUP_J: Situation[] = [
         ],
       },
       {
+        optionId: 'command-grab',
+        risk: 'high',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '抓住防禦的對手。傷害和起攻都遠高於普通摔，而且他沒有解摔這個選項 —— 純防禦、延遲解摔、動力撥擋全部失效。',
+            en: 'Grabs them out of blocking. Far more damage and far better oki than a normal throw, and teching is not on the menu — blocking, delay teching and parry are all switched off.',
+            ja: 'ガードしている相手を掴む。通常投げよりダメージも起き攻めも遥かに上で、しかも抜けるという選択肢が無い。ガード・遅らせ抜け・パリィがまとめて無効になる。',
+          },
+          followUp: 'pressure',
+          damageBand: '18-25%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '空揮的指令投硬直很長。對手跳、後衝刺或直接無敵技，你就是站在那邊等著被打一套。',
+            en: 'A whiffed command grab recovers slowly. If they jumped, backdashed or reversed, you are standing there waiting to be punished.',
+            ja: '空振りしたコマンド投げは硬直が長い。跳ばれ、バックダッシュされ、あるいは無敵技を出されれば、そのまま一式もらう。',
+          },
+          hpLoss: '30-45%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'do-nothing',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant': '純防禦對指令投完全無效，而且它不像普通摔那樣有解摔窗口 —— 這是「一直防」唯一沒有答案的東西。',
+              en: 'Blocking does nothing, and unlike a normal throw there is no tech window to reach for. This is the one thing pure defence has no answer to.',
+              ja: 'ガードは無意味で、通常投げと違って抜ける窓も無い。ガード一辺倒に唯一答えが無いのがこれ。',
+            },
+          },
+          {
+            vs: 'delayed-tech',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant': '延遲解摔是為了解普通摔而按的，指令投解不掉 —— 他按的那個輸入完全不會發生作用。',
+              en: 'A delay tech is an input for a normal throw. A command grab has no tech, so the button they are pressing simply does nothing.',
+              ja: '遅らせ投げ抜けは通常投げ用の入力であり、コマンド投げには抜けが存在しないため、押しているボタンは何も起こさない。',
+            },
+          },
+          { vs: 'drive-parry', outcome: 'bigWin' },
+          { vs: 'drive-reversal', outcome: 'loss' },
+          { vs: 'drive-impact', outcome: 'loss' },
+          {
+            vs: 'mash-light',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '指令投發生慢，4 幀的小技先打到 —— 這是對付指令投最便宜的答案。',
+              en: 'A command grab is slow to start and a 4-frame light hits first. It is the cheapest answer there is.',
+              ja: 'コマンド投げは発生が遅く、4Fの弱攻撃が先に当たる。最も安上がりな対策。',
+            },
+          },
+        ],
+        notes: {
+          'zh-Hant': '只有 11 隻角色有，所以它不在「預設打法」的比例裡 —— 那條是通用的。但對有的角色來說，它不是選項之一，而是整個起攻的核心：對手一旦不能靠防禦解決，你的壓起身和退康才真的有威脅。',
+          en: 'Only eleven characters have one, so it stays out of the default-mix bar, which is universal. For the characters who do have one it is not an option among others — it is what the whole offence is built on, because once blocking stops being an answer, the meaty and the shimmy start meaning something.',
+          ja: '所持は11キャラのみのため、汎用である「基本の配分」には含めていない。ただし持っているキャラにとっては数ある択の一つではなく攻めの軸そのもので、ガードで解決できなくなって初めて重ねやシミーが機能し始める。',
+        },
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色的指令投見各角色頁的 Special Moves 區段（attacktype 標為 Throw、且有自己的轉圈／半圓輸入）。31 隻中 11 隻有：A.K.I.、Alex、Blanka、Cammy、E.本田、Jamie、JP、金伯莉、莉莉、瑪濃、桑吉爾夫。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08',
+            note: '普通摔投 5F 發生、1,200 傷害、解摔窗口 9 幀；指令投沒有解摔窗口，這就是它跟普通摔最大的差別',
+          },
+        ],
+      },
+      {
         optionId: 'delayed-attack',
         risk: 'medium',
         reward: 'extreme',
@@ -507,6 +580,78 @@ export const GROUP_J: Situation[] = [
         ],
       },
       {
+        optionId: 'command-grab',
+        risk: 'high',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '抓住防禦的對手。傷害和起攻都遠高於普通摔，而且他沒有解摔這個選項 —— 純防禦、延遲解摔、動力撥擋全部失效。',
+            en: 'Grabs them out of blocking. Far more damage and far better oki than a normal throw, and teching is not on the menu — blocking, delay teching and parry are all switched off.',
+            ja: 'ガードしている相手を掴む。通常投げよりダメージも起き攻めも遥かに上で、しかも抜けるという選択肢が無い。ガード・遅らせ抜け・パリィがまとめて無効になる。',
+          },
+          followUp: 'pressure',
+          damageBand: '18-25%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '空揮的指令投硬直很長。對手跳、後衝刺或直接無敵技，你就是站在那邊等著被打一套。',
+            en: 'A whiffed command grab recovers slowly. If they jumped, backdashed or reversed, you are standing there waiting to be punished.',
+            ja: '空振りしたコマンド投げは硬直が長い。跳ばれ、バックダッシュされ、あるいは無敵技を出されれば、そのまま一式もらう。',
+          },
+          hpLoss: '30-45%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'do-nothing',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant': '純防禦對指令投完全無效，而且它不像普通摔那樣有解摔窗口 —— 這是「一直防」唯一沒有答案的東西。',
+              en: 'Blocking does nothing, and unlike a normal throw there is no tech window to reach for. This is the one thing pure defence has no answer to.',
+              ja: 'ガードは無意味で、通常投げと違って抜ける窓も無い。ガード一辺倒に唯一答えが無いのがこれ。',
+            },
+          },
+          {
+            vs: 'delayed-tech',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant': '延遲解摔是為了解普通摔而按的，指令投解不掉 —— 他按的那個輸入完全不會發生作用。',
+              en: 'A delay tech is an input for a normal throw. A command grab has no tech, so the button they are pressing simply does nothing.',
+              ja: '遅らせ投げ抜けは通常投げ用の入力であり、コマンド投げには抜けが存在しないため、押しているボタンは何も起こさない。',
+            },
+          },
+          { vs: 'drive-parry', outcome: 'bigWin' },
+          {
+            vs: 'mash-light',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '指令投發生慢，4 幀的小技先打到 —— 這是對付指令投最便宜的答案。',
+              en: 'A command grab is slow to start and a 4-frame light hits first. It is the cheapest answer there is.',
+              ja: 'コマンド投げは発生が遅く、4Fの弱攻撃が先に当たる。最も安上がりな対策。',
+            },
+          },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        notes: {
+          'zh-Hant': '只有 11 隻角色有，所以它不在「預設打法」的比例裡 —— 那條是通用的。但對有的角色來說，它不是選項之一，而是整個起攻的核心：對手一旦不能靠防禦解決，你的壓起身和退康才真的有威脅。',
+          en: 'Only eleven characters have one, so it stays out of the default-mix bar, which is universal. For the characters who do have one it is not an option among others — it is what the whole offence is built on, because once blocking stops being an answer, the meaty and the shimmy start meaning something.',
+          ja: '所持は11キャラのみのため、汎用である「基本の配分」には含めていない。ただし持っているキャラにとっては数ある択の一つではなく攻めの軸そのもので、ガードで解決できなくなって初めて重ねやシミーが機能し始める。',
+        },
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色的指令投見各角色頁的 Special Moves 區段（attacktype 標為 Throw、且有自己的轉圈／半圓輸入）。31 隻中 11 隻有：A.K.I.、Alex、Blanka、Cammy、E.本田、Jamie、JP、金伯莉、莉莉、瑪濃、桑吉爾夫。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08',
+            note: '普通摔投 5F 發生、1,200 傷害、解摔窗口 9 幀；指令投沒有解摔窗口，這就是它跟普通摔最大的差別',
+          },
+        ],
+      },
+      {
         optionId: 'delayed-attack',
         risk: 'medium',
         reward: 'extreme',
@@ -883,6 +1028,77 @@ export const GROUP_J: Situation[] = [
             url: 'https://streetfighter.fandom.com/wiki/Technical',
             patch: '2026-08',
             note: '被解摔的一方什麼也沒拿到，解摔成功的一方還回復一格動力槽。來源未標註遊戲版本',
+          },
+        ],
+      },
+      {
+        optionId: 'command-grab',
+        risk: 'high',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '抓住防禦的對手。傷害和起攻都遠高於普通摔，而且他沒有解摔這個選項 —— 純防禦、延遲解摔、動力撥擋全部失效。',
+            en: 'Grabs them out of blocking. Far more damage and far better oki than a normal throw, and teching is not on the menu — blocking, delay teching and parry are all switched off.',
+            ja: 'ガードしている相手を掴む。通常投げよりダメージも起き攻めも遥かに上で、しかも抜けるという選択肢が無い。ガード・遅らせ抜け・パリィがまとめて無効になる。',
+          },
+          followUp: 'pressure',
+          damageBand: '18-25%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '空揮的指令投硬直很長。對手跳、後衝刺或直接無敵技，你就是站在那邊等著被打一套。',
+            en: 'A whiffed command grab recovers slowly. If they jumped, backdashed or reversed, you are standing there waiting to be punished.',
+            ja: '空振りしたコマンド投げは硬直が長い。跳ばれ、バックダッシュされ、あるいは無敵技を出されれば、そのまま一式もらう。',
+          },
+          hpLoss: '30-45%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'do-nothing',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant': '純防禦對指令投完全無效，而且它不像普通摔那樣有解摔窗口 —— 這是「一直防」唯一沒有答案的東西。',
+              en: 'Blocking does nothing, and unlike a normal throw there is no tech window to reach for. This is the one thing pure defence has no answer to.',
+              ja: 'ガードは無意味で、通常投げと違って抜ける窓も無い。ガード一辺倒に唯一答えが無いのがこれ。',
+            },
+          },
+          {
+            vs: 'delayed-tech',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant': '延遲解摔是為了解普通摔而按的，指令投解不掉 —— 他按的那個輸入完全不會發生作用。',
+              en: 'A delay tech is an input for a normal throw. A command grab has no tech, so the button they are pressing simply does nothing.',
+              ja: '遅らせ投げ抜けは通常投げ用の入力であり、コマンド投げには抜けが存在しないため、押しているボタンは何も起こさない。',
+            },
+          },
+          {
+            vs: 'mash-light',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '指令投發生慢，4 幀的小技先打到 —— 這是對付指令投最便宜的答案。',
+              en: 'A command grab is slow to start and a 4-frame light hits first. It is the cheapest answer there is.',
+              ja: 'コマンド投げは発生が遅く、4Fの弱攻撃が先に当たる。最も安上がりな対策。',
+            },
+          },
+          { vs: 'super-reversal', outcome: 'bigLoss' },
+        ],
+        notes: {
+          'zh-Hant': '只有 11 隻角色有，所以它不在「預設打法」的比例裡 —— 那條是通用的。但對有的角色來說，它不是選項之一，而是整個起攻的核心：對手一旦不能靠防禦解決，你的壓起身和退康才真的有威脅。',
+          en: 'Only eleven characters have one, so it stays out of the default-mix bar, which is universal. For the characters who do have one it is not an option among others — it is what the whole offence is built on, because once blocking stops being an answer, the meaty and the shimmy start meaning something.',
+          ja: '所持は11キャラのみのため、汎用である「基本の配分」には含めていない。ただし持っているキャラにとっては数ある択の一つではなく攻めの軸そのもので、ガードで解決できなくなって初めて重ねやシミーが機能し始める。',
+        },
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色的指令投見各角色頁的 Special Moves 區段（attacktype 標為 Throw、且有自己的轉圈／半圓輸入）。31 隻中 11 隻有：A.K.I.、Alex、Blanka、Cammy、E.本田、Jamie、JP、金伯莉、莉莉、瑪濃、桑吉爾夫。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08',
+            note: '普通摔投 5F 發生、1,200 傷害、解摔窗口 9 幀；指令投沒有解摔窗口，這就是它跟普通摔最大的差別',
           },
         ],
       },

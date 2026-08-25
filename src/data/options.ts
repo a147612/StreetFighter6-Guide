@@ -314,9 +314,9 @@ const DEFENSIVE: OptionDef[] = [
     origin: 'super reversal',
     hint: {
       'zh-Hant':
-        '有無敵的 SA 當起身反擊。多數角色用的是 SA1，但無敵範圍到哪裡看角色 —— 而且大部分角色的 SA1 對波沒有無敵，所以這是拿來起身脫身的，不是拿來穿波的。沒有 OD 起身反擊的 11 隻角色最貴的一手是這個，但不是唯一 —— 起身動力反攻（兩格）也擋得掉打擊和摔投，只是傷害是白血。',
-      en: 'An invincible Super Art used as a wakeup escape. For most characters that is the SA1, but what the invincibility actually covers varies — and most SA1s are not invincible to projectiles, so this is an escape from pressure, not a way through a fireball. For the eleven characters with no OD wakeup escape it is the most expensive answer, but not the only one — a wakeup Drive Reversal also covers the strike and the throw for two bars, at white damage.',
-      ja: '起き上がりの切り返しに使う無敵SA。多くのキャラはSA1だが、無敵がどこまで及ぶかはキャラ次第で、多くのSA1は飛び道具に無敵がない ——これは攻めからの脱出手段であって、弾を抜けるための択ではない。OD切り返しを持たない11キャラにとって最も高価な択だが唯一ではなく、起き上がりドライブリバーサル（2ゲージ）も打撃と投げの両方に対応できる（ダメージは白）。',
+        '有無敵的 SA 當起身反擊。31 隻裡有 22 隻的 SA1 是「打擊／投擲無敵」—— 注意那不含飛道具，只有桑吉爾夫的 SA1 是完全無敵。例外要記：隆、豪鬼、亞思閔 的 SA1 只有打擊無敵（會被摔），不知火舞 只有對空無敵，迪·傑、達爾西姆、艾蓮娜、瑪麗莎 的 SA1 根本沒有無敵（要用 SA2）。凱爾 只有輕手中手版有無敵。**隆和亞思閔連 SA2、SA3 都只有打擊無敵，等於沒有能擋摔的 SA。**選了角色之後下面的面板會顯示你的實際數字。',
+      en: 'An invincible Super Art used as a wakeup escape. Twenty-two of the thirty-one have an SA1 that is strike-and-throw invincible — which does not include projectiles; only Zangief\'s SA1 is fully invincible. The exceptions are worth knowing: Ryu, Akuma and Yasmine have strike invincibility only, so a throw beats it; Mai\'s is anti-air only; Dee Jay, Dhalsim, Elena and Marisa have no invincibility on SA1 at all and must spend SA2. Guile\'s works on the Light and Medium versions only. **Ryu and Yasmine have no Super at any level that covers a throw.** Pick a character and the panel below shows your actual numbers.',
+      ja: '起き上がりの切り返しに使う無敵SA。31キャラ中22キャラのSA1が打撃／投げ無敵だが、そこに飛び道具は含まれず、完全無敵のSA1はザンギエフだけ。例外は覚えておく価値がある：リュウ・豪鬼・ヤスミンは打撃無敵のみで投げに負け、不知火舞は対空無敵のみ、ディージェイ・ダルシム・エレナ・マリーザはSA1に無敵が無くSA2が必要。ガイルは弱・中版のみ。**リュウとヤスミンはどのレベルのSAにも投げ無敵が無い。**キャラを選べば下のパネルに実際の数値が出る。',
     },
     aka: { 'zh-Hant': ['SA 凹'], en: ['super reversal'], ja: ['SAぶっぱ'] },
     input: '',
@@ -428,6 +428,26 @@ const DEFENSIVE: OptionDef[] = [
     characterSpecific: true,
     category: 'contest',
   },
+  {
+    id: 'command-grab',
+    side: 'offense',
+    name: { 'zh-Hant': '指令投', en: 'Command grab', ja: 'コマンド投げ' },
+    short: { 'zh-Hant': '指令投', en: 'Cmd grab', ja: 'コマ投げ' },
+    origin: 'command grab',
+    hint: {
+      'zh-Hant':
+        '轉圈或半圓輸入的投技。**解不掉** —— 這是它跟普通摔投最大的差別，對手純防禦、延遲解摔、動力撥擋通通沒用，而且傷害和起攻都遠高於普通摔。代價是發生慢、距離短：對手跳、後衝刺或直接按無敵技都躲得掉。31 隻角色有 11 隻有。',
+      en: 'A throw on a 360 or half-circle motion. **It cannot be teched** — that is the whole difference from a normal throw, and it makes just blocking, delay teching and Drive Parry all useless. It also does far more damage and gives far better oki. The price is slow startup and short range: jumping, backdashing or a reversal all escape it. Eleven of the thirty-one have one.',
+      ja: '360や半回転で出す投げ技。**抜けられない**のが通常投げとの決定的な違いで、ガード・遅らせ投げ抜け・パリィのいずれも無効になる。ダメージも起き攻めも通常投げより遥かに上。代償は発生の遅さと間合いの短さで、ジャンプ・バックダッシュ・無敵技のいずれでも逃げられる。31キャラ中11キャラが所持。',
+    },
+    aka: { 'zh-Hant': ['指令抓', '大投'], en: ['command throw'], ja: ['コマ投げ'] },
+    input: '',
+    cost: { drive: 0, sa: 0 },
+    difficulty: 3,
+    characterSpecific: true,
+    category: 'throw',
+  },
+
   {
     id: 'projectile',
     side: 'both',

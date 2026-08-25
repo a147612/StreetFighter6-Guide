@@ -1,3 +1,37 @@
+This repository contains two kinds of material, under different terms.
+
+────────────────────────────────────────────────────────────────────────
+1. THE SOFTWARE AND ITS CONTENT — MIT, below
+────────────────────────────────────────────────────────────────────────
+
+Everything except the files listed in section 2: the source code, the
+build tooling, the situational data in src/data/, and the written guide
+text in all three languages.
+
+────────────────────────────────────────────────────────────────────────
+2. NOT COVERED BY ANY LICENCE GRANTED HERE
+────────────────────────────────────────────────────────────────────────
+
+    public/characters/*
+    public/icon.png
+
+These are Street Fighter 6 character-select artwork. Street Fighter and
+Street Fighter 6 are trademarks of CAPCOM CO., LTD., which owns the
+copyright in this artwork. It is included here only so this unofficial
+fan reference can identify characters, and it is NOT redistributed under
+the MIT licence below — no permission to copy, modify or reuse it is
+granted or implied by this file.
+
+If you fork this repository, delete those files or replace them with art
+you have the right to use. The application already falls back to
+self-authored SVG portraits when an icon is missing
+(src/components/viz/CharacterFace.tsx), so removing them degrades
+cleanly rather than breaking the build.
+
+This project is not affiliated with, endorsed by, or sponsored by CAPCOM.
+
+────────────────────────────────────────────────────────────────────────
+
 MIT License
 
 Copyright (c) 2026 SF6 Situations contributors

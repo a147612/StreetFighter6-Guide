@@ -30,8 +30,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ケン',
     },
     health: 10000,
+    removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Dragonlash Flame (SA1)',
+        input: '214 214 K',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-10 幀',
+          en: 'Strike and throw invincible, frames 1-10',
+          ja: '打撃／投げ無敵 1-10F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Shoryuken (OD)',
         input: '623 PP',
@@ -58,20 +69,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '無消耗',
           en: 'Free',
           ja: '消費なし',
-        },
-      },
-      {
-        move: 'Dragonlash Flame (SA1)',
-        input: '214214 K',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-10 幀',
-          en: 'Strike/throw invincible frames 1-10',
-          ja: '1-10F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -111,8 +108,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'キャミィ',
     },
     health: 10000,
+    removesOptions: ['projectile'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Spin Drive Smasher (SA1)',
+        input: '236 236 K',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-11 幀',
+          en: 'Strike and throw invincible, frames 1-11',
+          ja: '打撃／投げ無敵 1-11F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Cannon Spike (OD)',
         input: '623 KK',
@@ -139,20 +147,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '無消耗',
           en: 'Free',
           ja: '消費なし',
-        },
-      },
-      {
-        move: 'Spin Drive Smasher (SA1)',
-        input: '236236 K',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-11 幀',
-          en: 'Strike/throw invincible frames 1-11',
-          ja: '1-11F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -193,8 +187,19 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     latin: 'Gouki',
     health: 9000,
+    removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Messatsu Gohado (SA1)',
+        input: '236 236 P',
+        invincibility: {
+          'zh-Hant': '只有打擊無敵 1-9 幀 —— 擋不掉摔投，起身用會被摔',
+          en: 'Strike invincible only, frames 1-9 — it does not stop a throw, so a wakeup use loses to one',
+          ja: '打撃無敵のみ 1-9F ——投げは止まらず、起き上がりで使うと投げに負ける',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Gou Shoryuken (OD)',
         input: '623 PP',
@@ -274,8 +279,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ルーク',
     },
     health: 10000,
+    removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Vulcan Blast (SA1)',
+        input: '236 236 P',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-6 幀',
+          en: 'Strike and throw invincible, frames 1-6',
+          ja: '打撃／投げ無敵 1-6F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Rising Uppercut (OD)',
         input: '623 PP',
@@ -302,20 +318,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '無消耗',
           en: 'Free',
           ja: '消費なし',
-        },
-      },
-      {
-        move: 'Vulcan Blast (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-6 幀',
-          en: 'Strike/throw invincible frames 1-6',
-          ja: '1-6F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -355,8 +357,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'リュウ',
     },
     health: 10000,
+    removesOptions: ['command-grab', 'super-reversal'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Shinku Hadoken (SA1)',
+        input: '236 236 P',
+        invincibility: {
+          'zh-Hant': '只有打擊無敵 1-6 幀 —— 擋不掉摔投，起身用會被摔',
+          en: 'Strike invincible only, frames 1-6 — it does not stop a throw, so a wakeup use loses to one',
+          ja: '打撃無敵のみ 1-6F ——投げは止まらず、起き上がりで使うと投げに負ける',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Shoryuken (OD)',
         input: '623 PP',
@@ -369,20 +382,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '2 格動力槽',
           en: '2 Drive bars',
           ja: 'ドライブ2ゲージ',
-        },
-      },
-      {
-        move: 'Shinku Hadoken (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '打擊無敵 1-6 幀（防不住摔投）',
-          en: 'Strike invincible frames 1-6 (throws still get you)',
-          ja: '1-6F打撃無敵（投げは通る）',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -436,8 +435,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: '春麗',
     },
     health: 10000,
+    removesOptions: ['command-grab'],
     backdashFrames: 25,
     reversals: [
+      {
+        move: 'Kikosho (SA1)',
+        input: '236 236 P',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-7 幀',
+          en: 'Strike and throw invincible, frames 1-7',
+          ja: '打撃／投げ無敵 1-7F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Tensho Kicks (OD)',
         input: '22 KK',
@@ -450,20 +460,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '2 格動力槽',
           en: '2 Drive bars',
           ja: 'ドライブ2ゲージ',
-        },
-      },
-      {
-        move: 'Kikosho (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-7 幀',
-          en: 'Strike/throw invincible frames 1-7',
-          ja: '1-7F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -517,8 +513,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ガイル',
     },
     health: 10000,
+    removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Sonic Hurricane (SA1)',
+        input: '[4] 6 4 6 P',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-10 幀，但只有輕手和中手版本有',
+          en: 'Strike and throw invincible, frames 1-10 — Light and Medium versions only',
+          ja: '打撃／投げ無敵 1-10F、ただし弱・中版のみ',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Flash Kick (OD)',
         input: '[2]8 KK',
@@ -531,20 +538,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '2 格動力槽',
           en: '2 Drive bars',
           ja: 'ドライブ2ゲージ',
-        },
-      },
-      {
-        move: 'Sonic Hurricane (SA1)',
-        input: '[4]64 P',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-10 幀',
-          en: 'Strike/throw invincible frames 1-10',
-          ja: '1-10F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -584,8 +577,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ジュリ',
     },
     health: 10000,
+    removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Sakkai Fuhazan (SA1)',
+        input: '236 236 K',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-8 幀',
+          en: 'Strike and throw invincible, frames 1-8',
+          ja: '打撃／投げ無敵 1-8F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Tensenrin (OD)',
         input: '623 PP',
@@ -612,20 +616,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '無消耗',
           en: 'Free',
           ja: '消費なし',
-        },
-      },
-      {
-        move: 'Sakkai Fuhazan (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-8 幀',
-          en: 'Strike/throw invincible frames 1-8',
-          ja: '1-8F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -665,8 +655,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'サガット',
     },
     health: 10000,
+    removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Tiger Cannon (SA1)',
+        input: '236 236 P',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-13 幀',
+          en: 'Strike and throw invincible, frames 1-13',
+          ja: '打撃／投げ無敵 1-13F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Tiger Uppercut (OD)',
         input: '623 PP',
@@ -679,20 +680,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '2 格動力槽',
           en: '2 Drive bars',
           ja: 'ドライブ2ゲージ',
-        },
-      },
-      {
-        move: 'Tiger Cannon (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-13 幀',
-          en: 'Strike/throw invincible frames 1-13',
-          ja: '1-13F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -746,8 +733,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'テリー',
     },
     health: 10000,
+    removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Buster Wolf (SA1)',
+        input: '236 236 K',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-8 幀',
+          en: 'Strike and throw invincible, frames 1-8',
+          ja: '打撃／投げ無敵 1-8F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Rising Tackle (OD)',
         input: '623 PP',
@@ -760,20 +758,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '2 格動力槽',
           en: '2 Drive bars',
           ja: 'ドライブ2ゲージ',
-        },
-      },
-      {
-        move: 'Buster Wolf (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-8 幀',
-          en: 'Strike/throw invincible frames 1-8',
-          ja: '1-8F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -827,8 +811,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'エド',
     },
     health: 10000,
+    removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Psycho Storm (SA1)',
+        input: '236 236 K',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-? 幀',
+          en: 'Strike and throw invincible, frames 1-?',
+          ja: '打撃／投げ無敵 1-?F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Psycho Uppercut (OD)',
         input: '623 PP',
@@ -855,20 +850,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '無消耗',
           en: 'Free',
           ja: '消費なし',
-        },
-      },
-      {
-        move: 'Psycho Storm (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-? 幀',
-          en: 'Strike/throw invincible frames 1-?',
-          ja: '1-?F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -908,8 +889,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'エレナ',
     },
     health: 10000,
+    removesOptions: ['command-grab', 'projectile'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Meteor Volley (SA1)',
+        input: '236 236 K',
+        invincibility: {
+          'zh-Hant': '沒有無敵 —— 這一招不能拿來起身脫身',
+          en: 'No invincibility — this is not a wakeup escape',
+          ja: '無敵なし ——起き上がりの脱出には使えない',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Scratch Wheel (OD)',
         input: '623 KK',
@@ -975,8 +967,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ディージェイ',
     },
     health: 10000,
+    removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'The Greatest Sobat (SA1)',
+        input: '236 236 K',
+        invincibility: {
+          'zh-Hant': '沒有無敵 —— 這一招不能拿來起身脫身',
+          en: 'No invincibility — this is not a wakeup escape',
+          ja: '無敵なし ——起き上がりの脱出には使えない',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Jackknife Maximum (OD)',
         input: '[2]8 KK',
@@ -1042,8 +1045,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ジェイミー',
     },
     health: 10000,
+    removesOptions: ['projectile'],
     backdashFrames: 25,
     reversals: [
+      {
+        move: "Breakin' (SA1)",
+        input: '236 236 K',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-11 幀',
+          en: 'Strike and throw invincible, frames 1-11',
+          ja: '打撃／投げ無敵 1-11F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Arrow Kick (OD)',
         input: '623 KK',
@@ -1126,6 +1140,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 23,
     reversals: [
       {
+        move: 'Shout of Earth (SA1)',
+        input: '236 236 P',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-9 幀',
+          en: 'Strike and throw invincible, frames 1-9',
+          ja: '打撃／投げ無敵 1-9F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
+      {
         move: 'Coward Crouch',
         input: '2 PP',
         invincibility: {
@@ -1151,20 +1175,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '2 格動力槽',
           en: '2 Drive bars',
           ja: 'ドライブ2ゲージ',
-        },
-      },
-      {
-        move: 'Shout of Earth (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-9 幀',
-          en: 'Strike/throw invincible frames 1-9',
-          ja: '1-9F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -1204,8 +1214,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ラシード',
     },
     health: 10000,
+    removesOptions: ['command-grab'],
     backdashFrames: 25,
     reversals: [
+      {
+        move: 'Super Rashid Kick (SA1)',
+        input: '236 236 K',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-15 幀',
+          en: 'Strike and throw invincible, frames 1-15',
+          ja: '打撃／投げ無敵 1-15F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Spinning Mixer (OD)',
         input: '236 PP',
@@ -1232,20 +1253,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '無消耗',
           en: 'Free',
           ja: '消費なし',
-        },
-      },
-      {
-        move: 'Super Rashid Kick (SA1)',
-        input: '236236 K',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-15 幀',
-          en: 'Strike/throw invincible frames 1-15',
-          ja: '1-15F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -1285,8 +1292,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: '不知火舞',
     },
     health: 10000,
+    removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Kagerou no Mai (SA1)',
+        input: '236 236 P',
+        invincibility: {
+          'zh-Hant': '只有對空無敵 1-8 幀 —— 起身時打擊和摔投都擋不掉',
+          en: 'Anti-air invincible only, frames 1-8 — on wakeup it stops neither the strike nor the throw',
+          ja: '対空無敵のみ 1-8F ——起き上がりでは打撃も投げも止まらない',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Hishou Ryuuenjin (OD)',
         input: '623 KK',
@@ -1299,20 +1317,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '2 格動力槽',
           en: '2 Drive bars',
           ja: 'ドライブ2ゲージ',
-        },
-      },
-      {
-        move: 'Kagerou no Mai (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '僅對空無敵 1-8 幀 —— 打不贏算好時間點的壓起身',
-          en: 'Anti-air invincible frames 1-8 — loses to a properly timed meaty',
-          ja: '1-8F対空無敵のみ。正確に重ねられた打撃には負ける',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -1352,8 +1356,19 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ヤスミン',
     },
     health: 10000,
+    removesOptions: ['command-grab', 'projectile', 'super-reversal'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Hiwa ng Kalangitan (SA1)',
+        input: '236 236 K',
+        invincibility: {
+          'zh-Hant': '只有打擊無敵 1-9 幀 —— 擋不掉摔投，起身用會被摔',
+          en: 'Strike invincible only, frames 1-9 — it does not stop a throw, so a wakeup use loses to one',
+          ja: '打撃無敵のみ 1-9F ——投げは止まらず、起き上がりで使うと投げに負ける',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Lipad ng Agila (OD)',
         input: '623 KK',
@@ -1380,20 +1395,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '無消耗',
           en: 'Free',
           ja: '消費なし',
-        },
-      },
-      {
-        move: 'Hiwa ng Kalangitan (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '打擊無敵 1-9 幀（防不住摔投）',
-          en: 'Strike invincible frames 1-9 (throws still get you)',
-          ja: '1-9F打撃無敵（投げは通る）',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
     ],
@@ -1431,6 +1432,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     reversals: [
       {
+        move: 'Chornobog (SA1)',
+        input: '236 236 P',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-10 幀',
+          en: 'Strike and throw invincible, frames 1-10',
+          ja: '打撃／投げ無敵 1-10F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
+      {
         move: 'Amnesia (OD)',
         input: '22 KK',
         invincibility: {
@@ -1456,20 +1467,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '無消耗',
           en: 'Free',
           ja: '消費なし',
-        },
-      },
-      {
-        move: 'Chornobog (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-10 幀',
-          en: 'Strike/throw invincible frames 1-10',
-          ja: '1-10F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -1524,7 +1521,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 11000,
     backdashFrames: 25,
-    removesOptions: ['reversal'],
+    removesOptions: ['projectile', 'reversal'],
     overrides: {
       'super-reversal': {
         notes: {
@@ -1535,6 +1532,16 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     reversals: [
+      {
+        move: 'Aerial Russian Slam (SA1)',
+        input: '236 236 K',
+        invincibility: {
+          'zh-Hant': '完全無敵 1-17 幀 —— 連飛道具都擋得掉，全場最好的 SA1',
+          en: 'Fully invincible, frames 1-17 — projectiles included, the best SA1 on the roster',
+          ja: '完全無敵 1-17F ——飛び道具も含む、ロスター最良のSA1',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Tundra Storm',
         input: '22 HK',
@@ -1547,20 +1554,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '無消耗',
           en: 'Free',
           ja: '消費なし',
-        },
-      },
-      {
-        move: 'Aerial Russian Slam (SA1)',
-        input: '236236 K',
-        invincibility: {
-          'zh-Hant': '完全無敵 1-17 幀',
-          en: 'Fully invincible frames 1-17',
-          ja: '1-17F完全無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -1628,6 +1621,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'イングリッド',
     },
     health: 10000,
+    removesOptions: ['command-grab'],
     backdashFrames: 23,
     overrides: {
       reversal: {
@@ -1639,6 +1633,16 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     reversals: [
+      {
+        move: 'Shining Sun (SA1)',
+        input: '236 236 K',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-11 幀',
+          en: 'Strike and throw invincible, frames 1-11',
+          ja: '打撃／投げ無敵 1-11F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Sun Veil (OD)',
         input: '22 KK',
@@ -1665,20 +1669,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '無消耗',
           en: 'Free',
           ja: '消費なし',
-        },
-      },
-      {
-        move: 'Shining Sun (SA1)',
-        input: '236236 K',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-11 幀',
-          en: 'Strike/throw invincible frames 1-11',
-          ja: '1-11F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -1733,7 +1723,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 25,
-    removesOptions: ['reversal'],
+    removesOptions: ['projectile', 'reversal'],
     overrides: {
       'super-reversal': {
         notes: {
@@ -1746,17 +1736,13 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Arabesque (SA1)',
-        input: '236236 K',
+        input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-13 幀',
-          en: 'Strike/throw invincible frames 1-13',
-          ja: '1-13F打撃・投げ無敵',
+          en: 'Strike and throw invincible, frames 1-13',
+          ja: '打撃／投げ無敵 1-13F',
         },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
-        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
       },
       {
         move: 'Étoile (SA2)',
@@ -1837,17 +1823,13 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Deadly Implication (SA1)',
-        input: '236236 P',
+        input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-12 幀',
-          en: 'Strike/throw invincible frames 1-12',
-          ja: '1-12F打撃・投げ無敵',
+          en: 'Strike and throw invincible, frames 1-12',
+          ja: '打撃／投げ無敵 1-12F',
         },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
-        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
       },
       {
         move: 'Claws of Ya Zi (SA3)',
@@ -1887,7 +1869,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10500,
     backdashFrames: 23,
-    removesOptions: ['reversal'],
+    removesOptions: ['projectile', 'reversal'],
     overrides: {
       'super-reversal': {
         notes: {
@@ -1900,17 +1882,13 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Raging Spear (SA1)',
-        input: '236236 P',
+        input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-11 幀',
-          en: 'Strike/throw invincible frames 1-11',
-          ja: '1-11F打撃・投げ無敵',
+          en: 'Strike and throw invincible, frames 1-11',
+          ja: '打撃／投げ無敵 1-11F',
         },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
-        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
       },
       {
         move: 'Sledgecross Hammer (SA2)',
@@ -1978,7 +1956,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['reversal'],
+    removesOptions: ['command-grab', 'reversal'],
     overrides: {
       'super-reversal': {
         notes: {
@@ -1989,6 +1967,16 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     reversals: [
+      {
+        move: 'Limit Decoupler (SA1)',
+        input: '236 236 K',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-11 幀',
+          en: 'Strike and throw invincible, frames 1-11',
+          ja: '打撃／投げ無敵 1-11F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Focus Force (OD)',
         input: '214 KK',
@@ -2001,20 +1989,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '2 格動力槽',
           en: '2 Drive bars',
           ja: 'ドライブ2ゲージ',
-        },
-      },
-      {
-        move: 'Limit Decoupler (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-11 幀',
-          en: 'Strike/throw invincible frames 1-11',
-          ja: '1-11F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -2069,7 +2043,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['reversal'],
+    removesOptions: ['command-grab', 'reversal'],
     overrides: {
       'super-reversal': {
         notes: {
@@ -2080,6 +2054,16 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     reversals: [
+      {
+        move: 'Yoga Inferno (SA1)',
+        input: '236 236 P',
+        invincibility: {
+          'zh-Hant': '沒有無敵 —— 這一招不能拿來起身脫身',
+          en: 'No invincibility — this is not a wakeup escape',
+          ja: '無敵なし ——起き上がりの脱出には使えない',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Yoga Sunburst (SA2)',
         input: '214214 P',
@@ -2106,20 +2090,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': 'SA3',
           en: 'SA3',
           ja: 'SA3',
-        },
-      },
-      {
-        move: 'Yoga Inferno (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '沒有無敵',
-          en: 'No invincibility',
-          ja: '無敵なし',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -2160,7 +2130,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10500,
     backdashFrames: 23,
-    removesOptions: ['reversal'],
+    removesOptions: ['projectile', 'reversal'],
     overrides: {
       'super-reversal': {
         notes: {
@@ -2173,17 +2143,13 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Show of Force (SA1)',
-        input: '236236 P',
+        input: '236 236 P',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-7 幀',
-          en: 'Strike/throw invincible frames 1-7',
-          ja: '1-7F打撃・投げ無敵',
+          en: 'Strike and throw invincible, frames 1-7',
+          ja: '打撃／投げ無敵 1-7F',
         },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
-        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
       },
       {
         move: 'Ultimate Killer Head Ram (SA2)',
@@ -2264,17 +2230,13 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Bushin Beats (SA1)',
-        input: '236236 P',
+        input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-10 幀',
-          en: 'Strike/throw invincible frames 1-10',
-          ja: '1-10F打撃・投げ無敵',
+          en: 'Strike and throw invincible, frames 1-10',
+          ja: '打撃／投げ無敵 1-10F',
         },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
-        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
       },
       {
         move: 'Bushin Ninjastar Cypher (SA3)',
@@ -2342,7 +2304,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 24,
-    removesOptions: ['reversal'],
+    removesOptions: ['projectile', 'reversal'],
     overrides: {
       'super-reversal': {
         notes: {
@@ -2353,6 +2315,16 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     reversals: [
+      {
+        move: 'Breezing Hawk (SA1)',
+        input: '236 236 P',
+        invincibility: {
+          'zh-Hant': '打擊／投擲無敵 1-14 幀',
+          en: 'Strike and throw invincible, frames 1-14',
+          ja: '打撃／投げ無敵 1-14F',
+        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
+      },
       {
         move: 'Tomahawk Buster (OD)',
         input: '623 PP',
@@ -2365,20 +2337,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           'zh-Hant': '2 格動力槽',
           en: '2 Drive bars',
           ja: 'ドライブ2ゲージ',
-        },
-      },
-      {
-        move: 'Breezing Hawk (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-14 幀',
-          en: 'Strike/throw invincible frames 1-14',
-          ja: '1-14F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
         },
       },
       {
@@ -2448,7 +2406,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     latin: 'Vega',
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['reversal'],
+    removesOptions: ['command-grab', 'reversal'],
     overrides: {
       'super-reversal': {
         notes: {
@@ -2461,17 +2419,13 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Knee Press Nightmare (SA1)',
-        input: '236236 P',
+        input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-11 幀',
-          en: 'Strike/throw invincible frames 1-11',
-          ja: '1-11F打撃・投げ無敵',
+          en: 'Strike and throw invincible, frames 1-11',
+          ja: '打撃／投げ無敵 1-11F',
         },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
-        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
       },
       {
         move: 'Psycho Punisher (SA2)',
@@ -2525,7 +2479,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10500,
     backdashFrames: 25,
-    removesOptions: ['reversal'],
+    removesOptions: ['command-grab', 'projectile', 'reversal'],
     overrides: {
       'super-reversal': {
         notes: {
@@ -2538,17 +2492,13 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Javelin of Marisa (SA1)',
-        input: '236236 P',
+        input: '236 236 P',
         invincibility: {
-          'zh-Hant': '全身霸體兩下，2-23 幀。吃得下壓起身，但霸體防不住摔投',
-          en: 'Two hits of full-body armor, frames 2-23. Eats a meaty, but armor does not stop a throw',
-          ja: '全身アーマー2発、2-23F。重ねは受け止められるが、アーマーは投げを防げない',
+          'zh-Hant': '沒有無敵 —— 這一招不能拿來起身脫身',
+          en: 'No invincibility — this is not a wakeup escape',
+          ja: '無敵なし ——起き上がりの脱出には使えない',
         },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
-        },
+        cost: { 'zh-Hant': 'SA1', en: 'SA1', ja: 'SA1' },
       },
       {
         move: 'Meteorite (SA2)',
