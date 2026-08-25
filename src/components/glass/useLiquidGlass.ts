@@ -9,7 +9,6 @@ import {
   resolveRadius,
   type LiquidGlassConfig,
 } from './refraction'
-import { useRefractionEnabled } from '~/lib/prefs'
 
 /**
  * Attach the refraction half of liquid glass to a rounded-rect element. Pair
@@ -31,7 +30,6 @@ export function useLiquidGlass<T extends HTMLElement>(
   config?: Partial<LiquidGlassConfig>,
 ): RefObject<T | null> {
   const ref = useRef<T | null>(null)
-  const enabled = useRefractionEnabled()
   // Callers pass inline literals; compare by value so a re-render with an
   // equivalent config does not rebake the map.
   const configKey = JSON.stringify(config ?? {})
@@ -40,9 +38,12 @@ export function useLiquidGlass<T extends HTMLElement>(
     const host = ref.current
     if (!host) return
 
-    if (!enabled || !isRefractionSupported()) {
-      // Drop any inline filter from a previous enabled pass and let the
-      // stylesheet's fallback take back over.
+    // Engine-gated, not preference-gated. Refraction cannot be feature-queried
+    // — Safari parses `backdrop-filter: url(#…)` and paints nothing, so
+    // `@supports` reports success — which is why this is a browser check rather
+    // than an `@supports` rule, and why there is no switch: where it runs it
+    // runs, and where it does not the CSS glass is the whole effect.
+    if (!isRefractionSupported()) {
       host.style.backdropFilter = ''
       return
     }
@@ -123,7 +124,7 @@ export function useLiquidGlass<T extends HTMLElement>(
       release()
       host.style.backdropFilter = ''
     }
-  }, [enabled, configKey])
+  }, [configKey])
 
   return ref
 }

@@ -28,7 +28,6 @@ export interface UiStrings {
     clickToSwitch: string
   }
   localeLabel: string
-  refraction: { label: string; on: string; off: string; unsupported: string }
 
   table: {
     option: string
@@ -152,12 +151,6 @@ const zhHant: UiStrings = {
     clickToSwitch: '點擊切換為',
   },
   localeLabel: '語言',
-  refraction: {
-    label: '玻璃折射',
-    on: '開啟',
-    off: '關閉',
-    unsupported: '此瀏覽器不支援（僅 Chromium）',
-  },
 
   table: {
     option: '選項',
@@ -308,12 +301,6 @@ const en: UiStrings = {
     clickToSwitch: 'Click to switch to',
   },
   localeLabel: 'Language',
-  refraction: {
-    label: 'Glass refraction',
-    on: 'On',
-    off: 'Off',
-    unsupported: 'Not supported in this browser (Chromium only)',
-  },
 
   table: {
     option: 'Option',
@@ -465,12 +452,6 @@ const ja: UiStrings = {
     clickToSwitch: 'クリックで切替:',
   },
   localeLabel: '言語',
-  refraction: {
-    label: 'ガラス屈折',
-    on: 'オン',
-    off: 'オフ',
-    unsupported: 'このブラウザでは非対応（Chromium のみ）',
-  },
 
   table: {
     option: '選択肢',

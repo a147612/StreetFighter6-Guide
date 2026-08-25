@@ -233,21 +233,16 @@ export default function App() {
 
       <main id="main" className="shell app__main">
         <div className="browse" hidden={glossary}>
-          {/* Seat and character are one decision made twice — which table, and
-              whose. They belong on one line; stacked, the second one reads as
-              part of the situation navigation below it. */}
-          <div className="browse__row">
-            <Segmented<Side>
-              label={t.side.label}
-              value={side}
-              onChange={pickSide}
-              options={[
-                { value: 'defense', label: t.side.defense },
-                { value: 'offense', label: t.side.offense },
-              ]}
-            />
-            <CharacterPicker />
-          </div>
+          <Segmented<Side>
+            label={t.side.label}
+            value={side}
+            onChange={pickSide}
+            options={[
+              { value: 'defense', label: t.side.defense },
+              { value: 'offense', label: t.side.offense },
+            ]}
+          />
+          <CharacterPicker />
           <SituationNav
             side={side}
             groupId={groupId}

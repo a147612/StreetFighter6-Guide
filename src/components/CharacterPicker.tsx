@@ -120,13 +120,7 @@ export function CharacterPicker() {
         aria-labelledby="charpick-legend charpick-value"
         onClick={() => setOpen(true)}
       >
-        {selected ? (
-          <CharacterAvatar id={selected.id} name={text(selected.name)} size="sm" />
-        ) : (
-          <span className="avatar avatar--sm avatar--none" aria-hidden="true">
-            ✱
-          </span>
-        )}
+        {selected && <CharacterAvatar id={selected.id} name={text(selected.name)} size="sm" />}
         <span id="charpick-value" className="charpick__value">
           {selected ? <TriggerName name={selected.name} /> : t.character.universal}
         </span>

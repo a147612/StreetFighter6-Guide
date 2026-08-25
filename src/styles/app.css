@@ -1230,14 +1230,6 @@ html[data-theme='dark'] .notation__btn--h {
   gap: var(--space-3);
 }
 
-/* Seat and character on one line: both answer "which table", and stacking the
-   second one made it read as part of the situation navigation below. */
-.browse__row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-3) var(--space-4);
-}
 
 /* ── Situation header ────────────────────────────────────────────────
    A title strip rather than a panel. The full read is one line of prose and a
@@ -1484,6 +1476,7 @@ html[data-theme='dark'] .notation__btn--h {
   gap: var(--space-2);
   min-width: 9rem;
   padding: 0.3rem 0.55rem 0.3rem 0.35rem;
+  align-self: flex-start;
   border: 1px solid var(--border);
   border-radius: 9999px;
   background: var(--surface);
@@ -1499,6 +1492,7 @@ html[data-theme='dark'] .notation__btn--h {
 
 .charpick__value {
   flex: 1;
+  padding-left: 0.35rem;
   padding-right: 0.9rem;
   text-align: left;
   white-space: nowrap;
@@ -1734,6 +1728,28 @@ html[data-theme='dark'] .notation__btn--h {
   width: 0.9rem;
   height: 0.9rem;
   flex: none;
+}
+
+/* On a phone the search is the icon and nothing else. The label was already
+   hidden below 30rem but the shortcut hint and the pill's word-shaped padding
+   were not, so it still took the width of a word it was no longer showing. */
+@media (max-width: 40rem) {
+  .control--search {
+    gap: 0;
+    padding: var(--space-1);
+    aspect-ratio: 1;
+    justify-content: center;
+  }
+
+  .control--search .control__text,
+  .control--search .control__kbd {
+    display: none;
+  }
+
+  .control--search svg {
+    width: 1.05rem;
+    height: 1.05rem;
+  }
 }
 
 .control__kbd {

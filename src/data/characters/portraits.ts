@@ -17,10 +17,12 @@
 /**
  * Character id to icon basename in `public/characters/`.
  *
- * Two characters ship with the name burned into the art in two languages, so
- * they carry a Japanese variant: Akuma is GOUKI in Japanese, and M. Bison is
- * VEGA. `iconA23a*` is the hooded pre-reveal Bison and is deliberately unused —
- * a picker wants the look you see across the round start, not the cutscene one.
+ * Two characters ship with the name burned into the art in two languages, and
+ * both non-English locales want the same one: Akuma is 豪鬼 / GOUKI and
+ * M. Bison is 維加 / VEGA in Chinese as well as Japanese, so an icon reading
+ * AKUMA under a label reading 豪鬼 would be the odd one out. `iconA23a*` is the
+ * hooded pre-reveal Bison and is deliberately unused — a picker wants the look
+ * you see across the round start, not the cutscene one.
  */
 const ICONS: Record<string, { file: string; ja?: string }> = {
   ryu: { file: 'iconA01' },
@@ -60,7 +62,7 @@ const ICONS: Record<string, { file: string; ja?: string }> = {
 export function characterIcon(id: string, locale: string): string | null {
   const entry = ICONS[id]
   if (!entry) return null
-  const file = locale === 'ja' && entry.ja ? entry.ja : entry.file
+  const file = locale !== 'en' && entry.ja ? entry.ja : entry.file
   return `${import.meta.env.BASE_URL}characters/${file}.png`
 }
 

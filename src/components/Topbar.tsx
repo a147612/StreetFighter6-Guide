@@ -1,7 +1,6 @@
 import { GlassPanel } from './glass/GlassPanel'
 import { LocaleSelect } from './controls/LocaleSelect'
 import { ThemeButton } from './controls/ThemeButton'
-import { RefractionSwitch } from './controls/RefractionSwitch'
 import { useT } from '~/i18n/useT'
 
 export function Topbar({ onSearch }: { onSearch: () => void }) {
@@ -18,7 +17,15 @@ export function Topbar({ onSearch }: { onSearch: () => void }) {
         </a>
 
         <div className="topbar__controls">
-          <button type="button" className="control control--search" onClick={onSearch}>
+          {/* The label and the shortcut hint are both hidden on a phone, so the
+              accessible name has to come from the attribute rather than the
+              text — a display:none label is gone from the a11y tree too. */}
+          <button
+            type="button"
+            className="control control--search"
+            onClick={onSearch}
+            aria-label={t.search.open}
+          >
             <svg viewBox="0 0 16 16" aria-hidden="true">
               <circle cx="7" cy="7" r="4.4" fill="none" stroke="currentColor" strokeWidth="1.6" />
               <line
@@ -31,10 +38,13 @@ export function Topbar({ onSearch }: { onSearch: () => void }) {
                 strokeLinecap="round"
               />
             </svg>
-            <span className="control__text">{t.search.open}</span>
-            <kbd className="control__kbd">/</kbd>
+            <span className="control__text" aria-hidden="true">
+              {t.search.open}
+            </span>
+            <kbd className="control__kbd" aria-hidden="true">
+              /
+            </kbd>
           </button>
-          <RefractionSwitch />
           <ThemeButton />
           <LocaleSelect />
         </div>

@@ -156,21 +156,3 @@ export function useCharacter(): string {
   return useSyncExternalStore(characterStore.subscribe, characterStore.get, () => '')
 }
 
-/* ── Refraction ───────────────────────────────────────────────────────
-   The glass CSS stands on its own; refraction is the expensive half (a canvas
-   displacement bake per surface) and Chromium-only, so it stays switchable. */
-
-const storedRefraction = read('refraction')
-export const refractionStore = createStore<boolean>(
-  'refraction',
-  storedRefraction === null ? true : storedRefraction === 'true',
-  () => {},
-)
-
-export function useRefractionEnabled(): boolean {
-  return useSyncExternalStore(
-    refractionStore.subscribe,
-    refractionStore.get,
-    () => false,
-  )
-}

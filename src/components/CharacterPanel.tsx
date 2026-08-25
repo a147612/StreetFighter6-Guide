@@ -1,6 +1,7 @@
 import { useCharacterName } from './CharacterName'
 import { InputNotation } from './viz/InputNotation'
 import { getCharacter } from '~/data'
+import type { CharacterOverlay } from '~/data/schema'
 import { useCharacter } from '~/lib/prefs'
 import { useT } from '~/i18n/useT'
 
@@ -16,13 +17,21 @@ import { useT } from '~/i18n/useT'
  */
 export function CharacterPanel() {
   const id = useCharacter()
-  const { t, text } = useT()
   const character = getCharacter(id)
+  // The "no character picked" case is a whole-component absence, so it is a
+  // separate component rather than an early return inside one. An early return
+  // above a hook is a crash the moment anything below it needs state, which is
+  // exactly what happened when the name became bilingual: two hooks on
+  // Universal, three on a character, and React unmounted the page on the switch.
   if (!character) return null
+  return <CharacterCard character={character} />
+}
 
+function CharacterCard({ character }: { character: CharacterOverlay }) {
+  const { t, text } = useT()
+  const { primary, latin } = useCharacterName(character.name)
   const hasOdReversal = !character.removesOptions?.includes('reversal')
   const source = character.sources?.[0]
-  const { primary, latin } = useCharacterName(character.name)
 
   return (
     <details className="card card--padded charpanel">
