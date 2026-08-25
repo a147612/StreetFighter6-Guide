@@ -2,7 +2,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Topbar } from './components/Topbar'
 import { OptionTable } from './components/OptionTable'
 import { DefaultMix } from './components/viz/DefaultMix'
-import { CharacterPanel, CharacterSelect } from './components/CharacterPanel'
+import { CharacterPanel } from './components/CharacterPanel'
+import { CharacterPicker } from './components/CharacterPicker'
 import { StageDiagram } from './components/viz/StageDiagram'
 import { SearchOverlay } from './components/SearchOverlay'
 import { GlossaryView } from './components/GlossaryView'
@@ -183,6 +184,17 @@ export default function App() {
     }
   }, [situationId, targetOption, glossary])
 
+  /**
+   * The glossary link is in the footer, so the reader is always at the bottom
+   * of the page when they press it. Swapping the main content under a viewport
+   * that stays where it was drops them into the middle of the new page — and
+   * when the new page is shorter than the scroll offset, onto nothing at all.
+   */
+  const toggleGlossary = useCallback(() => {
+    setGlossary((previous) => !previous)
+    window.scrollTo({ top: 0 })
+  }, [])
+
   /** `/` and ⌘K are both muscle memory for "find something"; accept either. */
   useEffect(() => {
     const onKey = (event: KeyboardEvent): void => {
@@ -221,28 +233,31 @@ export default function App() {
 
       <main id="main" className="shell app__main">
         <div className="browse" hidden={glossary}>
-          <Segmented<Side>
-            label={t.side.label}
-            value={side}
-            onChange={pickSide}
-            options={[
-              { value: 'defense', label: t.side.defense },
-              { value: 'offense', label: t.side.offense },
-            ]}
-          />
-          <CharacterSelect />
-          {(
-            <SituationNav
-              side={side}
-              groupId={groupId}
-              situationId={situationId}
-              onPickGroup={pickGroup}
-              onPickSituation={(next) => {
-                setSituationId(next)
-                setTargetOption(undefined)
-              }}
+          {/* Seat and character are one decision made twice — which table, and
+              whose. They belong on one line; stacked, the second one reads as
+              part of the situation navigation below it. */}
+          <div className="browse__row">
+            <Segmented<Side>
+              label={t.side.label}
+              value={side}
+              onChange={pickSide}
+              options={[
+                { value: 'defense', label: t.side.defense },
+                { value: 'offense', label: t.side.offense },
+              ]}
             />
-          )}
+            <CharacterPicker />
+          </div>
+          <SituationNav
+            side={side}
+            groupId={groupId}
+            situationId={situationId}
+            onPickGroup={pickGroup}
+            onPickSituation={(next) => {
+              setSituationId(next)
+              setTargetOption(undefined)
+            }}
+          />
         </div>
 
         {glossary ? <GlossaryView /> : situation ? (
@@ -299,7 +314,7 @@ export default function App() {
           <p>{t.footer.disclaimer}</p>
           <p className="muted">{t.footer.trademark}</p>
           <p className="footer__links">
-            <button type="button" className="linkish" onClick={() => setGlossary((v) => !v)}>
+            <button type="button" className="linkish" onClick={toggleGlossary}>
               {glossary ? t.browse.situations : t.glossary.open}
             </button>
             <span aria-hidden="true"> · </span>

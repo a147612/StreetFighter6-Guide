@@ -38,9 +38,9 @@ export function OptionDetail({ row }: { row: OptionRow }) {
       )}
 
       <dl className="detail__meta">
-        {/* Only where the motion actually varies by character. Everyone reading
-            this already knows how to tech a throw. */}
-        {def.showInput && (
+        {/* Nothing universal to print for a character-specific option, and a
+            plausible-looking wrong notation is worse than none. */}
+        {def.showInput && def.input && (
           <div>
             <dt>{t.option.input}</dt>
             <dd>

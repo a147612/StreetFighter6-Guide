@@ -76,6 +76,11 @@ export interface UiStrings {
   character: {
     label: string
     universal: string
+    universalHint: string
+    pick: string
+    filter: string
+    close: string
+    empty: string
     health: string
     reversals: string
     knockdowns: string
@@ -195,7 +200,12 @@ const zhHant: UiStrings = {
   },
   character: {
     label: '角色',
-    universal: '通用（不套用角色）',
+    universal: '通用',
+    universalHint: '全角色共通',
+    pick: '選擇角色',
+    filter: '搜尋角色…',
+    close: '關閉',
+    empty: '沒有符合的角色',
     health: '血量',
     reversals: '起身反擊選項',
     knockdowns: '主要倒地招',
@@ -346,7 +356,12 @@ const en: UiStrings = {
   },
   character: {
     label: 'Character',
-    universal: 'Universal (no overlay)',
+    universal: 'Universal',
+    universalHint: 'Every character',
+    pick: 'Pick a character',
+    filter: 'Filter characters…',
+    close: 'Close',
+    empty: 'No character matches',
     health: 'Health',
     reversals: 'Wakeup escapes',
     knockdowns: 'Key knockdowns',
@@ -498,7 +513,12 @@ const ja: UiStrings = {
   },
   character: {
     label: 'キャラ',
-    universal: '汎用（キャラ未適用）',
+    universal: '汎用',
+    universalHint: '全キャラ共通',
+    pick: 'キャラを選ぶ',
+    filter: 'キャラを検索…',
+    close: '閉じる',
+    empty: '該当するキャラなし',
     health: '体力',
     reversals: '切り返し択',
     knockdowns: '主なダウン技',

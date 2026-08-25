@@ -980,6 +980,53 @@ html[data-theme='dark'] .notation__btn--h {
   border-left: 1px solid var(--border-strong);
 }
 
+/* ── Pinned header copy ──────────────────────────────────────────────
+   Fixed, not sticky: the matrix scrolls sideways in its own box, which makes
+   that box the nearest scrollport, so a sticky `top` resolves against something
+   that never scrolls vertically. The full reasoning is in OptionTable.tsx.
+
+   Kept below the topbar's stacking level (20) — it is placed just under the bar
+   and must slide beneath it, not over it. */
+.opt-stickyhead {
+  position: fixed;
+  /* Placed by script once it is needed. Zero-width until then, so a fixed box
+     sized to its own wide table cannot push the document sideways. */
+  left: 0;
+  width: 0;
+  z-index: 15;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border-strong);
+  border-radius: var(--radius) var(--radius) 0 0;
+  box-shadow: var(--card-shadow);
+}
+
+.opt-stickyhead.is-on {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* The copied widths are only honoured under a fixed layout; left to itself the
+   copy would size its columns from its own one row of content. */
+.opt-table--ghost {
+  table-layout: fixed;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .opt-stickyhead.is-on {
+    animation: stickyhead-in 120ms ease-out;
+  }
+}
+
+@keyframes stickyhead-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
 /* Category grouping: like sits with like, so comparing two techs does not mean
    reading past a jump and a reversal. */
 .opt-table__group th {
@@ -1183,6 +1230,15 @@ html[data-theme='dark'] .notation__btn--h {
   gap: var(--space-3);
 }
 
+/* Seat and character on one line: both answer "which table", and stacking the
+   second one made it read as part of the situation navigation below. */
+.browse__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-4);
+}
+
 /* ── Situation header ────────────────────────────────────────────────
    A title strip rather than a panel. The full read is one line of prose and a
    disclosure; the table is the thing being looked at. */
@@ -1353,17 +1409,174 @@ html[data-theme='dark'] .notation__btn--h {
   margin-top: var(--space-2);
 }
 
-/* ── Character selector and panel ────────────────────────────────── */
-.charselect {
-  align-items: baseline;
+/* ── Character selector and panel ──────────────────────────────────
+   A thirty-one-entry dropdown is a column of text scrolled past; the grid is
+   glanced at. The tiles are self-authored — a signature colour and a monogram,
+   never official art — and they carry the two facts that actually change the
+   tables underneath, so the choice can be made on what it does. */
+
+.avatar {
+  --avatar-color: var(--accent);
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  /* A tint rather than a solid fill: the palette runs from a pale yellow to a
+     near-navy, and no single monogram colour is legible on both. Tinting keeps
+     every tile at the same contrast whatever hue it carries, in either theme. */
+  background: color-mix(in oklab, var(--avatar-color) 26%, var(--surface));
+  box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--avatar-color) 62%, transparent);
+  color: color-mix(in oklab, var(--avatar-color) 72%, var(--text));
+  font-weight: 700;
+  line-height: 1;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar--sm {
+  width: 1.6rem;
+  height: 1.6rem;
+  font-size: 0.62rem;
+}
+
+.avatar--md {
+  width: 2.6rem;
+  height: 2.6rem;
+  font-size: 0.9rem;
+}
+
+.avatar--none {
+  --avatar-color: var(--text-faint);
+  font-weight: 400;
+}
+
+.charpick {
+  display: flex;
+  align-items: center;
   gap: var(--space-2);
   color: var(--text-muted);
 }
 
-.charselect__field {
+.charpick__trigger {
   position: relative;
   display: inline-flex;
   align-items: center;
+  gap: var(--space-2);
+  min-width: 9rem;
+  padding: 0.3rem 0.55rem 0.3rem 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.charpick__trigger:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-sunken);
+}
+
+.charpick__value {
+  flex: 1;
+  padding-right: 0.9rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.charpick__scrim {
+  z-index: 50;
+  align-items: flex-start;
+  padding: clamp(var(--space-4), 6vh, var(--space-6)) var(--space-4);
+}
+
+.charpick__panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: min(44rem, 100%);
+  max-height: min(78vh, 44rem);
+  padding: var(--space-3);
+}
+
+.charpick__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.charpick__filter {
+  flex: 1;
+}
+
+.charpick__close {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  cursor: pointer;
+}
+
+.charpick__close:hover {
+  color: var(--text);
+}
+
+.charpick__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5.6rem, 1fr));
+  gap: var(--space-2);
+  overflow-y: auto;
+  padding: 2px;
+}
+
+/* No opaque fill: this sits on a glass panel, and a solid tile would paint over
+   the refracted backdrop the panel exists for. States are washes. */
+.chartile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: var(--space-2) 0.35rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+
+.chartile:hover {
+  background: color-mix(in oklab, var(--text) 8%, transparent);
+}
+
+.chartile.is-active {
+  background: color-mix(in oklab, var(--accent) 18%, transparent);
+  box-shadow: inset 0 0 0 1.5px var(--accent);
+}
+
+.chartile__name {
+  font-size: var(--step--1);
+  font-weight: 600;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.chartile__stat {
+  line-height: 1;
+}
+
+.chartile__warn {
+  color: var(--risk-extreme);
 }
 
 .charpanel {

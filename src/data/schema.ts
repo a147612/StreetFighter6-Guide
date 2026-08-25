@@ -181,10 +181,12 @@ export interface OptionDef {
   /**
    * Show the notation in the detail panel.
    *
-   * Off by default: anyone reading a situational guide already knows how to
-   * tech a throw, and a row of button glyphs for LP+LK is noise. On where the
-   * motion genuinely varies — character reversals, Super Arts — because there
-   * the input is real information.
+   * Off by default, for two separate reasons. Anyone reading a situational
+   * guide already knows how to tech a throw, so LP+LK is noise; and for a
+   * `characterSpecific` option there is no universal notation to print at all —
+   * "623 PP" is wrong for JP's Amnesia and Ingrid's 22K, and printing it made
+   * the guide state something false. Those options carry `input: ''`; the real
+   * motion is per character, and the character panel is where it belongs.
    */
   showInput?: boolean
 }

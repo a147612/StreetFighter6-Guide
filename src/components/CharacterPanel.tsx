@@ -1,42 +1,7 @@
-import { CHARACTERS, getCharacter } from '~/data'
-import { characterStore, useCharacter } from '~/lib/prefs'
+import { InputNotation } from './viz/InputNotation'
+import { getCharacter } from '~/data'
+import { useCharacter } from '~/lib/prefs'
 import { useT } from '~/i18n/useT'
-
-/** Native select, same reasoning as the locale picker. */
-export function CharacterSelect() {
-  const id = useCharacter()
-  const { t, text } = useT()
-
-  return (
-    <label className="control control--select charselect" title={t.character.label}>
-      <span className="segmented__legend">{t.character.label}</span>
-      <span className="charselect__field">
-        <select value={id} onChange={(event) => characterStore.set(event.target.value)}>
-          <option value="">{t.character.universal}</option>
-          {/* 31 entries: authoring order is meaningless to a reader, so sort by
-              the name they are actually looking at. */}
-          {[...CHARACTERS]
-            .sort((a, b) => text(a.name).localeCompare(text(b.name)))
-            .map((character) => (
-              <option key={character.id} value={character.id}>
-                {text(character.name)}
-              </option>
-            ))}
-        </select>
-        <svg viewBox="0 0 16 16" aria-hidden="true" className="control__chevron">
-          <path
-            d="M4 6.5 L8 10.5 L12 6.5"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </span>
-    </label>
-  )
-}
 
 /**
  * What picking this character actually changed.
@@ -72,7 +37,10 @@ export function CharacterPanel() {
             {character.reversals?.map((reversal) => (
               <li key={reversal.move}>
                 <span className="charlist__move">{reversal.move}</span>
-                <code>{reversal.input}</code>
+                {/* The universal option rows print no notation, because there
+                    is no universal one. Here there is: this motion is this
+                    character's, so draw it the way the rest of the guide does. */}
+                <InputNotation input={reversal.input} />
                 <span className="muted">{text(reversal.invincibility)}</span>
                 <span className="charlist__cost mono">{text(reversal.cost)}</span>
               </li>

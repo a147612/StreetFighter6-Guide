@@ -90,6 +90,11 @@ export function OptionTable({
    * scrollport's width so the panel can pin itself to exactly the visible area.
    */
   const scroller = useRef<HTMLDivElement | null>(null)
+  const tableRef = useRef<HTMLTableElement | null>(null)
+  const headRow = useRef<HTMLTableRowElement | null>(null)
+  const ghost = useRef<HTMLDivElement | null>(null)
+  const ghostRow = useRef<HTMLTableRowElement | null>(null)
+  const [stuck, setStuck] = useState(false)
 
   // Deliberately no dependency array: republish on every commit, so expanding a
   // row is itself a correction. A ResizeObserver alone was not enough — its
@@ -119,6 +124,99 @@ export function OptionTable({
     }
   }, [])
 
+  /**
+   * A pinned copy of the header row.
+   *
+   * `position: sticky` cannot do this. The matrix scrolls sideways in its own
+   * box, and `overflow-x: auto` forces `overflow-y` to compute to `auto` as
+   * well — so that box becomes the nearest scrollport, and a sticky `top`
+   * resolves against a container that never scrolls vertically. Measured, not
+   * assumed: with `top: 4.5rem` the row simply sat 72px below the top of the
+   * scroller and rode off-screen with the rest of it.
+   *
+   * So the row is drawn twice and the copy is pinned with `position: fixed`.
+   * Horizontal sync is a `scrollLeft` copy rather than a transform, because that
+   * keeps the copy a scroll container too — which makes the option-name column
+   * pin itself to the left edge inside the copy with the same rule that already
+   * does it in the real table, instead of a second implementation.
+   */
+  useLayoutEffect(() => {
+    const scrollerNode = scroller.current
+    const ghostNode = ghost.current
+    const headNode = headRow.current
+    const tableNode = tableRef.current
+    if (!scrollerNode || !ghostNode || !headNode || !tableNode) return
+
+    /** Below the topbar, measured rather than recomputed from the tokens it is
+     *  built from — it wraps to two rows on a narrow phone. */
+    function pinLine(): number {
+      const bar = document.querySelector('.topbar')
+      return (bar ? bar.getBoundingClientRect().bottom : 0) + 8
+    }
+
+    const sync = (): void => {
+      const pin = pinLine()
+      const head = headNode.getBoundingClientRect()
+      const body = tableNode.getBoundingClientRect()
+      // Show it only while the real header is above the line and there is still
+      // table left below it; otherwise it hangs over the next section.
+      const show = head.bottom < pin && body.bottom > pin + head.height
+      setStuck(show)
+      if (!show) return
+      const box = scrollerNode.getBoundingClientRect()
+      ghostNode.style.top = `${pin}px`
+      ghostNode.style.left = `${box.left}px`
+      ghostNode.style.width = `${box.width}px`
+      ghostNode.scrollLeft = scrollerNode.scrollLeft
+    }
+
+    const followX = (): void => {
+      ghostNode.scrollLeft = scrollerNode.scrollLeft
+    }
+
+    sync()
+    window.addEventListener('scroll', sync, { passive: true })
+    window.addEventListener('resize', sync, { passive: true })
+    // Layout can change while the tab is hidden — a rotation, a window resize —
+    // and neither event fires here, so re-measure on the way back in.
+    document.addEventListener('visibilitychange', sync)
+    scrollerNode.addEventListener('scroll', followX, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', sync)
+      window.removeEventListener('resize', sync)
+      document.removeEventListener('visibilitychange', sync)
+      scrollerNode.removeEventListener('scroll', followX)
+    }
+  }, [])
+
+  /**
+   * Column widths, copied from the real header.
+   *
+   * No dependency array, for the same reason as `--scroller-w` above: a column
+   * can change width from anything — a different situation, a longer name in
+   * another locale, a row opening and widening a cell — and a copy that is a few
+   * pixels off is worse than no copy at all, because the reader trusts it.
+   */
+  useLayoutEffect(() => {
+    if (!stuck) return
+    const headNode = headRow.current
+    const ghostNode = ghostRow.current
+    const tableNode = tableRef.current
+    if (!headNode || !ghostNode || !tableNode) return
+    const ghostTable = ghostNode.closest('table')
+    if (ghostTable instanceof HTMLTableElement) {
+      ghostTable.style.width = `${tableNode.offsetWidth}px`
+    }
+    const source = headNode.children
+    const target = ghostNode.children
+    for (let i = 0; i < target.length; i += 1) {
+      const from = source[i]
+      const to = target[i]
+      if (!(from instanceof HTMLElement) || !(to instanceof HTMLElement)) continue
+      to.style.width = `${from.getBoundingClientRect().width}px`
+    }
+  })
+
   function toggle(id: string): void {
     setOpen((previous) => {
       const next = new Set(previous)
@@ -145,19 +243,11 @@ export function OptionTable({
     })
   }
 
-  function SortHeader({
-    sortKey,
-    label,
-    first = false,
-  }: {
-    sortKey: SortKey
-    label: string
-    /** Carries the divider that closes the opponent block. */
-    first?: boolean
-  }) {
+  function sortHeader(sortKey: SortKey, label: string, first: boolean, isGhost: boolean) {
     const active = sort?.key === sortKey
     return (
       <th
+        key={sortKey}
         scope="col"
         className={`opt-table__agg ${first ? 'opt-table__agg--first' : ''}`}
         aria-sort={active ? (sort.dir === 'asc' ? 'ascending' : 'descending') : 'none'}
@@ -167,6 +257,11 @@ export function OptionTable({
           className={`th-sort ${active ? 'is-active' : ''}`}
           onClick={() => cycleSort(sortKey)}
           title={active && sort.dir === 'asc' ? t.table.sortAsc : t.table.sortDesc}
+          // The pinned copy is a second set of the same controls. It stays
+          // clickable — sorting is exactly what you want when you are deep in a
+          // long table — but out of the tab order and out of the accessibility
+          // tree, so it is never announced or reached twice.
+          tabIndex={isGhost ? -1 : undefined}
         >
           {label}
           <span className="th-sort__arrow" aria-hidden="true">
@@ -174,6 +269,34 @@ export function OptionTable({
           </span>
         </button>
       </th>
+    )
+  }
+
+  /** One source for the header, drawn twice: in the table, and in the pinned
+   *  copy. Two literals would have drifted the first time a column changed. */
+  function headerRow(isGhost: boolean) {
+    return (
+      <tr ref={isGhost ? ghostRow : headRow}>
+        <th scope="col" className="opt-table__name">
+          {t.outcome.myAxis}
+        </th>
+        {columns.map(({ id, def }) => (
+          <th
+            key={id}
+            scope="col"
+            className="opt-table__vs"
+            title={def!.hint ? text(def!.hint) : text(def!.name)}
+          >
+            {/* The English term rides along with the translation: for a lot of
+                readers "meaty" identifies the thing faster than any Chinese
+                rendering of it does. */}
+            <span className="opt-table__vsname">{text(def!.short ?? def!.name)}</span>
+            {def!.origin && <span className="opt-table__vsorigin">{def!.origin}</span>}
+          </th>
+        ))}
+        {sortHeader('risk', t.table.risk, true, isGhost)}
+        {sortHeader('hpLoss', t.table.hpLoss, false, isGhost)}
+      </tr>
     )
   }
 
@@ -199,30 +322,8 @@ export function OptionTable({
       </div>
 
       <div className="scroll-x card" ref={scroller}>
-        <table className="opt-table">
-          <thead>
-            <tr>
-              <th scope="col" className="opt-table__name">
-                {t.outcome.myAxis}
-              </th>
-              {columns.map(({ id, def }) => (
-                <th
-                  key={id}
-                  scope="col"
-                  className="opt-table__vs"
-                  title={def!.hint ? text(def!.hint) : text(def!.name)}
-                >
-                  {/* The English term rides along with the translation: for a
-                      lot of readers "meaty" identifies the thing faster than
-                      any Chinese rendering of it does. */}
-                  <span className="opt-table__vsname">{text(def!.short ?? def!.name)}</span>
-                  {def!.origin && <span className="opt-table__vsorigin">{def!.origin}</span>}
-                </th>
-              ))}
-              <SortHeader sortKey="risk" label={t.table.risk} first />
-              <SortHeader sortKey="hpLoss" label={t.table.hpLoss} />
-            </tr>
-          </thead>
+        <table className="opt-table" ref={tableRef}>
+          <thead>{headerRow(false)}</thead>
 
           {sections.map((section, sectionIndex) => (
             <tbody key={section.category ?? `sorted-${sectionIndex}`}>
@@ -300,6 +401,18 @@ export function OptionTable({
           ))}
         </table>
       </div>
+
+      {/* Always mounted, only revealed: it has to be measurable to be placed. */}
+      <div
+        className={`opt-stickyhead ${stuck ? 'is-on' : ''}`}
+        ref={ghost}
+        aria-hidden="true"
+      >
+        <table className="opt-table opt-table--ghost">
+          <thead>{headerRow(true)}</thead>
+        </table>
+      </div>
+
       <p className="small faint">{t.table.detailHint}</p>
     </div>
   )
