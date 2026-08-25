@@ -53,7 +53,19 @@ export const GROUP_E: Situation[] = [
           { vs: 'jump-in', outcome: 'loss' },
         ],
         mixRatio: '19-26%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08',
+            note: '普通摔投 5F 發生，抓取距離固定 —— 退出那個距離摔就落空，這是後退走位唯一保證做到的事',
+          },
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08',
+            note: '往後走的同時就是在防禦（按住 4），所以退的過程對打擊仍有防禦；代價是牽制招和前衝都能構到你。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '立回最基本也最有效的一手，但它有方向性 —— 你退掉的是自己的場地。',
           en: 'The most basic and most effective neutral tool, but it is directional: the ground you give up is your own.',
@@ -133,7 +145,14 @@ export const GROUP_E: Situation[] = [
           { vs: 'whiff-punish', outcome: 'even' },
         ],
         mixRatio: '8-11%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色每一招的收招幀數見各角色頁 —— 確反成不成立就是「他的收招比你的發生長多少」，不是感覺問題',
+          },
+        ],
       },
       {
         optionId: 'anti-air',
@@ -350,7 +369,19 @@ export const GROUP_E: Situation[] = [
           { vs: 'jump-in', outcome: 'loss' },
         ],
         mixRatio: '16-24%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08',
+            note: '普通摔投 5F 發生，抓取距離固定 —— 退出那個距離摔就落空，這是後退走位唯一保證做到的事',
+          },
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08',
+            note: '往後走的同時就是在防禦（按住 4），所以退的過程對打擊仍有防禦；代價是牽制招和前衝都能構到你。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '立回最基本也最有效的一手，但它有方向性 —— 你退掉的是自己的場地。',
           en: 'The most basic and most effective neutral tool, but it is directional: the ground you give up is your own.',
@@ -435,7 +466,14 @@ export const GROUP_E: Situation[] = [
           { vs: 'whiff-punish', outcome: 'even' },
         ],
         mixRatio: '16-24%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色每一招的收招幀數見各角色頁 —— 確反成不成立就是「他的收招比你的發生長多少」，不是感覺問題',
+          },
+        ],
       },
       {
         optionId: 'anti-air',

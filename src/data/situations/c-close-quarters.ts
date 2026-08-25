@@ -184,7 +184,19 @@ export const GROUP_C: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '11-14%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08',
+            note: '普通摔投 5F 發生，抓取距離固定 —— 退出那個距離摔就落空，這是後退走位唯一保證做到的事',
+          },
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08',
+            note: '往後走的同時就是在防禦（按住 4），所以退的過程對打擊仍有防禦；代價是牽制招和前衝都能構到你。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '最被忽略的防摔手段。它不像解摔那樣有硬直，失敗時只是被打到而不是被重罰。',
           en: 'The most overlooked answer to a throw. Unlike a tech it has no recovery to punish, so being wrong costs a hit rather than a full punish.',
@@ -345,7 +357,14 @@ export const GROUP_C: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '7-11%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色每一招的收招幀數見各角色頁 —— 確反成不成立就是「他的收招比你的發生長多少」，不是感覺問題',
+          },
+        ],
         notes: {
           'zh-Hant': '要求你認得對手的招的距離與收招長度。難度高，但它是唯一「不冒險就有大回報」的選項。',
           en: 'Demands knowing the range and recovery of their buttons. Hard, but the only option that pays big without gambling.',
@@ -528,7 +547,19 @@ export const GROUP_C: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '11-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08',
+            note: '普通摔投 5F 發生，抓取距離固定 —— 退出那個距離摔就落空，這是後退走位唯一保證做到的事',
+          },
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08',
+            note: '往後走的同時就是在防禦（按住 4），所以退的過程對打擊仍有防禦；代價是牽制招和前衝都能構到你。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '最被忽略的防摔手段。它不像解摔那樣有硬直，失敗時只是被打到而不是被重罰。',
           en: 'The most overlooked answer to a throw. Unlike a tech it has no recovery to punish, so being wrong costs a hit rather than a full punish.',
@@ -689,7 +720,14 @@ export const GROUP_C: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '7-11%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色每一招的收招幀數見各角色頁 —— 確反成不成立就是「他的收招比你的發生長多少」，不是感覺問題',
+          },
+        ],
         notes: {
           'zh-Hant': '要求你認得對手的招的距離與收招長度。難度高，但它是唯一「不冒險就有大回報」的選項。',
           en: 'Demands knowing the range and recovery of their buttons. Hard, but the only option that pays big without gambling.',

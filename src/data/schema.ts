@@ -205,12 +205,18 @@ export interface Versus {
  * judgment lives, which is why it hangs off the situation and not the option.
  */
 /**
- * The thirteen evaluations still marked `estimated` are the four options whose
- * grade is a spacing read and nothing else — `walk-back`, `whiff-punish`,
- * `poke`, `reset-neutral`. No published number decides whether a button at this
- * range is worth throwing out; it depends on which button, which character and
- * which opponent. Attaching a topical citation to them would make `sourced`
- * mean less on the 182 rows where it was earned. Leave them.
+ * Every evaluation is `sourced`. That is not the same as "every number is
+ * checked" — it means each grade names the published mechanic that decides it,
+ * and the `sources` on it point at where that mechanic is written down.
+ *
+ * `estimated` still exists and a new row should start there. It is the honest
+ * answer while the grade is a feeling; it stops being the honest answer once
+ * you can say *why*. The last thirteen to move were `walk-back`, `whiff-punish`,
+ * `poke` and `reset-neutral`, which I had held back as "spacing reads" while
+ * sourcing `meaty` on late active frames and `bait-block` on a blocked reversal
+ * being −6. Those are the same kind of claim: a whiff punish is recovery frames,
+ * walking back is throw range plus the fact that holding back is blocking. The
+ * line was drawn in the wrong place, not too strictly.
  */
 export interface OptionEval {
   optionId: string

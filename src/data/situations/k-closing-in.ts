@@ -195,7 +195,14 @@ export const GROUP_K: Situation[] = [
           { vs: 'jump-in', outcome: 'loss' },
         ],
         mixRatio: '12-16%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色長手普通技的判定距離與收招幀數見各角色頁 —— 牽制招換到的是空間，付的是那段收招',
+          },
+        ],
       },
       {
         optionId: 'projectile',
@@ -481,7 +488,14 @@ export const GROUP_K: Situation[] = [
           { vs: 'jump-in', outcome: 'loss' },
         ],
         mixRatio: '21-30%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色長手普通技的判定距離與收招幀數見各角色頁 —— 牽制招換到的是空間，付的是那段收招',
+          },
+        ],
       },
       {
         optionId: 'projectile',

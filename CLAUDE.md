@@ -35,8 +35,11 @@ derived from `versus`, never authored, so the two cannot disagree.
 - **Every string is trilingual.** `I18nText` is a total Record, so a missing
   locale is a compile error. Blank-but-present strings (`'   '`) are caught by
   `npm run validate`, not by tsc.
-- **`estimated` vs `sourced` is load-bearing.** Qualitative reads are
-  `estimated`; anything grounded in a published number is `sourced` with a URL.
+- **`estimated` vs `sourced` is load-bearing.** `sourced` means the grade names
+  the published mechanic that decides it and links where that is written down —
+  not that every number has been re-measured. All 195 evaluations are there now.
+  A new row starts `estimated`, which is the honest answer while the grade is
+  still a feeling, and moves once you can say *why*.
   None of the sources state a game version, so `patch` records the **date it was
   read** and the source `note` says so. Do not invent a patch number.
 - **Health percentages assume 10,000.** Health runs 9,000 (Akuma) to 11,000

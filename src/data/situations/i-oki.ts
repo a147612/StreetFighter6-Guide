@@ -432,7 +432,19 @@ export const GROUP_I: Situation[] = [
           { vs: 'drive-reversal', outcome: 'win' },
         ],
         mixRatio: '3-7%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08',
+            note: '無敵技空揮的整體動作很長（起身動力反攻空揮足以吃到跳入連段，被擋是 −6）—— 退開讓它打在空氣上，就是把那段硬直換成你的時間。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色 OD 起身反擊空揮與被擋後的硬直見各角色頁',
+          },
+        ],
         notes: {
           'zh-Hant': '對手每次都無敵技的時候，退開比空防更安全 —— 空防還是有被 SA 打到的風險。',
           en: 'Against someone reversing every time, backing off is safer than blocking: a block can still be beaten by an invincible Super.',
@@ -865,7 +877,19 @@ export const GROUP_I: Situation[] = [
           { vs: 'drive-reversal', outcome: 'win' },
         ],
         mixRatio: '3-7%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08',
+            note: '無敵技空揮的整體動作很長（起身動力反攻空揮足以吃到跳入連段，被擋是 −6）—— 退開讓它打在空氣上，就是把那段硬直換成你的時間。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色 OD 起身反擊空揮與被擋後的硬直見各角色頁',
+          },
+        ],
         notes: {
           'zh-Hant': '對手每次都無敵技的時候，退開比空防更安全 —— 空防還是有被 SA 打到的風險。',
           en: 'Against someone reversing every time, backing off is safer than blocking: a block can still be beaten by an invincible Super.',
@@ -1298,7 +1322,19 @@ export const GROUP_I: Situation[] = [
           { vs: 'drive-reversal', outcome: 'win' },
         ],
         mixRatio: '3-7%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08',
+            note: '無敵技空揮的整體動作很長（起身動力反攻空揮足以吃到跳入連段，被擋是 −6）—— 退開讓它打在空氣上，就是把那段硬直換成你的時間。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色 OD 起身反擊空揮與被擋後的硬直見各角色頁',
+          },
+        ],
         notes: {
           'zh-Hant': '對手每次都無敵技的時候，退開比空防更安全 —— 空防還是有被 SA 打到的風險。',
           en: 'Against someone reversing every time, backing off is safer than blocking: a block can still be beaten by an invincible Super.',
