@@ -204,6 +204,14 @@ export interface Versus {
  * How one option grades in one situation. This is where the guide's actual
  * judgment lives, which is why it hangs off the situation and not the option.
  */
+/**
+ * The thirteen evaluations still marked `estimated` are the four options whose
+ * grade is a spacing read and nothing else — `walk-back`, `whiff-punish`,
+ * `poke`, `reset-neutral`. No published number decides whether a button at this
+ * range is worth throwing out; it depends on which button, which character and
+ * which opponent. Attaching a topical citation to them would make `sourced`
+ * mean less on the 182 rows where it was earned. Leave them.
+ */
 export interface OptionEval {
   optionId: string
   risk: RiskTier

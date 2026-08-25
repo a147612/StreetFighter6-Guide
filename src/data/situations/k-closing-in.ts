@@ -54,7 +54,14 @@ export const GROUP_K: Situation[] = [
           { vs: 'jump-in', outcome: 'loss' },
         ],
         mixRatio: '20-29%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08',
+            note: '各角色前衝刺的總幀數見此。前衝刺沒有無敵、過程中也不能防禦，所以它換到的距離是用那段收招付的',
+          },
+        ],
         notes: {
           'zh-Hant': '最便宜的接近手段，代價是最容易被牽制招擋下來。對手一直伸手的時候換確反比較划算。',
           en: 'The cheapest way in, and the easiest to stuff with a poke. If they keep sticking a limb out, whiff punishing pays better.',
@@ -138,7 +145,19 @@ export const GROUP_K: Situation[] = [
           { vs: 'jump-in', outcome: 'even' },
         ],
         mixRatio: '8-12%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '空中無法防禦，所以對空打中就是確定的；各角色對空技與空中普通技的發生幀數見各角色頁。摔投抓不到空中的人 —— 這是跳起來唯一換到的東西。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '壓制中留 9 幀以上的空隙，防守方就跳得出去 —— 跳能不能成立取決於空隙大小，不是取決於膽量。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '對手每對空成功一次，跳的價值就下降一階。看到他對空穩之後改用地面接近。',
           en: 'Every anti-air they land drops the value of jumping a tier. Once they are anti-airing consistently, come in on the ground.',
@@ -216,7 +235,19 @@ export const GROUP_K: Situation[] = [
           },
         ],
         mixRatio: '20-29%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色飛道具的發生與收招幀數見各角色頁 —— 發波之後那段收招就是對手跳過來、撥擋或衝進來要換的東西',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '動力衝擊的霸體吃得下飛道具，而且每被飛道具打中一次會多 6 幀停頓；動力撥擋擋下飛道具會回動力槽。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'empty-jump',
@@ -249,7 +280,19 @@ export const GROUP_K: Situation[] = [
           { vs: 'jump-in', outcome: 'even' },
         ],
         mixRatio: '4-8%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '空中無法防禦，所以對空打中就是確定的；各角色對空技與空中普通技的發生幀數見各角色頁。摔投抓不到空中的人 —— 這是跳起來唯一換到的東西。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '壓制中留 9 幀以上的空隙，防守方就跳得出去 —— 跳能不能成立取決於空隙大小，不是取決於膽量。來源未標註遊戲版本',
+          },
+        ],
       },
     ],
   },
@@ -297,7 +340,14 @@ export const GROUP_K: Situation[] = [
           { vs: 'jump-in', outcome: 'bigLoss' },
         ],
         mixRatio: '21-30%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08',
+            note: '各角色前衝刺的總幀數見此。前衝刺沒有無敵、過程中也不能防禦，所以它換到的距離是用那段收招付的',
+          },
+        ],
         notes: {
           'zh-Hant': '最便宜的接近手段，代價是最容易被牽制招擋下來。對手一直伸手的時候換確反比較划算。',
           en: 'The cheapest way in, and the easiest to stuff with a poke. If they keep sticking a limb out, whiff punishing pays better.',
@@ -381,7 +431,19 @@ export const GROUP_K: Situation[] = [
           { vs: 'jump-in', outcome: 'even' },
         ],
         mixRatio: '9-13%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '空中無法防禦，所以對空打中就是確定的；各角色對空技與空中普通技的發生幀數見各角色頁。摔投抓不到空中的人 —— 這是跳起來唯一換到的東西。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '壓制中留 9 幀以上的空隙，防守方就跳得出去 —— 跳能不能成立取決於空隙大小，不是取決於膽量。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '對手每對空成功一次，跳的價值就下降一階。看到他對空穩之後改用地面接近。',
           en: 'Every anti-air they land drops the value of jumping a tier. Once they are anti-airing consistently, come in on the ground.',
@@ -459,7 +521,19 @@ export const GROUP_K: Situation[] = [
           },
         ],
         mixRatio: '4-9%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色飛道具的發生與收招幀數見各角色頁 —— 發波之後那段收招就是對手跳過來、撥擋或衝進來要換的東西',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '動力衝擊的霸體吃得下飛道具，而且每被飛道具打中一次會多 6 幀停頓；動力撥擋擋下飛道具會回動力槽。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '中距離發波風險高得多 —— 他要跑的距離短，跳過來直接接連段。',
           en: 'Far riskier at mid range: they have less ground to cover, so a jump converts straight into a combo.',
@@ -497,7 +571,19 @@ export const GROUP_K: Situation[] = [
           { vs: 'jump-in', outcome: 'even' },
         ],
         mixRatio: '4-9%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '空中無法防禦，所以對空打中就是確定的；各角色對空技與空中普通技的發生幀數見各角色頁。摔投抓不到空中的人 —— 這是跳起來唯一換到的東西。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '壓制中留 9 幀以上的空隙，防守方就跳得出去 —— 跳能不能成立取決於空隙大小，不是取決於膽量。來源未標註遊戲版本',
+          },
+        ],
       },
     ],
   },

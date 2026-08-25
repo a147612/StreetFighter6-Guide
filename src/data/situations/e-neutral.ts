@@ -89,7 +89,19 @@ export const GROUP_E: Situation[] = [
           { vs: 'dash-in', outcome: 'loss' },
         ],
         mixRatio: '19-26%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色飛道具的發生與收招幀數見各角色頁 —— 發波之後那段收招就是對手跳過來、撥擋或衝進來要換的東西',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '動力衝擊的霸體吃得下飛道具，而且每被飛道具打中一次會多 6 幀停頓；動力撥擋擋下飛道具會回動力槽。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'whiff-punish',
@@ -279,7 +291,19 @@ export const GROUP_E: Situation[] = [
           { vs: 'dash-in', outcome: 'loss' },
         ],
         mixRatio: '8-11%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '空中無法防禦，所以對空打中就是確定的；各角色對空技與空中普通技的發生幀數見各角色頁。摔投抓不到空中的人 —— 這是跳起來唯一換到的東西。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '壓制中留 9 幀以上的空隙，防守方就跳得出去 —— 跳能不能成立取決於空隙大小，不是取決於膽量。來源未標註遊戲版本',
+          },
+        ],
       },
     ],
   },
@@ -362,7 +386,19 @@ export const GROUP_E: Situation[] = [
           { vs: 'dash-in', outcome: 'bigLoss' },
         ],
         mixRatio: '8-12%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '各角色飛道具的發生與收招幀數見各角色頁 —— 發波之後那段收招就是對手跳過來、撥擋或衝進來要換的東西',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '動力衝擊的霸體吃得下飛道具，而且每被飛道具打中一次會多 6 幀停頓；動力撥擋擋下飛道具會回動力槽。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '中距離發波很危險 —— 對手的反應時間夠短，跳過來就直接接連段。這是遠距離的工具。',
           en: 'Throwing one at mid range is dangerous: they have little ground to cover, so a jump converts straight into a combo. This is a long-range tool.',
@@ -557,7 +593,19 @@ export const GROUP_E: Situation[] = [
           { vs: 'dash-in', outcome: 'loss' },
         ],
         mixRatio: '8-12%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '空中無法防禦，所以對空打中就是確定的；各角色對空技與空中普通技的發生幀數見各角色頁。摔投抓不到空中的人 —— 這是跳起來唯一換到的東西。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '壓制中留 9 幀以上的空隙，防守方就跳得出去 —— 跳能不能成立取決於空隙大小，不是取決於膽量。來源未標註遊戲版本',
+          },
+        ],
       },
     ],
   },

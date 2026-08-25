@@ -388,7 +388,19 @@ export const GROUP_I: Situation[] = [
           { vs: 'drive-reversal', outcome: 'loss' },
         ],
         mixRatio: '3-7%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '空中無法防禦，所以對空打中就是確定的；各角色對空技與空中普通技的發生幀數見各角色頁。摔投抓不到空中的人 —— 這是跳起來唯一換到的東西。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '壓制中留 9 幀以上的空隙，防守方就跳得出去 —— 跳能不能成立取決於空隙大小，不是取決於膽量。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'reset-neutral',
@@ -809,7 +821,19 @@ export const GROUP_I: Situation[] = [
           { vs: 'drive-reversal', outcome: 'loss' },
         ],
         mixRatio: '3-7%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '空中無法防禦，所以對空打中就是確定的；各角色對空技與空中普通技的發生幀數見各角色頁。摔投抓不到空中的人 —— 這是跳起來唯一換到的東西。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '壓制中留 9 幀以上的空隙，防守方就跳得出去 —— 跳能不能成立取決於空隙大小，不是取決於膽量。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'reset-neutral',
@@ -1230,7 +1254,19 @@ export const GROUP_I: Situation[] = [
           { vs: 'drive-reversal', outcome: 'loss' },
         ],
         mixRatio: '3-7%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '空中無法防禦，所以對空打中就是確定的；各角色對空技與空中普通技的發生幀數見各角色頁。摔投抓不到空中的人 —— 這是跳起來唯一換到的東西。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '壓制中留 9 幀以上的空隙，防守方就跳得出去 —— 跳能不能成立取決於空隙大小，不是取決於膽量。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'reset-neutral',

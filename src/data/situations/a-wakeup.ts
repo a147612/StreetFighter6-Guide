@@ -502,7 +502,19 @@ export const GROUP_A: Situation[] = [
           { vs: 'anti-air', outcome: 'bigLoss' },
         ],
         mixRatio: '3-6%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '空中無法防禦，所以對空打中就是確定的；各角色對空技與空中普通技的發生幀數見各角色頁。摔投抓不到空中的人 —— 這是跳起來唯一換到的東西。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '壓制中留 9 幀以上的空隙，防守方就跳得出去 —— 跳能不能成立取決於空隙大小，不是取決於膽量。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '回報最高也最容易被讀。最好在對手剛剛壓空一次之後用 —— 那是他最沒準備對空的時候。',
           en: 'The highest payoff and the easiest to read. Use it right after a setup of theirs has whiffed, when they are least ready to anti-air.',
@@ -1111,7 +1123,19 @@ export const GROUP_A: Situation[] = [
           { vs: 'anti-air', outcome: 'bigLoss' },
         ],
         mixRatio: '3-6%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '空中無法防禦，所以對空打中就是確定的；各角色對空技與空中普通技的發生幀數見各角色頁。摔投抓不到空中的人 —— 這是跳起來唯一換到的東西。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '壓制中留 9 幀以上的空隙，防守方就跳得出去 —— 跳能不能成立取決於空隙大小，不是取決於膽量。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '回報最高也最容易被讀。最好在對手剛剛壓空一次之後用 —— 那是他最沒準備對空的時候。',
           en: 'The highest payoff and the easiest to read. Use it right after a setup of theirs has whiffed, when they are least ready to anti-air.',
@@ -1737,7 +1761,19 @@ export const GROUP_A: Situation[] = [
           { vs: 'anti-air', outcome: 'bigLoss' },
         ],
         mixRatio: '3-6%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '空中無法防禦，所以對空打中就是確定的；各角色對空技與空中普通技的發生幀數見各角色頁。摔投抓不到空中的人 —— 這是跳起來唯一換到的東西。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '壓制中留 9 幀以上的空隙，防守方就跳得出去 —— 跳能不能成立取決於空隙大小，不是取決於膽量。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '回報最高也最容易被讀。最好在對手剛剛壓空一次之後用 —— 那是他最沒準備對空的時候。另外角落被打下來不一定是最差結果：空中互毆換到的有時候等於一次犧牲打，落地後反而拿回一次進攻權。',
           en: 'The highest payoff and the easiest to read. Use it right after a setup of theirs has whiffed, when they are least ready to anti-air. And being knocked out of it is not uniformly the worst case: an air-to-air trade can amount to a sacrifice that hands you back a turn on landing.',
@@ -1772,7 +1808,19 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
         ],
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08',
+            note: '空中無法防禦，所以對空打中就是確定的；各角色對空技與空中普通技的發生幀數見各角色頁。摔投抓不到空中的人 —— 這是跳起來唯一換到的東西。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08',
+            note: '壓制中留 9 幀以上的空隙，防守方就跳得出去 —— 跳能不能成立取決於空隙大小，不是取決於膽量。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '場中值得混，角落幾乎不該用。決定評價的是位置，不是選項本身。',
           en: 'Worth mixing midscreen, close to indefensible cornered. Position decides the grade, not the option.',
