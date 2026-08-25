@@ -41,7 +41,7 @@ try {
   process.exit(1)
 }
 
-const { OPTIONS, SITUATIONS } = await import(pathToFileURL(outfile).href)
+const { OPTIONS, SITUATIONS, CHARACTERS } = await import(pathToFileURL(outfile).href)
 await rm(workDir, { recursive: true, force: true })
 
 /* ── Options ─────────────────────────────────────────────────────── */
@@ -137,6 +137,43 @@ for (const situation of SITUATIONS) {
   }
 }
 
+/* ── Characters ──────────────────────────────────────────────────── */
+
+const characterIds = new Set()
+let noReversalCount = 0
+for (const character of CHARACTERS ?? []) {
+  const where = `character "${character.id}"`
+  if (characterIds.has(character.id)) errors.push(`duplicate ${where}`)
+  characterIds.add(character.id)
+  checkLocales(character.name, `${where} name`)
+
+  if (!(character.health > 0)) errors.push(`${where} has no health`)
+
+  for (const id of character.removesOptions ?? []) {
+    if (!optionIds.has(id)) errors.push(`${where} removes unknown option "${id}"`)
+  }
+  if (character.removesOptions?.includes('reversal')) noReversalCount++
+
+  for (const [id, override] of Object.entries(character.overrides ?? {})) {
+    if (!optionIds.has(id)) errors.push(`${where} overrides unknown option "${id}"`)
+    if (override.notes) checkLocales(override.notes, `${where} override ${id} notes`)
+  }
+
+  for (const reversal of character.reversals ?? []) {
+    checkLocales(reversal.invincibility, `${where} reversal "${reversal.move}" invincibility`)
+    checkLocales(reversal.cost, `${where} reversal "${reversal.move}" cost`)
+  }
+
+  // An overlay that neither removes anything nor lists a reversal is a stub
+  // pretending to be data.
+  if ((character.reversals ?? []).length === 0) {
+    warnings.push(`${where} lists no invincible options`)
+  }
+  if (!character.sources || character.sources.length === 0) {
+    errors.push(`${where} has no source`)
+  }
+}
+
 function checkLocales(value, where) {
   if (!value || typeof value !== 'object') {
     errors.push(`${where} is not a localised string`)
@@ -152,6 +189,7 @@ for (const error of errors) console.error(`error  ${error}`)
 const estimated = evaluationCount - sourcedCount
 console.log(
   `validate-data: ${OPTIONS.length} options, ${SITUATIONS.length} situations, ` +
+    `${characterIds.size} characters (${noReversalCount} with no OD reversal), ` +
     `${evaluationCount} evaluations (${sourcedCount} sourced / ${estimated} estimated), ` +
     `${errors.length} error(s), ${warnings.length} warning(s)`,
 )

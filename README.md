@@ -59,10 +59,14 @@ A situational decision reference for Street Fighter 6: for every situation, what
 
 ## 角色層
 
-8 隻角色（Ken、Cammy、Akuma、Luke、JP、Zangief、Ingrid、Manon）。角色層主要做的是**減法**：
+全 31 隻角色。角色層主要做的是**減法**：
 
-**8 隻裡有 4 隻沒有完全無敵的 OD 升龍類招式**（JP、Zangief、Ingrid、Manon）。選了他們，
-「OD 無敵技」那一列會直接從所有表格消失 —— 讓讀者照著一個他按不出來的按鈕做計畫，比沒看到更糟。
+**31 隻裡有 13 隻沒有完全無敵的 OD 升龍類招式** —— A.K.I.、Alex、C. Viper、Dhalsim、E. Honda、
+Ingrid、JP、Kimberly、Lily、M. Bison、Manon、Marisa、Zangief。選了他們，「OD 無敵技」那一列會
+直接從所有表格消失 —— 讓讀者照著一個他按不出來的按鈕做計畫，比沒看到更糟。
+
+原始資料還抓到兩個摘要看不出來的陷阱：Dhalsim 的 **SA1 完全沒有無敵**（要 SA2 以上才能凹）、
+Kimberly 的 Hidden Variable 無敵是**第 19 幀才開始**，再怎麼「完全無敵」也不能當起身反擊。
 
 另外多數角色的 LP/MP/HP 升龍**只有對空無敵**，打不贏算好時間點的壓起身；要在起身打穿打擊和
 摔投，必須用 OD 版（2 格）或無敵 SA。這點修正了通用層原本的錯誤評分。

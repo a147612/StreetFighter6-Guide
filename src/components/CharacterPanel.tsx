@@ -13,11 +13,15 @@ export function CharacterSelect() {
       <span className="charselect__field">
         <select value={id} onChange={(event) => characterStore.set(event.target.value)}>
           <option value="">{t.character.universal}</option>
-          {CHARACTERS.map((character) => (
-            <option key={character.id} value={character.id}>
-              {text(character.name)}
-            </option>
-          ))}
+          {/* 31 entries: authoring order is meaningless to a reader, so sort by
+              the name they are actually looking at. */}
+          {[...CHARACTERS]
+            .sort((a, b) => text(a.name).localeCompare(text(b.name)))
+            .map((character) => (
+              <option key={character.id} value={character.id}>
+                {text(character.name)}
+              </option>
+            ))}
         </select>
         <svg viewBox="0 0 16 16" aria-hidden="true" className="control__chevron">
           <path

@@ -91,11 +91,12 @@ const ROADMAP: RoadmapItem[] = [
     },
   },
   {
-    state: 'planned',
+    state: 'done',
     label: {
-      'zh-Hant': '角色層補齊剩下 23 隻',
-      en: 'The remaining 23 characters',
-      ja: '残り23キャラ',
+      'zh-Hant':
+        '角色層補齊全 31 隻。其中 13 隻沒有完全無敵的 OD 升龍類招式，選了他們會直接把那一列從表格移除',
+      en: 'Character layer complete for all 31. Thirteen have no fully invincible OD reversal; picking one removes that row from every table',
+      ja: 'キャラ別レイヤーを全31体に拡大。うち13体は完全無敵のOD昇龍系を持たず、選ぶとその行が表から消える',
     },
   },
   {
