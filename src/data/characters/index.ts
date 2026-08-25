@@ -103,6 +103,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     health: 10000,
     overrides: {
       'command-grab': {
+        input: '214 P > LP LK',
         note: {
           'zh-Hant': '嘉米的指令投是 Hooligan 中的 Fatal Leg Twister，而它**蹲防就會落空**。上面說的「解不掉，所以純防禦沒用」對她剛好是反的 —— 蹲著擋就解決了。',
           en: 'Cammy\'s is Fatal Leg Twister out of Hooligan, and it **whiffs on a crouching opponent**. The line above about blocking being useless because there is no tech is exactly inverted for her: crouch-blocking beats it outright.',
@@ -447,6 +448,14 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: '春麗',
     },
     health: 10000,
+    overrides: {
+      'anti-air': {
+        input: '[2] 8 K',
+      },
+      'projectile': {
+        input: '[4] 6 P',
+      },
+    },
     removesOptions: ['command-grab'],
     backdashFrames: 25,
     reversals: [
@@ -525,6 +534,14 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ガイル',
     },
     health: 10000,
+    overrides: {
+      'anti-air': {
+        input: '[2] 8 K',
+      },
+      'projectile': {
+        input: '[4] 6 P',
+      },
+    },
     removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
@@ -589,6 +606,16 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ジュリ',
     },
     health: 10000,
+    overrides: {
+      'projectile': {
+        note: {
+          'zh-Hant': '蛛俐的風破腳按住不放會**存一層 Fuha（最多三層）**，放開才發射。所以她「發波」的時候常常不是在發波，是在存資源 —— 那三層會強化風破掌、暗剣殺、豪王殺。對手看到她起手要判斷：這一下是要打出來，還是她在補存量。',
+          en: 'Holding the kick on Juri\'s Fuhajin **banks a Fuha stock, up to three**, and only releasing it fires. So when she appears to be throwing a fireball she is often banking resource instead — the stocks power up Saihasho, Ankensatsu and Go Ohsatsu. Reading her means deciding whether this one is coming out or whether she is topping up.',
+          ja: 'ジュリの風波刃はキックを押し続けると**風破ストックが1つ溜まる（最大3）**、離して初めて発射される。飛び道具を撃っているように見えて資源を溜めていることが多く、そのストックは砕波掌・暗剣殺・豪王殺を強化する。読むべきは「今出るのか、溜めているだけか」。',
+        },
+        input: '214 K',
+      },
+    },
     removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
@@ -910,6 +937,15 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'エレナ',
     },
     health: 10000,
+    overrides: {
+      'super-art': {
+        note: {
+          'zh-Hant': '艾蓮娜的 SA2（Revival Dance）命中後按住下可以**回復 1,600 血，而且連動力槽一起回**。這讓她在 Burnout 和低血量那兩個情境的算式跟別人不一樣 —— 別人花 SA 是買脫身或傷害，她花 SA 可以買回資源本身。',
+          en: 'Elena\'s SA2 (Revival Dance) heals **1,600 and refills Drive** if you hold down on hit. That changes the arithmetic in Burnout and at low life for her alone: everyone else spends Super on an escape or on damage, she can spend it on getting the resources back.',
+          ja: 'エレナのSA2（Revival Dance）はヒット後に下を押し続けると**1,600回復し、ドライブゲージも回復する**。バーンアウト時と低体力時の計算が彼女だけ変わる。他はSAを脱出かダメージに使うが、彼女は資源そのものを買い戻せる。',
+        },
+      },
+    },
     removesOptions: ['command-grab', 'projectile'],
     backdashFrames: 23,
     reversals: [
@@ -999,6 +1035,14 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ディージェイ',
     },
     health: 10000,
+    overrides: {
+      'anti-air': {
+        input: '[2] 8 K',
+      },
+      'projectile': {
+        input: '[4] 6 P',
+      },
+    },
     removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
@@ -1077,6 +1121,18 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ジェイミー',
     },
     health: 10000,
+    overrides: {
+      'reset-neutral': {
+        note: {
+          'zh-Hant': '傑米退開的時候通常不是在重置 —— 是在喝酒。The Devil Inside（22+P）加一層酒，而**喝的整段過程他處於 counter hit 狀態**。酒層是永久的：0 層時他所有招式只有 90% 傷害，每一層加 5%，四層之後部分必殺技還會變招。所以「他退回中距離」對傑米要讀成「他正在把距離換成整局的傷害」—— 這是你唯一能免費打斷他的窗口。',
+          en: 'When Jamie backs off he is usually not resetting — he is drinking. The Devil Inside (22+P) grants a Drink, and **he is in a counter-hit state for the whole animation**. Drinks are permanent: at zero his everything does 90% damage, each Drink adds 5%, and past four some specials change outright. So "they reset to neutral" reads differently for Jamie — he is converting distance into damage for the rest of the round, and this is the one window where interrupting him is free.',
+          ja: 'ジェイミーが下がるのはリセットではなく酒を飲んでいることが多い。The Devil Inside（22+P）で酒が1杯増え、**その動作中ずっとカウンターヒット状態**になる。酒は永続で、0杯では全ての技が90%ダメージ、1杯ごとに5%上昇し、4杯を超えると一部必殺技が変化する。ジェイミーの「仕切り直し」は「距離をラウンド全体のダメージに変換している」と読むべきで、ここが唯一ノーリスクで割り込める窓になる。',
+        },
+      },
+      'command-grab': {
+        input: '41236 K',
+      },
+    },
     removesOptions: ['projectile'],
     backdashFrames: 25,
     reversals: [
@@ -1156,7 +1212,19 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     overrides: {
+      'anti-air': {
+        input: '[2] 8 K',
+      },
+      'projectile': {
+        note: {
+          'zh-Hant': '布蘭卡的娃娃炸彈**丟出去不會自己爆** —— 它待在地上，要等布蘭卡用電系必殺去引爆。所以你看到他丟娃娃不是「他發了一發波」，是「場上多了一個他之後隨時能引的東西」，那個威脅是持續的。',
+          en: 'Blanka\'s Blanka-chan Bomb **does not go off on its own** — it sits on the ground until he detonates it with a lightning special. Seeing him throw one is not a fireball going out, it is a thing appearing on the screen that he can set off later, and the threat persists.',
+          ja: 'ブランカのブランカちゃん人形は**投げただけでは爆発しない**。地面に残り、電撃系の必殺技で起爆するまで待機する。人形を投げたのは「飛び道具を撃った」ではなく「後でいつでも起爆できる物が場に増えた」であり、その脅威は継続する。',
+        },
+        input: '22 P',
+      },
       'command-grab': {
+        input: '236 K',
         note: {
           'zh-Hant': '布蘭卡的 Wild Hunt 是 **32-45 幀**發生，慢到看得到。它不是壓制裡的一個混合選項，是一次「我賭你會一直擋」的大讀 —— 對他你有充裕的時間跳或按。',
           en: 'Blanka\'s Wild Hunt starts in **32-45 frames** — slow enough to see coming. It is not one option inside a mix, it is a single hard read that you will keep blocking, and you have plenty of time to jump or press.',
@@ -1241,6 +1309,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ラシード',
     },
     health: 10000,
+    overrides: {
+      'anti-air': {
+        input: '236 P',
+      },
+    },
     removesOptions: ['command-grab'],
     backdashFrames: 25,
     reversals: [
@@ -1402,6 +1475,15 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ヤスミン',
     },
     health: 10000,
+    overrides: {
+      'super-art': {
+        note: {
+          'zh-Hant': '亞思閔的 SA2（Nakatagong Lakas）**不是攻擊，是強化狀態** —— 全角色唯一的 install 型 SA。持續約 35 秒，但每用一次 Bayani 招式就扣掉約 10 秒，而且會開放 Linya ng Liwanag 這招。所以上面說的「確反、收尾、或無敵脫身」三種用途，她的 SA2 一種都不是。',
+          en: 'Yasmine\'s SA2 (Nakatagong Lakas) **is not an attack, it is an install** — the only one on the roster. It grants Bayani mode for roughly 35 seconds, each Bayani move burning about ten of them, and it unlocks Linya ng Liwanag. So none of the three uses listed above — punish, finisher, invincible escape — describes it.',
+          ja: 'ヤスミンのSA2（Nakatagong Lakas）は**攻撃ではなくインストール**で、ロスター唯一。Bayaniモードを約35秒付与し、Bayani技を使うたびに約10秒消費、さらにLinya ng Liwanagが解禁される。上に挙げた「確反・締め・無敵の脱出」のいずれにも当てはまらない。',
+        },
+      },
+    },
     removesOptions: ['command-grab', 'projectile', 'super-reversal'],
     backdashFrames: 23,
     reversals: [
@@ -1468,6 +1550,9 @@ export const CHARACTERS: CharacterOverlay[] = [
     health: 10000,
     backdashFrames: 23,
     overrides: {
+      'command-grab': {
+        input: '214 K',
+      },
       'projectile': {
         note: {
           'zh-Hant': 'JP 的遠距離攻擊不是波。Torbalan（幽靈）**中腳版是中段、重腳版是下段**，而且是靠近你之後第 13 幀才出判定，還可以按住取消假動作。所以他的「發波」實際上是從全場外送過來的上下段猜謎，不是逼你擋的壓迫。',
@@ -1576,7 +1661,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 25,
     removesOptions: ['projectile', 'reversal'],
     overrides: {
+      'anti-air': {
+        input: 'PP',
+      },
       'command-grab': {
+        input: '360 P',
         note: {
           'zh-Hant': '桑吉爾夫的螺旋打樁機**四種版本全部都是 5 幀發生** —— 跟普通摔一樣快，看到再反應是來不及的。所以上面說的「跳、後衝刺、無敵技都躲得掉」對他要改成「只有事先就決定好才躲得掉」。',
           en: 'Zangief\'s Screw Piledriver is **5 frames on all four versions** — as fast as a normal throw, which means it cannot be reacted to. The line above about jumping, backdashing or reversing out of it holds only if you decided to before he pressed.',
@@ -1684,6 +1773,9 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab'],
     backdashFrames: 23,
     overrides: {
+      'anti-air': {
+        input: '236 K',
+      },
       reversal: {
         note: {
           'zh-Hant': 'Ingrid 的起身反擊是吸收型當身（Sun Veil）而不是無敵技。只有 OD 版從第 1 幀起同時吃打擊與摔投；一般版第 6 幀才開始，而且不吃摔投。',
@@ -1785,7 +1877,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 25,
     removesOptions: ['projectile', 'reversal'],
     overrides: {
+      'anti-air': {
+        input: '236 K',
+      },
       'command-grab': {
+        input: '41236 P',
         reward: 'extreme',
         note: {
           'zh-Hant':
@@ -1881,7 +1977,14 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 23,
     removesOptions: ['reversal'],
     overrides: {
+      'anti-air': {
+        input: '236 HP',
+      },
+      'command-grab': {
+        input: '2 PP > LP LK',
+      },
       'projectile': {
+        input: '214 P',
         note: {
           'zh-Hant': 'A.K.I. 的毒霧 **擋住也會中毒**（2026 年 8 月更新後）—— 唯一不會中毒的擋法是動力撥擋。上面說「擋著讓他推進」在她面前是錯的答案：擋等於吃毒。',
           en: 'A.K.I.\'s poison cloud **poisons on block** as of the August 2026 patch — the one way to take it without the poison is a Drive Parry. Just blocking and letting them walk in is the wrong answer against her: blocking is taking the poison.',
@@ -1947,6 +2050,9 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 23,
     removesOptions: ['projectile', 'reversal'],
     overrides: {
+      'command-grab': {
+        input: '41236 P',
+      },
       'super-reversal': {
         note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
@@ -2208,6 +2314,12 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 23,
     removesOptions: ['projectile', 'reversal'],
     overrides: {
+      'anti-air': {
+        input: '[2] 8 K',
+      },
+      'command-grab': {
+        input: '41236 K',
+      },
       'super-reversal': {
         note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
@@ -2306,6 +2418,20 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 23,
     removesOptions: ['reversal'],
     overrides: {
+      'anti-air': {
+        input: '214 K',
+      },
+      'projectile': {
+        note: {
+          'zh-Hant': '金伯莉的手裏劍炸彈是**放在地上的道具，不是波** —— 而且它是消耗品：噴漆罐最多三罐，用完要靠 22+P 補。它的價值不在傷害，在起攻：本站記錄她這一招的倒地有利是 +88，是她全部招式裡最高的。',
+          en: 'Kimberly\'s Shuriken Bomb is **a can placed on the ground, not a fireball** — and it is a consumable: three Spray Can charges maximum, refilled with 22+P. Its value is not damage, it is oki. The knockdown advantage recorded for it here is +88, the largest in her whole set.',
+          ja: 'キンバリーの手裏剣ボムは**地面に置く道具であって飛び道具ではない**。しかも消耗品で、スプレー缶は最大3個、22+Pで補充する。価値はダメージではなく起き攻めにあり、本サイトが記録している この技のダウン有利は+88で、彼女の全技中で最大。',
+        },
+        input: '22 P',
+      },
+      'command-grab': {
+        input: '236 P',
+      },
       'super-reversal': {
         note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
@@ -2394,6 +2520,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['projectile', 'reversal'],
     overrides: {
       'command-grab': {
+        input: '360 P',
         note: {
           'zh-Hant': '莉莉的墨西哥龍捲風也是 **5 幀**，而且**射程是資源**：Condor Wind 存量最多三層，存越多抓得越遠，OD 版射程最長。所以「距離短」對她是浮動的 —— 她剛充完風的那個距離，跟你記得的不一樣。',
           en: 'Lily\'s Mexican Typhoon is also **5 frames**, and its **range is a resource**: Condor Wind stores up to three stocks and each one extends the grab, with the OD version reaching furthest. So the short-range caveat floats for her — the distance right after she charges is not the distance you remember.',

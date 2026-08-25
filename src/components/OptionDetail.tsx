@@ -3,6 +3,7 @@ import { InputNotation } from './viz/InputNotation'
 import { VerifiedTag } from './viz/VerifiedTag'
 import { RewardPips } from './viz/Tier'
 import { OutcomeCell } from './viz/OutcomeCell'
+import { Emphasis } from './viz/Emphasis'
 import { getOption, type OptionRow } from '~/data'
 import { counteredBy } from '~/data/schema'
 import { getCharacter } from '~/data'
@@ -15,7 +16,7 @@ import { useCharacter } from '~/lib/prefs'
  */
 export function OptionDetail({ row }: { row: OptionRow }) {
   const { t, text } = useT()
-  const { def, evaluation, characterNote } = row
+  const { def, evaluation, characterNote, inputIsCharacters } = row
   const character = getCharacter(useCharacter())
   const { cost } = def
 
@@ -36,14 +37,14 @@ export function OptionDetail({ row }: { row: OptionRow }) {
       {(def.origin || def.hint) && (
         <p className="detail__hint">
           {def.origin && <span className="detail__origin">{def.origin}</span>}
-          {def.hint && text(def.hint)}
+          {def.hint && <Emphasis text={text(def.hint)} />}
         </p>
       )}
 
       <dl className="detail__meta">
         {/* Nothing universal to print for a character-specific option, and a
             plausible-looking wrong notation is worse than none. */}
-        {def.showInput && def.input && (
+        {(inputIsCharacters || def.showInput) && def.input && (
           <div>
             <dt>{t.option.input}</dt>
             <dd>
@@ -117,14 +118,18 @@ export function OptionDetail({ row }: { row: OptionRow }) {
         </section>
       </div>
 
-      {evaluation.notes && <p className="detail__notes small">{text(evaluation.notes)}</p>}
+      {evaluation.notes && (
+        <p className="detail__notes small">
+          <Emphasis text={text(evaluation.notes)} />
+        </p>
+      )}
 
       {/* The character's delta, under the universal note rather than instead of
           it — an overlay usually makes the general text incomplete, not wrong. */}
       {characterNote && character && (
         <p className="detail__charnote small">
           <span className="detail__charnote-who">{text(character.name)}</span>
-          {text(characterNote)}
+          <Emphasis text={text(characterNote)} />
         </p>
       )}
 

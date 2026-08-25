@@ -1,4 +1,5 @@
 import { useT } from '~/i18n/useT'
+import { Emphasis } from './viz/Emphasis'
 
 const UFD_URL = 'https://ultimateframedata.com/sf6/stats'
 
@@ -23,9 +24,7 @@ export function ScaleNote() {
       <div>
         {paragraphs.map((paragraph, index) => (
           <p key={index} className="small muted">
-            {paragraph.split(/\*\*(.+?)\*\*/).map((part, i) =>
-              i % 2 === 1 ? <strong key={i}>{part}</strong> : part,
-            )}
+            <Emphasis text={paragraph} />
           </p>
         ))}
         <p className="small">

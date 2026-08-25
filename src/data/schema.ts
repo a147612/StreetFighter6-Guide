@@ -363,7 +363,19 @@ export interface CharacterOverlay {
    */
   overrides?: Record<
     string,
-    Partial<Pick<OptionEval, 'risk' | 'reward' | 'mixRatio'>> & { note?: I18nText }
+    Partial<Pick<OptionEval, 'risk' | 'reward' | 'mixRatio'>> & {
+      note?: I18nText
+      /**
+       * The motion *this* character uses for the option.
+       *
+       * `OptionDef.input` is one string shown to everyone, so it carried "236 P"
+       * for the fireball row and told Guile, Chun-Li and Dee Jay something false
+       * — quietly, because `showInput` is off everywhere and nothing rendered
+       * it. Filled in here it becomes the opposite: a notation that is only ever
+       * shown once a character is picked, and is therefore always true.
+       */
+      input?: string
+    }
   >
   reversals?: Reversal[]
   knockdowns?: CharacterKnockdown[]

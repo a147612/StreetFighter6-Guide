@@ -408,7 +408,11 @@ const DEFENSIVE: OptionDef[] = [
     input: '5 HP',
     cost: { drive: 0, sa: 0 },
     difficulty: 3,
-    characterSpecific: true,
+    // Not character-specific after all: a three-hit answer to Drive Impact's
+    // armour is a light chain, and every character has one. Flagged true and
+    // removed by nobody, which meant the star on the row was telling readers to
+    // check whether they had something they always have.
+    characterSpecific: false,
     category: 'contest',
   },
   {
@@ -459,7 +463,10 @@ const DEFENSIVE: OptionDef[] = [
       en: 'A ranged attack that forces them to block or jump.',
       ja: '遠距離から出す攻撃。ガードか跳ぶかを強要する。',
     },
-    input: '236 P',
+    // No universal motion: Guile's fireball is a charge, Chun-Li's is a
+    // charge, Blanka's is 22. Pick a character and the overlay fills in one
+    // that is actually true. See `overrides.input`.
+    input: '',
     cost: { drive: 0, sa: 0 },
     difficulty: 2,
     characterSpecific: true,
@@ -621,14 +628,20 @@ const OFFENSIVE: OptionDef[] = [
     name: { 'zh-Hant': '空中摔投', en: 'Air throw', ja: '空中投げ' },
     origin: 'air throw',
     hint: {
-      'zh-Hant': '在空中抓住跳過來的對手。',
-      en: 'Grabbing an opponent out of the air.',
-      ja: '空中の相手を掴む投げ。',
+      'zh-Hant':
+        '在空中抓住跳過來的對手。**只有四隻角色真的有**：凱爾（前／後空中投，5 幀，全場唯一的專用空中投）、桑吉爾夫（Borscht Dynamite，空中 360）、金伯莉（Sprint > Arc Step > P）、Alex（空中膝擊，只抓得到空中的人）。其他 27 隻跳過來的時候不會有這一手 —— 這一欄是「對手的選擇」，而本站的角色層模型的是你自己的角色，所以它不會隨你選的角色消失。知道對手是誰的時候，自己把這一欄跳過。',
+      en: 'Grabbing an opponent out of the air. **Only four characters have one**: Guile (forward and back air throws, 5 frames — the only dedicated one on the roster), Zangief (Borscht Dynamite, an air 360), Kimberly (Sprint > Arc Step > P) and Alex (Aerial Knee Smash, which only catches airborne opponents). The other twenty-seven cannot do this when they jump at you. This column is the *opponent\'s* option and the character layer here models *your* character, so it does not disappear when you pick one — when you know who you are fighting, skip the column yourself.',
+      ja: '空中の相手を掴む投げ。**実際に持っているのは4キャラだけ**：ガイル（前／後の空中投げ、5F、ロスター唯一の専用空中投げ）、ザンギエフ（ボルシチダイナマイト、空中360）、キンバリー（Sprint > Arc Step > P）、アレックス（エアリアルニースマッシュ、空中の相手にしか当たらない）。残る27キャラは飛び込んできてもこの択を持たない。この列は「相手の選択肢」であり、本サイトのキャラレイヤーは自分のキャラを扱うため、キャラを選んでも消えない。相手が誰か分かっているときは自分で読み飛ばすこと。',
     },
     short: { 'zh-Hant': '空中摔投', en: 'Air throw', ja: '空中投げ' },
-    input: 'LP LK',
+    input: '',
     cost: { drive: 0, sa: 0 },
     difficulty: 3,
+    /**
+     * True, but inert: this option is only ever an `opponentOptions` column, and
+     * `applyOverlay` filters rows. `removesOptions: ['air-throw']` would do
+     * nothing, so the four-character list lives in the hint above instead.
+     */
     characterSpecific: true,
     category: 'throw',
   },
@@ -644,7 +657,10 @@ const OFFENSIVE: OptionDef[] = [
     },
     short: { 'zh-Hant': '對空', en: 'Anti-air', ja: '対空' },
     aka: { 'zh-Hant': ['防空'], en: ['AA'], ja: ['対空技'] },
-    input: '623 P',
+    // No universal motion: Guile's fireball is a charge, Chun-Li's is a
+    // charge, Blanka's is 22. Pick a character and the overlay fills in one
+    // that is actually true. See `overrides.input`.
+    input: '',
     cost: { drive: 0, sa: 0 },
     difficulty: 2,
     characterSpecific: false,

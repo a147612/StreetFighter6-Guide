@@ -24,6 +24,9 @@ export interface OptionRow {
   /** What this option additionally does — or fails to do — for the picked
    *  character. Rendered under the universal note, attributed to them. */
   characterNote?: I18nText
+  /** `def.input` came from the character overlay, so it is true for them and
+   *  worth showing. The universal one never is, and stays hidden. */
+  inputIsCharacters?: true
 }
 
 export const SITUATIONS: Situation[] = [
@@ -79,7 +82,9 @@ export function applyOverlay(rows: OptionRow[], character?: CharacterOverlay): O
       const override = character.overrides?.[row.def.id]
       if (!override) return row
       return {
-        def: row.def,
+        // A new def rather than a mutation: the option registry is shared, and
+        // one character's notation must not leak into the next one's tables.
+        def: override.input ? { ...row.def, input: override.input } : row.def,
         evaluation: {
           ...row.evaluation,
           ...(override.risk ? { risk: override.risk } : {}),
@@ -88,6 +93,7 @@ export function applyOverlay(rows: OptionRow[], character?: CharacterOverlay): O
         },
         // Kept out of `evaluation` so the universal note survives it.
         ...(override.note ? { characterNote: override.note } : {}),
+        ...(override.input ? { inputIsCharacters: true as const } : {}),
       }
     })
 }
