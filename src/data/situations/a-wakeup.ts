@@ -26,70 +26,103 @@ export const GROUP_A: Situation[] = [
     opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
     evaluations: [
       {
-        optionId: 'quick-rise',
-        risk: 'medium',
+        optionId: 'back-rise',
+        risk: 'safe',
         reward: 'low',
         onSuccess: {
           text: {
-            'zh-Hant': '比對手預期的早起來，他算好的壓起身會落在你已經能防禦之後。',
-            en: 'You are up before they planned for, so their timed meaty lands after you can already block.',
-            ja: '相手の想定より早く起き、重ねが自分のガードが間に合った後に来る。',
+            'zh-Hant': '往後翻一段再起身。對手算好貼身位置的壓起身會構不到，他得重新走進來 —— 走進來的那幾幀就是你的。',
+            en: 'You roll back and stand up further away. A meaty spaced for where you fell no longer reaches, and they have to walk in — those walking frames are yours.',
+            ja: '後方に転がってから起き上がる。倒れた位置に合わせて重ねた攻撃は届かなくなり、相手は歩いて詰め直すしかない。その数フレームがこちらの時間になる。',
           },
           followUp: 'neutral',
         },
         onFail: {
           text: {
-            'zh-Hant': '對手就是照快起的時間點算的，你起來那一格正好吃到最好時機的壓起身或摔投。',
-            en: 'They timed it for a quick rise: the frame you stand up is the frame it arrives, at its best timing.',
-            ja: '相手は受身のタイミングに合わせており、起き上がった瞬間に最良のタイミングで重なる。',
+            'zh-Hant': '對手的壓起身本來就是照後受身的距離設定的，那你只是換個地方吃同一套。',
+            en: 'If their setup was already spaced for a back rise, you have moved to a different spot and eaten the same combo.',
+            ja: '相手が最初から後ろ受け身の距離で重ねていた場合、位置が変わっただけで同じコンボを食らう。',
           },
-          hpLoss: '20-40%',
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'meaty',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '多數壓起身是照倒地位置抓的距離，後受身之後就構不到。',
+              en: 'Most meaties are spaced for where you fell and simply do not reach after a back rise.',
+              ja: '多くの重ねは倒れた位置基準の間合いで、後ろ受け身後には届かない。',
+            },
+          },
+          { vs: 'throw', outcome: 'win' },
+          { vs: 'delayed-attack', outcome: 'even' },
+        ],
+        mixRatio: '60-80%',
+        notes: {
+          'zh-Hant': '起身的時間點是固定的 —— 後受身不會讓你晚起來，它只把你放到更後面。所以它不是時間差的猜拳，是換位置：能換到空間的時候幾乎都該按。',
+          en: 'The rise timing is fixed: a back rise does not make you get up later, it puts you further away. So it is not a timing mixup, it is a positional trade — and where there is room to take, it is close to free.',
+          ja: '起き上がりのタイミングは固定で、後ろ受け身は遅く起きるのではなく、より後ろに置かれるだけ。つまりタイミングの読み合いではなく位置の取引であり、下がる space がある限りほぼ無料に近い。',
+        },
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: 'SF6 只有「その場受け身（原地）」與「後ろ受け身（後受身，落地瞬間押兩顆以上攻擊鍵）」兩種起身，兩者的倒地有利格數相同 —— 沒有延遲起身這種東西；強制倒地不能後受身。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://nandemo-ziten.com/sf6-ukemi-guide/',
+            patch: '2026-08 查閱',
+            note: '日文解說：後受身在落地瞬間押兩顆以上按鍵成立，起身位置比倒地處更後面；能選的只有その場與後方兩種',
+          },
+        ],
+      },
+      {
+        optionId: 'normal-rise',
+        risk: 'safe',
+        reward: 'none',
+        onSuccess: {
+          text: {
+            'zh-Hant': '在倒下的位置起身。位置不變，對手的起攻設定照他算的走 —— 你放棄的是距離，換到的是不會把自己往牆送。',
+            en: 'You get up where you fell. Position unchanged and their setup runs as planned — you give up distance and in exchange you do not feed yourself towards the wall.',
+            ja: '倒れた位置で起き上がる。位置は変わらず相手の起き攻めは計算通りに進むが、自ら壁側へ動かずに済む。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手的壓起身就是照這個位置設計的，你等於照著他的劇本起身。',
+            en: 'Their meaty is spaced for exactly this position; you have stood up into the script.',
+            ja: '相手の重ねはまさにこの位置に合わせてあり、台本通りに起き上がることになる。',
+          },
+          hpLoss: '25-40%',
           driveLoss: 0,
         },
         versus: [
           { vs: 'meaty', outcome: 'loss' },
-          { vs: 'delayed-attack', outcome: 'win' },
+          { vs: 'delayed-attack', outcome: 'even' },
         ],
-        mixRatio: '50-70%',
-        verified: 'estimated',
+        mixRatio: '20-40%',
         notes: {
-          'zh-Hant': '預設選項，交出的資訊最少。強制倒地（掃腿、多數摔投）沒有這個選擇，時間是固定的。',
-          en: 'The default; it gives away the least. Hard knockdowns (sweeps, most throws) remove this choice entirely — the timing is fixed.',
-          ja: '基本択で、与える情報が最も少ない。ハードダウン（足払いや多くの投げ）ではこの選択自体がなく、タイミングは固定される。',
+          'zh-Hant': 'SF6 沒有延遲起身 —— 起身時間是固定的，唯一的選擇是原地或往後。所以這一格不是「等他招空」，而是「不換位置」。',
+          en: 'There is no delayed wakeup in SF6: the timing is fixed and the only choice is here or further back. So this row is not "wait for their setup to whiff", it is "decline the positional trade".',
+          ja: 'SF6に遅起きは存在せず、タイミングは固定で選べるのはその場か後方かだけ。したがってこの択は「相手の重ねを空振らせる」ではなく「位置の取引を断る」である。',
         },
-      },
-      {
-        optionId: 'delayed-rise',
-        risk: 'medium',
-        reward: 'low',
-        onSuccess: {
-          text: {
-            'zh-Hant': '對手照快起的時間點出招，打在空氣上。你起來時他還在收招。',
-            en: 'They committed to the quick-rise timing and hit nothing. You stand up while they are still recovering.',
-            ja: '相手は受身前提のタイミングで技を出して空振りする。こちらが起きる時、相手はまだ硬直中。',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: 'SF6 只有「その場受け身（原地）」與「後ろ受け身（後受身，落地瞬間押兩顆以上攻擊鍵）」兩種起身，兩者的倒地有利格數相同 —— 沒有延遲起身這種東西；強制倒地不能後受身。來源未標註遊戲版本',
           },
-          followUp: 'pressure',
-        },
-        onFail: {
-          text: {
-            'zh-Hant': '對手沒急著出招，走過來重新站好。你多躺的時間全變成他佈置的時間。',
-            en: 'They did not commit; they walked in and reset. Every frame you stayed down became setup time for them.',
-            ja: '相手は急がず歩いて位置を取り直す。長く寝ていた時間がそのまま相手の仕込み時間になる。',
+          {
+            url: 'https://nandemo-ziten.com/sf6-ukemi-guide/',
+            patch: '2026-08 查閱',
+            note: '日文解說：後受身在落地瞬間押兩顆以上按鍵成立，起身位置比倒地處更後面；能選的只有その場與後方兩種',
           },
-          hpLoss: '20-40%',
-          driveLoss: 0,
-        },
-        versus: [
-          { vs: 'meaty', outcome: 'bigWin' },
-          { vs: 'delayed-attack', outcome: 'loss' },
         ],
-        mixRatio: '30-50%',
-        verified: 'estimated',
-        notes: {
-          'zh-Hant': '對付「每次都同一個時間點」的對手最有效。對手一旦開始等你，就變成純虧。',
-          en: 'Best against someone who runs the same timing every time. The moment they start waiting instead, it is a pure loss.',
-          ja: '毎回同じタイミングで重ねる相手に有効。相手が待ち始めた瞬間、損しかしなくなる。',
-        },
       },
       {
         optionId: 'do-nothing',
@@ -610,70 +643,95 @@ export const GROUP_A: Situation[] = [
     opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
     evaluations: [
       {
-        optionId: 'quick-rise',
-        risk: 'medium',
+        optionId: 'back-rise',
+        risk: 'safe',
         reward: 'low',
         onSuccess: {
           text: {
-            'zh-Hant': '比對手預期的早起來，他算好的壓起身會落在你已經能防禦之後。',
-            en: 'You are up before they planned for, so their timed meaty lands after you can already block.',
-            ja: '相手の想定より早く起き、重ねが自分のガードが間に合った後に来る。',
+            'zh-Hant': '往後翻，離牆更近但也離對手更遠。多數壓起身的距離會落空，他得重新走進來。',
+            en: 'You roll back — closer to the wall, but further from them. Most meaty spacings miss and they have to walk back in.',
+            ja: '後方に転がる。壁には近づくが相手からは離れ、多くの重ねの間合いは外れて相手は詰め直すことになる。',
           },
           followUp: 'neutral',
         },
         onFail: {
           text: {
-            'zh-Hant': '對手就是照快起的時間點算的，你起來那一格正好吃到最好時機的壓起身或摔投。',
-            en: 'They timed it for a quick rise: the frame you stand up is the frame it arrives, at its best timing.',
-            ja: '相手は受身のタイミングに合わせており、起き上がった瞬間に最良のタイミングで重なる。',
+            'zh-Hant': '往後翻的方向就是牆。距離換到了，但下一次倒地你就是角落起身。',
+            en: 'The direction you roll is towards the wall. You bought spacing and paid for it with the corner next time you go down.',
+            ja: '転がる方向は壁側。間合いは得られるが、次にダウンしたときは画面端からの起き上がりになる。',
           },
-          hpLoss: '20-40%',
+          hpLoss: '30-45%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'meaty', outcome: 'win' },
+          { vs: 'throw', outcome: 'win' },
+          { vs: 'delayed-attack', outcome: 'even' },
+        ],
+        mixRatio: '40-60%',
+        notes: {
+          'zh-Hant': '這裡的取捨最明顯：後受身換到的距離是真的，但你把自己往牆邊送。想守住位置就原地起身，想斷掉這一次起攻就後受身。',
+          en: 'The trade is at its sharpest here. The distance is real, but you are feeding yourself to the wall. Normal rise to hold position, back rise to break this one setup.',
+          ja: 'ここが最も分かりやすい取引。距離は本物だが自ら壁に近づく。位置を守るならその場、この起き攻めを切るなら後ろ受け身。',
+        },
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: 'SF6 只有「その場受け身（原地）」與「後ろ受け身（後受身，落地瞬間押兩顆以上攻擊鍵）」兩種起身，兩者的倒地有利格數相同 —— 沒有延遲起身這種東西；強制倒地不能後受身。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://nandemo-ziten.com/sf6-ukemi-guide/',
+            patch: '2026-08 查閱',
+            note: '日文解說：後受身在落地瞬間押兩顆以上按鍵成立，起身位置比倒地處更後面；能選的只有その場與後方兩種',
+          },
+        ],
+      },
+      {
+        optionId: 'normal-rise',
+        risk: 'safe',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '在倒下的位置起身。位置不變，對手的起攻設定照他算的走 —— 你放棄的是距離，換到的是不會把自己往牆送。',
+            en: 'You get up where you fell. Position unchanged and their setup runs as planned — you give up distance and in exchange you do not feed yourself towards the wall.',
+            ja: '倒れた位置で起き上がる。位置は変わらず相手の起き攻めは計算通りに進むが、自ら壁側へ動かずに済む。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手的壓起身就是照這個位置設計的，你等於照著他的劇本起身。',
+            en: 'Their meaty is spaced for exactly this position; you have stood up into the script.',
+            ja: '相手の重ねはまさにこの位置に合わせてあり、台本通りに起き上がることになる。',
+          },
+          hpLoss: '30-45%',
           driveLoss: 0,
         },
         versus: [
           { vs: 'meaty', outcome: 'loss' },
-          { vs: 'delayed-attack', outcome: 'win' },
+          { vs: 'delayed-attack', outcome: 'even' },
         ],
-        mixRatio: '50-70%',
-        verified: 'estimated',
+        mixRatio: '40-60%',
         notes: {
-          'zh-Hant': '預設選項，交出的資訊最少。強制倒地（掃腿、多數摔投）沒有這個選擇，時間是固定的。',
-          en: 'The default; it gives away the least. Hard knockdowns (sweeps, most throws) remove this choice entirely — the timing is fixed.',
-          ja: '基本択で、与える情報が最も少ない。ハードダウン（足払いや多くの投げ）ではこの選択自体がなく、タイミングは固定される。',
+          'zh-Hant': 'SF6 沒有延遲起身 —— 起身時間是固定的，唯一的選擇是原地或往後。所以這一格不是「等他招空」，而是「不換位置」。',
+          en: 'There is no delayed wakeup in SF6: the timing is fixed and the only choice is here or further back. So this row is not "wait for their setup to whiff", it is "decline the positional trade".',
+          ja: 'SF6に遅起きは存在せず、タイミングは固定で選べるのはその場か後方かだけ。したがってこの択は「相手の重ねを空振らせる」ではなく「位置の取引を断る」である。',
         },
-      },
-      {
-        optionId: 'delayed-rise',
-        risk: 'medium',
-        reward: 'low',
-        onSuccess: {
-          text: {
-            'zh-Hant': '對手照快起的時間點出招，打在空氣上。你起來時他還在收招。',
-            en: 'They committed to the quick-rise timing and hit nothing. You stand up while they are still recovering.',
-            ja: '相手は受身前提のタイミングで技を出して空振りする。こちらが起きる時、相手はまだ硬直中。',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: 'SF6 只有「その場受け身（原地）」與「後ろ受け身（後受身，落地瞬間押兩顆以上攻擊鍵）」兩種起身，兩者的倒地有利格數相同 —— 沒有延遲起身這種東西；強制倒地不能後受身。來源未標註遊戲版本',
           },
-          followUp: 'pressure',
-        },
-        onFail: {
-          text: {
-            'zh-Hant': '對手沒急著出招，走過來重新站好。你多躺的時間全變成他佈置的時間。',
-            en: 'They did not commit; they walked in and reset. Every frame you stayed down became setup time for them.',
-            ja: '相手は急がず歩いて位置を取り直す。長く寝ていた時間がそのまま相手の仕込み時間になる。',
+          {
+            url: 'https://nandemo-ziten.com/sf6-ukemi-guide/',
+            patch: '2026-08 查閱',
+            note: '日文解說：後受身在落地瞬間押兩顆以上按鍵成立，起身位置比倒地處更後面；能選的只有その場與後方兩種',
           },
-          hpLoss: '20-40%',
-          driveLoss: 0,
-        },
-        versus: [
-          { vs: 'meaty', outcome: 'bigWin' },
-          { vs: 'delayed-attack', outcome: 'loss' },
         ],
-        mixRatio: '30-50%',
-        verified: 'estimated',
-        notes: {
-          'zh-Hant': '對付「每次都同一個時間點」的對手最有效。對手一旦開始等你，就變成純虧。',
-          en: 'Best against someone who runs the same timing every time. The moment they start waiting instead, it is a pure loss.',
-          ja: '毎回同じタイミングで重ねる相手に有効。相手が待ち始めた瞬間、損しかしなくなる。',
-        },
       },
       {
         optionId: 'do-nothing',
@@ -1194,70 +1252,102 @@ export const GROUP_A: Situation[] = [
     opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
     evaluations: [
       {
-        optionId: 'quick-rise',
-        risk: 'medium',
-        reward: 'low',
+        optionId: 'back-rise',
+        risk: 'safe',
+        reward: 'none',
         onSuccess: {
           text: {
-            'zh-Hant': '比對手預期的早起來，他算好的壓起身會落在你已經能防禦之後。',
-            en: 'You are up before they planned for, so their timed meaty lands after you can already block.',
-            ja: '相手の想定より早く起き、重ねが自分のガードが間に合った後に来る。',
+            'zh-Hant': '角落沒有往後的空間，翻不出去 —— 起身位置跟原地起身一樣。',
+            en: 'There is no back to roll into. You get up in the same place a normal rise would have put you.',
+            ja: '画面端では後ろに転がる空間がなく、その場受け身と同じ位置で起き上がる。',
           },
           followUp: 'neutral',
         },
         onFail: {
           text: {
-            'zh-Hant': '對手就是照快起的時間點算的，你起來那一格正好吃到最好時機的壓起身或摔投。',
-            en: 'They timed it for a quick rise: the frame you stand up is the frame it arrives, at its best timing.',
-            ja: '相手は受身のタイミングに合わせており、起き上がった瞬間に最良のタイミングで重なる。',
+            'zh-Hant': '以為後受身能換到距離，實際上在角落它什麼都沒換到，對手的壓起身照樣重上來。',
+            en: 'Expecting a back rise to buy distance: in the corner it buys nothing, and the meaty lands exactly as planned.',
+            ja: '後ろ受け身で距離を稼げると思っても、画面端では何も得られず、重ねはそのまま決まる。',
           },
-          hpLoss: '20-40%',
+          hpLoss: '35-50%',
           driveLoss: 0,
         },
         versus: [
-          { vs: 'meaty', outcome: 'bigLoss' },
-          { vs: 'delayed-attack', outcome: 'win' },
+          {
+            vs: 'meaty',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '角落沒有位置可以換，後受身跟原地起身在這裡是同一件事。',
+              en: 'With no ground to give, a back rise and a normal rise are the same thing here.',
+              ja: '下がる余地が無いため、画面端では後ろ受け身とその場受け身は同じ。',
+            },
+          },
+          { vs: 'throw', outcome: 'loss' },
+          { vs: 'delayed-attack', outcome: 'loss' },
         ],
-        mixRatio: '50-70%',
-        verified: 'estimated',
         notes: {
-          'zh-Hant': '預設選項，交出的資訊最少。強制倒地（掃腿、多數摔投）沒有這個選擇，時間是固定的。',
-          en: 'The default; it gives away the least. Hard knockdowns (sweeps, most throws) remove this choice entirely — the timing is fixed.',
-          ja: '基本択で、与える情報が最も少ない。ハードダウン（足払いや多くの投げ）ではこの選択自体がなく、タイミングは固定される。',
+          'zh-Hant': '角落是後受身唯一沒有用的地方 —— 沒有空間可以翻。這一格值得記，因為場中養成的習慣在這裡完全不會生效。',
+          en: 'The corner is the one place a back rise does nothing: there is no room to roll into. Worth remembering, because the habit built midscreen simply stops working here.',
+          ja: '画面端は後ろ受け身が唯一無意味になる場所で、転がる空間が無い。中央で身についた癖がここでは効かないため覚えておく価値がある。',
         },
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: 'SF6 只有「その場受け身（原地）」與「後ろ受け身（後受身，落地瞬間押兩顆以上攻擊鍵）」兩種起身，兩者的倒地有利格數相同 —— 沒有延遲起身這種東西；強制倒地不能後受身。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://nandemo-ziten.com/sf6-ukemi-guide/',
+            patch: '2026-08 查閱',
+            note: '日文解說：後受身在落地瞬間押兩顆以上按鍵成立，起身位置比倒地處更後面；能選的只有その場與後方兩種',
+          },
+        ],
       },
       {
-        optionId: 'delayed-rise',
-        risk: 'medium',
-        reward: 'low',
+        optionId: 'normal-rise',
+        risk: 'safe',
+        reward: 'none',
         onSuccess: {
           text: {
-            'zh-Hant': '對手照快起的時間點出招，打在空氣上。你起來時他還在收招。',
-            en: 'They committed to the quick-rise timing and hit nothing. You stand up while they are still recovering.',
-            ja: '相手は受身前提のタイミングで技を出して空振りする。こちらが起きる時、相手はまだ硬直中。',
+            'zh-Hant': '在倒下的位置起身。位置不變，對手的起攻設定照他算的走 —— 你放棄的是距離，換到的是不會把自己往牆送。',
+            en: 'You get up where you fell. Position unchanged and their setup runs as planned — you give up distance and in exchange you do not feed yourself towards the wall.',
+            ja: '倒れた位置で起き上がる。位置は変わらず相手の起き攻めは計算通りに進むが、自ら壁側へ動かずに済む。',
           },
-          followUp: 'pressure',
+          followUp: 'neutral',
         },
         onFail: {
           text: {
-            'zh-Hant': '對手沒急著出招，走過來重新站好。你多躺的時間全變成他佈置的時間。',
-            en: 'They did not commit; they walked in and reset. Every frame you stayed down became setup time for them.',
-            ja: '相手は急がず歩いて位置を取り直す。長く寝ていた時間がそのまま相手の仕込み時間になる。',
+            'zh-Hant': '對手的壓起身就是照這個位置設計的，你等於照著他的劇本起身。',
+            en: 'Their meaty is spaced for exactly this position; you have stood up into the script.',
+            ja: '相手の重ねはまさにこの位置に合わせてあり、台本通りに起き上がることになる。',
           },
-          hpLoss: '20-40%',
+          hpLoss: '35-50%',
           driveLoss: 0,
         },
         versus: [
-          { vs: 'meaty', outcome: 'bigWin' },
-          { vs: 'delayed-attack', outcome: 'loss' },
+          { vs: 'meaty', outcome: 'loss' },
+          { vs: 'delayed-attack', outcome: 'even' },
         ],
-        mixRatio: '30-50%',
-        verified: 'estimated',
+        mixRatio: '100%',
         notes: {
-          'zh-Hant': '對付「每次都同一個時間點」的對手最有效。對手一旦開始等你，就變成純虧。',
-          en: 'Best against someone who runs the same timing every time. The moment they start waiting instead, it is a pure loss.',
-          ja: '毎回同じタイミングで重ねる相手に有効。相手が待ち始めた瞬間、損しかしなくなる。',
+          'zh-Hant': 'SF6 沒有延遲起身 —— 起身時間是固定的，唯一的選擇是原地或往後。所以這一格不是「等他招空」，而是「不換位置」。',
+          en: 'There is no delayed wakeup in SF6: the timing is fixed and the only choice is here or further back. So this row is not "wait for their setup to whiff", it is "decline the positional trade".',
+          ja: 'SF6に遅起きは存在せず、タイミングは固定で選べるのはその場か後方かだけ。したがってこの択は「相手の重ねを空振らせる」ではなく「位置の取引を断る」である。',
         },
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: 'SF6 只有「その場受け身（原地）」與「後ろ受け身（後受身，落地瞬間押兩顆以上攻擊鍵）」兩種起身，兩者的倒地有利格數相同 —— 沒有延遲起身這種東西；強制倒地不能後受身。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://nandemo-ziten.com/sf6-ukemi-guide/',
+            patch: '2026-08 查閱',
+            note: '日文解說：後受身在落地瞬間押兩顆以上按鍵成立，起身位置比倒地處更後面；能選的只有その場與後方兩種',
+          },
+        ],
       },
       {
         optionId: 'do-nothing',

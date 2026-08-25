@@ -786,9 +786,9 @@ export const GROUP_I: Situation[] = [
         mixRatio: '30-40%',
         verified: 'estimated',
         notes: {
-          'zh-Hant': '對手可以受身或不受身，所以你的疊招時間點是猜的。想要穩定起攻，先拿強制倒地。',
-          en: 'They can quick-rise or stay down, so your timing is a guess. If you want reliable oki, take a hard knockdown instead.',
-          ja: '相手は受身を選べるため重ねのタイミングは読みになる。安定した起き攻めが欲しいならハードダウンを狙う。',
+          'zh-Hant': '軟倒地的變數不是時間點 —— 起身時間是固定的 —— 而是位置：對手可以後受身，在更後面起來，你照倒地位置設好的距離就構不到。想要位置也穩定，先拿強制倒地，那個不能後受身。',
+          en: 'What a soft knockdown costs you is not timing — the rise timing is fixed — it is spacing: they can back rise and stand up further away, so a meaty spaced for where they fell no longer reaches. If you want the spacing guaranteed too, take a hard knockdown, which allows no back rise.',
+          ja: 'ソフトダウンで揺れるのはタイミングではなく——起き上がりの時間は固定である——位置のほう。相手は後ろ受け身でより後方から起き上がれるため、倒れた位置に合わせた重ねは届かなくなる。位置まで安定させたいなら、後ろ受け身のできないハードダウンを取る。',
         },
       },
       {

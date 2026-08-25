@@ -188,7 +188,7 @@ const zhHant: UiStrings = {
     bigLoss: '大虧',
   },
   category: {
-    timing: '起身時機',
+    timing: '起身方式',
     block: '防禦',
     tech: '解摔',
     drive: 'Drive 系統',
@@ -344,7 +344,7 @@ const en: UiStrings = {
     bigLoss: 'Big loss',
   },
   category: {
-    timing: 'Rise timing',
+    timing: 'How you rise',
     block: 'Blocking',
     tech: 'Throw tech',
     drive: 'Drive system',
@@ -501,7 +501,7 @@ const ja: UiStrings = {
     bigLoss: '大負け',
   },
   category: {
-    timing: '起き上がり',
+    timing: '起き上がり方',
     block: 'ガード',
     tech: '投げ抜け',
     drive: 'ドライブ',
