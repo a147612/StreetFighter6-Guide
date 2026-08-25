@@ -129,12 +129,32 @@ export const GROUP_D: Situation[] = [
         },
         versus: [
           { vs: 'meaty', outcome: 'loss' },
-          { vs: 'throw', outcome: 'win' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '解摔成功不只是沒被摔 —— SF6 會退你一格動力槽，所以這一手是唯一「猜對還賺資源」的防守選擇。',
+              en: 'Teching is not just damage avoided: SF6 refunds one Drive bar on a successful escape, which makes it the one defensive guess that pays you back.',
+              ja: '投げ抜けは被弾を防ぐだけではない。SF6では成功すると1ゲージ回復するため、当てて資源が増える唯一の防御択になる。',
+            },
+          },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'mash-light',
@@ -366,12 +386,32 @@ export const GROUP_D: Situation[] = [
         },
         versus: [
           { vs: 'meaty', outcome: 'loss' },
-          { vs: 'throw', outcome: 'win' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '解摔成功不只是沒被摔 —— SF6 會退你一格動力槽，所以這一手是唯一「猜對還賺資源」的防守選擇。',
+              en: 'Teching is not just damage avoided: SF6 refunds one Drive bar on a successful escape, which makes it the one defensive guess that pays you back.',
+              ja: '投げ抜けは被弾を防ぐだけではない。SF6では成功すると1ゲージ回復するため、当てて資源が増える唯一の防御択になる。',
+            },
+          },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'mash-light',

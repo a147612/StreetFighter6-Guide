@@ -45,9 +45,9 @@ const ROADMAP: RoadmapItem[] = [
     state: 'done',
     label: {
       'zh-Hant':
-        '防守情境 A–H 全部完成：18 個情境、134 筆評價、相剋矩陣與預設打法（倒地起身、防禦中被壓、貼身對峙、Burnout、立回、對空、動力衝擊、血量門檻）',
-      en: 'Defensive groups A–H complete: 18 situations, 134 evaluations, relation matrix and default mix (wakeup, pressure, close quarters, Burnout, neutral, anti-air, Drive Impact, life thresholds)',
-      ja: '守り側 A〜H 完了：18状況・134評価・相性表と基本の配分（起き上がり、ガード中、至近距離、バーンアウト、立ち回り、対空、DI、体力ライン）',
+        '防守情境 A–H 全部完成：18 個情境、137 筆評價、相剋矩陣與預設打法（倒地起身、防禦中被壓、貼身對峙、Burnout、立回、對空、動力衝擊、血量門檻）',
+      en: 'Defensive groups A–H complete: 18 situations, 137 evaluations, relation matrix and default mix (wakeup, pressure, close quarters, Burnout, neutral, anti-air, Drive Impact, life thresholds)',
+      ja: '守り側 A〜H 完了：18状況・137評価・相性表と基本の配分（起き上がり、ガード中、至近距離、バーンアウト、立ち回り、対空、DI、体力ライン）',
     },
   },
   {

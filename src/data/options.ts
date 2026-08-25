@@ -162,9 +162,9 @@ const DEFENSIVE: OptionDef[] = [
     short: { 'zh-Hant': '動力反攻', en: 'D.Reversal', ja: 'リバサ' },
     origin: 'Drive Reversal',
     hint: {
-      'zh-Hant': '防禦中按 6+HP+HK，花兩格把對手推開並打倒。被擋是 −6，會被確反；而且傷害是白血，收不掉對手最後一滴血。',
-      en: 'From blockstun, 6+HP+HK spends two bars to shove them off and knock them down. It is −6 on block and gets punished, and it deals white damage only, so it cannot finish them.',
-      ja: 'ガード中に 6+HP+HK。2ゲージ消費して相手を押し返しダウンを奪う。ガードされると−6で確反を受け、ダメージは白ダメージのため相手を倒し切ることはできない。',
+      'zh-Hant': '按 6+HP+HK，花兩格把對手推開並打倒。防禦硬直中發生 20F，起身時 18F —— 起身也用得出來，而且發生時全程無敵，打擊和摔投都擋得掉。被擋是 −6 會被確反；傷害是白血，收不掉對手最後一滴血。',
+      en: '6+HP+HK spends two bars to shove them off and knock them down. Twenty frames out of blockstun, eighteen on wakeup — it does exist as a wakeup option, and it is invincible throughout its startup, so it covers the strike and the throw. It is −6 on block and gets punished, and it deals white damage only, so it cannot finish them.',
+      ja: '6+HP+HK。2ゲージ消費して相手を押し返しダウンを奪う。ガード硬直中は発生20F、起き上がりでは18F ——起き上がりでも出せて、発生中はずっと無敵なので打撃にも投げにも対応する。ガードされると−6で確反を受け、ダメージは白ダメージのため倒し切ることはできない。',
     },
     aka: { 'zh-Hant': ['反擊推開'], en: ['reversal', 'push-off'], ja: ['リバサ'] },
     input: '6 HP HK',
@@ -314,9 +314,9 @@ const DEFENSIVE: OptionDef[] = [
     origin: 'super reversal',
     hint: {
       'zh-Hant':
-        '有無敵的 SA。多數角色是 Level 1 就帶打擊／投擲無敵，等級依角色而異。沒有 OD 無敵技的角色（JP、Ingrid、Manon、Zangief）只能靠這個脫身。',
-      en: 'A Super Art with invincibility. For most characters the Level 1 already has strike/throw invincibility, though the level varies. Characters with no OD reversal (JP, Ingrid, Manon, Zangief) have only this.',
-      ja: '無敵のあるスーパーアーツ。多くのキャラはレベル1の時点で打撃／投げ無敵を持つが、レベルはキャラによる。OD無敵技を持たないキャラ（JP、イングリッド、マノン、ザンギエフ）はこれが唯一の脱出手段。',
+        '有無敵的 SA。多數角色是 Level 1 就帶打擊／投擲無敵，等級依角色而異。沒有 OD 起身反擊的 11 隻角色最貴的一手是這個，但不是唯一 —— 起身動力反攻（兩格）也擋得掉打擊和摔投，只是傷害是白血。',
+      en: 'A Super Art with invincibility. For most characters the Level 1 already has strike/throw invincibility, though the level varies. For the eleven characters with no OD wakeup escape this is the most expensive answer, but not the only one — a wakeup Drive Reversal also covers the strike and the throw for two bars, at white damage.',
+      ja: '無敵のあるスーパーアーツ。多くのキャラはレベル1の時点で打撃／投げ無敵を持つが、レベルはキャラによる。OD切り返しを持たない11キャラにとって最も高価な択だが唯一ではない ——起き上がりドライブリバーサル（2ゲージ）も打撃と投げの両方に対応でき、ダメージは白ダメージ。',
     },
     aka: { 'zh-Hant': ['SA 凹'], en: ['super reversal'], ja: ['SAぶっぱ'] },
     input: '',

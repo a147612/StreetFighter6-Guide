@@ -117,12 +117,32 @@ export const GROUP_B: Situation[] = [
         versus: [
           { vs: 'blockstring', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'throw', outcome: 'win' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '解摔成功不只是沒被摔 —— SF6 會退你一格動力槽，所以這一手是唯一「猜對還賺資源」的防守選擇。',
+              en: 'Teching is not just damage avoided: SF6 refunds one Drive bar on a successful escape, which makes it the one defensive guess that pays you back.',
+              ja: '投げ抜けは被弾を防ぐだけではない。SF6では成功すると1ゲージ回復するため、当てて資源が増える唯一の防御択になる。',
+            },
+          },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '10-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'drive-parry',
@@ -192,9 +212,21 @@ export const GROUP_B: Situation[] = [
           { vs: 'drive-impact', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08 查閱',
+            note: '動力反攻消耗兩格，發生時全程無敵、破霸體；防禦硬直中發生 20F、起身時 18F，被擋 −6（對手 Burnout 時 −2），傷害 500 且為白血無法收頭。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2024/oct/24/secret-technique-drive-reversal/',
+            patch: '2026-08 查閱',
+            note: '確認起身動力反攻確實存在，並說明用小技＋SA 的 OS 可以釣它',
+          },
+        ],
         notes: {
-          'zh-Hant': '防禦中專用，起身時用不了。兩格很貴，但在角落它買的是位置。',
+          'zh-Hant': '防禦硬直中發生 20F，起身時 18F —— 起身也用得出來，這點常被誤會。兩格很貴，但在角落它買的是位置。',
           en: 'Only available from blockstun, not on wakeup. Two bars is expensive, but in the corner what it buys is position.',
           ja: 'ガード中専用で起き上がりには使えない。2ゲージは高いが、画面端では「位置」を買っている。',
         },
@@ -229,7 +261,14 @@ export const GROUP_B: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'mash-light',
@@ -447,12 +486,32 @@ export const GROUP_B: Situation[] = [
         versus: [
           { vs: 'blockstring', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'throw', outcome: 'win' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '解摔成功不只是沒被摔 —— SF6 會退你一格動力槽，所以這一手是唯一「猜對還賺資源」的防守選擇。',
+              en: 'Teching is not just damage avoided: SF6 refunds one Drive bar on a successful escape, which makes it the one defensive guess that pays you back.',
+              ja: '投げ抜けは被弾を防ぐだけではない。SF6では成功すると1ゲージ回復するため、当てて資源が増える唯一の防御択になる。',
+            },
+          },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '10-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'drive-parry',
@@ -522,9 +581,21 @@ export const GROUP_B: Situation[] = [
           { vs: 'drive-impact', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08 查閱',
+            note: '動力反攻消耗兩格，發生時全程無敵、破霸體；防禦硬直中發生 20F、起身時 18F，被擋 −6（對手 Burnout 時 −2），傷害 500 且為白血無法收頭。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2024/oct/24/secret-technique-drive-reversal/',
+            patch: '2026-08 查閱',
+            note: '確認起身動力反攻確實存在，並說明用小技＋SA 的 OS 可以釣它',
+          },
+        ],
         notes: {
-          'zh-Hant': '防禦中專用，起身時用不了。兩格很貴，但在角落它買的是位置。',
+          'zh-Hant': '防禦硬直中發生 20F，起身時 18F —— 起身也用得出來，這點常被誤會。兩格很貴，但在角落它買的是位置。',
           en: 'Only available from blockstun, not on wakeup. Two bars is expensive, but in the corner what it buys is position.',
           ja: 'ガード中専用で起き上がりには使えない。2ゲージは高いが、画面端では「位置」を買っている。',
         },
@@ -559,7 +630,14 @@ export const GROUP_B: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'mash-light',
@@ -777,12 +855,32 @@ export const GROUP_B: Situation[] = [
         versus: [
           { vs: 'blockstring', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'loss' },
-          { vs: 'throw', outcome: 'win' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '解摔成功不只是沒被摔 —— SF6 會退你一格動力槽，所以這一手是唯一「猜對還賺資源」的防守選擇。',
+              en: 'Teching is not just damage avoided: SF6 refunds one Drive bar on a successful escape, which makes it the one defensive guess that pays you back.',
+              ja: '投げ抜けは被弾を防ぐだけではない。SF6では成功すると1ゲージ回復するため、当てて資源が増える唯一の防御択になる。',
+            },
+          },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '10-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'drive-parry',
@@ -852,9 +950,21 @@ export const GROUP_B: Situation[] = [
           { vs: 'drive-impact', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08 查閱',
+            note: '動力反攻消耗兩格，發生時全程無敵、破霸體；防禦硬直中發生 20F、起身時 18F，被擋 −6（對手 Burnout 時 −2），傷害 500 且為白血無法收頭。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2024/oct/24/secret-technique-drive-reversal/',
+            patch: '2026-08 查閱',
+            note: '確認起身動力反攻確實存在，並說明用小技＋SA 的 OS 可以釣它',
+          },
+        ],
         notes: {
-          'zh-Hant': '防禦中專用，起身時用不了。兩格很貴，但在角落它買的是位置。',
+          'zh-Hant': '防禦硬直中發生 20F，起身時 18F —— 起身也用得出來，這點常被誤會。兩格很貴，但在角落它買的是位置。',
           en: 'Only available from blockstun, not on wakeup. Two bars is expensive, but in the corner what it buys is position.',
           ja: 'ガード中専用で起き上がりには使えない。2ゲージは高いが、画面端では「位置」を買っている。',
         },
@@ -889,7 +999,14 @@ export const GROUP_B: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'mash-light',

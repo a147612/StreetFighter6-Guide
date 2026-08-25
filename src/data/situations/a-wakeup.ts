@@ -194,12 +194,32 @@ export const GROUP_A: Situation[] = [
         },
         versus: [
           { vs: 'meaty', outcome: 'loss' },
-          { vs: 'throw', outcome: 'win' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '解摔成功不只是沒被摔 —— SF6 會退你一格動力槽，所以這一手是唯一「猜對還賺資源」的防守選擇。',
+              en: 'Teching is not just damage avoided: SF6 refunds one Drive bar on a successful escape, which makes it the one defensive guess that pays you back.',
+              ja: '投げ抜けは被弾を防ぐだけではない。SF6では成功すると1ゲージ回復するため、当てて資源が増える唯一の防御択になる。',
+            },
+          },
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'loss' },
         ],
         mixRatio: '15-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'drive-parry',
@@ -275,7 +295,87 @@ export const GROUP_A: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
+      },
+      {
+        optionId: 'drive-reversal',
+        risk: 'high',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '無敵起身把對手打倒推開，回合強制結束，兩人回到中距離重來。',
+            en: 'An invincible wakeup that knocks them down and shoves them off: their turn ends and you restart from neutral.',
+            ja: '無敵の起き上がりで相手を打ち倒して押し返す。相手の攻めは終わり、中距離から仕切り直しになる。',
+          },
+          followUp: 'neutral',
+          damageBand: '5%（白血）',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手不出手直接防禦，動力反攻被擋是 −6，確定被反擊 —— 兩格花掉還倒賠一套。',
+            en: 'They just block. A blocked Drive Reversal is -6 and gets punished for certain: two bars spent and a combo taken.',
+            ja: '相手が手を出さずガードするだけで、ドライブリバーサルは−6の確定反撃。2ゲージを使った上にコンボを食らう。',
+          },
+          hpLoss: '30-45%',
+          driveLoss: 2,
+        },
+        versus: [
+          {
+            vs: 'meaty',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '發生 18 幀全程無敵，壓起身的打擊穿不過去。但正因為慢，對手用硬直短的招壓（詐欺重ね）就來得及擋回來。',
+              en: 'Eighteen frames, invincible throughout: a meaty strike cannot get through. But slow is why a low-recovery meaty (a safe meaty) lets them recover and block it.',
+              ja: '発生18Fの間ずっと無敵で、重ねた打撃は通らない。ただし遅いぶん、硬直の短い技で重ねられる（いわゆる詐欺重ね）とガードが間に合う。',
+            },
+          },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '無敵也擋摔投。這是沒有 OD 起身反擊的角色唯一能同時擋掉打擊和摔投的手段。',
+              en: 'The invincibility covers throws too. For a character with no OD wakeup escape, this is the only option that answers both the strike and the throw.',
+              ja: '無敵は投げにも有効。OD切り返しを持たないキャラにとって、打撃と投げの両方に対応できる唯一の択。',
+            },
+          },
+          {
+            vs: 'shimmy',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant': '對手退開，動力反攻打空。這招整體動作很長，空揮的懲罰時間夠對手跳進來打一套。',
+              en: 'They walk back and it whiffs. The whole motion is long, and a whiffed one leaves enough time for a jump-in combo.',
+              ja: '相手が下がって空振り。全体動作が長く、空振り時は飛び込みからコンボを入れられるほどの隙になる。',
+            },
+          },
+          { vs: 'delayed-attack', outcome: 'win' },
+          { vs: 'bait-block', outcome: 'bigLoss' },
+        ],
+        mixRatio: '5-10%',
+        notes: {
+          'zh-Hant': '常被誤會成「只有防禦中能用」。起身時也出得來，發生還快兩幀（18F）。代價是兩格、被擋 −6，而且傷害是白血 —— 它買的是脫身，不是傷害。',
+          en: 'Widely believed to be blockstun-only. It exists on wakeup too, and is two frames faster there (18F). The price is two bars, -6 on block, and white damage only: what it buys is an escape, not damage.',
+          ja: 'ガード中専用と誤解されがちだが、起き上がりでも出せて発生は2F速い（18F）。代償は2ゲージ、ガードされて−6、しかも白ダメージ。買えるのは脱出であってダメージではない。',
+        },
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08 查閱',
+            note: '起身動力反攻發生 18F（防禦硬直中為 20F），發生時全程無敵且破霸體，被擋 −6（對手 Burnout 時 −2），傷害 500 白血無法收頭，消耗兩格。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2024/oct/24/secret-technique-drive-reversal/',
+            patch: '2026-08 查閱',
+            note: '確認起身動力反攻存在，並說明用小技接 SA 的 OS 可以釣它',
+          },
+        ],
       },
       {
         optionId: 'backdash',
@@ -647,12 +747,32 @@ export const GROUP_A: Situation[] = [
         },
         versus: [
           { vs: 'meaty', outcome: 'loss' },
-          { vs: 'throw', outcome: 'win' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '解摔成功不只是沒被摔 —— SF6 會退你一格動力槽，所以這一手是唯一「猜對還賺資源」的防守選擇。',
+              en: 'Teching is not just damage avoided: SF6 refunds one Drive bar on a successful escape, which makes it the one defensive guess that pays you back.',
+              ja: '投げ抜けは被弾を防ぐだけではない。SF6では成功すると1ゲージ回復するため、当てて資源が増える唯一の防御択になる。',
+            },
+          },
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'loss' },
         ],
         mixRatio: '15-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'drive-parry',
@@ -728,7 +848,87 @@ export const GROUP_A: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
+      },
+      {
+        optionId: 'drive-reversal',
+        risk: 'high',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '無敵起身把對手打倒推開，順勢把自己推回場中一些，回合強制結束。',
+            en: 'An invincible wakeup that knocks them down and shoves them off, buying back some ground toward midscreen.',
+            ja: '無敵の起き上がりで相手を倒して押し返し、画面中央側へ少し戻れる。',
+          },
+          followUp: 'neutral',
+          damageBand: '5%（白血）',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手不出手直接防禦，動力反攻被擋是 −6，確定被反擊 —— 兩格花掉還倒賠一套。',
+            en: 'They just block. A blocked Drive Reversal is -6 and gets punished for certain: two bars spent and a combo taken.',
+            ja: '相手が手を出さずガードするだけで、ドライブリバーサルは−6の確定反撃。2ゲージを使った上にコンボを食らう。',
+          },
+          hpLoss: '35-50%',
+          driveLoss: 2,
+        },
+        versus: [
+          {
+            vs: 'meaty',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '發生 18 幀全程無敵，壓起身的打擊穿不過去。但正因為慢，對手用硬直短的招壓（詐欺重ね）就來得及擋回來。',
+              en: 'Eighteen frames, invincible throughout: a meaty strike cannot get through. But slow is why a low-recovery meaty (a safe meaty) lets them recover and block it.',
+              ja: '発生18Fの間ずっと無敵で、重ねた打撃は通らない。ただし遅いぶん、硬直の短い技で重ねられる（いわゆる詐欺重ね）とガードが間に合う。',
+            },
+          },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '無敵也擋摔投。這是沒有 OD 起身反擊的角色唯一能同時擋掉打擊和摔投的手段。',
+              en: 'The invincibility covers throws too. For a character with no OD wakeup escape, this is the only option that answers both the strike and the throw.',
+              ja: '無敵は投げにも有効。OD切り返しを持たないキャラにとって、打撃と投げの両方に対応できる唯一の択。',
+            },
+          },
+          {
+            vs: 'shimmy',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant': '對手退開，動力反攻打空。這招整體動作很長，空揮的懲罰時間夠對手跳進來打一套。',
+              en: 'They walk back and it whiffs. The whole motion is long, and a whiffed one leaves enough time for a jump-in combo.',
+              ja: '相手が下がって空振り。全体動作が長く、空振り時は飛び込みからコンボを入れられるほどの隙になる。',
+            },
+          },
+          { vs: 'delayed-attack', outcome: 'win' },
+          { vs: 'bait-block', outcome: 'bigLoss' },
+        ],
+        mixRatio: '5-12%',
+        notes: {
+          'zh-Hant': '靠角落的時候它比場中更值：推開的距離就是你離牆的距離。仍然是兩格、被擋 −6、白血傷害。',
+          en: 'Worth more near the corner than midscreen: the distance it shoves them is the distance you gain from the wall. Still two bars, still -6 on block, still white damage.',
+          ja: '画面端寄りでは中央より価値が高い。押し返した距離がそのまま壁から離れた距離になる。ただし2ゲージ・ガード時−6・白ダメージは変わらない。',
+        },
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08 查閱',
+            note: '起身動力反攻發生 18F（防禦硬直中為 20F），發生時全程無敵且破霸體，被擋 −6（對手 Burnout 時 −2），傷害 500 白血無法收頭，消耗兩格。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2024/oct/24/secret-technique-drive-reversal/',
+            patch: '2026-08 查閱',
+            note: '確認起身動力反攻存在，並說明用小技接 SA 的 OS 可以釣它',
+          },
+        ],
       },
       {
         optionId: 'backdash',
@@ -1100,12 +1300,32 @@ export const GROUP_A: Situation[] = [
         },
         versus: [
           { vs: 'meaty', outcome: 'loss' },
-          { vs: 'throw', outcome: 'win' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '解摔成功不只是沒被摔 —— SF6 會退你一格動力槽，所以這一手是唯一「猜對還賺資源」的防守選擇。',
+              en: 'Teching is not just damage avoided: SF6 refunds one Drive bar on a successful escape, which makes it the one defensive guess that pays you back.',
+              ja: '投げ抜けは被弾を防ぐだけではない。SF6では成功すると1ゲージ回復するため、当てて資源が増える唯一の防御択になる。',
+            },
+          },
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'loss' },
         ],
         mixRatio: '15-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'drive-parry',
@@ -1186,7 +1406,87 @@ export const GROUP_A: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
+      },
+      {
+        optionId: 'drive-reversal',
+        risk: 'high',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '無敵起身把對手打倒並推開 —— 被壓在角落時，這是少數真的能換回位置的手段。',
+            en: 'An invincible wakeup that knocks them down and shoves them off — cornered, this is one of the few options that actually buys position back.',
+            ja: '無敵の起き上がりで相手を倒して押し返す。画面端では、実際に位置を取り返せる数少ない択。',
+          },
+          followUp: 'neutral',
+          damageBand: '5%（白血）',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手不出手直接防禦，動力反攻被擋是 −6，確定被反擊 —— 兩格花掉還倒賠一套。',
+            en: 'They just block. A blocked Drive Reversal is -6 and gets punished for certain: two bars spent and a combo taken.',
+            ja: '相手が手を出さずガードするだけで、ドライブリバーサルは−6の確定反撃。2ゲージを使った上にコンボを食らう。',
+          },
+          hpLoss: '45-60%',
+          driveLoss: 2,
+        },
+        versus: [
+          {
+            vs: 'meaty',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '發生 18 幀全程無敵，壓起身的打擊穿不過去。但正因為慢，對手用硬直短的招壓（詐欺重ね）就來得及擋回來。',
+              en: 'Eighteen frames, invincible throughout: a meaty strike cannot get through. But slow is why a low-recovery meaty (a safe meaty) lets them recover and block it.',
+              ja: '発生18Fの間ずっと無敵で、重ねた打撃は通らない。ただし遅いぶん、硬直の短い技で重ねられる（いわゆる詐欺重ね）とガードが間に合う。',
+            },
+          },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '無敵也擋摔投。這是沒有 OD 起身反擊的角色唯一能同時擋掉打擊和摔投的手段。',
+              en: 'The invincibility covers throws too. For a character with no OD wakeup escape, this is the only option that answers both the strike and the throw.',
+              ja: '無敵は投げにも有効。OD切り返しを持たないキャラにとって、打撃と投げの両方に対応できる唯一の択。',
+            },
+          },
+          {
+            vs: 'shimmy',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant': '對手退開，動力反攻打空。這招整體動作很長，空揮的懲罰時間夠對手跳進來打一套。',
+              en: 'They walk back and it whiffs. The whole motion is long, and a whiffed one leaves enough time for a jump-in combo.',
+              ja: '相手が下がって空振り。全体動作が長く、空振り時は飛び込みからコンボを入れられるほどの隙になる。',
+            },
+          },
+          { vs: 'delayed-attack', outcome: 'win' },
+          { vs: 'bait-block', outcome: 'bigLoss' },
+        ],
+        mixRatio: '8-15%',
+        notes: {
+          'zh-Hant': '角落起身最被忽略的一手，尤其是沒有 OD 起身反擊的角色 —— 那 11 隻角色不是沒有選擇，只是選擇貴而且不能收頭。被擋 −6 在角落等於一整套。',
+          en: 'The most overlooked cornered wakeup, especially for a character with no OD escape: those eleven are not without an answer, the answer is just expensive and cannot finish a round. Blocked at -6 in the corner is a full combo.',
+          ja: '画面端の起き上がりで最も見落とされている択。特にOD切り返しを持たないキャラにとって、あの11人は選択肢がないわけではなく、高くて詰め切れないだけ。画面端で−6はフルコンボに等しい。',
+        },
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08 查閱',
+            note: '起身動力反攻發生 18F（防禦硬直中為 20F），發生時全程無敵且破霸體，被擋 −6（對手 Burnout 時 −2），傷害 500 白血無法收頭，消耗兩格。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2024/oct/24/secret-technique-drive-reversal/',
+            patch: '2026-08 查閱',
+            note: '確認起身動力反攻存在，並說明用小技接 SA 的 OS 可以釣它',
+          },
+        ],
       },
       {
         optionId: 'backdash',

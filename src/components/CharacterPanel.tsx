@@ -7,9 +7,11 @@ import { useT } from '~/i18n/useT'
  * What picking this character actually changed.
  *
  * Leads with the reversal situation because that is the fact that most often
- * invalidates a universal recommendation: four of the eight covered characters
- * have no fully invincible OD reversal, and the tables above have already had
- * that row removed for them.
+ * invalidates a universal recommendation: eleven of the thirty-one have no
+ * fully invincible OD reversal, and the tables above have already had that row
+ * removed for them. They are not left with nothing — a wakeup Drive Reversal is
+ * universal — but it costs two bars and deals white damage, which is a
+ * different option, not the same one.
  */
 export function CharacterPanel() {
   const id = useCharacter()

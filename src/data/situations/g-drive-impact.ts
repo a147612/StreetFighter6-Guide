@@ -84,7 +84,14 @@ export const GROUP_G: Situation[] = [
           { vs: 'poke', outcome: 'win' },
         ],
         mixRatio: '20-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '要反應得到。看到閃光才按通常已經來不及，多數人是靠預判 —— 那就變成一個賭。',
           en: 'It has to be a reaction. Pressing on the flash is usually already late, so most of it is a read — which makes it a gamble.',
@@ -314,7 +321,14 @@ export const GROUP_G: Situation[] = [
           { vs: 'poke', outcome: 'win' },
         ],
         mixRatio: '20-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '要反應得到。看到閃光才按通常已經來不及，多數人是靠預判 —— 那就變成一個賭。',
           en: 'It has to be a reaction. Pressing on the flash is usually already late, so most of it is a read — which makes it a gamble.',

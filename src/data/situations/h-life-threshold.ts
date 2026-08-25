@@ -158,7 +158,14 @@ export const GROUP_H: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'reversal',
@@ -345,7 +352,14 @@ export const GROUP_H: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '5-10%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '對手快死的時候不要開始賭 —— 你已經贏了，動力衝擊猜錯是把贏面交回去最快的方式。',
           en: 'Do not start gambling when they are nearly dead. You have already won; a wrong Impact is the fastest way to hand it back.',

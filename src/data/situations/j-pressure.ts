@@ -209,13 +209,36 @@ export const GROUP_J: Situation[] = [
         },
         versus: [
           { vs: 'do-nothing', outcome: 'win' },
-          { vs: 'mash-light', outcome: 'bigWin' },
-          { vs: 'drive-reversal', outcome: 'bigWin' },
+          {
+            vs: 'mash-light',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '霸體只有兩次。前兩下小技被吃掉，第三下就破霸體 —— 對手真的連按小拳連段是打得贏的。',
+              en: 'The armour is only two hits. It eats the first two lights; a third breaks it, so a genuine light chain does beat this.',
+              ja: 'アーマーは2回まで。弱攻撃2発は受け止めるが3発目で割れるため、本気の弱攻撃の連打には負ける。',
+            },
+          },
+          {
+            vs: 'drive-reversal',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '動力反攻是破霸體招，而且發生時全程無敵 —— 霸體吃不下它，會被直接打斷打倒。',
+              en: 'A Drive Reversal is an armour break and is invincible through its startup: the armour does not absorb it, it gets broken.',
+              ja: 'ドライブリバーサルはアーマーブレイク属性で発生中は無敵。アーマーでは受け止められず、そのまま割られる。',
+            },
+          },
           { vs: 'drive-impact', outcome: 'loss' },
           { vs: 'delayed-tech', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'bait-block',
@@ -484,12 +507,27 @@ export const GROUP_J: Situation[] = [
         },
         versus: [
           { vs: 'do-nothing', outcome: 'win' },
-          { vs: 'mash-light', outcome: 'bigWin' },
+          {
+            vs: 'mash-light',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '霸體只有兩次。前兩下小技被吃掉，第三下就破霸體 —— 對手真的連按小拳連段是打得贏的。',
+              en: 'The armour is only two hits. It eats the first two lights; a third breaks it, so a genuine light chain does beat this.',
+              ja: 'アーマーは2回まで。弱攻撃2発は受け止めるが3発目で割れるため、本気の弱攻撃の連打には負ける。',
+            },
+          },
           { vs: 'delayed-tech', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'bait-block',
@@ -758,12 +796,27 @@ export const GROUP_J: Situation[] = [
         },
         versus: [
           { vs: 'do-nothing', outcome: 'win' },
-          { vs: 'mash-light', outcome: 'bigWin' },
+          {
+            vs: 'mash-light',
+            outcome: 'win',
+            note: {
+              'zh-Hant': '霸體只有兩次。前兩下小技被吃掉，第三下就破霸體 —— 對手真的連按小拳連段是打得贏的。',
+              en: 'The armour is only two hits. It eats the first two lights; a third breaks it, so a genuine light chain does beat this.',
+              ja: 'アーマーは2回まで。弱攻撃2発は受け止めるが3発目で割れるため、本気の弱攻撃の連打には負ける。',
+            },
+          },
           { vs: 'delayed-tech', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '對手力盡又在角落的時候，這是全遊戲期望值最高的一手 —— 他擋住也會被撞牆暈眩。',
           en: 'With him burnt out and cornered this is the highest-expectation option in the game: the wall splat stuns him even through a block.',
