@@ -15,7 +15,7 @@ export interface UiStrings {
   skipToContent: string
 
   nav: { situations: string; characters: string; glossary: string; quickRef: string }
-  search: { placeholder: string; label: string }
+  search: { placeholder: string; label: string; open: string; empty: string; hint: string; situations: string; cells: string }
 
   side: { label: string; defense: string; offense: string }
   sideHint: { defense: string; offense: string }
@@ -121,7 +121,15 @@ const zhHant: UiStrings = {
   skipToContent: '跳至主要內容',
 
   nav: { situations: '情境', characters: '角色', glossary: '術語', quickRef: '速查' },
-  search: { placeholder: '搜尋情境、選項、術語…', label: '搜尋' },
+  search: {
+    placeholder: '例如「角落 解摔」或「退康」',
+    label: '搜尋',
+    open: '搜尋',
+    empty: '沒有符合的結果',
+    hint: '可以同時輸入位置和選項，例如「角落 解摔」會直接跳到那一列',
+    situations: '情境',
+    cells: '情境中的選項',
+  },
 
   side: { label: '視角', defense: '我在防守', offense: '我在進攻' },
   sideHint: {
@@ -256,7 +264,15 @@ const en: UiStrings = {
   skipToContent: 'Skip to main content',
 
   nav: { situations: 'Situations', characters: 'Characters', glossary: 'Glossary', quickRef: 'Quick ref' },
-  search: { placeholder: 'Search situations, options, terms…', label: 'Search' },
+  search: {
+    placeholder: 'Try "corner tech" or "shimmy"',
+    label: 'Search',
+    open: 'Search',
+    empty: 'Nothing matched',
+    hint: 'Name a place and an option together — "corner tech" jumps straight to that row',
+    situations: 'Situations',
+    cells: 'Options in a situation',
+  },
 
   side: { label: 'View', defense: "I'm defending", offense: "I'm attacking" },
   sideHint: {
@@ -392,7 +408,15 @@ const ja: UiStrings = {
   skipToContent: 'メインコンテンツへ',
 
   nav: { situations: '状況', characters: 'キャラ', glossary: '用語', quickRef: '早見表' },
-  search: { placeholder: '状況・選択肢・用語を検索…', label: '検索' },
+  search: {
+    placeholder: '例：「画面端 投げ抜け」「シミー」',
+    label: '検索',
+    open: '検索',
+    empty: '一致する結果なし',
+    hint: '位置と択を一緒に入力できる。「画面端 投げ抜け」でその行に直接移動する',
+    situations: '状況',
+    cells: '状況内の択',
+  },
 
   side: { label: '視点', defense: '守り側', offense: '攻め側' },
   sideHint: {

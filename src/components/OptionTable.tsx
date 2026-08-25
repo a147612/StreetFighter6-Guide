@@ -1,4 +1,4 @@
-import { Fragment, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { OptionDetail } from './OptionDetail'
 import { HpLossBar } from './viz/HpLossBar'
 import { OutcomeCell, OutcomeLegend } from './viz/OutcomeCell'
@@ -43,12 +43,17 @@ const SORTERS: Record<SortKey, (row: OptionRow) => number> = {
 export function OptionTable({
   rows: input,
   opponentOptions,
+  openOptionId,
 }: {
   rows: OptionRow[]
   opponentOptions: string[]
+  /** Arrived here from a search hit naming this row; open and reveal it. */
+  openOptionId?: string | undefined
 }) {
   const { t, text } = useT()
-  const [open, setOpen] = useState<ReadonlySet<string>>(new Set())
+  const [open, setOpen] = useState<ReadonlySet<string>>(() =>
+    openOptionId ? new Set([openOptionId]) : new Set(),
+  )
   const [sort, setSort] = useState<SortState>(null)
 
   const columns = useMemo(
@@ -121,6 +126,15 @@ export function OptionTable({
       return next
     })
   }
+
+  // A search hit lands on a row that may be well down a long table, so open it
+  // and bring it into view rather than leaving the reader to hunt for it.
+  useEffect(() => {
+    if (!openOptionId) return
+    setOpen((previous) => new Set(previous).add(openOptionId))
+    const node = document.getElementById(`row-${openOptionId}`)
+    node?.scrollIntoView({ block: 'center', behavior: 'smooth' })
+  }, [openOptionId])
 
   /** asc -> desc -> back to the grouped, authored order. */
   function cycleSort(key: SortKey): void {
@@ -228,6 +242,7 @@ export function OptionTable({
                 return (
                   <Fragment key={def.id}>
                     <tr
+                      id={`row-${def.id}`}
                       className={`opt-row ${isOpen ? 'is-open' : ''}`}
                       onClick={() => toggle(def.id)}
                     >

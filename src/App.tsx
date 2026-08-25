@@ -1,8 +1,10 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Topbar } from './components/Topbar'
 import { OptionTable } from './components/OptionTable'
 import { DefaultMix } from './components/viz/DefaultMix'
 import { CharacterPanel, CharacterSelect } from './components/CharacterPanel'
+import { SearchOverlay } from './components/SearchOverlay'
+import type { SearchHit } from './lib/search'
 import { SituationNav } from './components/SituationNav'
 import { GlassPanel } from './components/glass/GlassPanel'
 import { Segmented } from './components/Segmented'
@@ -63,11 +65,20 @@ const ROADMAP: RoadmapItem[] = [
     },
   },
   {
+    state: 'done',
+    label: {
+      'zh-Hant':
+        '速查：全站搜尋（同時輸入位置與選項會直接跳到那一列）、鍵盤 / 或 ⌘K、可書籤的網址',
+      en: 'Quick reference: search across everything (name a place and an option to land on that exact row), / or ⌘K, and bookmarkable URLs',
+      ja: '早見：全体検索（位置と択を一緒に入力するとその行に直接移動）、/ または ⌘K、ブックマーク可能なURL',
+    },
+  },
+  {
     state: 'planned',
     label: {
-      'zh-Hant': '搜尋、速查模式、術語表',
-      en: 'Search, quick-reference mode, glossary',
-      ja: '検索、早見表モード、用語集',
+      'zh-Hant': '術語表',
+      en: 'Glossary',
+      ja: '用語集',
     },
   },
   {
@@ -104,6 +115,8 @@ export default function App() {
   const [groupId, setGroupId] = useState('A')
   const [situationId, setSituationId] = useState(SITUATIONS[0]?.id ?? '')
 
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [targetOption, setTargetOption] = useState<string | undefined>(undefined)
   const characterId = useCharacter()
   const situation = getSituation(situationId)
   const rows = useMemo(
@@ -115,9 +128,58 @@ export default function App() {
    *  situation from the previous group would be a dead end. */
   function pickGroup(next: string): void {
     setGroupId(next)
+    setTargetOption(undefined)
     const first = situationsInGroup(next)[0]
     if (first) setSituationId(first.id)
   }
+
+  /**
+   * Deep links: `#/<situation>` or `#/<situation>/<option>`.
+   *
+   * The stated use for this thing is looking something up between matches, and
+   * a lookup you cannot bookmark is half a lookup — this makes a specific
+   * situation a home-screen shortcut.
+   */
+  const goTo = useCallback((situationTarget: string, optionTarget?: string) => {
+    const found = getSituation(situationTarget)
+    if (!found) return
+    setSide(found.side)
+    setGroupId(found.group)
+    setSituationId(found.id)
+    setTargetOption(optionTarget)
+  }, [])
+
+  useEffect(() => {
+    const apply = (): void => {
+      const [, situationTarget, optionTarget] = window.location.hash.split('/')
+      if (situationTarget) goTo(decodeURIComponent(situationTarget), optionTarget)
+    }
+    apply()
+    window.addEventListener('hashchange', apply)
+    return () => window.removeEventListener('hashchange', apply)
+  }, [goTo])
+
+  useEffect(() => {
+    if (!situationId) return
+    const next = `#/${situationId}${targetOption ? `/${targetOption}` : ''}`
+    if (window.location.hash !== next) {
+      window.history.replaceState(null, '', next)
+    }
+  }, [situationId, targetOption])
+
+  /** `/` and ⌘K are both muscle memory for "find something"; accept either. */
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent): void => {
+      const target = event.target as HTMLElement | null
+      const typing = target && /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)
+      if ((event.key === '/' && !typing) || (event.key === 'k' && (event.metaKey || event.ctrlKey))) {
+        event.preventDefault()
+        setSearchOpen(true)
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
 
   /** Switching seat has to move the group too — the defensive groups do not
    *  exist on the offensive side and vice versa. */
@@ -129,11 +191,17 @@ export default function App() {
 
   return (
     <div className="liquid-glass-backdrop app" id="top">
+      <SearchOverlay
+        open={searchOpen}
+        onClose={() => setSearchOpen(false)}
+        onPick={(hit: SearchHit) => goTo(hit.situationId, hit.optionId)}
+      />
+
       <a className="skip-link" href="#main">
         {t.skipToContent}
       </a>
 
-      <Topbar />
+      <Topbar onSearch={() => setSearchOpen(true)} />
 
       <main id="main" className="shell app__main">
         <div className="browse">
@@ -153,7 +221,10 @@ export default function App() {
               groupId={groupId}
               situationId={situationId}
               onPickGroup={pickGroup}
-              onPickSituation={setSituationId}
+              onPickSituation={(next) => {
+                setSituationId(next)
+                setTargetOption(undefined)
+              }}
             />
           )}
         </div>
@@ -175,6 +246,7 @@ export default function App() {
               key={situation.id}
               rows={rows}
               opponentOptions={situation.opponentOptions}
+              openOptionId={targetOption}
             />
           </section>
         ) : null}

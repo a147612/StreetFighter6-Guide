@@ -1468,3 +1468,119 @@ html[data-theme='dark'] .notation__btn--h {
   color: var(--text-faint);
   white-space: nowrap;
 }
+
+/* ── Search ──────────────────────────────────────────────────────────
+   The lookup entry point, so it stays visible in the bar rather than hiding
+   behind a shortcut only some readers know about. */
+.control--search {
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border: 0;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--text) 8%, transparent);
+  font-size: var(--step--1);
+}
+
+.control--search svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: none;
+}
+
+.control__kbd {
+  padding: 0 0.3rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--text) 12%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-faint);
+}
+
+.searchscrim {
+  z-index: 50;
+  align-items: flex-start;
+  padding: clamp(var(--space-4), 8vh, var(--space-7)) var(--space-4);
+}
+
+.searchbox {
+  width: min(38rem, 100%);
+  max-height: min(70vh, 40rem);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3);
+}
+
+/* Children of a glass panel paint no surface of their own; the field reads as
+   an input from its size and placeholder, not from a box around it. */
+.searchbox__input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 0;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-size: var(--step-1);
+}
+
+.searchbox__input:focus {
+  outline: none;
+}
+
+.searchbox__input::-webkit-search-cancel-button {
+  filter: grayscale(1);
+}
+
+.searchbox__hint {
+  padding: var(--space-3);
+}
+
+.searchbox__results {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.searchhit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.searchhit.is-active {
+  background: var(--accent-soft);
+}
+
+.searchhit__kind {
+  flex: none;
+  min-width: 5.5rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--text) 10%, transparent);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.searchhit__label {
+  font-weight: 650;
+}
+
+.searchhit__context {
+  margin-left: auto;
+}
+
+@media (max-width: 30rem) {
+  .searchhit__context {
+    margin-left: 0;
+    width: 100%;
+  }
+}

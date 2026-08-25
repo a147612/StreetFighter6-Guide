@@ -4,12 +4,7 @@ import { ThemeButton } from './controls/ThemeButton'
 import { RefractionSwitch } from './controls/RefractionSwitch'
 import { useT } from '~/i18n/useT'
 
-/**
- * One row, three controls, no legends — which is also what makes it usable on a
- * phone: the previous version stacked three labelled radio groups and ate 40%
- * of the viewport, so it could not stay pinned. This one can.
- */
-export function Topbar() {
+export function Topbar({ onSearch }: { onSearch: () => void }) {
   const { t } = useT()
 
   return (
@@ -23,6 +18,22 @@ export function Topbar() {
         </a>
 
         <div className="topbar__controls">
+          <button type="button" className="control control--search" onClick={onSearch}>
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <circle cx="7" cy="7" r="4.4" fill="none" stroke="currentColor" strokeWidth="1.6" />
+              <line
+                x1="10.4"
+                y1="10.4"
+                x2="14"
+                y2="14"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+              />
+            </svg>
+            <span className="control__text">{t.search.open}</span>
+            <kbd className="control__kbd">/</kbd>
+          </button>
           <RefractionSwitch />
           <ThemeButton />
           <LocaleSelect />
