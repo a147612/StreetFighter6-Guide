@@ -1,17 +1,43 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { GlassPanel } from './glass/GlassPanel'
+import { useCharacterName } from './CharacterName'
 import { CharacterFace } from './viz/CharacterFace'
 import { CHARACTERS, getCharacter } from '~/data'
-import type { CharacterOverlay } from '~/data/schema'
+import type { CharacterOverlay, I18nText } from '~/data/schema'
 import { characterStore, useCharacter } from '~/lib/prefs'
 import { useT } from '~/i18n/useT'
 
-/**
- * A character's tile: a drawn face, self-authored — see CharacterFace.
- *
- * If the owner puts their own captures in `public/portraits/` and lists the id
- * in `OWN_PORTRAITS`, that image takes over and nothing else changes.
- */
+/** Localised name first, Latin underneath — see useCharacterName for why. */
+function TileName({ name, warn }: { name: I18nText; warn: string | null }) {
+  const { primary, latin } = useCharacterName(name)
+  return (
+    <>
+      <span className="chartile__name">
+        {primary}
+        {warn && (
+          <span className="chartile__warn" aria-label={warn}>
+            {' '}
+            ⚠
+          </span>
+        )}
+      </span>
+      {latin && <span className="chartile__latin small faint">{latin}</span>}
+    </>
+  )
+}
+
+/** The same pair, on one line, for the closed picker. */
+function TriggerName({ name }: { name: I18nText }) {
+  const { primary, latin } = useCharacterName(name)
+  return (
+    <>
+      {primary}
+      {latin && <span className="charpick__latin faint">{latin}</span>}
+    </>
+  )
+}
+
+/** A character's tile — icon if there is one, drawn face if not. */
 export function CharacterAvatar({
   id,
   name,
@@ -50,10 +76,17 @@ export function CharacterPicker() {
   const inputRef = useRef<HTMLInputElement | null>(null)
   const selected = getCharacter(selectedId)
 
-  const sorted = useMemo(
-    () => [...CHARACTERS].sort((a, b) => text(a.name).localeCompare(text(b.name))),
-    [text],
-  )
+  /**
+   * Sorted by the Latin name in every language, deliberately.
+   *
+   * Sorting by the localised name looked more correct and was worse: it puts
+   * every character with a Chinese name ahead of every character without one,
+   * which is not an order anybody can predict, and it moves all thirty-one
+   * tiles when the reader changes language. The Latin name is the one thing all
+   * three locales share and it is printed under every tile, so the position you
+   * learned stays the position it is.
+   */
+  const sorted = useMemo(() => [...CHARACTERS].sort((a, b) => a.name.en.localeCompare(b.name.en)), [])
 
   const matches = useMemo(() => {
     const needle = query.trim().toLowerCase()
@@ -95,7 +128,7 @@ export function CharacterPicker() {
           </span>
         )}
         <span id="charpick-value" className="charpick__value">
-          {selected ? text(selected.name) : t.character.universal}
+          {selected ? <TriggerName name={selected.name} /> : t.character.universal}
         </span>
         <svg viewBox="0 0 16 16" aria-hidden="true" className="control__chevron">
           <path
@@ -178,15 +211,7 @@ export function CharacterPicker() {
                     title={noReversal ? t.character.noReversal : undefined}
                   >
                     <CharacterAvatar id={character.id} name={text(character.name)} />
-                    <span className="chartile__name">
-                      {text(character.name)}
-                      {noReversal && (
-                        <span className="chartile__warn" aria-label={t.character.noReversal}>
-                          {' '}
-                          ⚠
-                        </span>
-                      )}
-                    </span>
+                    <TileName name={character.name} warn={noReversal ? t.character.noReversal : null} />
                   </button>
                 )
               })}

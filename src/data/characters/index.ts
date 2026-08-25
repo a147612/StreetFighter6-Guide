@@ -25,7 +25,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'ken',
     name: {
-      'zh-Hant': 'Ken',
+      'zh-Hant': '肯',
       en: 'Ken',
       ja: 'ケン',
     },
@@ -106,7 +106,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'cammy',
     name: {
-      'zh-Hant': 'Cammy',
+      'zh-Hant': '嘉米',
       en: 'Cammy',
       ja: 'キャミィ',
     },
@@ -187,7 +187,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'akuma',
     name: {
-      'zh-Hant': 'Akuma',
+      'zh-Hant': '豪鬼',
       en: 'Akuma',
       ja: '豪鬼',
     },
@@ -349,7 +349,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'ryu',
     name: {
-      'zh-Hant': 'Ryu',
+      'zh-Hant': '隆',
       en: 'Ryu',
       ja: 'リュウ',
     },
@@ -430,7 +430,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'chunli',
     name: {
-      'zh-Hant': 'Chun-Li',
+      'zh-Hant': '春麗',
       en: 'Chun-Li',
       ja: '春麗',
     },
@@ -511,7 +511,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'guile',
     name: {
-      'zh-Hant': 'Guile',
+      'zh-Hant': '古烈',
       en: 'Guile',
       ja: 'ガイル',
     },
@@ -578,7 +578,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'juri',
     name: {
-      'zh-Hant': 'Juri',
+      'zh-Hant': '蛛俐',
       en: 'Juri',
       ja: 'ジュリ',
     },
@@ -659,7 +659,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'sagat',
     name: {
-      'zh-Hant': 'Sagat',
+      'zh-Hant': '沙加特',
       en: 'Sagat',
       ja: 'サガット',
     },
@@ -740,7 +740,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'terry',
     name: {
-      'zh-Hant': 'Terry',
+      'zh-Hant': '特瑞',
       en: 'Terry',
       ja: 'テリー',
     },
@@ -902,7 +902,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'elena',
     name: {
-      'zh-Hant': 'Elena',
+      'zh-Hant': '艾蓮娜',
       en: 'Elena',
       ja: 'エレナ',
     },
@@ -1117,7 +1117,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'blanka',
     name: {
-      'zh-Hant': 'Blanka',
+      'zh-Hant': '布蘭卡',
       en: 'Blanka',
       ja: 'ブランカ',
     },
@@ -1279,7 +1279,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'mai',
     name: {
-      'zh-Hant': 'Mai',
+      'zh-Hant': '不知火舞',
       en: 'Mai',
       ja: '不知火舞',
     },
@@ -1517,7 +1517,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'zangief',
     name: {
-      'zh-Hant': 'Zangief',
+      'zh-Hant': '桑吉爾夫',
       en: 'Zangief',
       ja: 'ザンギエフ',
     },
@@ -1622,7 +1622,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'ingrid',
     name: {
-      'zh-Hant': 'Ingrid',
+      'zh-Hant': '英格麗',
       en: 'Ingrid',
       ja: 'イングリッド',
     },
@@ -1880,7 +1880,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'alex',
     name: {
-      'zh-Hant': 'Alex',
+      'zh-Hant': '阿利克斯',
       en: 'Alex',
       ja: 'アレックス',
     },
@@ -2062,7 +2062,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'dhalsim',
     name: {
-      'zh-Hant': 'Dhalsim',
+      'zh-Hant': '達爾錫',
       en: 'Dhalsim',
       ja: 'ダルシム',
     },
@@ -2153,7 +2153,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'ehonda',
     name: {
-      'zh-Hant': 'E. Honda',
+      'zh-Hant': '本田',
       en: 'E. Honda',
       ja: 'E.本田',
     },
@@ -2440,7 +2440,7 @@ export const CHARACTERS: CharacterOverlay[] = [
   {
     id: 'mbison',
     name: {
-      'zh-Hant': 'M. Bison',
+      'zh-Hant': '拜森',
       en: 'M. Bison',
       ja: 'ベガ',
     },

@@ -1,16 +1,68 @@
 /**
- * Colour identity for the character picker.
+ * Portrait and colour identity for the character picker.
  *
- * No CAPCOM assets, ever — the policy permits self-made derivative art and
- * forbids redistributing extracted in-game elements, so there are no official
- * portraits here and there never will be. The tiles are drawn instead; see
- * components/viz/CharacterFace.tsx. These colours are the ground each drawing
- * sits on, and the fallback identity for anyone not drawn yet.
+ * The icons in `public/characters/` are the owner's own files, placed there
+ * deliberately; they are official character-select art and they ship with this
+ * repo because he decided they should. Nothing here fetches them from anywhere.
+ * A character with no icon falls back to the drawn face in
+ * components/viz/CharacterFace.tsx, and then to a monogram — so a roster
+ * addition never renders as a hole.
  *
- * A colour is not an asset. They follow each character's costume closely enough
- * to be recognisable and are spread far enough apart in hue to stay
- * distinguishable at tile size.
+ * The colours below are the ground the drawn faces sit on, and the fallback
+ * identity for anyone with neither icon nor drawing. A colour is not an asset:
+ * they follow each character's costume closely enough to be recognisable and
+ * are spread far enough apart in hue to stay distinguishable at tile size.
  */
+
+/**
+ * Character id to icon basename in `public/characters/`.
+ *
+ * Two characters ship with the name burned into the art in two languages, so
+ * they carry a Japanese variant: Akuma is GOUKI in Japanese, and M. Bison is
+ * VEGA. `iconA23a*` is the hooded pre-reveal Bison and is deliberately unused —
+ * a picker wants the look you see across the round start, not the cutscene one.
+ */
+const ICONS: Record<string, { file: string; ja?: string }> = {
+  ryu: { file: 'iconA01' },
+  luke: { file: 'iconA02' },
+  jamie: { file: 'iconA03' },
+  chunli: { file: 'iconA04' },
+  guile: { file: 'iconA05' },
+  kimberly: { file: 'iconA06' },
+  juri: { file: 'iconA07' },
+  ken: { file: 'iconA08' },
+  blanka: { file: 'iconA09' },
+  dhalsim: { file: 'iconA10' },
+  ehonda: { file: 'iconA11' },
+  deejay: { file: 'iconA12' },
+  manon: { file: 'iconA13' },
+  marisa: { file: 'iconA14' },
+  jp: { file: 'iconA15' },
+  zangief: { file: 'iconA16' },
+  lily: { file: 'iconA17' },
+  cammy: { file: 'iconA18' },
+  rashid: { file: 'iconA19' },
+  aki: { file: 'iconA20' },
+  ed: { file: 'iconA21' },
+  akuma: { file: 'iconA22en', ja: 'iconA22' },
+  mbison: { file: 'iconA23bE', ja: 'iconA23bJ' },
+  terry: { file: 'iconA24' },
+  mai: { file: 'iconA25' },
+  elena: { file: 'iconA26' },
+  sagat: { file: 'iconA27' },
+  cviper: { file: 'iconA28' },
+  alex: { file: 'iconA29' },
+  ingrid: { file: 'iconA30' },
+  yasmine: { file: 'iconA31' },
+}
+
+/** The icon URL for this character, or null if there is none to show. */
+export function characterIcon(id: string, locale: string): string | null {
+  const entry = ICONS[id]
+  if (!entry) return null
+  const file = locale === 'ja' && entry.ja ? entry.ja : entry.file
+  return `${import.meta.env.BASE_URL}characters/${file}.png`
+}
 
 /** Signature colour, mid-saturation so it reads on both themes. */
 const COLORS: Record<string, string> = {
@@ -88,15 +140,6 @@ const MONOGRAMS: Record<string, string> = {
   yasmine: 'YS',
 }
 
-/**
- * Ids with an owner-supplied portrait at `public/portraits/<id>.webp`.
- *
- * Empty, and it stays empty unless the owner puts their own captures there —
- * Capcom's policy covers your own gameplay footage, not extracted art. Adding
- * an id here is the whole opt-in; the tile falls back to the monogram for every
- * id that is not listed, so a half-filled folder degrades cleanly.
- */
-export const OWN_PORTRAITS: readonly string[] = []
 
 /** Stable hue from the id, so a character added later still gets its own tile
  *  without anyone having to remember to author one. */

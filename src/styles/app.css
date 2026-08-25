@@ -1422,8 +1422,8 @@ html[data-theme='dark'] .notation__btn--h {
   flex: none;
   overflow: hidden;
   border-radius: var(--radius-sm);
-  /* The drawing paints its own ground. The surface fill only shows for a
-     character that has not been drawn yet, behind the monogram fallback. */
+  /* The icon and the drawn face both paint their own ground; this fill and ring
+     only show behind the monogram, for a character with neither. */
   background: color-mix(in oklab, var(--avatar-color) 26%, var(--surface));
   box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--text) 16%, transparent);
   color: color-mix(in oklab, var(--avatar-color) 72%, var(--text));
@@ -1431,8 +1431,22 @@ html[data-theme='dark'] .notation__btn--h {
   line-height: 1;
 }
 
-.avatar > svg,
+/* The icons are hexagons on transparency with their own frame and glow, so they
+   are fitted rather than cropped, and the tile behind them stays out of it —
+   a second border around a bordered badge reads as a mistake. */
+.avatar:has(img) {
+  background: transparent;
+  box-shadow: none;
+}
+
 .avatar img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.avatar > svg {
   width: 100%;
   height: 100%;
   display: block;
@@ -1440,14 +1454,14 @@ html[data-theme='dark'] .notation__btn--h {
 }
 
 .avatar--sm {
-  width: 1.7rem;
-  height: 1.7rem;
+  width: 2rem;
+  height: 2rem;
   font-size: 0.62rem;
 }
 
 .avatar--md {
-  width: 3.4rem;
-  height: 3.4rem;
+  width: 4rem;
+  height: 4rem;
   font-size: 1.05rem;
 }
 
@@ -1533,7 +1547,7 @@ html[data-theme='dark'] .notation__btn--h {
 
 .charpick__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(6.2rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(6.8rem, 1fr));
   gap: var(--space-2);
   overflow-y: auto;
   padding: 2px;
@@ -1570,6 +1584,21 @@ html[data-theme='dark'] .notation__btn--h {
   font-weight: 600;
   line-height: 1.15;
   overflow-wrap: anywhere;
+}
+
+/* Under the localised name, not beside it: side by side the two names compete,
+   and the one the reader is scanning for stops being first. */
+.chartile__latin {
+  margin-top: -0.15rem;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.charpick__latin,
+.charpanel__latin {
+  margin-left: 0.4rem;
+  font-size: var(--step--1);
+  font-weight: 400;
 }
 
 .chartile__stat {

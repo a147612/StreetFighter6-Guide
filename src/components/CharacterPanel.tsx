@@ -1,3 +1,4 @@
+import { useCharacterName } from './CharacterName'
 import { InputNotation } from './viz/InputNotation'
 import { getCharacter } from '~/data'
 import { useCharacter } from '~/lib/prefs'
@@ -21,11 +22,15 @@ export function CharacterPanel() {
 
   const hasOdReversal = !character.removesOptions?.includes('reversal')
   const source = character.sources?.[0]
+  const { primary, latin } = useCharacterName(character.name)
 
   return (
     <details className="card card--padded charpanel">
       <summary>
-        <span className="charpanel__name">{text(character.name)}</span>
+        <span className="charpanel__name">
+          {primary}
+          {latin && <span className="charpanel__latin faint">{latin}</span>}
+        </span>
         <span className="charpanel__stat mono">
           {t.character.health} {character.health.toLocaleString()}
         </span>

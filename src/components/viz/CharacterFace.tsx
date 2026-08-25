@@ -1,13 +1,14 @@
 import type { ReactNode } from 'react'
-import { characterColor, characterMonogram, OWN_PORTRAITS } from '~/data/characters/portraits'
+import { characterColor, characterIcon, characterMonogram } from '~/data/characters/portraits'
+import { useT } from '~/i18n/useT'
 
 /**
- * Thirty-one drawn character tiles.
+ * A character's tile.
  *
- * Self-authored, because Capcom's policy permits derivative art you make
- * yourself and forbids redistributing extracted in-game elements — and because
- * a repo that ships thirty-one lifted portraits is a repo with a takedown in
- * its future. These are not official art and are not trying to pass for it.
+ * First choice is the icon in `public/characters/`. Everything below it is the
+ * fallback for a character with no icon — thirty-one drawn faces, kept because
+ * a roster addition should render as a face rather than as a hole, and because
+ * they are what this shipped with before the icons arrived.
  *
  * What a tile has to do is be picked out of a grid of thirty-one in one glance,
  * and at 56 pixels almost none of that work is done by the face. It is done by
@@ -400,10 +401,11 @@ function Eyes({ mode }: { mode: Face['eyes'] }) {
 }
 
 export function CharacterFace({ id, name }: { id: string; name: string }) {
-  const own = OWN_PORTRAITS.includes(id)
-  if (own) {
-    return <img src={`${import.meta.env.BASE_URL}portraits/${id}.webp`} alt="" loading="lazy" />
-  }
+  const { locale } = useT()
+  // Akuma and Bison have the name burned into the art, so the icon follows the
+  // reader's language rather than staying on one spelling.
+  const icon = characterIcon(id, locale)
+  if (icon) return <img src={icon} alt="" loading="lazy" />
 
   const face = FACES[id]
   if (!face) {
