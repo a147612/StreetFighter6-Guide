@@ -53,7 +53,19 @@ export const GROUP_G: Situation[] = [
           { vs: 'poke', outcome: 'win' },
         ],
         mixRatio: '35-45%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Burnout',
+            patch: '2026-08 查閱',
+            note: '防禦會消耗動力槽；槽耗盡即進入 Burnout，屆時無法使用任何動力技能，並會被必殺技與 SA 削血。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '必殺技削血為該招傷害的 25%，且可以致死；Burnout 中防禦硬直 +4F',
+          },
+        ],
       },
       {
         optionId: 'drive-impact',
@@ -234,7 +246,19 @@ export const GROUP_G: Situation[] = [
           { vs: 'blockstring', outcome: 'loss' },
         ],
         mixRatio: '5-10%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://www.hotspawn.com/street-fighter/guide/street-fighter-6-how-to-play-defense',
+            patch: '2026-08 查閱',
+            note: '後衝刺帶投擲無敵並實際拉開距離，因此對退康有效。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '各角色後衝刺總幀數（本站角色面板的 backdashFrames 即來自此）',
+          },
+        ],
         notes: {
           'zh-Hant': '牆邊沒有這個選項 —— 沒有空間可以退，這也是為什麼牆邊的動力衝擊那麼強。',
           en: 'Not available at the wall: there is no ground to give, which is exactly why a cornered Drive Impact is so strong.',
@@ -285,7 +309,19 @@ export const GROUP_G: Situation[] = [
           { vs: 'poke', outcome: 'win' },
         ],
         mixRatio: '35-45%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Burnout',
+            patch: '2026-08 查閱',
+            note: '防禦會消耗動力槽；槽耗盡即進入 Burnout，屆時無法使用任何動力技能，並會被必殺技與 SA 削血。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '必殺技削血為該招傷害的 25%，且可以致死；Burnout 中防禦硬直 +4F',
+          },
+        ],
         notes: {
           'zh-Hant': '牆邊被動力衝擊「撞到」是這個遊戲最貴的單一失誤 —— 撞牆接完整連段。所以在牆邊，擋住就是勝利。唯一的例外是你正在 Burnout：那種情況下擋住一樣會被撞牆暈眩，防禦救不了你。',
           en: 'Being *hit* by a Drive Impact at the wall is the single most expensive mistake available: a wall splat into a full combo. Cornered, blocking it is the win. The one exception is being in Burnout, where the wall splat stuns you on block too and blocking does not save you.',

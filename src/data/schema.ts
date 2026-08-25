@@ -256,6 +256,17 @@ export interface Situation {
   myDrive?: DriveBand[]
   opponentDrive?: DriveBand[]
   /**
+   * Your Drive Gauge is empty here, so nothing costing Drive is an option.
+   *
+   * Burnout is the case, and it needs saying in the data rather than being left
+   * to whoever writes the next situation: an OD reversal was authored into both
+   * Burnout tables and graded as the one thing that could still turn the round
+   * around, which it cannot, because it costs two bars of a gauge that is empty.
+   * `npm run validate` rejects any row costing Drive in a situation flagged
+   * here. The columns are unaffected — the *opponent* is not in Burnout.
+   */
+  noDrive?: boolean
+  /**
    * Opponent options that form the columns of this situation's matrix, in
    * display order. Every evaluation grades every one of them.
    */

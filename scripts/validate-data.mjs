@@ -48,10 +48,12 @@ await rm(workDir, { recursive: true, force: true })
 
 const optionIds = new Set()
 const optionCategory = new Map()
+const optionsById = new Map()
 for (const option of OPTIONS) {
   if (optionIds.has(option.id)) errors.push(`duplicate option id "${option.id}"`)
   optionIds.add(option.id)
   optionCategory.set(option.id, option.category)
+  optionsById.set(option.id, option)
   checkLocales(option.name, `option "${option.id}" name`)
   if (!option.category) errors.push(`option "${option.id}" has no category`)
 }
@@ -96,6 +98,22 @@ for (const situation of SITUATIONS) {
 
     if (!optionIds.has(evaluation.optionId)) {
       errors.push(`${where} references unknown option "${evaluation.optionId}"`)
+    }
+
+    // Burnout: the Drive Gauge is empty, so nothing that spends it is an option
+    // here. An OD reversal was authored into both Burnout tables and graded as
+    // the last thing that could turn the round around — two bars of a gauge
+    // that is at zero. Nothing about the row looked wrong; only the arithmetic
+    // did, so the arithmetic is what checks it.
+    if (situation.noDrive) {
+      const def = optionsById.get(evaluation.optionId)
+      const cost = def?.cost?.drive ?? 0
+      if (cost > 0) {
+        errors.push(
+          `${where} is flagged noDrive but grades "${evaluation.optionId}", ` +
+            `which costs ${cost} Drive bar(s)`,
+        )
+      }
     }
 
     checkLocales(evaluation.onSuccess.text, `${where} / ${evaluation.optionId} onSuccess`)

@@ -90,8 +90,20 @@ export const GROUP_K: Situation[] = [
           { vs: 'drive-parry', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'even' },
         ],
+        notes: {
+          'zh-Hant': '從中立衝進來是生動力箭步，一格 —— 三格是從普通技取消的價錢，接近的時候不用付。抵達時下一招還多 4 幀有利。',
+          en: 'Closing from range is the raw version: one bar. Three is what cancelling out of a normal costs, and approaching does not pay it. You also arrive with four extra frames on the next attack.',
+          ja: '中立から踏み込むのは生ラッシュで1ゲージ。3ゲージは普通技からキャンセルした場合の値段で、接近には要らない。到達時、次の技の有利も4F増える。',
+        },
         mixRatio: '20-30%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
+            patch: '2026-08 查閱',
+            note: '生動力箭步一格，從可取消普通技取消（DRC）三格；箭步後的下一招多 4 幀硬直與有利，並讓整套連段多吃 15% 傷害衰減。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'jump-in',
@@ -307,8 +319,20 @@ export const GROUP_K: Situation[] = [
           { vs: 'drive-parry', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'even' },
         ],
+        notes: {
+          'zh-Hant': '從中立衝進來是生動力箭步，一格 —— 三格是從普通技取消的價錢，接近的時候不用付。抵達時下一招還多 4 幀有利。',
+          en: 'Closing from range is the raw version: one bar. Three is what cancelling out of a normal costs, and approaching does not pay it. You also arrive with four extra frames on the next attack.',
+          ja: '中立から踏み込むのは生ラッシュで1ゲージ。3ゲージは普通技からキャンセルした場合の値段で、接近には要らない。到達時、次の技の有利も4F増える。',
+        },
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
+            patch: '2026-08 查閱',
+            note: '生動力箭步一格，從可取消普通技取消（DRC）三格；箭步後的下一招多 4 幀硬直與有利，並讓整套連段多吃 15% 傷害衰減。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
       },
       {
         optionId: 'jump-in',

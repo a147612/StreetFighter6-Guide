@@ -169,7 +169,19 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'bigLoss' },
         ],
         mixRatio: '30-40%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入 LP+LK，成功的一方回復一格動力槽。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔判定為 9 幀窗口，且該窗口內若輸入了會妨礙站立摔的動作就不成立 —— 這是延遲解摔無法做成 OS 的原因。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'throw-tech',
@@ -510,7 +522,19 @@ export const GROUP_A: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '5-10%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '摔投 5F 發生、輕拳 4F；同一幀打擊優先於摔投，所以在 +1 以內出拳打得贏摔。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '摔投 5F 發生 / 1,200 傷害；各角色最快普通技的發生幀數見各角色頁',
+          },
+        ],
         notes: {
           'zh-Hant': '低頻。價值不在勝率，而在於讓對手不敢無限延遲 —— 完全不按的人會被延遲打擊吃掉所有解摔。',
           en: 'Keep it rare. The value is not the win rate but the threat: never pressing lets them delay forever and eat every tech you have.',
@@ -555,7 +579,14 @@ export const GROUP_A: Situation[] = [
           },
         ],
         mixRatio: '5-10%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊的無敵幀數取自各自的角色頁，並已抄進本站的角色面板；LP/MP/HP 版的升龍通常只有對空無敵，擋不掉算好時間點的壓起身。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '不是所有角色都有；有些只能靠無敵 SA。低頻使用，價值在於讓對手不敢無腦壓。',
           en: 'Not every character has one; some only get it from an invincible Super Art. Use it rarely — the value is making them hesitate.',
@@ -722,7 +753,19 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'bigLoss' },
         ],
         mixRatio: '30-40%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入 LP+LK，成功的一方回復一格動力槽。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔判定為 9 幀窗口，且該窗口內若輸入了會妨礙站立摔的動作就不成立 —— 這是延遲解摔無法做成 OS 的原因。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'throw-tech',
@@ -1063,7 +1106,19 @@ export const GROUP_A: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '5-10%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '摔投 5F 發生、輕拳 4F；同一幀打擊優先於摔投，所以在 +1 以內出拳打得贏摔。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '摔投 5F 發生 / 1,200 傷害；各角色最快普通技的發生幀數見各角色頁',
+          },
+        ],
         notes: {
           'zh-Hant': '低頻。價值不在勝率，而在於讓對手不敢無限延遲 —— 完全不按的人會被延遲打擊吃掉所有解摔。',
           en: 'Keep it rare. The value is not the win rate but the threat: never pressing lets them delay forever and eat every tech you have.',
@@ -1108,7 +1163,14 @@ export const GROUP_A: Situation[] = [
           },
         ],
         mixRatio: '5-10%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊的無敵幀數取自各自的角色頁，並已抄進本站的角色面板；LP/MP/HP 版的升龍通常只有對空無敵，擋不掉算好時間點的壓起身。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '不是所有角色都有；有些只能靠無敵 SA。低頻使用，價值在於讓對手不敢無腦壓。',
           en: 'Not every character has one; some only get it from an invincible Super Art. Use it rarely — the value is making them hesitate.',
@@ -1275,7 +1337,19 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'bigLoss' },
         ],
         mixRatio: '30-40%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入 LP+LK，成功的一方回復一格動力槽。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔判定為 9 幀窗口，且該窗口內若輸入了會妨礙站立摔的動作就不成立 —— 這是延遲解摔無法做成 OS 的原因。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'throw-tech',
@@ -1516,7 +1590,19 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'loss' },
         ],
         mixRatio: '5%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://www.hotspawn.com/street-fighter/guide/street-fighter-6-how-to-play-defense',
+            patch: '2026-08 查閱',
+            note: '後衝刺帶投擲無敵並實際拉開距離，因此對退康有效。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '各角色後衝刺總幀數（本站角色面板的 backdashFrames 即來自此）',
+          },
+        ],
         notes: {
           'zh-Hant': '角落只剩「讓壓起身落空」的價值，位移那半等於沒有。對手用動力箭步追就完全失效。',
           en: 'Cornered, only the meaty-whiffing half survives; the movement half does nothing. Chased with Drive Rush it stops working entirely.',
@@ -1649,7 +1735,19 @@ export const GROUP_A: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '5-10%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '摔投 5F 發生、輕拳 4F；同一幀打擊優先於摔投，所以在 +1 以內出拳打得贏摔。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '摔投 5F 發生 / 1,200 傷害；各角色最快普通技的發生幀數見各角色頁',
+          },
+        ],
         notes: {
           'zh-Hant': '低頻。價值不在勝率，而在於讓對手不敢無限延遲 —— 完全不按的人會被延遲打擊吃掉所有解摔。',
           en: 'Keep it rare. The value is not the win rate but the threat: never pressing lets them delay forever and eat every tech you have.',
@@ -1694,7 +1792,14 @@ export const GROUP_A: Situation[] = [
           },
         ],
         mixRatio: '5-10%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊的無敵幀數取自各自的角色頁，並已抄進本站的角色面板；LP/MP/HP 版的升龍通常只有對空無敵，擋不掉算好時間點的壓起身。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '不是所有角色都有；有些只能靠無敵 SA。低頻使用，價值在於讓對手不敢無腦壓。',
           en: 'Not every character has one; some only get it from an invincible Super Art. Use it rarely — the value is making them hesitate.',

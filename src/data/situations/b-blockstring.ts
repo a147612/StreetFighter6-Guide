@@ -55,7 +55,19 @@ export const GROUP_B: Situation[] = [
           { vs: 'drive-impact', outcome: 'even' },
         ],
         mixRatio: '30-40%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Burnout',
+            patch: '2026-08 查閱',
+            note: '防禦會消耗動力槽；槽耗盡即進入 Burnout，屆時無法使用任何動力技能，並會被必殺技與 SA 削血。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '必殺技削血為該招傷害的 25%，且可以致死；Burnout 中防禦硬直 +4F',
+          },
+        ],
         notes: {
           'zh-Hant': '防禦本身會消耗動力槽，所以「一直擋」不是零成本 —— 擋太久你會先 Burnout。',
           en: 'Blocking itself drains Drive, so "just keep blocking" is not free — hold it too long and you burn out first.',
@@ -91,7 +103,19 @@ export const GROUP_B: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入 LP+LK，成功的一方回復一格動力槽。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔判定為 9 幀窗口，且該窗口內若輸入了會妨礙站立摔的動作就不成立 —— 這是延遲解摔無法做成 OS 的原因。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'throw-tech',
@@ -299,7 +323,19 @@ export const GROUP_B: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '5%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '摔投 5F 發生、輕拳 4F；同一幀打擊優先於摔投，所以在 +1 以內出拳打得贏摔。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '摔投 5F 發生 / 1,200 傷害；各角色最快普通技的發生幀數見各角色頁',
+          },
+        ],
         notes: {
           'zh-Hant': '防禦中亂按的代價比起身時更高，因為對手的連段已經開始了。要打斷請用動力撥擋或動力反攻。',
           en: 'Mashing costs more here than on wakeup, because their sequence is already running. Use Parry or Drive Reversal to interrupt instead.',
@@ -341,7 +377,14 @@ export const GROUP_B: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'bait-block', outcome: 'bigLoss' },
         ],
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊的無敵幀數取自各自的角色頁，並已抄進本站的角色面板；LP/MP/HP 版的升龍通常只有對空無敵，擋不掉算好時間點的壓起身。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '無敵技在防禦中幾乎沒有位置。要脫身請用動力反攻。',
           en: 'The reversal has almost no place inside blockstun. Drive Reversal is the escape tool here.',
@@ -376,7 +419,19 @@ export const GROUP_B: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '5-10%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://www.hotspawn.com/street-fighter/guide/street-fighter-6-how-to-play-defense',
+            patch: '2026-08 查閱',
+            note: '後衝刺帶投擲無敵並實際拉開距離，因此對退康有效。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '各角色後衝刺總幀數（本站角色面板的 backdashFrames 即來自此）',
+          },
+        ],
       },
     ],
   },
@@ -424,7 +479,19 @@ export const GROUP_B: Situation[] = [
           { vs: 'drive-impact', outcome: 'even' },
         ],
         mixRatio: '30-40%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Burnout',
+            patch: '2026-08 查閱',
+            note: '防禦會消耗動力槽；槽耗盡即進入 Burnout，屆時無法使用任何動力技能，並會被必殺技與 SA 削血。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '必殺技削血為該招傷害的 25%，且可以致死；Burnout 中防禦硬直 +4F',
+          },
+        ],
         notes: {
           'zh-Hant': '防禦本身會消耗動力槽，所以「一直擋」不是零成本 —— 擋太久你會先 Burnout。',
           en: 'Blocking itself drains Drive, so "just keep blocking" is not free — hold it too long and you burn out first.',
@@ -460,7 +527,19 @@ export const GROUP_B: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入 LP+LK，成功的一方回復一格動力槽。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔判定為 9 幀窗口，且該窗口內若輸入了會妨礙站立摔的動作就不成立 —— 這是延遲解摔無法做成 OS 的原因。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'throw-tech',
@@ -668,7 +747,19 @@ export const GROUP_B: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '5%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '摔投 5F 發生、輕拳 4F；同一幀打擊優先於摔投，所以在 +1 以內出拳打得贏摔。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '摔投 5F 發生 / 1,200 傷害；各角色最快普通技的發生幀數見各角色頁',
+          },
+        ],
         notes: {
           'zh-Hant': '防禦中亂按的代價比起身時更高，因為對手的連段已經開始了。要打斷請用動力撥擋或動力反攻。',
           en: 'Mashing costs more here than on wakeup, because their sequence is already running. Use Parry or Drive Reversal to interrupt instead.',
@@ -710,7 +801,14 @@ export const GROUP_B: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'bait-block', outcome: 'bigLoss' },
         ],
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊的無敵幀數取自各自的角色頁，並已抄進本站的角色面板；LP/MP/HP 版的升龍通常只有對空無敵，擋不掉算好時間點的壓起身。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '無敵技在防禦中幾乎沒有位置。要脫身請用動力反攻。',
           en: 'The reversal has almost no place inside blockstun. Drive Reversal is the escape tool here.',
@@ -745,7 +843,19 @@ export const GROUP_B: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '5-10%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://www.hotspawn.com/street-fighter/guide/street-fighter-6-how-to-play-defense',
+            patch: '2026-08 查閱',
+            note: '後衝刺帶投擲無敵並實際拉開距離，因此對退康有效。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '各角色後衝刺總幀數（本站角色面板的 backdashFrames 即來自此）',
+          },
+        ],
       },
     ],
   },
@@ -793,7 +903,19 @@ export const GROUP_B: Situation[] = [
           { vs: 'drive-impact', outcome: 'even' },
         ],
         mixRatio: '30-40%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Burnout',
+            patch: '2026-08 查閱',
+            note: '防禦會消耗動力槽；槽耗盡即進入 Burnout，屆時無法使用任何動力技能，並會被必殺技與 SA 削血。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '必殺技削血為該招傷害的 25%，且可以致死；Burnout 中防禦硬直 +4F',
+          },
+        ],
         notes: {
           'zh-Hant': '防禦本身會消耗動力槽，所以「一直擋」不是零成本 —— 擋太久你會先 Burnout。',
           en: 'Blocking itself drains Drive, so "just keep blocking" is not free — hold it too long and you burn out first.',
@@ -829,7 +951,19 @@ export const GROUP_B: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入 LP+LK，成功的一方回復一格動力槽。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔判定為 9 幀窗口，且該窗口內若輸入了會妨礙站立摔的動作就不成立 —— 這是延遲解摔無法做成 OS 的原因。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'throw-tech',
@@ -1037,7 +1171,19 @@ export const GROUP_B: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '5%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '摔投 5F 發生、輕拳 4F；同一幀打擊優先於摔投，所以在 +1 以內出拳打得贏摔。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '摔投 5F 發生 / 1,200 傷害；各角色最快普通技的發生幀數見各角色頁',
+          },
+        ],
         notes: {
           'zh-Hant': '防禦中亂按的代價比起身時更高，因為對手的連段已經開始了。要打斷請用動力撥擋或動力反攻。',
           en: 'Mashing costs more here than on wakeup, because their sequence is already running. Use Parry or Drive Reversal to interrupt instead.',
@@ -1079,7 +1225,14 @@ export const GROUP_B: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'bait-block', outcome: 'bigLoss' },
         ],
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊的無敵幀數取自各自的角色頁，並已抄進本站的角色面板；LP/MP/HP 版的升龍通常只有對空無敵，擋不掉算好時間點的壓起身。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '無敵技在防禦中幾乎沒有位置。要脫身請用動力反攻。',
           en: 'The reversal has almost no place inside blockstun. Drive Reversal is the escape tool here.',

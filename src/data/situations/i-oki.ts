@@ -93,7 +93,15 @@ export const GROUP_I: Situation[] = [
         },
         versus: [
           { vs: 'do-nothing', outcome: 'bigWin' },
-          { vs: 'delayed-tech', outcome: 'loss' },
+          {
+            vs: 'delayed-tech',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '被解掉不是零成本 —— SF6 解摔成功的一方回復一格動力槽。摔猜錯是在補對手的資源。',
+              en: 'Getting teched is not free: in SF6 the player who escapes gets a Drive bar back. A wrong throw pays their gauge.',
+              ja: '投げ抜けされるのはノーリスクではない。SF6では抜けた側が1ゲージ回復するため、外した投げは相手の資源を増やす。',
+            },
+          },
           { vs: 'drive-parry', outcome: 'bigWin' },
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
@@ -109,7 +117,19 @@ export const GROUP_I: Situation[] = [
           },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害（血量基準 10,000）、命中 +17 —— 起攻的有利就是這個數字',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '被解摔的一方什麼也沒拿到，解摔成功的一方還回復一格動力槽。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '對付純防禦和撥擋的答案。他越是不按，摔投的比例就該越高。',
           en: 'The answer to blocking and to parry. The less they press, the higher this share should be.',
@@ -434,7 +454,15 @@ export const GROUP_I: Situation[] = [
         },
         versus: [
           { vs: 'do-nothing', outcome: 'bigWin' },
-          { vs: 'delayed-tech', outcome: 'loss' },
+          {
+            vs: 'delayed-tech',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '被解掉不是零成本 —— SF6 解摔成功的一方回復一格動力槽。摔猜錯是在補對手的資源。',
+              en: 'Getting teched is not free: in SF6 the player who escapes gets a Drive bar back. A wrong throw pays their gauge.',
+              ja: '投げ抜けされるのはノーリスクではない。SF6では抜けた側が1ゲージ回復するため、外した投げは相手の資源を増やす。',
+            },
+          },
           { vs: 'drive-parry', outcome: 'bigWin' },
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
@@ -450,7 +478,19 @@ export const GROUP_I: Situation[] = [
           },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害（血量基準 10,000）、命中 +17 —— 起攻的有利就是這個數字',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '被解摔的一方什麼也沒拿到，解摔成功的一方還回復一格動力槽。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '對付純防禦和撥擋的答案。他越是不按，摔投的比例就該越高。',
           en: 'The answer to blocking and to parry. The less they press, the higher this share should be.',
@@ -775,7 +815,15 @@ export const GROUP_I: Situation[] = [
         },
         versus: [
           { vs: 'do-nothing', outcome: 'bigWin' },
-          { vs: 'delayed-tech', outcome: 'loss' },
+          {
+            vs: 'delayed-tech',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '被解掉不是零成本 —— SF6 解摔成功的一方回復一格動力槽。摔猜錯是在補對手的資源。',
+              en: 'Getting teched is not free: in SF6 the player who escapes gets a Drive bar back. A wrong throw pays their gauge.',
+              ja: '投げ抜けされるのはノーリスクではない。SF6では抜けた側が1ゲージ回復するため、外した投げは相手の資源を増やす。',
+            },
+          },
           { vs: 'drive-parry', outcome: 'bigWin' },
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
@@ -791,7 +839,19 @@ export const GROUP_I: Situation[] = [
           },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害（血量基準 10,000）、命中 +17 —— 起攻的有利就是這個數字',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '被解摔的一方什麼也沒拿到，解摔成功的一方還回復一格動力槽。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '對付純防禦和撥擋的答案。他越是不按，摔投的比例就該越高。',
           en: 'The answer to blocking and to parry. The less they press, the higher this share should be.',

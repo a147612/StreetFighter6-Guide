@@ -54,7 +54,19 @@ export const GROUP_H: Situation[] = [
           { vs: 'drive-impact', outcome: 'even' },
         ],
         mixRatio: '45-60%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Burnout',
+            patch: '2026-08 查閱',
+            note: '防禦會消耗動力槽；槽耗盡即進入 Burnout，屆時無法使用任何動力技能，並會被必殺技與 SA 削血。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '必殺技削血為該招傷害的 25%，且可以致死；Burnout 中防禦硬直 +4F',
+          },
+        ],
       },
       {
         optionId: 'delayed-tech',
@@ -84,7 +96,19 @@ export const GROUP_H: Situation[] = [
           { vs: 'blockstring', outcome: 'even' },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入 LP+LK，成功的一方回復一格動力槽。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔判定為 9 幀窗口，且該窗口內若輸入了會妨礙站立摔的動作就不成立 —— 這是延遲解摔無法做成 OS 的原因。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'drive-parry',
@@ -196,7 +220,14 @@ export const GROUP_H: Situation[] = [
           { vs: 'blockstring', outcome: 'loss' },
         ],
         mixRatio: '10-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊的無敵幀數取自各自的角色頁，並已抄進本站的角色面板；LP/MP/HP 版的升龍通常只有對空無敵，擋不掉算好時間點的壓起身。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '血量危險時無敵技的使用率該上升，不是下降 —— 因為「慢慢輸」也是輸。但對手也知道這件事。',
           en: 'Your reversal rate should go up when the life is thin, not down: losing slowly is still losing. But they know that too.',
@@ -248,7 +279,19 @@ export const GROUP_H: Situation[] = [
           { vs: 'drive-impact', outcome: 'even' },
         ],
         mixRatio: '25-30%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Burnout',
+            patch: '2026-08 查閱',
+            note: '防禦會消耗動力槽；槽耗盡即進入 Burnout，屆時無法使用任何動力技能，並會被必殺技與 SA 削血。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '必殺技削血為該招傷害的 25%，且可以致死；Burnout 中防禦硬直 +4F',
+          },
+        ],
       },
       {
         optionId: 'delayed-tech',
@@ -278,7 +321,19 @@ export const GROUP_H: Situation[] = [
           { vs: 'blockstring', outcome: 'even' },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '解摔輸入 LP+LK，成功的一方回復一格動力槽。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔判定為 9 幀窗口，且該窗口內若輸入了會妨礙站立摔的動作就不成立 —— 這是延遲解摔無法做成 OS 的原因。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'drive-parry',
@@ -395,7 +450,14 @@ export const GROUP_H: Situation[] = [
           { vs: 'blockstring', outcome: 'loss' },
         ],
         mixRatio: '5%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊的無敵幀數取自各自的角色頁，並已抄進本站的角色面板；LP/MP/HP 版的升龍通常只有對空無敵，擋不掉算好時間點的壓起身。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '領先時這一手幾乎不該用。你不需要它，而它的失敗代價正好是你的全部優勢。',
           en: 'Almost never correct while ahead. You do not need it, and its failure cost is exactly the lead you hold.',

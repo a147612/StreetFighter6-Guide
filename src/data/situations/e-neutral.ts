@@ -203,7 +203,7 @@ export const GROUP_E: Situation[] = [
       },
       {
         optionId: 'drive-rush-out',
-        risk: 'high',
+        risk: 'medium',
         reward: 'high',
         onSuccess: {
           text: {
@@ -229,7 +229,14 @@ export const GROUP_E: Situation[] = [
           { vs: 'jump-in', outcome: 'even' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
+            patch: '2026-08 查閱',
+            note: '生動力箭步一格，從可取消普通技取消（DRC）三格；箭步後的下一招多 4 幀硬直與有利，並讓整套連段多吃 15% 傷害衰減。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '三格是全場最貴的一次消費。用來穿過投射物很划算，用來硬進中距離通常不划算。',
           en: 'Three bars is the most expensive purchase in the game. Worth it to cross a fireball, rarely worth it to force your way in at mid range.',
@@ -467,7 +474,7 @@ export const GROUP_E: Situation[] = [
       },
       {
         optionId: 'drive-rush-out',
-        risk: 'high',
+        risk: 'medium',
         reward: 'high',
         onSuccess: {
           text: {
@@ -493,7 +500,14 @@ export const GROUP_E: Situation[] = [
           { vs: 'jump-in', outcome: 'even' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
+            patch: '2026-08 查閱',
+            note: '生動力箭步一格，從可取消普通技取消（DRC）三格；箭步後的下一招多 4 幀硬直與有利，並讓整套連段多吃 15% 傷害衰減。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '三格是全場最貴的一次消費。用來穿過投射物很划算，用來硬進中距離通常不划算。',
           en: 'Three bars is the most expensive purchase in the game. Worth it to cross a fireball, rarely worth it to force your way in at mid range.',

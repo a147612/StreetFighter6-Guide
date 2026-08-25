@@ -81,13 +81,33 @@ export const GROUP_J: Situation[] = [
         },
         versus: [
           { vs: 'do-nothing', outcome: 'bigWin' },
-          { vs: 'delayed-tech', outcome: 'loss' },
+          {
+            vs: 'delayed-tech',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '被解掉不是零成本 —— SF6 解摔成功的一方回復一格動力槽。摔猜錯是在補對手的資源。',
+              en: 'Getting teched is not free: in SF6 the player who escapes gets a Drive bar back. A wrong throw pays their gauge.',
+              ja: '投げ抜けされるのはノーリスクではない。SF6では抜けた側が1ゲージ回復するため、外した投げは相手の資源を増やす。',
+            },
+          },
           { vs: 'drive-parry', outcome: 'bigWin' },
           { vs: 'drive-reversal', outcome: 'loss' },
           { vs: 'mash-light', outcome: 'loss' },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害（血量基準 10,000）、命中 +17 —— 起攻的有利就是這個數字',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '被解摔的一方什麼也沒拿到，解摔成功的一方還回復一格動力槽。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'delayed-attack',
@@ -274,7 +294,7 @@ export const GROUP_J: Situation[] = [
       },
       {
         optionId: 'drive-rush-pressure',
-        risk: 'medium',
+        risk: 'high',
         reward: 'high',
         onSuccess: {
           text: {
@@ -301,7 +321,14 @@ export const GROUP_J: Situation[] = [
           { vs: 'drive-reversal', outcome: 'loss' },
         ],
         mixRatio: '20-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
+            patch: '2026-08 查閱',
+            note: '生動力箭步一格，從可取消普通技取消（DRC）三格；箭步後的下一招多 4 幀硬直與有利，並讓整套連段多吃 15% 傷害衰減。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '這是資源競賽 —— 你花一格逼他花更多。他動力槽越低，這一手越划算。',
           en: 'This is a resource race: you spend one bar to make him spend more. The lower his gauge, the better the trade.',
@@ -379,13 +406,33 @@ export const GROUP_J: Situation[] = [
         },
         versus: [
           { vs: 'do-nothing', outcome: 'bigWin' },
-          { vs: 'delayed-tech', outcome: 'loss' },
+          {
+            vs: 'delayed-tech',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '被解掉不是零成本 —— SF6 解摔成功的一方回復一格動力槽。摔猜錯是在補對手的資源。',
+              en: 'Getting teched is not free: in SF6 the player who escapes gets a Drive bar back. A wrong throw pays their gauge.',
+              ja: '投げ抜けされるのはノーリスクではない。SF6では抜けた側が1ゲージ回復するため、外した投げは相手の資源を増やす。',
+            },
+          },
           { vs: 'drive-parry', outcome: 'bigWin' },
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害（血量基準 10,000）、命中 +17 —— 起攻的有利就是這個數字',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '被解摔的一方什麼也沒拿到，解摔成功的一方還回復一格動力槽。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'delayed-attack',
@@ -563,7 +610,7 @@ export const GROUP_J: Situation[] = [
       },
       {
         optionId: 'drive-rush-pressure',
-        risk: 'medium',
+        risk: 'high',
         reward: 'high',
         onSuccess: {
           text: {
@@ -590,7 +637,14 @@ export const GROUP_J: Situation[] = [
           { vs: 'reversal', outcome: 'bigLoss' },
         ],
         mixRatio: '20-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
+            patch: '2026-08 查閱',
+            note: '生動力箭步一格，從可取消普通技取消（DRC）三格；箭步後的下一招多 4 幀硬直與有利，並讓整套連段多吃 15% 傷害衰減。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
+          },
+        ],
         notes: {
           'zh-Hant': '這是資源競賽 —— 你花一格逼他花更多。他動力槽越低，這一手越划算。',
           en: 'This is a resource race: you spend one bar to make him spend more. The lower his gauge, the better the trade.',
@@ -672,12 +726,32 @@ export const GROUP_J: Situation[] = [
         },
         versus: [
           { vs: 'do-nothing', outcome: 'bigWin' },
-          { vs: 'delayed-tech', outcome: 'loss' },
+          {
+            vs: 'delayed-tech',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '被解掉不是零成本 —— SF6 解摔成功的一方回復一格動力槽。摔猜錯是在補對手的資源。',
+              en: 'Getting teched is not free: in SF6 the player who escapes gets a Drive bar back. A wrong throw pays their gauge.',
+              ja: '投げ抜けされるのはノーリスクではない。SF6では抜けた側が1ゲージ回復するため、外した投げは相手の資源を増やす。',
+            },
+          },
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生、1,200 傷害（血量基準 10,000）、命中 +17 —— 起攻的有利就是這個數字',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Technical',
+            patch: '2026-08 查閱',
+            note: '被解摔的一方什麼也沒拿到，解摔成功的一方還回復一格動力槽。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'delayed-attack',

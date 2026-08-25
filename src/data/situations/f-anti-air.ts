@@ -115,7 +115,19 @@ export const GROUP_F: Situation[] = [
           { vs: 'air-throw', outcome: 'win' },
         ],
         mixRatio: '20-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Burnout',
+            patch: '2026-08 查閱',
+            note: '防禦會消耗動力槽；槽耗盡即進入 Burnout，屆時無法使用任何動力技能，並會被必殺技與 SA 削血。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '必殺技削血為該招傷害的 25%，且可以致死；Burnout 中防禦硬直 +4F',
+          },
+        ],
       },
       {
         optionId: 'throw-tech',
@@ -315,7 +327,19 @@ export const GROUP_F: Situation[] = [
           { vs: 'air-throw', outcome: 'win' },
         ],
         mixRatio: '20-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Burnout',
+            patch: '2026-08 查閱',
+            note: '防禦會消耗動力槽；槽耗盡即進入 Burnout，屆時無法使用任何動力技能，並會被必殺技與 SA 削血。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '必殺技削血為該招傷害的 25%，且可以致死；Burnout 中防禦硬直 +4F',
+          },
+        ],
       },
       {
         optionId: 'throw-tech',
