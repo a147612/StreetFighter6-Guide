@@ -1423,7 +1423,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 23,
     overrides: {
       reversal: {
-        notes: {
+        note: {
           'zh-Hant': 'JP 的起身反擊是當身（Amnesia）而不是無敵技。OD 版從第 1 幀就同時涵蓋打擊與摔投，而且 20 幀的窗口比一般無敵技的 10 幀寬得多 —— 對延遲打擊特別有效。',
           en: 'JP\'s wakeup answer is a counter, not an invincible reversal. The OD version covers strikes and throws from frame 1, and its 20-frame window is far wider than a typical reversal\'s 10 — which makes it unusually good against delayed attacks.',
           ja: 'JPの切り返しは無敵技ではなく当て身（Amnesia）。OD版は1F目から打撃と投げの両方をカバーし、20Fの受付は通常の無敵技の10Fよりはるかに広いため、遅らせ打撃に特に強い。',
@@ -1524,7 +1524,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['projectile', 'reversal'],
     overrides: {
       'super-reversal': {
-        notes: {
+        note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
           en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
@@ -1625,7 +1625,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 23,
     overrides: {
       reversal: {
-        notes: {
+        note: {
           'zh-Hant': 'Ingrid 的起身反擊是吸收型當身（Sun Veil）而不是無敵技。只有 OD 版從第 1 幀起同時吃打擊與摔投；一般版第 6 幀才開始，而且不吃摔投。',
           en: 'Ingrid\'s wakeup answer is an absorbing counter, not an invincible reversal. Only the OD version covers strikes and throws from frame 1; the normal version starts on frame 6 and does not cover throws at all.',
           ja: 'イングリッドの切り返しは吸収型の当て身（Sun Veil）で無敵技ではない。1F目から打撃と投げの両方をカバーするのはOD版のみで、通常版は6F開始かつ投げには対応しない。',
@@ -1725,8 +1725,17 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 25,
     removesOptions: ['projectile', 'reversal'],
     overrides: {
+      'command-grab': {
+        reward: 'extreme',
+        note: {
+          'zh-Hant':
+            'Manège Doré 除了上面說的以外，還會疊一層獎章。獎章等級整局不會掉，會提高她所有摔投的傷害 —— 所以第一次抓到的價值遠不只那一次的傷害，而是把之後每一次摔都變重。這也是為什麼對上瑪濃，「被摔一次」的代價會隨著局勢一路上升。',
+          en: 'Manège Doré does everything above and adds a Medal. Medal level does not drop for the rest of the round and raises the damage of every throw she has, so the first one landing is worth far more than its own damage — it makes every later throw heavier. It is also why the cost of being thrown by Manon climbs as the round goes on.',
+          ja: 'マネージュ・ドレは上記に加えてメダルを1段階溜める。メダルはラウンド中下がらず、彼女のあらゆる投げのダメージを上げるため、最初の1回はその場のダメージ以上の価値を持つ ——以降の投げがすべて重くなる。マノン相手に「投げられる」代償が試合の進行とともに上がっていくのはこのため。',
+        },
+      },
       'super-reversal': {
-        notes: {
+        note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
           en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
@@ -1813,7 +1822,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['reversal'],
     overrides: {
       'super-reversal': {
-        notes: {
+        note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
           en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
@@ -1872,7 +1881,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['projectile', 'reversal'],
     overrides: {
       'super-reversal': {
-        notes: {
+        note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
           en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
@@ -1959,7 +1968,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'reversal'],
     overrides: {
       'super-reversal': {
-        notes: {
+        note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
           en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
@@ -2046,7 +2055,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'reversal'],
     overrides: {
       'super-reversal': {
-        notes: {
+        note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
           en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
@@ -2133,7 +2142,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['projectile', 'reversal'],
     overrides: {
       'super-reversal': {
-        notes: {
+        note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
           en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
@@ -2220,7 +2229,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['reversal'],
     overrides: {
       'super-reversal': {
-        notes: {
+        note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
           en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
@@ -2307,7 +2316,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['projectile', 'reversal'],
     overrides: {
       'super-reversal': {
-        notes: {
+        note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
           en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
@@ -2409,7 +2418,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'reversal'],
     overrides: {
       'super-reversal': {
-        notes: {
+        note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
           en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
@@ -2482,7 +2491,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'projectile', 'reversal'],
     overrides: {
       'super-reversal': {
-        notes: {
+        note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
           en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',

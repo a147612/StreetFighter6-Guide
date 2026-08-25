@@ -1,4 +1,4 @@
-import type { OptionDef, OptionEval, Situation } from './schema'
+import type { I18nText, OptionDef, OptionEval, Situation } from './schema'
 import { getOption } from './options'
 import type { CharacterOverlay } from './schema'
 import { GROUP_A } from './situations/a-wakeup'
@@ -21,6 +21,9 @@ export { CHARACTERS, getCharacter } from './characters'
 export interface OptionRow {
   def: OptionDef
   evaluation: OptionEval
+  /** What this option additionally does — or fails to do — for the picked
+   *  character. Rendered under the universal note, attributed to them. */
+  characterNote?: I18nText
 }
 
 export const SITUATIONS: Situation[] = [
@@ -82,8 +85,9 @@ export function applyOverlay(rows: OptionRow[], character?: CharacterOverlay): O
           ...(override.risk ? { risk: override.risk } : {}),
           ...(override.reward ? { reward: override.reward } : {}),
           ...(override.mixRatio ? { mixRatio: override.mixRatio } : {}),
-          ...(override.notes ? { notes: override.notes } : {}),
         },
+        // Kept out of `evaluation` so the universal note survives it.
+        ...(override.note ? { characterNote: override.note } : {}),
       }
     })
 }

@@ -844,6 +844,23 @@ html[data-theme='dark'] .notation__btn--h {
   border-radius: 9999px;
 }
 
+/* The character's delta, attributed. Marked with the accent rim rather than a
+   fill so it reads as an annotation on the row above, not a separate claim. */
+.detail__charnote {
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.detail__charnote-who {
+  margin-right: var(--space-2);
+  color: var(--accent-fg);
+  font-weight: 700;
+}
+
 /* ── Countered-by chips ──────────────────────────────────────────────
    Resolved to the opponent option's name from the shared registry, so they
    read as choices rather than as ids. */

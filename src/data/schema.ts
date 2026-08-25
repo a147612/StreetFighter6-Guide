@@ -351,10 +351,19 @@ export interface CharacterOverlay {
   backdashFrames?: number
   /** Options this character does not have; removed from every table. */
   removesOptions?: string[]
-  /** Adjustments applied to an option wherever it appears. */
+  /**
+   * Adjustments applied to an option wherever it appears.
+   *
+   * `note` is *added* beside the universal one, not swapped for it. A character
+   * rarely makes the general explanation wrong — it makes it incomplete.
+   * Manon's command grab does everything the universal row says and also builds
+   * her Medal level, which changes her throw damage for the rest of the round;
+   * replacing the text would have deleted the half that is still true, and
+   * duplicating it would have set up two copies to drift apart.
+   */
   overrides?: Record<
     string,
-    Partial<Pick<OptionEval, 'risk' | 'reward' | 'mixRatio'>> & { notes?: I18nText }
+    Partial<Pick<OptionEval, 'risk' | 'reward' | 'mixRatio'>> & { note?: I18nText }
   >
   reversals?: Reversal[]
   knockdowns?: CharacterKnockdown[]

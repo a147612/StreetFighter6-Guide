@@ -347,7 +347,8 @@ export function OptionTable({
                   </th>
                 </tr>
               )}
-              {section.rows.map(({ def, evaluation }) => {
+              {section.rows.map((row) => {
+                const { def, evaluation } = row
                 const isOpen = open.has(def.id)
                 const detailId = `detail-${def.id}`
                 const outcomes = new Map(evaluation.versus.map((v) => [v.vs, v.outcome]))
@@ -408,7 +409,10 @@ export function OptionTable({
                     {isOpen && (
                       <tr className="opt-detail-row">
                         <td colSpan={colSpan} id={detailId}>
-                          <OptionDetail row={{ def, evaluation }} />
+                          {/* Pass the row through rather than rebuilding it —
+                              reassembling it here silently dropped the character
+                              note the overlay had just attached. */}
+                          <OptionDetail row={row} />
                         </td>
                       </tr>
                     )}

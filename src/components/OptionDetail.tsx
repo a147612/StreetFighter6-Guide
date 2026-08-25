@@ -5,6 +5,8 @@ import { RewardPips } from './viz/Tier'
 import { OutcomeCell } from './viz/OutcomeCell'
 import { getOption, type OptionRow } from '~/data'
 import { counteredBy } from '~/data/schema'
+import { getCharacter } from '~/data'
+import { useCharacter } from '~/lib/prefs'
 
 /**
  * Everything the table row leaves out, plus everything a narrow screen had to
@@ -13,7 +15,8 @@ import { counteredBy } from '~/data/schema'
  */
 export function OptionDetail({ row }: { row: OptionRow }) {
   const { t, text } = useT()
-  const { def, evaluation } = row
+  const { def, evaluation, characterNote } = row
+  const character = getCharacter(useCharacter())
   const { cost } = def
 
   const costLabel =
@@ -115,6 +118,15 @@ export function OptionDetail({ row }: { row: OptionRow }) {
       </div>
 
       {evaluation.notes && <p className="detail__notes small">{text(evaluation.notes)}</p>}
+
+      {/* The character's delta, under the universal note rather than instead of
+          it — an overlay usually makes the general text incomplete, not wrong. */}
+      {characterNote && character && (
+        <p className="detail__charnote small">
+          <span className="detail__charnote-who">{text(character.name)}</span>
+          {text(characterNote)}
+        </p>
+      )}
 
       {evaluation.versus.length > 0 && (
         <div className="detail__versus">
