@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { GlassPanel } from './glass/GlassPanel'
 import { search, type SearchHit } from '~/lib/search'
+import { useDialog } from '~/lib/useDialog'
 import { useT } from '~/i18n/useT'
 
 interface SearchOverlayProps {
@@ -22,6 +23,7 @@ export function SearchOverlay({ open, onClose, onPick }: SearchOverlayProps) {
   const [query, setQuery] = useState('')
   const [active, setActive] = useState(0)
   const inputRef = useRef<HTMLInputElement | null>(null)
+  const dialog = useDialog(open, onClose)
 
   const hits = useMemo(() => search(query, locale), [query, locale])
 
@@ -47,9 +49,9 @@ export function SearchOverlay({ open, onClose, onPick }: SearchOverlayProps) {
   }
 
   function onKeyDown(event: React.KeyboardEvent): void {
-    if (event.key === 'Escape') {
-      onClose()
-    } else if (event.key === 'ArrowDown') {
+    // Escape is handled by useDialog on the document, so it works from anywhere
+    // in the dialog rather than only while this input has focus.
+    if (event.key === 'ArrowDown') {
       event.preventDefault()
       setActive((i) => Math.min(i + 1, hits.length - 1))
     } else if (event.key === 'ArrowUp') {
@@ -71,6 +73,7 @@ export function SearchOverlay({ open, onClose, onPick }: SearchOverlayProps) {
     >
       <GlassPanel
         modal
+        panelRef={dialog}
         className="searchbox"
         role="dialog"
         aria-modal="true"

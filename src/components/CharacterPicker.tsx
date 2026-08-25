@@ -5,6 +5,7 @@ import { CharacterFace } from './viz/CharacterFace'
 import { CHARACTERS, getCharacter } from '~/data'
 import type { CharacterOverlay, I18nText } from '~/data/schema'
 import { characterStore, useCharacter } from '~/lib/prefs'
+import { useDialog } from '~/lib/useDialog'
 import { useT } from '~/i18n/useT'
 
 /** Localised name first, Latin underneath — see useCharacterName for why. */
@@ -74,6 +75,7 @@ export function CharacterPicker() {
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState('')
   const inputRef = useRef<HTMLInputElement | null>(null)
+  const dialog = useDialog(open, () => setOpen(false))
   const selected = getCharacter(selectedId)
 
   /**
@@ -143,12 +145,10 @@ export function CharacterPicker() {
           onClick={(event) => {
             if (event.target === event.currentTarget) setOpen(false)
           }}
-          onKeyDown={(event) => {
-            if (event.key === 'Escape') setOpen(false)
-          }}
         >
           <GlassPanel
             modal
+            panelRef={dialog}
             className="charpick__panel"
             role="dialog"
             aria-modal="true"

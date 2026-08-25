@@ -47,14 +47,19 @@ derived from `versus`, never authored, so the two cannot disagree.
   `origin` (the English term) and `hint` (one plain sentence), because the
   vocabulary travels as loanwords and "meaty" often identifies the thing faster
   than any translation.
-- **No CAPCOM assets, ever.** Diagrams *and the 31 character portraits* are
-  self-authored SVG. Capcom's policy explicitly forbids redistributing extracted
-  in-game elements and permits self-made derivative art. The portraits in
-  `components/viz/CharacterFace.tsx` are drawn, deliberately — they are not
-  placeholders waiting to be swapped for real art. They work because the
-  silhouette does the identifying at tile size, not the face: mohawk, buns,
-  flat-top, eyepatch, cap, topknot. `OWN_PORTRAITS` is the one opt-in, for the
-  owner's own captures dropped into `public/portraits/`.
+- **Diagrams are self-authored SVG.** Capcom's policy forbids redistributing
+  extracted in-game elements and permits self-made derivative art, so nothing
+  here fetches or reproduces official art on its own initiative.
+- **The character icons in `public/characters/` are the owner's files**, placed
+  there by him deliberately, and they ship. `ICONS` in
+  `data/characters/portraits.ts` maps every id to one; two ids carry a second
+  variant because the name is burned into the art (豪鬼/GOUKI, 維加/VEGA), and
+  every non-English locale gets that one.
+- **`CharacterFace.tsx` is the fallback, not the current tier.** Thirty-one
+  hand-drawn SVG faces, then a monogram. Nothing reaches them today because all
+  31 characters have an icon; they exist so a roster addition renders as a face
+  rather than as a hole. Delete them only if you also decide what a 32nd
+  character without an icon should look like.
 
 ## Commands
 

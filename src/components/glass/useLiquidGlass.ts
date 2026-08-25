@@ -18,7 +18,7 @@ import {
  *   const ref = useLiquidGlass<HTMLDivElement>()
  *   <div ref={ref} className="liquid-glass">…</div>
  *
- * Inert outside Chromium and whenever the user has switched refraction off; in
+ * Inert outside Chromium and wherever the engine cannot run it; in
  * both cases the stylesheet's `backdrop-filter: blur(3px) saturate(125%)`
  * stays in effect, so the panel still reads as glass.
  *

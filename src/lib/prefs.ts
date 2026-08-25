@@ -1,3 +1,4 @@
+import { LOCALES, type Locale } from '~/data/schema'
 import { useSyncExternalStore } from 'react'
 
 /**
@@ -118,8 +119,11 @@ export function useTheme(): {
 
 /* ── Locale ──────────────────────────────────────────────────────────── */
 
-export const LOCALES = ['zh-Hant', 'en', 'ja'] as const
-export type Locale = (typeof LOCALES)[number]
+// One declaration, in the schema, because `I18nText` is a total Record over it —
+// a fourth locale must break the build everywhere at once, not in two of the
+// three places that happened to list it. Re-exported here so the many callers
+// that reach for the locale through prefs do not all have to change.
+export { LOCALES, type Locale }
 
 function isLocale(value: unknown): value is Locale {
   return typeof value === 'string' && (LOCALES as readonly string[]).includes(value)

@@ -81,7 +81,10 @@ export function OptionTable({
   }, [input, sort])
 
   const allOpen = open.size === input.length
-  const colSpan = 2 + columns.length + 2
+  // One name cell, the opponent columns, then risk and hp-loss. It was 2 + N + 2,
+  // which spanned a column that does not exist — invisible on screen, but it
+  // corrupts the table's column model for anything reading it structurally.
+  const colSpan = 1 + columns.length + 2
 
   /**
    * The detail row lives inside the horizontally scrolling table, so its cell is
