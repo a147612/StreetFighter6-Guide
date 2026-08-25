@@ -1588,10 +1588,6 @@ html[data-theme='dark'] .notation__btn--h {
   line-height: 1;
 }
 
-.chartile__warn {
-  color: var(--risk-extreme);
-}
-
 .charpanel {
   padding: var(--space-3) var(--space-4);
 }

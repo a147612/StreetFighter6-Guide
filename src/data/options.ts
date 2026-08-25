@@ -436,9 +436,9 @@ const DEFENSIVE: OptionDef[] = [
     origin: 'command grab',
     hint: {
       'zh-Hant':
-        '轉圈或半圓輸入的投技。**解不掉** —— 這是它跟普通摔投最大的差別，對手純防禦、延遲解摔、動力撥擋通通沒用，而且傷害和起攻都遠高於普通摔。代價是發生慢、距離短：對手跳、後衝刺或直接按無敵技都躲得掉。31 隻角色有 11 隻有。',
-      en: 'A throw on a 360 or half-circle motion. **It cannot be teched** — that is the whole difference from a normal throw, and it makes just blocking, delay teching and Drive Parry all useless. It also does far more damage and gives far better oki. The price is slow startup and short range: jumping, backdashing or a reversal all escape it. Eleven of the thirty-one have one.',
-      ja: '360や半回転で出す投げ技。**抜けられない**のが通常投げとの決定的な違いで、ガード・遅らせ投げ抜け・パリィのいずれも無効になる。ダメージも起き攻めも通常投げより遥かに上。代償は発生の遅さと間合いの短さで、ジャンプ・バックダッシュ・無敵技のいずれでも逃げられる。31キャラ中11キャラが所持。',
+        '轉圈或半圓輸入的投技。**解不掉** —— 這是它跟普通摔投最大的差別，對手純防禦、延遲解摔、動力撥擋通通沒用，而且傷害和起攻都遠高於普通摔。代價是距離短，而且理論上跳、後衝刺、無敵技都躲得掉 —— 但**發生從 5 幀到 45 幀，差距極大**：桑吉爾夫、莉莉、金伯莉的是 5 幀，跟普通摔一樣快，反應不了；布蘭卡的要 32-45 幀，看得到。選了角色會顯示他的實際情況。31 隻有 11 隻有。',
+      en: 'A throw on a 360 or half-circle motion. **It cannot be teched** — that is the whole difference from a normal throw, and it makes just blocking, delay teching and Drive Parry all useless. It also does far more damage and gives far better oki. The price is short range, and in principle jumping, backdashing or a reversal all escape it — but **startup runs from 5 frames to 45**, which changes everything: Zangief, Lily and Kimberly are at 5, as fast as a normal throw and unreactable, while Blanka is 32-45 and visible. Pick a character to see which. Eleven of the thirty-one have one.',
+      ja: '360や半回転で出す投げ技。**抜けられない**のが通常投げとの決定的な違いで、ガード・遅らせ投げ抜け・パリィのいずれも無効になる。ダメージも起き攻めも通常投げより遥かに上。代償は間合いの短さで、理屈の上ではジャンプ・バックダッシュ・無敵技で逃げられる ——ただし**発生は5Fから45Fまで幅がある**。ザンギエフ・リリー・キンバリーは5Fで通常投げと同速、反応は不可能。ブランカは32-45Fで見える。キャラを選べば実際の値が出る。31キャラ中11キャラが所持。',
     },
     aka: { 'zh-Hant': ['指令抓', '大投'], en: ['command throw'], ja: ['コマ投げ'] },
     input: '',

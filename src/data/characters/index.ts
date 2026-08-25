@@ -3,23 +3,16 @@ import type { CharacterOverlay } from '../schema'
 /**
  * Character overlays for the full roster.
  *
- * Mostly subtraction, and the headline number is why: 13 of the 31 characters
- * have no fully invincible OD reversal at all, so on wakeup they cannot go
- * through a strike and a throw without spending Super gauge. Picking one of
- * them removes that row from every table rather than leaving a reader
- * budgeting for a button they cannot press.
+ * Mostly subtraction, and the headline number is why: 11 of the 31 characters
+ * have `reversal` removed — no OD move that covers a strike and a throw at
+ * once, so on wakeup they cannot go through both without spending Super gauge
+ * or two Drive bars on a Drive Reversal.
  *
- * Two traps the raw data catches that a summary would not: most LP/MP/HP DPs
- * are anti-air invincible only and lose to a meaty, and invincibility that
- * starts late (Kimberly's Hidden Variable, frames 19-26) is not a reversal
- * however fully invincible it eventually becomes.
- *
- * Names: the English name doubles as the zh-Hant label, because Traditional
- * Chinese naming for this cast is not settled and inventing one would be worse
- * than showing the name people actually type.
- *
- * Move properties are read from Ultimate Frame Data, linked per character. The
- * data is not copied here: only the few facts these tables need.
+ * Do not confuse that with "13 lack a fully invincible OD". Two of the thirteen,
+ * JP and Ingrid, answer wakeup with a counter or an absorb instead — a different
+ * mechanism doing the same job, which is why they keep the row and carry an
+ * override explaining what they actually press. `npm run validate` prints the
+ * 11, and this comment has to agree with it.
  */
 export const CHARACTERS: CharacterOverlay[] = [
   {
@@ -108,6 +101,15 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'キャミィ',
     },
     health: 10000,
+    overrides: {
+      'command-grab': {
+        note: {
+          'zh-Hant': '嘉米的指令投是 Hooligan 中的 Fatal Leg Twister，而它**蹲防就會落空**。上面說的「解不掉，所以純防禦沒用」對她剛好是反的 —— 蹲著擋就解決了。',
+          en: 'Cammy\'s is Fatal Leg Twister out of Hooligan, and it **whiffs on a crouching opponent**. The line above about blocking being useless because there is no tech is exactly inverted for her: crouch-blocking beats it outright.',
+          ja: 'キャミィのコマンド投げはフーリガンからのフェイタルレッグツイスターで、**しゃがみには空振りする**。上の「抜けが無いのでガードは無意味」は彼女に限って逆で、しゃがみガードで完封できる。',
+        },
+      },
+    },
     removesOptions: ['projectile'],
     backdashFrames: 23,
     reversals: [
@@ -282,6 +284,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Pale Rider (SA3)',
+        input: '236 236 K',
+        invincibility: {
+          'zh-Hant': '完全無敵 1-30 幀 —— 全角色最長的一段無敵，而且破霸體',
+          en: 'Fully invincible, frames 1-30 — the longest stretch on the roster, and it breaks armour',
+          ja: '完全無敵 1-30F ——ロスター最長の無敵、かつアーマーブレイク',
+        },
+        cost: { 'zh-Hant': 'SA3', en: 'SA3', ja: 'SA3' },
+      },
       {
         move: 'Vulcan Blast (SA1)',
         input: '236 236 P',
@@ -733,6 +745,15 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'テリー',
     },
     health: 10000,
+    overrides: {
+      'projectile': {
+        note: {
+          'zh-Hant': '特瑞的 Round Wave **重手版是下段**（29 幀發生）—— 站著擋會中。輕手中手的 Power Wave 和 OD 版才是上段。所以他的波不只是逼你擋，是逼你猜要蹲哪一段。',
+          en: 'Terry\'s Round Wave on **Heavy is a low** (29-frame startup) — standing block eats it. Light and Medium Power Wave and the OD version are high. So his fireball is not only asking you to block, it is asking you which way.',
+          ja: 'テリーのラウンドウェイブは**強版が下段**（発生29F）で、立ちガードでは食らう。弱・中のパワーウェイブとOD版は中段（上段）。つまり彼の飛び道具は「ガードするか」ではなく「どちらでガードするか」を聞いてくる。',
+        },
+      },
+    },
     removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
@@ -839,7 +860,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
       {
-        move: 'Psycho Uppercut (LP/MP)',
+        move: 'Psycho Uppercut (LP/MP/HP)',
         input: '623 P',
         invincibility: {
           'zh-Hant': '僅對空無敵 1-? 幀 —— 打不贏算好時間點的壓起身',
@@ -892,6 +913,17 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'projectile'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Revival Dance (SA2)',
+        input: '236 236 P',
+        invincibility: {
+          'zh-Hant':
+            '完全無敵 1-11 幀。艾蓮娜的 SA1 沒有無敵，所以要起身脫身就是這一招 —— 而且命中後按住下可以回復 1,600 血和動力槽，在 Burnout 或低血量的時候價值遠不只脫身',
+          en: 'Fully invincible, frames 1-11. Elena\'s SA1 has none, so this is the wakeup escape — and holding down on hit heals 1,600 and refills Drive, which in Burnout or at low life is worth far more than the escape itself',
+          ja: '完全無敵 1-11F。エレナのSA1に無敵は無いため脱出はこれになる。さらにヒット後に下を押し続けると1,600回復＋ドライブ回復があり、バーンアウト時や低体力時には脱出以上の価値がある',
+        },
+        cost: { 'zh-Hant': 'SA2', en: 'SA2', ja: 'SA2' },
+      },
       {
         move: 'Meteor Volley (SA1)',
         input: '236 236 K',
@@ -1087,20 +1119,6 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
       {
-        move: 'Breakin\' (SA1)',
-        input: '236236 P',
-        invincibility: {
-          'zh-Hant': '打擊／投擲無敵 1-11 幀',
-          en: 'Strike/throw invincible frames 1-11',
-          ja: '1-11F打撃・投げ無敵',
-        },
-        cost: {
-          'zh-Hant': 'SA1',
-          en: 'SA1',
-          ja: 'SA1',
-        },
-      },
-      {
         move: 'Getsuga Saiho (SA3)',
         input: '236236 K',
         invincibility: {
@@ -1137,6 +1155,15 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ブランカ',
     },
     health: 10000,
+    overrides: {
+      'command-grab': {
+        note: {
+          'zh-Hant': '布蘭卡的 Wild Hunt 是 **32-45 幀**發生，慢到看得到。它不是壓制裡的一個混合選項，是一次「我賭你會一直擋」的大讀 —— 對他你有充裕的時間跳或按。',
+          en: 'Blanka\'s Wild Hunt starts in **32-45 frames** — slow enough to see coming. It is not one option inside a mix, it is a single hard read that you will keep blocking, and you have plenty of time to jump or press.',
+          ja: 'ブランカのワイルドハントは発生**32-45F**で、見えるほど遅い。攻めの中の一択ではなく「ガードし続けるだろう」という大きな読み一発であり、こちらには跳ぶなり押すなりの時間が十分ある。',
+        },
+      },
+    },
     backdashFrames: 23,
     reversals: [
       {
@@ -1292,9 +1319,28 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: '不知火舞',
     },
     health: 10000,
+    overrides: {
+      'projectile': {
+        note: {
+          'zh-Hant': '不知火舞的花蝶扇**不算飛道具** —— 它不會跟對方的波相消，而且可以被普通技打掉。上面那套「逼他擋、跳或花資源穿過」對她不成立：對手可以直接把扇子打下來。要當成真正的波用，得按住蓄力或用 OD 版。',
+          en: 'Mai\'s Kachousen is **not technically a projectile** — it does not clash with an opposing fireball and a normal attack can swat it out of the air. The universal line about forcing them to block, jump or spend resources does not hold: they can simply hit it. The charged and OD versions are real projectiles.',
+          ja: '不知火舞の花蝶扇は**飛び道具扱いではない** ——相手の弾と相殺せず、通常技で叩き落とせる。「ガードか跳ぶか資源を使うかを強要する」という前提は成立せず、相手は普通に撃ち落とせる。溜め版とOD版は通常の飛び道具として扱われる。',
+        },
+      },
+    },
     removesOptions: ['command-grab'],
     backdashFrames: 23,
     reversals: [
+      {
+        move: 'Shiranui Ryuu: Enbu Ada Zakura (SA3)',
+        input: '214 214 P',
+        invincibility: {
+          'zh-Hant': '只有打擊無敵 1-11 幀 —— 擋不掉摔投。舞的 SA1 只有對空無敵，所以她能拿來擋摔的只有完全無敵的 SA2',
+          en: 'Strike invincible only, frames 1-11 — it does not stop a throw. Mai\'s SA1 is anti-air only, so the fully invincible SA2 is the only one of hers that covers a throw',
+          ja: '打撃無敵のみ 1-11F ——投げは止まらない。舞のSA1は対空無敵のみのため、投げをカバーできるのは完全無敵のSA2だけ',
+        },
+        cost: { 'zh-Hant': 'SA3', en: 'SA3', ja: 'SA3' },
+      },
       {
         move: 'Kagerou no Mai (SA1)',
         input: '236 236 P',
@@ -1422,6 +1468,13 @@ export const CHARACTERS: CharacterOverlay[] = [
     health: 10000,
     backdashFrames: 23,
     overrides: {
+      'projectile': {
+        note: {
+          'zh-Hant': 'JP 的遠距離攻擊不是波。Torbalan（幽靈）**中腳版是中段、重腳版是下段**，而且是靠近你之後第 13 幀才出判定，還可以按住取消假動作。所以他的「發波」實際上是從全場外送過來的上下段猜謎，不是逼你擋的壓迫。',
+          en: 'JP\'s ranged game is not a fireball. Torbalan\'s **Medium version is an overhead and the Heavy is a low**, the hitbox only activates on frame 13 once the ghost reaches you, and he can hold the button to feint. So what looks like a fireball row is really a high/low guess delivered from full screen.',
+          ja: 'JPの遠距離攻撃は飛び道具ではない。トルバラン（幽霊）は**中版が中段、強版が下段**で、判定は幽霊が接近してから13F目に発生し、ボタン長押しでフェイントもできる。つまり「飛び道具」の行は実際には画面端から届く中下段の読み合いである。',
+        },
+      },
       reversal: {
         note: {
           'zh-Hant': 'JP 的起身反擊是當身（Amnesia）而不是無敵技。OD 版從第 1 幀就同時涵蓋打擊與摔投，而且 20 幀的窗口比一般無敵技的 10 幀寬得多 —— 對延遲打擊特別有效。',
@@ -1523,6 +1576,13 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 25,
     removesOptions: ['projectile', 'reversal'],
     overrides: {
+      'command-grab': {
+        note: {
+          'zh-Hant': '桑吉爾夫的螺旋打樁機**四種版本全部都是 5 幀發生** —— 跟普通摔一樣快，看到再反應是來不及的。所以上面說的「跳、後衝刺、無敵技都躲得掉」對他要改成「只有事先就決定好才躲得掉」。',
+          en: 'Zangief\'s Screw Piledriver is **5 frames on all four versions** — as fast as a normal throw, which means it cannot be reacted to. The line above about jumping, backdashing or reversing out of it holds only if you decided to before he pressed.',
+          ja: 'ザンギエフのスクリューパイルドライバーは**4バージョンすべて発生5F** ——通常投げと同速で、見てからでは間に合わない。上の「跳び・バックダッシュ・無敵技で逃げられる」は、押される前に決めていた場合に限る。',
+        },
+      },
       'super-reversal': {
         note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
@@ -1821,6 +1881,13 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 23,
     removesOptions: ['reversal'],
     overrides: {
+      'projectile': {
+        note: {
+          'zh-Hant': 'A.K.I. 的毒霧 **擋住也會中毒**（2026 年 8 月更新後）—— 唯一不會中毒的擋法是動力撥擋。上面說「擋著讓他推進」在她面前是錯的答案：擋等於吃毒。',
+          en: 'A.K.I.\'s poison cloud **poisons on block** as of the August 2026 patch — the one way to take it without the poison is a Drive Parry. Just blocking and letting them walk in is the wrong answer against her: blocking is taking the poison.',
+          ja: 'A.K.I.の毒は**ガードしても毒になる**（2026年8月アップデート以降）。毒を受けずに処理できるのはドライブパリィだけ。「ガードして詰めさせる」は彼女相手には誤答で、ガード＝被毒である。',
+        },
+      },
       'super-reversal': {
         note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',
@@ -2151,6 +2218,17 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     reversals: [
       {
+        move: 'Sumo Smash (OD)',
+        input: '[2] 8 PP',
+        invincibility: {
+          'zh-Hant':
+            '只有摔投無敵，而且是第 5-13 幀才開始 —— 擋得掉摔，擋不掉壓起身。這就是為什麼本田算在「沒有 OD 起身反擊」那 11 隻裡：他有東西可以賭對手要摔，但沒有一手同時吃下打擊和摔投。',
+          en: 'Throw invincible only, and not from frame 1 — frames 5-13. It beats a throw and loses to a meaty. That is why Honda counts among the eleven with no OD wakeup escape: he has something to bet on them throwing, but nothing that covers the strike and the throw at once.',
+          ja: '投げ無敵のみ、しかも1F目からではなく5-13F。投げには勝つが重ねには負ける。本田が「OD切り返しを持たない」11キャラに数えられるのはこのためで、投げ読みの択はあっても打撃と投げを同時にカバーする一手が無い。',
+        },
+        cost: { 'zh-Hant': '2 格', en: '2 Drive bars', ja: '2ゲージ' },
+      },
+      {
         move: 'Show of Force (SA1)',
         input: '236 236 P',
         invincibility: {
@@ -2315,6 +2393,13 @@ export const CHARACTERS: CharacterOverlay[] = [
     backdashFrames: 24,
     removesOptions: ['projectile', 'reversal'],
     overrides: {
+      'command-grab': {
+        note: {
+          'zh-Hant': '莉莉的墨西哥龍捲風也是 **5 幀**，而且**射程是資源**：Condor Wind 存量最多三層，存越多抓得越遠，OD 版射程最長。所以「距離短」對她是浮動的 —— 她剛充完風的那個距離，跟你記得的不一樣。',
+          en: 'Lily\'s Mexican Typhoon is also **5 frames**, and its **range is a resource**: Condor Wind stores up to three stocks and each one extends the grab, with the OD version reaching furthest. So the short-range caveat floats for her — the distance right after she charges is not the distance you remember.',
+          ja: 'リリーのメキシカンタイフーンも**発生5F**で、しかも**間合いが資源**：コンドルウィンドは最大3ストックまで溜まり、溜まっているほど遠くから掴める（OD版が最長）。「間合いが短い」は彼女に関しては可変で、風を溜めた直後の距離は記憶の距離とは違う。',
+        },
+      },
       'super-reversal': {
         note: {
           'zh-Hant': '這隻角色沒有完全無敵的 OD 升龍類招式。起身要打穿打擊和摔投，只能花 SA 槽 —— 沒有 SA 的時候，你的起身防禦沒有「一次翻盤」的選項。',

@@ -8,20 +8,21 @@ import { characterStore, useCharacter } from '~/lib/prefs'
 import { useDialog } from '~/lib/useDialog'
 import { useT } from '~/i18n/useT'
 
-/** Localised name first, Latin underneath — see useCharacterName for why. */
-function TileName({ name, latin: latinOverride, warn }: { name: I18nText; latin?: string | undefined; warn: string | null }) {
+/**
+ * Localised name first, Latin underneath — see useCharacterName for why.
+ *
+ * No warning mark. It flagged "no OD wakeup escape", which is real but is not
+ * what you are doing here: picking a character is not the moment to be told one
+ * of their rows is missing, and a bare ⚠ next to eleven names reads as "this
+ * character is worse" rather than as the specific, conditional fact it is. The
+ * panel under the table says it in full, where there is room to say what they
+ * have instead.
+ */
+function TileName({ name, latin: latinOverride }: { name: I18nText; latin?: string | undefined }) {
   const { primary, latin } = useCharacterName(name, latinOverride)
   return (
     <>
-      <span className="chartile__name">
-        {primary}
-        {warn && (
-          <span className="chartile__warn" aria-label={warn}>
-            {' '}
-            ⚠
-          </span>
-        )}
-      </span>
+      <span className="chartile__name">{primary}</span>
       {latin && <span className="chartile__latin small faint">{latin}</span>}
     </>
   )
@@ -205,11 +206,7 @@ export function CharacterPicker() {
                     title={noReversal ? t.character.noReversal : undefined}
                   >
                     <CharacterAvatar id={character.id} name={text(character.name)} />
-                    <TileName
-                      name={character.name}
-                      latin={character.latin}
-                      warn={noReversal ? t.character.noReversal : null}
-                    />
+                    <TileName name={character.name} latin={character.latin} />
                   </button>
                 )
               })}
