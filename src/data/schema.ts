@@ -267,6 +267,15 @@ export interface Situation {
    */
   noDrive?: boolean
   /**
+   * The *opponent's* Drive Gauge is empty, so no column may cost Drive.
+   *
+   * The mirror of `noDrive`, and it needed its own flag: the first version of
+   * that rule checked rows only, on the reasoning that the opponent is never
+   * the one in Burnout — which is false for J3, where attacking a burnt-out
+   * defender is the entire situation. It was offering them an OD reversal.
+   */
+  opponentNoDrive?: boolean
+  /**
    * Opponent options that form the columns of this situation's matrix, in
    * display order. Every evaluation grades every one of them.
    */

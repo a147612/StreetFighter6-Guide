@@ -81,6 +81,21 @@ for (const situation of SITUATIONS) {
     if (!optionIds.has(id)) errors.push(`${where} opponentOptions has unknown "${id}"`)
   }
 
+  // The mirror of the noDrive row rule below: when the situation is defined by
+  // the opponent having no Drive, a column that spends Drive is a choice they
+  // cannot make.
+  if (situation.opponentNoDrive) {
+    for (const id of columns) {
+      const cost = optionsById.get(id)?.cost?.drive ?? 0
+      if (cost > 0) {
+        errors.push(
+          `${where} is flagged opponentNoDrive but offers the column "${id}", ` +
+            `which costs ${cost} Drive bar(s)`,
+        )
+      }
+    }
+  }
+
   const seen = new Set()
   for (const evaluation of situation.evaluations) {
     evaluationCount++
