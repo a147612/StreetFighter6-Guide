@@ -268,7 +268,7 @@ const DEFENSIVE: OptionDef[] = [
     short: { 'zh-Hant': '動力箭步', en: 'Drive Rush', ja: 'DR' },
     origin: 'Drive Rush',
     hint: {
-      'zh-Hant': '從中立直接 66 向前衝，一格。它沒有飛道具無敵也沒有霸體 —— 撞上去照樣被打；它換到的是投射物收招那段時間裡跑掉的距離。箭步後的下一招多 4 幀有利。',
+      'zh-Hant': '從中立直接 66 向前衝，一格。它沒有飛道具無敵也沒有霸體 —— 撞上去照樣被打；它換到的是波的收招那段時間裡跑掉的距離。箭步後的下一招多 4 幀有利。',
       en: 'A raw 66 from neutral, one bar. No projectile invulnerability and no armour — run it into a fireball and you get hit. What it buys is the ground you cross during the fireball’s recovery. The attack after it lands with four extra frames of advantage.',
       ja: 'ニュートラルから66、1ゲージ。飛び道具無敵もアーマーも無いため、撃たれた弾に突っ込めば普通に食らう。得られるのは飛び道具の硬直中に詰められる距離。ラッシュ後の技は有利フレームが4F増える。',
     },
@@ -306,17 +306,17 @@ const DEFENSIVE: OptionDef[] = [
     id: 'super-reversal',
     side: 'defense',
     name: {
-      'zh-Hant': '無敵 Super Art（角色專屬）',
-      en: 'Invincible Super Art (character-specific)',
-      ja: '無敵スーパーアーツ（キャラ固有）',
+      'zh-Hant': '無敵 SA（角色專屬，多為 SA1）',
+      en: 'Invincible SA (character-specific, usually SA1)',
+      ja: '無敵SA（キャラ固有・多くはSA1）',
     },
     short: { 'zh-Hant': '無敵 SA', en: 'Super rev.', ja: '無敵SA' },
     origin: 'super reversal',
     hint: {
       'zh-Hant':
-        '有無敵的 SA。多數角色是 Level 1 就帶打擊／投擲無敵，等級依角色而異。沒有 OD 起身反擊的 11 隻角色最貴的一手是這個，但不是唯一 —— 起身動力反攻（兩格）也擋得掉打擊和摔投，只是傷害是白血。',
-      en: 'A Super Art with invincibility. For most characters the Level 1 already has strike/throw invincibility, though the level varies. For the eleven characters with no OD wakeup escape this is the most expensive answer, but not the only one — a wakeup Drive Reversal also covers the strike and the throw for two bars, at white damage.',
-      ja: '無敵のあるスーパーアーツ。多くのキャラはレベル1の時点で打撃／投げ無敵を持つが、レベルはキャラによる。OD切り返しを持たない11キャラにとって最も高価な択だが唯一ではない ——起き上がりドライブリバーサル（2ゲージ）も打撃と投げの両方に対応でき、ダメージは白ダメージ。',
+        '有無敵的 SA 當起身反擊。多數角色用的是 SA1，但無敵範圍到哪裡看角色 —— 而且大部分角色的 SA1 對波沒有無敵，所以這是拿來起身脫身的，不是拿來穿波的。沒有 OD 起身反擊的 11 隻角色最貴的一手是這個，但不是唯一 —— 起身動力反攻（兩格）也擋得掉打擊和摔投，只是傷害是白血。',
+      en: 'An invincible Super Art used as a wakeup escape. For most characters that is the SA1, but what the invincibility actually covers varies — and most SA1s are not invincible to projectiles, so this is an escape from pressure, not a way through a fireball. For the eleven characters with no OD wakeup escape it is the most expensive answer, but not the only one — a wakeup Drive Reversal also covers the strike and the throw for two bars, at white damage.',
+      ja: '起き上がりの切り返しに使う無敵SA。多くのキャラはSA1だが、無敵がどこまで及ぶかはキャラ次第で、多くのSA1は飛び道具に無敵がない ——これは攻めからの脱出手段であって、弾を抜けるための択ではない。OD切り返しを持たない11キャラにとって最も高価な択だが唯一ではなく、起き上がりドライブリバーサル（2ゲージ）も打撃と投げの両方に対応できる（ダメージは白）。',
     },
     aka: { 'zh-Hant': ['SA 凹'], en: ['super reversal'], ja: ['SAぶっぱ'] },
     input: '',
@@ -431,11 +431,11 @@ const DEFENSIVE: OptionDef[] = [
   {
     id: 'projectile',
     side: 'both',
-    name: { 'zh-Hant': '投射物', en: 'Projectile', ja: '飛び道具' },
-    short: { 'zh-Hant': '投射物', en: 'Fireball', ja: '飛び道具' },
+    name: { 'zh-Hant': '發波', en: 'Projectile', ja: '飛び道具' },
+    short: { 'zh-Hant': '發波', en: 'Fireball', ja: '飛び道具' },
     origin: 'fireball',
     hint: {
-      'zh-Hant': '從遠處丟出的攻擊，逼對手防禦或跳過來。',
+      'zh-Hant': '從遠處發一顆波，逼對手防禦、跳過來或花資源穿過。',
       en: 'A ranged attack that forces them to block or jump.',
       ja: '遠距離から出す攻撃。ガードか跳ぶかを強要する。',
     },

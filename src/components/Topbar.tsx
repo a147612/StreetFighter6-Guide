@@ -10,9 +10,13 @@ export function Topbar({ onSearch }: { onSearch: () => void }) {
     <GlassPanel as="header" className="topbar">
       <div className="topbar__inner shell">
         <a className="topbar__brand" href="#top">
-          <span className="topbar__mark" aria-hidden="true">
-            🥋
-          </span>
+          <img
+            className="topbar__mark"
+            src={`${import.meta.env.BASE_URL}icon.png`}
+            alt=""
+            width="24"
+            height="24"
+          />
           <span className="topbar__name">{t.appName}</span>
         </a>
 

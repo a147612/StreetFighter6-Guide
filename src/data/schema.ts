@@ -324,6 +324,14 @@ export interface CharacterKnockdown {
 export interface CharacterOverlay {
   id: string
   name: I18nText
+  /**
+   * The Latin spelling shown beside a localised name, when it is not the
+   * English one. Two characters need it: Chinese and Japanese both call Akuma
+   * 豪鬼/Gouki and M. Bison 維加/Vega, and the icon art has those spellings
+   * burned in, so pairing 豪鬼 with "Akuma" would contradict the picture.
+   * Defaults to `name.en`.
+   */
+  latin?: string
   /** From the character's own stats. The percentage bands assume 10,000. */
   health: number
   backdashFrames?: number

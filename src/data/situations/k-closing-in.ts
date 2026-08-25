@@ -22,7 +22,7 @@ export const GROUP_K: Situation[] = [
     position: ['midscreen', 'nearCorner', 'cornered'],
     distance: 'long',
     stance: 'neutral',
-    opponentOptions: ['walk-back', 'poke', 'projectile', 'whiff-punish', 'anti-air', 'drive-parry'],
+    opponentOptions: ['walk-back', 'poke', 'projectile', 'whiff-punish', 'jump-in', 'anti-air', 'drive-parry'],
     evaluations: [
       {
         optionId: 'dash-in',
@@ -51,6 +51,7 @@ export const GROUP_K: Situation[] = [
           { vs: 'poke', outcome: 'loss' },
           { vs: 'whiff-punish', outcome: 'loss' },
           { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'jump-in', outcome: 'loss' },
         ],
         mixRatio: '20-29%',
         verified: 'estimated',
@@ -89,6 +90,7 @@ export const GROUP_K: Situation[] = [
           { vs: 'whiff-punish', outcome: 'loss' },
           { vs: 'drive-parry', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'even' },
+          { vs: 'jump-in', outcome: 'loss' },
         ],
         notes: {
           'zh-Hant': '從中立衝進來是生動力箭步，一格 —— 三格是從普通技取消的價錢，接近的時候不用付。抵達時下一招還多 4 幀有利。',
@@ -111,7 +113,7 @@ export const GROUP_K: Situation[] = [
         reward: 'extreme',
         onSuccess: {
           text: {
-            'zh-Hant': '跳過投射物直接接近。打中就是一整套，而且落地還有起攻。',
+            'zh-Hant': '跳過波直接接近。打中就是一整套，而且落地還有起攻。',
             en: 'Jump the projectile and close. Landing it is a full combo and oki afterwards.',
             ja: '飛び道具を越えて接近する。当たればフルコンボと起き攻めまで付く。',
           },
@@ -133,6 +135,7 @@ export const GROUP_K: Situation[] = [
           { vs: 'poke', outcome: 'win' },
           { vs: 'anti-air', outcome: 'bigLoss' },
           { vs: 'whiff-punish', outcome: 'even' },
+          { vs: 'jump-in', outcome: 'even' },
         ],
         mixRatio: '8-12%',
         verified: 'estimated',
@@ -170,6 +173,7 @@ export const GROUP_K: Situation[] = [
           { vs: 'projectile', outcome: 'loss' },
           { vs: 'whiff-punish', outcome: 'bigLoss' },
           { vs: 'drive-parry', outcome: 'loss' },
+          { vs: 'jump-in', outcome: 'loss' },
         ],
         mixRatio: '12-16%',
         verified: 'estimated',
@@ -188,7 +192,7 @@ export const GROUP_K: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '他跳過來或用動力箭步穿過，投射物的收招被抓就是完整連段。',
+            'zh-Hant': '他跳過來或用動力箭步穿過，波的收招被抓就是完整連段。',
             en: 'They jump it or Drive Rush through, and the recovery is a full combo.',
             ja: '跳ばれるかドライブラッシュで抜けられ、硬直をフルコンボで狩られる。',
           },
@@ -201,6 +205,15 @@ export const GROUP_K: Situation[] = [
           { vs: 'poke', outcome: 'win' },
           { vs: 'whiff-punish', outcome: 'even' },
           { vs: 'anti-air', outcome: 'even' },
+          {
+            vs: 'jump-in',
+            outcome: 'even',
+            note: {
+              'zh-Hant': '遠距離發波最怕的就是他跳。但這裡他要飛過的距離長，你看到起跳還有時間收招對空 —— 換到中距離同一手就變成大虧。',
+              en: 'A jump is what a fireball is most afraid of. At this range they have a long way to travel, so you see the takeoff and still have time to recover and anti-air. The same button at mid range is a big loss.',
+              ja: '遠距離での飛び道具が最も怖いのは跳ばれること。ただしこの距離なら相手の滞空時間が長く、跳んだのを見てから硬直を抜けて対空できる。同じ択が中距離では大きな負けになる。',
+            },
+          },
         ],
         mixRatio: '20-29%',
         verified: 'estimated',
@@ -233,6 +246,7 @@ export const GROUP_K: Situation[] = [
           { vs: 'poke', outcome: 'loss' },
           { vs: 'projectile', outcome: 'win' },
           { vs: 'whiff-punish', outcome: 'even' },
+          { vs: 'jump-in', outcome: 'even' },
         ],
         mixRatio: '4-8%',
         verified: 'estimated',
@@ -251,7 +265,7 @@ export const GROUP_K: Situation[] = [
     position: ['midscreen', 'nearCorner', 'cornered'],
     distance: 'mid',
     stance: 'neutral',
-    opponentOptions: ['walk-back', 'poke', 'projectile', 'whiff-punish', 'anti-air', 'drive-parry'],
+    opponentOptions: ['walk-back', 'poke', 'projectile', 'whiff-punish', 'jump-in', 'anti-air', 'drive-parry'],
     evaluations: [
       {
         optionId: 'dash-in',
@@ -280,6 +294,7 @@ export const GROUP_K: Situation[] = [
           { vs: 'poke', outcome: 'loss' },
           { vs: 'whiff-punish', outcome: 'loss' },
           { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'jump-in', outcome: 'bigLoss' },
         ],
         mixRatio: '21-30%',
         verified: 'estimated',
@@ -318,6 +333,7 @@ export const GROUP_K: Situation[] = [
           { vs: 'whiff-punish', outcome: 'loss' },
           { vs: 'drive-parry', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'even' },
+          { vs: 'jump-in', outcome: 'loss' },
         ],
         notes: {
           'zh-Hant': '從中立衝進來是生動力箭步，一格 —— 三格是從普通技取消的價錢，接近的時候不用付。抵達時下一招還多 4 幀有利。',
@@ -340,7 +356,7 @@ export const GROUP_K: Situation[] = [
         reward: 'extreme',
         onSuccess: {
           text: {
-            'zh-Hant': '跳過投射物直接接近。打中就是一整套，而且落地還有起攻。',
+            'zh-Hant': '跳過波直接接近。打中就是一整套，而且落地還有起攻。',
             en: 'Jump the projectile and close. Landing it is a full combo and oki afterwards.',
             ja: '飛び道具を越えて接近する。当たればフルコンボと起き攻めまで付く。',
           },
@@ -362,6 +378,7 @@ export const GROUP_K: Situation[] = [
           { vs: 'poke', outcome: 'win' },
           { vs: 'anti-air', outcome: 'bigLoss' },
           { vs: 'whiff-punish', outcome: 'even' },
+          { vs: 'jump-in', outcome: 'even' },
         ],
         mixRatio: '9-13%',
         verified: 'estimated',
@@ -399,13 +416,14 @@ export const GROUP_K: Situation[] = [
           { vs: 'projectile', outcome: 'loss' },
           { vs: 'whiff-punish', outcome: 'bigLoss' },
           { vs: 'drive-parry', outcome: 'loss' },
+          { vs: 'jump-in', outcome: 'loss' },
         ],
         mixRatio: '21-30%',
         verified: 'estimated',
       },
       {
         optionId: 'projectile',
-        risk: 'medium',
+        risk: 'high',
         reward: 'medium',
         onSuccess: {
           text: {
@@ -417,7 +435,7 @@ export const GROUP_K: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '他跳過來或用動力箭步穿過，投射物的收招被抓就是完整連段。',
+            'zh-Hant': '他跳過來或用動力箭步穿過，波的收招被抓就是完整連段。',
             en: 'They jump it or Drive Rush through, and the recovery is a full combo.',
             ja: '跳ばれるかドライブラッシュで抜けられ、硬直をフルコンボで狩られる。',
           },
@@ -430,11 +448,20 @@ export const GROUP_K: Situation[] = [
           { vs: 'poke', outcome: 'win' },
           { vs: 'whiff-punish', outcome: 'even' },
           { vs: 'anti-air', outcome: 'even' },
+          {
+            vs: 'jump-in',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant': '這是中距離發波真正的代價 —— 不是被牽制，是被跳。他要飛的距離短，你波還沒收完人就到臉上了，直接吃一套。想發波就退到遠距離再發。',
+              en: 'This is what a mid-range fireball actually costs you — not a poke, a jump. They have little ground to cover, so they are on your face before the recovery ends and it converts to a full combo. If you want to throw one, back up to long range first.',
+              ja: '中距離での飛び道具の本当の代償はこれで、牽制ではなく跳びである。相手の距離が短いため、硬直が明ける前に接近され、そのままフルコンボに繋がる。撃ちたいなら遠距離まで下がってから。',
+            },
+          },
         ],
         mixRatio: '4-9%',
         verified: 'estimated',
         notes: {
-          'zh-Hant': '中距離丟投射物風險高得多 —— 他要跑的距離短，跳過來直接接連段。',
+          'zh-Hant': '中距離發波風險高得多 —— 他要跑的距離短，跳過來直接接連段。',
           en: 'Far riskier at mid range: they have less ground to cover, so a jump converts straight into a combo.',
           ja: '中距離での飛び道具はリスクが高い。距離が短いぶん跳ばれればそのままコンボになる。',
         },
@@ -467,6 +494,7 @@ export const GROUP_K: Situation[] = [
           { vs: 'poke', outcome: 'loss' },
           { vs: 'projectile', outcome: 'win' },
           { vs: 'whiff-punish', outcome: 'even' },
+          { vs: 'jump-in', outcome: 'even' },
         ],
         mixRatio: '4-9%',
         verified: 'estimated',

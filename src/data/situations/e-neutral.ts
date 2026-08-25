@@ -74,7 +74,7 @@ export const GROUP_E: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手跳過來或用動力箭步穿過 —— 投射物的收招很長，被抓到就是完整連段。',
+            'zh-Hant': '對手跳過來或用動力箭步穿過 —— 波的收招很長，被抓到就是完整連段。',
             en: 'They jump it or Drive Rush through. A projectile recovers slowly, so getting caught is a full combo.',
             ja: '跳ばれるかドライブラッシュで抜けられる。飛び道具は硬直が長く、狩られればフルコンボ。',
           },
@@ -172,7 +172,7 @@ export const GROUP_E: Situation[] = [
         reward: 'medium',
         onSuccess: {
           text: {
-            'zh-Hant': '擋下牽制招或投射物並回動力槽，成功後可以接動力箭步直接推進。',
+            'zh-Hant': '擋下牽制招或波並回動力槽，成功後可以接動力箭步直接推進。',
             en: 'Catches a poke or a projectile, returns Drive, and can flow straight into a Drive Rush advance.',
             ja: '牽制や飛び道具を受け止めてドライブを回復し、そのままドライブラッシュで前進できる。',
           },
@@ -203,7 +203,7 @@ export const GROUP_E: Situation[] = [
           },
         ],
         notes: {
-          'zh-Hant': '對付投射物角色的核心工具 —— 撥擋一發等於把對手的牽制轉成你的推進資源。',
+          'zh-Hant': '對付發波角色的核心工具 —— 撥擋一發等於把對手的牽制轉成你的推進資源。',
           en: 'The core tool against a zoner: one parry converts their keepaway into your advancing resource.',
           ja: '飛び道具キャラ対策の中核。パリィ一回で相手の牽制を自分の前進資源に変えられる。',
         },
@@ -214,7 +214,7 @@ export const GROUP_E: Situation[] = [
         reward: 'high',
         onSuccess: {
           text: {
-            'zh-Hant': '花三格強行拉近，直接把立回跳過去，進到你想要的貼身距離。',
+            'zh-Hant': '花一格強行拉近，直接把立回跳過去，進到你想要的貼身距離。',
             en: 'Spend three bars to close the gap outright, skipping neutral and arriving where you want to be.',
             ja: '3ゲージを使って一気に間合いを詰め、立ち回りを飛ばして望む距離に入る。',
           },
@@ -222,7 +222,7 @@ export const GROUP_E: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '被對空或牽制招擋下來，三格就這樣沒了，而且你還在對手面前。',
+            'zh-Hant': '被對空或牽制招擋下來，一格沒了，而且你還站在對手面前 —— 賠掉的主要是位置。',
             en: 'Anti-aired or stuffed by a poke, and three bars are gone with you standing in front of them.',
             ja: '対空や牽制に止められれば3ゲージを失い、しかも相手の目の前に残される。',
           },
@@ -245,9 +245,9 @@ export const GROUP_E: Situation[] = [
           },
         ],
         notes: {
-          'zh-Hant': '三格是全場最貴的一次消費。用來穿過投射物很划算，用來硬進中距離通常不划算。',
-          en: 'Three bars is the most expensive purchase in the game. Worth it to cross a fireball, rarely worth it to force your way in at mid range.',
-          ja: '3ゲージはゲーム中で最も高い買い物。飛び道具を越えるためなら見合うが、中距離を強引に詰めるためには割に合わないことが多い。',
+          'zh-Hant': '生動力箭步是一格，不是三格 —— 三格是從普通技取消（DRC）的價錢。而且它沒有飛道具無敵：你不是穿過那顆波，是趁它收招的時間跑過去。',
+          en: 'A raw Drive Rush is one bar, not three — three is what cancelling out of a normal costs. And it has no projectile invulnerability: you are not going through the fireball, you are crossing ground during its recovery.',
+          ja: '生ドライブラッシュは1ゲージで3ではない。3は普通技からキャンセルした場合の値段。しかも飛び道具無敵は無く、弾を抜けているのではなく、その硬直の間に距離を詰めている。',
         },
       },
       {
@@ -256,7 +256,7 @@ export const GROUP_E: Situation[] = [
         reward: 'medium',
         onSuccess: {
           text: {
-            'zh-Hant': '跳過投射物並接近。落地打中就是一整套。',
+            'zh-Hant': '跳過波並接近。落地打中就是一整套。',
             en: 'Jumps the projectile and closes. Landing it clean is a full combo.',
             ja: '飛び道具を跳び越えて接近する。当たればフルコンボ。',
           },
@@ -347,7 +347,7 @@ export const GROUP_E: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手跳過來或用動力箭步穿過 —— 投射物的收招很長，被抓到就是完整連段。',
+            'zh-Hant': '對手跳過來或用動力箭步穿過 —— 波的收招很長，被抓到就是完整連段。',
             en: 'They jump it or Drive Rush through. A projectile recovers slowly, so getting caught is a full combo.',
             ja: '跳ばれるかドライブラッシュで抜けられる。飛び道具は硬直が長く、狩られればフルコンボ。',
           },
@@ -364,7 +364,7 @@ export const GROUP_E: Situation[] = [
         mixRatio: '8-12%',
         verified: 'estimated',
         notes: {
-          'zh-Hant': '中距離丟投射物很危險 —— 對手的反應時間夠短，跳過來就直接接連段。這是遠距離的工具。',
+          'zh-Hant': '中距離發波很危險 —— 對手的反應時間夠短，跳過來就直接接連段。這是遠距離的工具。',
           en: 'Throwing one at mid range is dangerous: they have little ground to cover, so a jump converts straight into a combo. This is a long-range tool.',
           ja: '中距離での飛び道具は危険。距離が短いぶん跳ばれればそのままコンボになる。これは遠距離用の道具である。',
         },
@@ -450,7 +450,7 @@ export const GROUP_E: Situation[] = [
         reward: 'medium',
         onSuccess: {
           text: {
-            'zh-Hant': '擋下牽制招或投射物並回動力槽，成功後可以接動力箭步直接推進。',
+            'zh-Hant': '擋下牽制招或波並回動力槽，成功後可以接動力箭步直接推進。',
             en: 'Catches a poke or a projectile, returns Drive, and can flow straight into a Drive Rush advance.',
             ja: '牽制や飛び道具を受け止めてドライブを回復し、そのままドライブラッシュで前進できる。',
           },
@@ -481,7 +481,7 @@ export const GROUP_E: Situation[] = [
           },
         ],
         notes: {
-          'zh-Hant': '對付投射物角色的核心工具 —— 撥擋一發等於把對手的牽制轉成你的推進資源。',
+          'zh-Hant': '對付發波角色的核心工具 —— 撥擋一發等於把對手的牽制轉成你的推進資源。',
           en: 'The core tool against a zoner: one parry converts their keepaway into your advancing resource.',
           ja: '飛び道具キャラ対策の中核。パリィ一回で相手の牽制を自分の前進資源に変えられる。',
         },
@@ -492,7 +492,7 @@ export const GROUP_E: Situation[] = [
         reward: 'high',
         onSuccess: {
           text: {
-            'zh-Hant': '花三格強行拉近，直接把立回跳過去，進到你想要的貼身距離。',
+            'zh-Hant': '花一格強行拉近，直接把立回跳過去，進到你想要的貼身距離。',
             en: 'Spend three bars to close the gap outright, skipping neutral and arriving where you want to be.',
             ja: '3ゲージを使って一気に間合いを詰め、立ち回りを飛ばして望む距離に入る。',
           },
@@ -500,7 +500,7 @@ export const GROUP_E: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '被對空或牽制招擋下來，三格就這樣沒了，而且你還在對手面前。',
+            'zh-Hant': '被對空或牽制招擋下來，一格沒了，而且你還站在對手面前 —— 賠掉的主要是位置。',
             en: 'Anti-aired or stuffed by a poke, and three bars are gone with you standing in front of them.',
             ja: '対空や牽制に止められれば3ゲージを失い、しかも相手の目の前に残される。',
           },
@@ -523,9 +523,9 @@ export const GROUP_E: Situation[] = [
           },
         ],
         notes: {
-          'zh-Hant': '三格是全場最貴的一次消費。用來穿過投射物很划算，用來硬進中距離通常不划算。',
-          en: 'Three bars is the most expensive purchase in the game. Worth it to cross a fireball, rarely worth it to force your way in at mid range.',
-          ja: '3ゲージはゲーム中で最も高い買い物。飛び道具を越えるためなら見合うが、中距離を強引に詰めるためには割に合わないことが多い。',
+          'zh-Hant': '生動力箭步是一格，不是三格 —— 三格是從普通技取消（DRC）的價錢。而且它沒有飛道具無敵：你不是穿過那顆波，是趁它收招的時間跑過去。',
+          en: 'A raw Drive Rush is one bar, not three — three is what cancelling out of a normal costs. And it has no projectile invulnerability: you are not going through the fireball, you are crossing ground during its recovery.',
+          ja: '生ドライブラッシュは1ゲージで3ではない。3は普通技からキャンセルした場合の値段。しかも飛び道具無敵は無く、弾を抜けているのではなく、その硬直の間に距離を詰めている。',
         },
       },
       {
@@ -534,7 +534,7 @@ export const GROUP_E: Situation[] = [
         reward: 'medium',
         onSuccess: {
           text: {
-            'zh-Hant': '跳過投射物並接近。落地打中就是一整套。',
+            'zh-Hant': '跳過波並接近。落地打中就是一整套。',
             en: 'Jumps the projectile and closes. Landing it clean is a full combo.',
             ja: '飛び道具を跳び越えて接近する。当たればフルコンボ。',
           },

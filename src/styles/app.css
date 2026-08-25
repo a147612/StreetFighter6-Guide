@@ -50,8 +50,11 @@
 }
 
 .topbar__mark {
-  font-size: 1.15em;
-  line-height: 1;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+  border-radius: var(--radius-sm);
+  object-fit: contain;
 }
 
 .topbar__controls {
@@ -1191,11 +1194,23 @@ html[data-theme='dark'] .notation__btn--h {
 /* ── Situation header ────────────────────────────────────────────────
    A title strip rather than a panel. The full read is one line of prose and a
    disclosure; the table is the thing being looked at. */
+/* Title first, diagram last. The diagram is orientation, not the answer — it
+   belongs where the eye ends up, not where it starts. `order` rather than a
+   markup swap so the heading stays first in the reading order. */
 .sithead {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   gap: var(--space-2) var(--space-3);
+}
+
+.sithead__text {
+  flex: 1 1 auto;
+}
+
+.sithead .stage {
+  order: 1;
+  margin-inline-start: auto;
 }
 
 .sithead h2 {

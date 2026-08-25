@@ -29,7 +29,7 @@ export function CharacterPanel() {
 
 function CharacterCard({ character }: { character: CharacterOverlay }) {
   const { t, text } = useT()
-  const { primary, latin } = useCharacterName(character.name)
+  const { primary, latin } = useCharacterName(character.name, character.latin)
   const hasOdReversal = !character.removesOptions?.includes('reversal')
   const source = character.sources?.[0]
 

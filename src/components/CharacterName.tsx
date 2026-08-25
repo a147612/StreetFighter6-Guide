@@ -15,8 +15,15 @@ import { useT } from '~/i18n/useT'
  * would break the rule the rest of the guide follows, which is that terminology
  * comes from what people say, not from what a dictionary would produce.
  */
-export function useCharacterName(name: I18nText): { primary: string; latin: string | null } {
+export function useCharacterName(
+  name: I18nText,
+  /** Overrides the English spelling for non-English readers; see `latin` in the
+   *  schema. Akuma is Gouki and M. Bison is Vega outside the English release. */
+  latinOverride?: string,
+): { primary: string; latin: string | null } {
   const { locale, text } = useT()
   const primary = text(name)
-  return { primary, latin: locale === 'en' || primary === name.en ? null : name.en }
+  if (locale === 'en') return { primary, latin: null }
+  const latin = latinOverride ?? name.en
+  return { primary, latin: primary === latin ? null : latin }
 }

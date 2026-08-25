@@ -191,6 +191,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       en: 'Akuma',
       ja: '豪鬼',
     },
+    latin: 'Gouki',
     health: 9000,
     backdashFrames: 23,
     reversals: [
@@ -2444,6 +2445,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       en: 'M. Bison',
       ja: 'ベガ',
     },
+    latin: 'Vega',
     health: 10000,
     backdashFrames: 23,
     removesOptions: ['reversal'],

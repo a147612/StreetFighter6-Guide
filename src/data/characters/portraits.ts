@@ -63,7 +63,7 @@ export function characterIcon(id: string, locale: string): string | null {
   const entry = ICONS[id]
   if (!entry) return null
   const file = locale !== 'en' && entry.ja ? entry.ja : entry.file
-  return `${import.meta.env.BASE_URL}characters/${file}.png`
+  return `${import.meta.env.BASE_URL}characters/${file}.webp`
 }
 
 /** Signature colour, mid-saturation so it reads on both themes. */

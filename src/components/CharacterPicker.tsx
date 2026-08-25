@@ -9,8 +9,8 @@ import { useDialog } from '~/lib/useDialog'
 import { useT } from '~/i18n/useT'
 
 /** Localised name first, Latin underneath — see useCharacterName for why. */
-function TileName({ name, warn }: { name: I18nText; warn: string | null }) {
-  const { primary, latin } = useCharacterName(name)
+function TileName({ name, latin: latinOverride, warn }: { name: I18nText; latin?: string | undefined; warn: string | null }) {
+  const { primary, latin } = useCharacterName(name, latinOverride)
   return (
     <>
       <span className="chartile__name">
@@ -28,8 +28,8 @@ function TileName({ name, warn }: { name: I18nText; warn: string | null }) {
 }
 
 /** The same pair, on one line, for the closed picker. */
-function TriggerName({ name }: { name: I18nText }) {
-  const { primary, latin } = useCharacterName(name)
+function TriggerName({ name, latin: latinOverride }: { name: I18nText; latin?: string | undefined }) {
+  const { primary, latin } = useCharacterName(name, latinOverride)
   return (
     <>
       {primary}
@@ -124,7 +124,7 @@ export function CharacterPicker() {
       >
         {selected && <CharacterAvatar id={selected.id} name={text(selected.name)} size="sm" />}
         <span id="charpick-value" className="charpick__value">
-          {selected ? <TriggerName name={selected.name} /> : t.character.universal}
+          {selected ? <TriggerName name={selected.name} latin={selected.latin} /> : t.character.universal}
         </span>
         <svg viewBox="0 0 16 16" aria-hidden="true" className="control__chevron">
           <path
@@ -205,7 +205,11 @@ export function CharacterPicker() {
                     title={noReversal ? t.character.noReversal : undefined}
                   >
                     <CharacterAvatar id={character.id} name={text(character.name)} />
-                    <TileName name={character.name} warn={noReversal ? t.character.noReversal : null} />
+                    <TileName
+                      name={character.name}
+                      latin={character.latin}
+                      warn={noReversal ? t.character.noReversal : null}
+                    />
                   </button>
                 )
               })}
