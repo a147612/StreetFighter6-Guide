@@ -47,23 +47,22 @@ export function OutcomeCell({
   }
 
   return (
-    <>
-      {/* Outside the badge, not inside it: the badge is a shape sized to a
-          glyph, and a label within it stretches into a capsule around both. */}
+    <span className={`oc oc--${outcome}`} title={`${opponentName}: ${t.outcome[outcome]}`}>
+      {/* Inside the badge: on a phone it stretches into one capsule carrying
+          both the column and the result, tinted by the result. There is no
+          second pill around it — that was the part that read as a button. */}
       {labelled && shortName && (
         <span className="oc__who" aria-hidden="true">
           {shortName}
         </span>
       )}
-      <span className={`oc oc--${outcome}`} title={`${opponentName}: ${t.outcome[outcome]}`}>
-        <span aria-hidden="true">{GLYPH[outcome]}</span>
-        {labelled && (
-          <span className="visually-hidden">
-            {opponentName}: {t.outcome[outcome]}
-          </span>
-        )}
-      </span>
-    </>
+      <span aria-hidden="true">{GLYPH[outcome]}</span>
+      {labelled && (
+        <span className="visually-hidden">
+          {opponentName}: {t.outcome[outcome]}
+        </span>
+      )}
+    </span>
   )
 }
 

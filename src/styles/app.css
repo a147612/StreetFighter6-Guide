@@ -2024,17 +2024,37 @@ html[data-theme='dark'] .notation__btn--h {
 
   /* Both aggregates get the same box in the header and in the rows, so the
      labels sit over the values they name rather than merely near them. */
+  /* Both aggregates get the same box in the header and in the rows, so the
+     labels sit over the values they name. The wide table reserves 8.5rem here
+     for bar-plus-number, and that min-width would outrank the basis. */
   .opt-table thead .opt-table__agg,
   .opt-row .opt-table__agg {
-    flex: 0 0 4.6rem;
-    /* The wide table reserves 8.5rem here for the bar plus the number; with the
-       bar gone that min-width outranks the basis and the column stops lining up
-       with its heading. */
     min-width: 0;
     justify-content: flex-end;
     padding: 0;
     border: 0;
     text-align: right;
+  }
+
+  .opt-table thead .opt-table__agg--first,
+  .opt-row .opt-table__agg--first {
+    flex: 0 0 4.7rem;
+  }
+
+  .opt-table thead .opt-table__agg:last-child,
+  .opt-row .opt-row__hp {
+    flex: 0 0 6.4rem;
+  }
+
+  /* The word beside the pips and the bar beside the number both earn their
+     line. The name wraps instead of pushing them off. */
+  .opt-row .tier__word {
+    display: inline;
+  }
+
+  .opt-row__hp .hploss__track {
+    display: block;
+    width: 2.5rem;
   }
 
   .opt-table thead .opt-table__agg--first,
@@ -2123,13 +2143,36 @@ html[data-theme='dark'] .notation__btn--h {
     height: 0;
   }
 
-  /* No capsule: the outcome badge is already a shape, and wrapping it in a
-     second one made every cell look like a button. */
+  /* The cell paints nothing — the badge inside it is the capsule. Two nested
+     pills was the thing that read as a button. */
   .opt-table__vs {
-    order: 3;
     padding: 0;
-    margin-right: var(--space-3);
+    margin-right: var(--space-2);
     text-align: left !important;
+  }
+
+  /* ── 3. Best to worst, by CSS order alone ──
+     The column order is the situation's own and has to stay that way in the
+     table. Out of the grid there are no columns, so the useful order is the
+     answer to "what does this beat" — read top down instead of hunted for. */
+  .opt-table__vs--bigWin {
+    order: 3;
+  }
+
+  .opt-table__vs--win {
+    order: 4;
+  }
+
+  .opt-table__vs--even {
+    order: 5;
+  }
+
+  .opt-table__vs--loss {
+    order: 6;
+  }
+
+  .opt-table__vs--bigLoss {
+    order: 7;
   }
 
   /* An ungraded cell is a real state and the wide table shows it as a dot in
@@ -2149,30 +2192,27 @@ html[data-theme='dark'] .notation__btn--h {
     display: inline;
   }
 
-  /* The bar is a second rendering of the number beside it. On one line with the
-     name and the risk pips there is no room for both, and the number is the
-     fact — dropping the bar is what keeps the row from wrapping. */
-  .opt-row__hp .hploss__track {
-    display: none;
-  }
-
   .opt-table__vs .oc {
-    min-width: 1.6rem;
-    padding: 0 0.25rem;
-    line-height: 1.35;
+    gap: 0.4rem;
+    min-width: 0;
+    padding: 0.1rem 0.5rem;
+    border-radius: 9999px;
+    line-height: 1.5;
   }
 
   .opt-table__vs .oc__who {
     position: static;
     width: auto;
     height: auto;
-    margin-right: 0.35rem;
     clip: auto;
     clip-path: none;
     white-space: nowrap;
     overflow: visible;
-    color: var(--text-muted);
+    color: var(--text);
+    font-family: var(--font-sans);
     font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: normal;
   }
 
   /* The detail panel is already a block; it just needs the full card width

@@ -384,7 +384,13 @@ export function OptionTable({
                         </button>
                       </th>
                       {columns.map(({ id, def: opponent }) => (
-                        <td key={id} className="opt-table__vs">
+                        // The outcome rides on the cell so the phone layout can
+                        // sort the chips best-to-worst with `order`, without a
+                        // second pass over the data or a second component.
+                        <td
+                          key={id}
+                          className={`opt-table__vs opt-table__vs--${outcomes.get(id) ?? 'na'}`}
+                        >
                           <OutcomeCell
                             outcome={outcomes.get(id)}
                             opponentName={text(opponent!.name)}
