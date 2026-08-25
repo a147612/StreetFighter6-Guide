@@ -47,7 +47,7 @@ export const GROUP_H: Situation[] = [
           driveLoss: 1,
         },
         versus: [
-          { vs: 'meaty', outcome: 'win' },
+          { vs: 'meaty', outcome: 'even' },
           { vs: 'blockstring', outcome: 'even' },
           { vs: 'throw', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
@@ -178,7 +178,15 @@ export const GROUP_H: Situation[] = [
           { vs: 'meaty', outcome: 'bigWin' },
           { vs: 'blockstring', outcome: 'win' },
           { vs: 'throw', outcome: 'bigLoss' },
-          { vs: 'drive-impact', outcome: 'loss' },
+          {
+            vs: 'drive-impact',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '後撞的一方贏 —— 反擊的窗口很寬，可以等到對方動力衝擊快結束才按。這裡是你先撞，所以他有整段時間看到並撞回來；反過來在「對手開了動力衝擊」那頁，先撞的是他，贏的是你。',
+              en: 'The later Drive Impact wins — the counter window is wide enough to input yours at the very end of theirs. Here you commit first, so they have the whole animation to see it and hit back. On the "they used Drive Impact" page the order is reversed, and so is the result.',
+              ja: '後から撃ったほうが勝つ。返しの受付は広く、相手のDIの終わり際でも間に合う。ここでは自分が先に撃つため、相手には見てから返す時間が丸ごとある。「相手がDIを撃った」ページでは順番が逆になり、結果も逆になる。',
+            },
+          },
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
@@ -272,7 +280,7 @@ export const GROUP_H: Situation[] = [
           driveLoss: 1,
         },
         versus: [
-          { vs: 'meaty', outcome: 'win' },
+          { vs: 'meaty', outcome: 'even' },
           { vs: 'blockstring', outcome: 'even' },
           { vs: 'throw', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
@@ -403,7 +411,15 @@ export const GROUP_H: Situation[] = [
           { vs: 'meaty', outcome: 'bigWin' },
           { vs: 'blockstring', outcome: 'win' },
           { vs: 'throw', outcome: 'bigLoss' },
-          { vs: 'drive-impact', outcome: 'loss' },
+          {
+            vs: 'drive-impact',
+            outcome: 'loss',
+            note: {
+              'zh-Hant': '後撞的一方贏 —— 反擊的窗口很寬，可以等到對方動力衝擊快結束才按。這裡是你先撞，所以他有整段時間看到並撞回來；反過來在「對手開了動力衝擊」那頁，先撞的是他，贏的是你。',
+              en: 'The later Drive Impact wins — the counter window is wide enough to input yours at the very end of theirs. Here you commit first, so they have the whole animation to see it and hit back. On the "they used Drive Impact" page the order is reversed, and so is the result.',
+              ja: '後から撃ったほうが勝つ。返しの受付は広く、相手のDIの終わり際でも間に合う。ここでは自分が先に撃つため、相手には見てから返す時間が丸ごとある。「相手がDIを撃った」ページでは順番が逆になり、結果も逆になる。',
+            },
+          },
           { vs: 'bait-block', outcome: 'loss' },
         ],
         mixRatio: '5-10%',

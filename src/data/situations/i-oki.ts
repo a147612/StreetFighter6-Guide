@@ -163,9 +163,9 @@ export const GROUP_I: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手沒按解摔，你退開的那段是無防備的，被速點或無敵技抓到就換你吃。',
-            en: 'They did not tech, and your walk-back is exposed: a mash or a reversal catches you instead.',
-            ja: '相手が投げ抜けを押さず、下がっている無防備な部分を暴れや無敵技に狩られる。',
+            'zh-Hant': '對手沒按解摔，而是直接按了鍵。退開的那段抓不到他的速點，換你吃一下。',
+            en: 'They did not tech, they just pressed. Walking back does not reach their mash, and you eat it instead.',
+            ja: '相手が投げ抜けではなくボタンを押した場合、下がった分だけ暴れに届かず、こちらが食らう側になる。',
           },
           hpLoss: '25-40%',
           driveLoss: 0,
@@ -175,7 +175,7 @@ export const GROUP_I: Situation[] = [
           { vs: 'do-nothing', outcome: 'even' },
           { vs: 'drive-parry', outcome: 'even' },
           { vs: 'mash-light', outcome: 'loss' },
-          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'reversal', outcome: 'bigWin' },
           { vs: 'backdash', outcome: 'loss' },
           {
             vs: 'drive-reversal',
@@ -584,9 +584,9 @@ export const GROUP_I: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手沒按解摔，你退開的那段是無防備的，被速點或無敵技抓到就換你吃。',
-            en: 'They did not tech, and your walk-back is exposed: a mash or a reversal catches you instead.',
-            ja: '相手が投げ抜けを押さず、下がっている無防備な部分を暴れや無敵技に狩られる。',
+            'zh-Hant': '對手沒按解摔，而是直接按了鍵。退開的那段抓不到他的速點，換你吃一下。',
+            en: 'They did not tech, they just pressed. Walking back does not reach their mash, and you eat it instead.',
+            ja: '相手が投げ抜けではなくボタンを押した場合、下がった分だけ暴れに届かず、こちらが食らう側になる。',
           },
           hpLoss: '25-40%',
           driveLoss: 0,
@@ -596,7 +596,7 @@ export const GROUP_I: Situation[] = [
           { vs: 'do-nothing', outcome: 'even' },
           { vs: 'drive-parry', outcome: 'even' },
           { vs: 'mash-light', outcome: 'loss' },
-          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'reversal', outcome: 'bigWin' },
           { vs: 'backdash', outcome: 'loss' },
           {
             vs: 'drive-reversal',
@@ -1005,9 +1005,9 @@ export const GROUP_I: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '對手沒按解摔，你退開的那段是無防備的，被速點或無敵技抓到就換你吃。',
-            en: 'They did not tech, and your walk-back is exposed: a mash or a reversal catches you instead.',
-            ja: '相手が投げ抜けを押さず、下がっている無防備な部分を暴れや無敵技に狩られる。',
+            'zh-Hant': '對手沒按解摔，而是直接按了鍵。退開的那段抓不到他的速點，換你吃一下。',
+            en: 'They did not tech, they just pressed. Walking back does not reach their mash, and you eat it instead.',
+            ja: '相手が投げ抜けではなくボタンを押した場合、下がった分だけ暴れに届かず、こちらが食らう側になる。',
           },
           hpLoss: '25-40%',
           driveLoss: 0,
@@ -1017,7 +1017,7 @@ export const GROUP_I: Situation[] = [
           { vs: 'do-nothing', outcome: 'even' },
           { vs: 'drive-parry', outcome: 'even' },
           { vs: 'mash-light', outcome: 'loss' },
-          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'reversal', outcome: 'bigWin' },
           { vs: 'backdash', outcome: 'loss' },
           {
             vs: 'drive-reversal',

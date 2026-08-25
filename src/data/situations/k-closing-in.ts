@@ -31,7 +31,7 @@ export const GROUP_K: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '用衝刺快速縮短距離，把對手推向他不想要的近身戰。',
-            en: 'Dash to cut the distance and force him into the close range he did not want.',
+            en: 'Dash to cut the distance and force them into the close range they did not want.',
             ja: 'ダッシュで距離を詰め、相手が望まない近距離戦を強要する。',
           },
           followUp: 'pressure',
@@ -56,7 +56,7 @@ export const GROUP_K: Situation[] = [
         verified: 'estimated',
         notes: {
           'zh-Hant': '最便宜的接近手段，代價是最容易被牽制招擋下來。對手一直伸手的時候換確反比較划算。',
-          en: 'The cheapest way in, and the easiest to stuff with a poke. If he keeps sticking a limb out, whiff punishing pays better.',
+          en: 'The cheapest way in, and the easiest to stuff with a poke. If they keep sticking a limb out, whiff punishing pays better.',
           ja: '最も安価な接近手段だが、牽制に最も潰されやすい。相手が手を出し続けるなら確反の方が割が良い。',
         },
       },
@@ -76,7 +76,7 @@ export const GROUP_K: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '被對空或牽制招擋下來，一格就這樣沒了，而且你人還留在他面前。',
-            en: 'Anti-aired or stuffed by a poke, the bar is gone and you are standing in front of him.',
+            en: 'Anti-aired or stuffed by a poke, the bar is gone and you are standing in front of them.',
             ja: '対空や牽制に止められればゲージを失い、しかも相手の目の前に残される。',
           },
           hpLoss: '30-45%',
@@ -138,7 +138,7 @@ export const GROUP_K: Situation[] = [
         verified: 'estimated',
         notes: {
           'zh-Hant': '對手每對空成功一次，跳的價值就下降一階。看到他對空穩之後改用地面接近。',
-          en: 'Every anti-air he lands drops the value of jumping a tier. Once he is anti-airing consistently, come in on the ground.',
+          en: 'Every anti-air they land drops the value of jumping a tier. Once they are anti-airing consistently, come in on the ground.',
           ja: '対空を通されるたびに跳ぶ価値は一段下がる。相手の対空が安定してきたら地上から入る。',
         },
       },
@@ -149,7 +149,7 @@ export const GROUP_K: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '用長手招控制他的移動，逼他退或逼他跳。牽制不是為了傷害，是為了限制他的選項。',
-            en: 'Control his movement with a long normal, forcing him back or into the air. A poke is not for damage, it is for taking his options away.',
+            en: 'Control their movement with a long normal, forcing them back or into the air. A poke is not for damage, it is for taking their options away.',
             ja: '長い技で相手の動きを制限し、下がるか跳ぶかを強要する。牽制はダメージではなく択を削るためのもの。',
           },
           followUp: 'neutral',
@@ -189,7 +189,7 @@ export const GROUP_K: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他跳過來或用動力箭步穿過，投射物的收招被抓就是完整連段。',
-            en: 'He jumps it or Drive Rushes through, and the recovery is a full combo.',
+            en: 'They jump it or Drive Rush through, and the recovery is a full combo.',
             ja: '跳ばれるかドライブラッシュで抜けられ、硬直をフルコンボで狩られる。',
           },
           hpLoss: '25-40%',
@@ -212,7 +212,7 @@ export const GROUP_K: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '跳過去不出招，落地摔或打下段。他的對空會落空，防禦也擋不住摔。',
-            en: 'Jump without attacking and throw or go low on landing: his anti-air whiffs and blocking does not stop the throw.',
+            en: 'Jump without attacking and throw or go low on landing: their anti-air whiffs and blocking does not stop the throw.',
             ja: '技を出さずに跳び、着地から投げか下段。相手の対空は空振りし、ガードでは投げを防げない。',
           },
           followUp: 'combo',
@@ -221,7 +221,7 @@ export const GROUP_K: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他還是對空抓到你，或是落地被牽制招打斷。',
-            en: 'He anti-airs you anyway, or a poke catches you on landing.',
+            en: 'They anti-air you anyway, or a poke catches you on landing.',
             ja: '対空されるか、着地を牽制に潰される。',
           },
           hpLoss: '25-40%',
@@ -260,7 +260,7 @@ export const GROUP_K: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '用衝刺快速縮短距離，把對手推向他不想要的近身戰。',
-            en: 'Dash to cut the distance and force him into the close range he did not want.',
+            en: 'Dash to cut the distance and force them into the close range they did not want.',
             ja: 'ダッシュで距離を詰め、相手が望まない近距離戦を強要する。',
           },
           followUp: 'pressure',
@@ -285,7 +285,7 @@ export const GROUP_K: Situation[] = [
         verified: 'estimated',
         notes: {
           'zh-Hant': '最便宜的接近手段，代價是最容易被牽制招擋下來。對手一直伸手的時候換確反比較划算。',
-          en: 'The cheapest way in, and the easiest to stuff with a poke. If he keeps sticking a limb out, whiff punishing pays better.',
+          en: 'The cheapest way in, and the easiest to stuff with a poke. If they keep sticking a limb out, whiff punishing pays better.',
           ja: '最も安価な接近手段だが、牽制に最も潰されやすい。相手が手を出し続けるなら確反の方が割が良い。',
         },
       },
@@ -305,7 +305,7 @@ export const GROUP_K: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '被對空或牽制招擋下來，一格就這樣沒了，而且你人還留在他面前。',
-            en: 'Anti-aired or stuffed by a poke, the bar is gone and you are standing in front of him.',
+            en: 'Anti-aired or stuffed by a poke, the bar is gone and you are standing in front of them.',
             ja: '対空や牽制に止められればゲージを失い、しかも相手の目の前に残される。',
           },
           hpLoss: '30-45%',
@@ -367,7 +367,7 @@ export const GROUP_K: Situation[] = [
         verified: 'estimated',
         notes: {
           'zh-Hant': '對手每對空成功一次，跳的價值就下降一階。看到他對空穩之後改用地面接近。',
-          en: 'Every anti-air he lands drops the value of jumping a tier. Once he is anti-airing consistently, come in on the ground.',
+          en: 'Every anti-air they land drops the value of jumping a tier. Once they are anti-airing consistently, come in on the ground.',
           ja: '対空を通されるたびに跳ぶ価値は一段下がる。相手の対空が安定してきたら地上から入る。',
         },
       },
@@ -378,7 +378,7 @@ export const GROUP_K: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '用長手招控制他的移動，逼他退或逼他跳。牽制不是為了傷害，是為了限制他的選項。',
-            en: 'Control his movement with a long normal, forcing him back or into the air. A poke is not for damage, it is for taking his options away.',
+            en: 'Control their movement with a long normal, forcing them back or into the air. A poke is not for damage, it is for taking their options away.',
             ja: '長い技で相手の動きを制限し、下がるか跳ぶかを強要する。牽制はダメージではなく択を削るためのもの。',
           },
           followUp: 'neutral',
@@ -396,7 +396,7 @@ export const GROUP_K: Situation[] = [
         versus: [
           { vs: 'walk-back', outcome: 'even' },
           { vs: 'poke', outcome: 'even' },
-          { vs: 'projectile', outcome: 'win' },
+          { vs: 'projectile', outcome: 'loss' },
           { vs: 'whiff-punish', outcome: 'bigLoss' },
           { vs: 'drive-parry', outcome: 'loss' },
         ],
@@ -418,7 +418,7 @@ export const GROUP_K: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他跳過來或用動力箭步穿過，投射物的收招被抓就是完整連段。',
-            en: 'He jumps it or Drive Rushes through, and the recovery is a full combo.',
+            en: 'They jump it or Drive Rush through, and the recovery is a full combo.',
             ja: '跳ばれるかドライブラッシュで抜けられ、硬直をフルコンボで狩られる。',
           },
           hpLoss: '25-40%',
@@ -435,7 +435,7 @@ export const GROUP_K: Situation[] = [
         verified: 'estimated',
         notes: {
           'zh-Hant': '中距離丟投射物風險高得多 —— 他要跑的距離短，跳過來直接接連段。',
-          en: 'Far riskier at mid range: he has less ground to cover, so a jump converts straight into a combo.',
+          en: 'Far riskier at mid range: they have less ground to cover, so a jump converts straight into a combo.',
           ja: '中距離での飛び道具はリスクが高い。距離が短いぶん跳ばれればそのままコンボになる。',
         },
       },
@@ -446,7 +446,7 @@ export const GROUP_K: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '跳過去不出招，落地摔或打下段。他的對空會落空，防禦也擋不住摔。',
-            en: 'Jump without attacking and throw or go low on landing: his anti-air whiffs and blocking does not stop the throw.',
+            en: 'Jump without attacking and throw or go low on landing: their anti-air whiffs and blocking does not stop the throw.',
             ja: '技を出さずに跳び、着地から投げか下段。相手の対空は空振りし、ガードでは投げを防げない。',
           },
           followUp: 'combo',
@@ -455,7 +455,7 @@ export const GROUP_K: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他還是對空抓到你，或是落地被牽制招打斷。',
-            en: 'He anti-airs you anyway, or a poke catches you on landing.',
+            en: 'They anti-air you anyway, or a poke catches you on landing.',
             ja: '対空されるか、着地を牽制に潰される。',
           },
           hpLoss: '25-40%',

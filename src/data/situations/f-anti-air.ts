@@ -48,7 +48,7 @@ export const GROUP_F: Situation[] = [
         },
         versus: [
           { vs: 'jump-in', outcome: 'bigWin' },
-          { vs: 'empty-jump', outcome: 'loss' },
+          { vs: 'empty-jump', outcome: 'win' },
           { vs: 'air-throw', outcome: 'win' },
         ],
         mixRatio: '40-50%',
@@ -262,7 +262,7 @@ export const GROUP_F: Situation[] = [
         },
         versus: [
           { vs: 'jump-in', outcome: 'bigWin' },
-          { vs: 'empty-jump', outcome: 'loss' },
+          { vs: 'empty-jump', outcome: 'win' },
           { vs: 'air-throw', outcome: 'win' },
         ],
         mixRatio: '25-35%',

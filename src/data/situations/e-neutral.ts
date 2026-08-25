@@ -116,7 +116,7 @@ export const GROUP_E: Situation[] = [
         versus: [
           { vs: 'poke', outcome: 'bigWin' },
           { vs: 'projectile', outcome: 'win' },
-          { vs: 'dash-in', outcome: 'loss' },
+          { vs: 'dash-in', outcome: 'win' },
           { vs: 'jump-in', outcome: 'loss' },
           { vs: 'whiff-punish', outcome: 'even' },
         ],
@@ -394,7 +394,7 @@ export const GROUP_E: Situation[] = [
         versus: [
           { vs: 'poke', outcome: 'bigWin' },
           { vs: 'projectile', outcome: 'win' },
-          { vs: 'dash-in', outcome: 'loss' },
+          { vs: 'dash-in', outcome: 'win' },
           { vs: 'jump-in', outcome: 'loss' },
           { vs: 'whiff-punish', outcome: 'even' },
         ],

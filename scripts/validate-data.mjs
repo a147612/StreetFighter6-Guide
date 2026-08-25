@@ -170,6 +170,53 @@ for (const situation of SITUATIONS) {
   }
 }
 
+/* ── Rule 3, across groups ────────────────────────────────────────────
+   `counteredBy` keeps one evaluation from contradicting itself. Nothing kept
+   the *other* authoring of the same interaction honest: every pairing is
+   written once from the defender's seat in A–H and again from the attacker's
+   in I–K, and eight of them ended up saying both players win, or both lose.
+
+   Only the sign is checked. Rule 2 says the grade belongs to the situation, so
+   `win` here and `even` there is real content — a shimmy is worth more midscreen
+   than cornered. Both seats winning is not a judgement call, it is arithmetic.
+
+   Two interactions are legitimately order-dependent and say so in a note, which
+   is what `note` exempts: Drive Impact against Drive Impact (the later one
+   wins, so who is "the attacker" flips by situation), and Drive Reversal, whose
+   blockstun and wakeup versions differ in whether the option exists at all. */
+
+const sign = (outcome) =>
+  outcome === 'bigWin' || outcome === 'win' ? 1 : outcome === 'bigLoss' || outcome === 'loss' ? -1 : 0
+
+const fromOffense = new Map()
+const fromDefense = new Map()
+for (const situation of SITUATIONS) {
+  for (const evaluation of situation.evaluations) {
+    for (const entry of evaluation.versus) {
+      const attacker = situation.side === 'offense' ? evaluation.optionId : entry.vs
+      const defender = situation.side === 'offense' ? entry.vs : evaluation.optionId
+      const bag = situation.side === 'offense' ? fromOffense : fromDefense
+      const key = `${attacker}|${defender}`
+      if (!bag.has(key)) bag.set(key, [])
+      bag.get(key).push({ id: situation.id, outcome: entry.outcome, excused: Boolean(entry.note) })
+    }
+  }
+}
+for (const [key, attacks] of fromOffense) {
+  for (const a of attacks) {
+    for (const d of fromDefense.get(key) ?? []) {
+      if (a.excused || d.excused) continue
+      if (sign(a.outcome) !== 0 && sign(a.outcome) === sign(d.outcome)) {
+        errors.push(
+          `"${key}" is graded from both seats and both win: ` +
+            `${a.id} says the attacker gets "${a.outcome}", ` +
+            `${d.id} says the defender gets "${d.outcome}"`,
+        )
+      }
+    }
+  }
+}
+
 /* ── Characters ──────────────────────────────────────────────────── */
 
 const characterIds = new Set()

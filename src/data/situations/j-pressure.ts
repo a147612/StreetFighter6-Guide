@@ -3,8 +3,8 @@ import type { Situation } from '../schema'
 /**
  * Group J — pressure, by what the defender can still spend.
  *
- * The axis is his Drive, not your position, because that is what removes
- * options from his side of the table. Notice the columns shrink as the group
+ * The axis is their Drive, not your position, because that is what removes
+ * options from their side of the table. Notice the columns shrink as the group
  * goes on: a defender in Burnout simply does not have Parry, Reversal or Impact
  * to answer with, and the matrix says so by not listing them.
  *
@@ -17,7 +17,7 @@ export const GROUP_J: Situation[] = [
     group: 'J',
     name: {
       'zh-Hant': '對手動力槽充足',
-      en: 'He has Drive to spend',
+      en: 'They have Drive to spend',
       ja: '相手のドライブに余裕がある',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
@@ -32,7 +32,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '接得起來的連段，逼他一直防禦。他每擋一下都在掉動力槽，你是在買他的資源。',
-            en: 'A connected string that keeps him blocking. Every block spends his Drive; you are buying his resources.',
+            en: 'A connected string that keeps them blocking. Every block spends their Drive; you are buying their resources.',
             ja: '繋がる連係でガードを強要する。ガードのたびに相手のドライブが減り、資源を削っていることになる。',
           },
           followUp: 'pressure',
@@ -128,7 +128,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '在連段的空隙延遲出招，正好打中他的解摔或速點 —— counter hit 接完整連段。',
-            en: 'Delay into the gap so it lands on his tech or his mash — counter hit into a full combo.',
+            en: 'Delay into the gap so it lands on their tech or their mash — counter hit into a full combo.',
             ja: '連係の隙間で遅らせて出し、投げ抜けや暴れに重ねる。カウンターヒットからフルコンボ。',
           },
           followUp: 'combo',
@@ -137,7 +137,7 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '對手純防禦，你的延遲打擊只是被擋，而且比接好的連段更不利。',
-            en: 'He just blocked, so the delayed strike is only blocked — and less plus than a clean string.',
+            en: 'They just blocked, so the delayed strike is only blocked — and less plus than a clean string.',
             ja: '素直にガードされれば遅らせた打撃はガードされるだけで、繋げた連係より不利になる。',
           },
           hpLoss: '25-40%',
@@ -225,8 +225,8 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他沒解摔，你退開時無防備，被速點或無敵技抓到。',
-            en: 'He did not tech, and your walk-back is exposed to a mash or a reversal.',
-            ja: '相手が抜けず、下がって無防備な部分を暴れや無敵技に狩られる。',
+            en: 'They did not tech, they just pressed — walking back does not reach their mash, and you eat it instead.',
+            ja: '相手が投げ抜けではなくボタンを押した場合、下がった分だけ暴れに届かず、こちらが食らう側になる。',
           },
           hpLoss: '25-40%',
           driveLoss: 0,
@@ -260,7 +260,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '霸體吃下他的反抗再撞飛。靠牆就是撞牆接完整連段，尤其他力盡的時候擋住也會暈。',
-            en: 'Armour through his answer and launch. Near a wall it is a wall splat into a full combo — and if he is burnt out it stuns even on block.',
+            en: 'Armour through their answer and launch. Near a wall it is a wall splat into a full combo — and if they are burnt out it stuns even on block.',
             ja: 'アーマーで相手の抵抗を受けて打ち上げる。壁が近ければ壁やられからフルコンボ。相手がバーンアウト中ならガードしてもスタンする。',
           },
           followUp: 'combo',
@@ -269,7 +269,7 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他用自己的動力衝擊撞回來，或是直接摔你 —— 霸體防不住摔投。',
-            en: 'He impacts back, or simply throws you — armour does not stop throws.',
+            en: 'They impact back, or simply throw you — armour does not stop throws.',
             ja: '相手のDIで返されるか、単に投げられる。アーマーは投げを防げない。',
           },
           hpLoss: '30-50%',
@@ -315,7 +315,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '停下來防禦，等他的動力反攻、速點或無敵技落空，再打最大懲罰。',
-            en: 'Stop and block, waiting for his Drive Reversal, mash or reversal to whiff, then take the maximum punish.',
+            en: 'Stop and block, waiting for their Drive Reversal, mash or reversal to whiff, then take the maximum punish.',
             ja: '攻めを止めてガードし、リバーサルや暴れ、無敵技の空振りを待って最大反撃を入れる。',
           },
           followUp: 'combo',
@@ -324,7 +324,7 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他也什麼都沒做，你放掉了一次壓制機會。',
-            en: 'He did nothing either, and you gave up a turn of pressure.',
+            en: 'They did nothing either, and you gave up a turn of pressure.',
             ja: '相手も何もせず、攻めのターンを一度手放すことになる。',
           },
           hpLoss: '5%',
@@ -359,7 +359,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '花一格用動力箭步把攻擊送得更快更有利，同時逼他繼續消耗動力槽防禦。',
-            en: 'Spend a bar to deliver the attack faster and more plus, and keep him spending Drive to block it.',
+            en: 'Spend a bar to deliver the attack faster and more plus, and keep them spending Drive to block it.',
             ja: '1ゲージ使って攻撃をより速く有利に届け、相手にドライブを消費させ続ける。',
           },
           followUp: 'pressure',
@@ -367,7 +367,7 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他撥擋成功就回了動力槽，你花的一格反而變成他的資源。',
-            en: 'A successful parry returns his Drive: the bar you spent becomes his resource.',
+            en: 'A successful parry returns their Drive: the bar you spent becomes theirs.',
             ja: 'パリィされれば相手のドライブが回復し、消費した1ゲージが相手の資源に変わる。',
           },
           hpLoss: '25-40%',
@@ -391,7 +391,7 @@ export const GROUP_J: Situation[] = [
         ],
         notes: {
           'zh-Hant': '這是資源競賽 —— 你花一格逼他花更多。他動力槽越低，這一手越划算。',
-          en: 'This is a resource race: you spend one bar to make him spend more. The lower his gauge, the better the trade.',
+          en: 'This is a resource race: you spend one bar to make them spend more. The lower their gauge, the better the trade.',
           ja: '資源の削り合い。1ゲージ払って相手により多く払わせる。相手のゲージが低いほど割が良い。',
         },
       },
@@ -403,7 +403,7 @@ export const GROUP_J: Situation[] = [
     group: 'J',
     name: {
       'zh-Hant': '對手動力槽見底',
-      en: 'He is nearly out',
+      en: 'They are nearly out',
       ja: '相手のドライブが残り僅か',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
@@ -418,7 +418,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '接得起來的連段，逼他一直防禦。他每擋一下都在掉動力槽，你是在買他的資源。',
-            en: 'A connected string that keeps him blocking. Every block spends his Drive; you are buying his resources.',
+            en: 'A connected string that keeps them blocking. Every block spends their Drive; you are buying their resources.',
             ja: '繋がる連係でガードを強要する。ガードのたびに相手のドライブが減り、資源を削っていることになる。',
           },
           followUp: 'pressure',
@@ -513,7 +513,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '在連段的空隙延遲出招，正好打中他的解摔或速點 —— counter hit 接完整連段。',
-            en: 'Delay into the gap so it lands on his tech or his mash — counter hit into a full combo.',
+            en: 'Delay into the gap so it lands on their tech or their mash — counter hit into a full combo.',
             ja: '連係の隙間で遅らせて出し、投げ抜けや暴れに重ねる。カウンターヒットからフルコンボ。',
           },
           followUp: 'combo',
@@ -522,7 +522,7 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '對手純防禦，你的延遲打擊只是被擋，而且比接好的連段更不利。',
-            en: 'He just blocked, so the delayed strike is only blocked — and less plus than a clean string.',
+            en: 'They just blocked, so the delayed strike is only blocked — and less plus than a clean string.',
             ja: '素直にガードされれば遅らせた打撃はガードされるだけで、繋げた連係より不利になる。',
           },
           hpLoss: '25-40%',
@@ -610,8 +610,8 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他沒解摔，你退開時無防備，被速點或無敵技抓到。',
-            en: 'He did not tech, and your walk-back is exposed to a mash or a reversal.',
-            ja: '相手が抜けず、下がって無防備な部分を暴れや無敵技に狩られる。',
+            en: 'They did not tech, they just pressed — walking back does not reach their mash, and you eat it instead.',
+            ja: '相手が投げ抜けではなくボタンを押した場合、下がった分だけ暴れに届かず、こちらが食らう側になる。',
           },
           hpLoss: '25-40%',
           driveLoss: 0,
@@ -621,7 +621,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'do-nothing', outcome: 'even' },
           { vs: 'drive-parry', outcome: 'even' },
           { vs: 'mash-light', outcome: 'loss' },
-          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'reversal', outcome: 'bigWin' },
         ],
         mixRatio: '10-15%',
         verified: 'sourced',
@@ -645,7 +645,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '霸體吃下他的反抗再撞飛。靠牆就是撞牆接完整連段，尤其他力盡的時候擋住也會暈。',
-            en: 'Armour through his answer and launch. Near a wall it is a wall splat into a full combo — and if he is burnt out it stuns even on block.',
+            en: 'Armour through their answer and launch. Near a wall it is a wall splat into a full combo — and if they are burnt out it stuns even on block.',
             ja: 'アーマーで相手の抵抗を受けて打ち上げる。壁が近ければ壁やられからフルコンボ。相手がバーンアウト中ならガードしてもスタンする。',
           },
           followUp: 'combo',
@@ -654,7 +654,7 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他用自己的動力衝擊撞回來，或是直接摔你 —— 霸體防不住摔投。',
-            en: 'He impacts back, or simply throws you — armour does not stop throws.',
+            en: 'They impact back, or simply throw you — armour does not stop throws.',
             ja: '相手のDIで返されるか、単に投げられる。アーマーは投げを防げない。',
           },
           hpLoss: '30-50%',
@@ -691,7 +691,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '停下來防禦，等他的動力反攻、速點或無敵技落空，再打最大懲罰。',
-            en: 'Stop and block, waiting for his Drive Reversal, mash or reversal to whiff, then take the maximum punish.',
+            en: 'Stop and block, waiting for their Drive Reversal, mash or reversal to whiff, then take the maximum punish.',
             ja: '攻めを止めてガードし、リバーサルや暴れ、無敵技の空振りを待って最大反撃を入れる。',
           },
           followUp: 'combo',
@@ -700,7 +700,7 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他也什麼都沒做，你放掉了一次壓制機會。',
-            en: 'He did nothing either, and you gave up a turn of pressure.',
+            en: 'They did nothing either, and you gave up a turn of pressure.',
             ja: '相手も何もせず、攻めのターンを一度手放すことになる。',
           },
           hpLoss: '5%',
@@ -735,7 +735,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '花一格用動力箭步把攻擊送得更快更有利，同時逼他繼續消耗動力槽防禦。',
-            en: 'Spend a bar to deliver the attack faster and more plus, and keep him spending Drive to block it.',
+            en: 'Spend a bar to deliver the attack faster and more plus, and keep them spending Drive to block it.',
             ja: '1ゲージ使って攻撃をより速く有利に届け、相手にドライブを消費させ続ける。',
           },
           followUp: 'pressure',
@@ -743,7 +743,7 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他撥擋成功就回了動力槽，你花的一格反而變成他的資源。',
-            en: 'A successful parry returns his Drive: the bar you spent becomes his resource.',
+            en: 'A successful parry returns their Drive: the bar you spent becomes theirs.',
             ja: 'パリィされれば相手のドライブが回復し、消費した1ゲージが相手の資源に変わる。',
           },
           hpLoss: '25-40%',
@@ -767,7 +767,7 @@ export const GROUP_J: Situation[] = [
         ],
         notes: {
           'zh-Hant': '這是資源競賽 —— 你花一格逼他花更多。他動力槽越低，這一手越划算。',
-          en: 'This is a resource race: you spend one bar to make him spend more. The lower his gauge, the better the trade.',
+          en: 'This is a resource race: you spend one bar to make them spend more. The lower their gauge, the better the trade.',
           ja: '資源の削り合い。1ゲージ払って相手により多く払わせる。相手のゲージが低いほど割が良い。',
         },
       },
@@ -779,7 +779,7 @@ export const GROUP_J: Situation[] = [
     group: 'J',
     name: {
       'zh-Hant': '對手已力盡',
-      en: 'He is burnt out',
+      en: 'They are burnt out',
       ja: '相手がバーンアウト',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
@@ -795,7 +795,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '對手擋不掉的連段，逼他一直防禦並消耗動力槽。他已經力盡，防禦硬直每下多 4 frame，你的連係會直接沒有空隙。',
-            en: 'A string he cannot escape, forcing him to keep blocking. He is burnt out, so every block adds 4 frames — your strings simply stop having gaps.',
+            en: 'A string they cannot escape, forcing them to keep blocking. They are burnt out, so every block adds 4 frames — your strings simply stop having gaps.',
             ja: '抜けられない連係でガードを強要する。相手はバーンアウト中でガード硬直が1回4F増えるため、連係から隙間が消える。',
           },
           followUp: 'pressure',
@@ -893,7 +893,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '在連段的空隙延遲出招，正好打中他的解摔或速點 —— counter hit 接完整連段。',
-            en: 'Delay into the gap so it lands on his tech or his mash — counter hit into a full combo.',
+            en: 'Delay into the gap so it lands on their tech or their mash — counter hit into a full combo.',
             ja: '連係の隙間で遅らせて出し、投げ抜けや暴れに重ねる。カウンターヒットからフルコンボ。',
           },
           followUp: 'combo',
@@ -902,7 +902,7 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '對手純防禦，你的延遲打擊只是被擋，而且比接好的連段更不利。',
-            en: 'He just blocked, so the delayed strike is only blocked — and less plus than a clean string.',
+            en: 'They just blocked, so the delayed strike is only blocked — and less plus than a clean string.',
             ja: '素直にガードされれば遅らせた打撃はガードされるだけで、繋げた連係より不利になる。',
           },
           hpLoss: '25-40%',
@@ -988,8 +988,8 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他沒解摔，你退開時無防備，被速點或無敵技抓到。',
-            en: 'He did not tech, and your walk-back is exposed to a mash or a reversal.',
-            ja: '相手が抜けず、下がって無防備な部分を暴れや無敵技に狩られる。',
+            en: 'They did not tech, they just pressed — walking back does not reach their mash, and you eat it instead.',
+            ja: '相手が投げ抜けではなくボタンを押した場合、下がった分だけ暴れに届かず、こちらが食らう側になる。',
           },
           hpLoss: '25-40%',
           driveLoss: 0,
@@ -1022,7 +1022,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '霸體吃下他的反抗再撞飛。靠牆就是撞牆接完整連段，尤其他力盡的時候擋住也會暈。',
-            en: 'Armour through his answer and launch. Near a wall it is a wall splat into a full combo — and if he is burnt out it stuns even on block.',
+            en: 'Armour through their answer and launch. Near a wall it is a wall splat into a full combo — and if they are burnt out it stuns even on block.',
             ja: 'アーマーで相手の抵抗を受けて打ち上げる。壁が近ければ壁やられからフルコンボ。相手がバーンアウト中ならガードしてもスタンする。',
           },
           followUp: 'combo',
@@ -1031,7 +1031,7 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他用自己的動力衝擊撞回來，或是直接摔你 —— 霸體防不住摔投。',
-            en: 'He impacts back, or simply throws you — armour does not stop throws.',
+            en: 'They impact back, or simply throw you — armour does not stop throws.',
             ja: '相手のDIで返されるか、単に投げられる。アーマーは投げを防げない。',
           },
           hpLoss: '30-50%',
@@ -1062,7 +1062,7 @@ export const GROUP_J: Situation[] = [
         ],
         notes: {
           'zh-Hant': '對手力盡又在角落的時候，這是全遊戲期望值最高的一手 —— 他擋住也會被撞牆暈眩。',
-          en: 'With him burnt out and cornered this is the highest-expectation option in the game: the wall splat stuns him even through a block.',
+          en: 'With them burnt out and cornered this is the highest-expectation option in the game: the wall splat stuns them even through a block.',
           ja: '相手がバーンアウトかつ画面端の時、ゲーム中最も期待値の高い一手。ガードしていても壁やられからスタンする。',
         },
       },
@@ -1073,7 +1073,7 @@ export const GROUP_J: Situation[] = [
         onSuccess: {
           text: {
             'zh-Hant': '停下來防禦，等他的動力反攻、速點或無敵技落空，再打最大懲罰。',
-            en: 'Stop and block, waiting for his Drive Reversal, mash or reversal to whiff, then take the maximum punish.',
+            en: 'Stop and block, waiting for their Drive Reversal, mash or reversal to whiff, then take the maximum punish.',
             ja: '攻めを止めてガードし、リバーサルや暴れ、無敵技の空振りを待って最大反撃を入れる。',
           },
           followUp: 'combo',
@@ -1082,7 +1082,7 @@ export const GROUP_J: Situation[] = [
         onFail: {
           text: {
             'zh-Hant': '他也什麼都沒做，你放掉了一次壓制機會。',
-            en: 'He did nothing either, and you gave up a turn of pressure.',
+            en: 'They did nothing either, and you gave up a turn of pressure.',
             ja: '相手も何もせず、攻めのターンを一度手放すことになる。',
           },
           hpLoss: '5%',

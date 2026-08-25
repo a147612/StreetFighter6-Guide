@@ -47,7 +47,7 @@ export const GROUP_D: Situation[] = [
           driveLoss: 0,
         },
         versus: [
-          { vs: 'meaty', outcome: 'win' },
+          { vs: 'meaty', outcome: 'loss' },
           { vs: 'blockstring', outcome: 'even' },
           { vs: 'throw', outcome: 'loss' },
           { vs: 'low-overhead-mix', outcome: 'loss' },
@@ -333,7 +333,7 @@ export const GROUP_D: Situation[] = [
           driveLoss: 0,
         },
         versus: [
-          { vs: 'meaty', outcome: 'win' },
+          { vs: 'meaty', outcome: 'loss' },
           { vs: 'blockstring', outcome: 'even' },
           { vs: 'throw', outcome: 'loss' },
           { vs: 'low-overhead-mix', outcome: 'loss' },

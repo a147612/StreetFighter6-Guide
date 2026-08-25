@@ -146,7 +146,7 @@ export const GROUP_A: Situation[] = [
           driveLoss: 0,
         },
         versus: [
-          { vs: 'meaty', outcome: 'win' },
+          { vs: 'meaty', outcome: 'even' },
           { vs: 'throw', outcome: 'loss' },
           {
             vs: 'shimmy',
@@ -600,7 +600,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'meaty', outcome: 'bigWin' },
           { vs: 'throw', outcome: 'bigWin' },
           { vs: 'shimmy', outcome: 'bigLoss' },
-          { vs: 'delayed-attack', outcome: 'bigLoss' },
+          { vs: 'delayed-attack', outcome: 'bigWin' },
           {
             vs: 'bait-block',
             outcome: 'bigLoss',
@@ -755,7 +755,7 @@ export const GROUP_A: Situation[] = [
           driveLoss: 0,
         },
         versus: [
-          { vs: 'meaty', outcome: 'win' },
+          { vs: 'meaty', outcome: 'even' },
           { vs: 'throw', outcome: 'loss' },
           {
             vs: 'shimmy',
@@ -1209,7 +1209,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'meaty', outcome: 'bigWin' },
           { vs: 'throw', outcome: 'bigWin' },
           { vs: 'shimmy', outcome: 'bigLoss' },
-          { vs: 'delayed-attack', outcome: 'bigLoss' },
+          { vs: 'delayed-attack', outcome: 'bigWin' },
           {
             vs: 'bait-block',
             outcome: 'bigLoss',
@@ -1371,7 +1371,7 @@ export const GROUP_A: Situation[] = [
           driveLoss: 0,
         },
         versus: [
-          { vs: 'meaty', outcome: 'win' },
+          { vs: 'meaty', outcome: 'even' },
           { vs: 'throw', outcome: 'loss' },
           {
             vs: 'shimmy',
@@ -1870,7 +1870,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'meaty', outcome: 'bigWin' },
           { vs: 'throw', outcome: 'bigWin' },
           { vs: 'shimmy', outcome: 'bigLoss' },
-          { vs: 'delayed-attack', outcome: 'bigLoss' },
+          { vs: 'delayed-attack', outcome: 'bigWin' },
           {
             vs: 'bait-block',
             outcome: 'bigLoss',
