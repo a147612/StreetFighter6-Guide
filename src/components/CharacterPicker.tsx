@@ -1,17 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { GlassPanel } from './glass/GlassPanel'
+import { CharacterFace } from './viz/CharacterFace'
 import { CHARACTERS, getCharacter } from '~/data'
-import { characterColor, characterMonogram, OWN_PORTRAITS } from '~/data/characters/portraits'
 import type { CharacterOverlay } from '~/data/schema'
 import { characterStore, useCharacter } from '~/lib/prefs'
 import { useT } from '~/i18n/useT'
 
 /**
- * A character's tile.
+ * A character's tile: a drawn face, self-authored — see CharacterFace.
  *
- * Self-authored: a signature colour and a monogram, never official art. If the
- * owner drops their own captures into `public/portraits/` and lists the id in
- * `OWN_PORTRAITS`, that image takes over and everything else stays the same.
+ * If the owner puts their own captures in `public/portraits/` and lists the id
+ * in `OWN_PORTRAITS`, that image takes over and nothing else changes.
  */
 export function CharacterAvatar({
   id,
@@ -22,22 +21,9 @@ export function CharacterAvatar({
   name: string
   size?: 'sm' | 'md'
 }) {
-  const color = characterColor(id)
-  const portrait = OWN_PORTRAITS.includes(id)
-    ? `${import.meta.env.BASE_URL}portraits/${id}.webp`
-    : null
-
   return (
-    <span
-      className={`avatar avatar--${size}`}
-      style={{ '--avatar-color': color } as React.CSSProperties}
-      aria-hidden="true"
-    >
-      {portrait ? (
-        <img src={portrait} alt="" loading="lazy" />
-      ) : (
-        <span className="avatar__mono">{characterMonogram(id, name)}</span>
-      )}
+    <span className={`avatar avatar--${size}`} aria-hidden="true">
+      <CharacterFace id={id} name={name} />
     </span>
   )
 }
@@ -179,7 +165,6 @@ export function CharacterPicker() {
                   ✱
                 </span>
                 <span className="chartile__name">{t.character.universal}</span>
-                <span className="chartile__stat small faint">{t.character.universalHint}</span>
               </button>
 
               {matches.map((character) => {
@@ -193,9 +178,8 @@ export function CharacterPicker() {
                     title={noReversal ? t.character.noReversal : undefined}
                   >
                     <CharacterAvatar id={character.id} name={text(character.name)} />
-                    <span className="chartile__name">{text(character.name)}</span>
-                    <span className="chartile__stat small faint mono">
-                      {character.health.toLocaleString()}
+                    <span className="chartile__name">
+                      {text(character.name)}
                       {noReversal && (
                         <span className="chartile__warn" aria-label={t.character.noReversal}>
                           {' '}

@@ -1,15 +1,14 @@
 /**
- * Visual identity for the character picker.
+ * Colour identity for the character picker.
  *
  * No CAPCOM assets, ever — the policy permits self-made derivative art and
  * forbids redistributing extracted in-game elements, so there are no official
- * portraits here and there never will be. What a picker actually has to do is
- * let you find one of thirty-one names at a glance, and a stable colour plus a
- * monogram does that: the tile you learned last week is in the same place, the
- * same colour, this week.
+ * portraits here and there never will be. The tiles are drawn instead; see
+ * components/viz/CharacterFace.tsx. These colours are the ground each drawing
+ * sits on, and the fallback identity for anyone not drawn yet.
  *
- * A colour is not an asset. These follow each character's costume closely
- * enough to be recognisable and are spread far enough apart in hue to stay
+ * A colour is not an asset. They follow each character's costume closely enough
+ * to be recognisable and are spread far enough apart in hue to stay
  * distinguishable at tile size.
  */
 
@@ -49,10 +48,11 @@ const COLORS: Record<string, string> = {
 }
 
 /**
- * Two letters, taken from the Latin name rather than the localised one: the
- * tile must not change shape when the reader changes language, or the position
- * they learned stops being worth anything. Hand-picked because the obvious
- * first-two-letters rule collides three ways (Mai / Manon / Marisa).
+ * The fallback for a character with no drawing yet. Two letters, taken from the
+ * Latin name rather than the localised one: the tile must not change shape when
+ * the reader changes language, or the position they learned stops being worth
+ * anything. Hand-picked because the obvious first-two-letters rule collides
+ * three ways (Mai / Manon / Marisa).
  */
 const MONOGRAMS: Record<string, string> = {
   ryu: 'RY',

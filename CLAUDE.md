@@ -47,10 +47,14 @@ derived from `versus`, never authored, so the two cannot disagree.
   `origin` (the English term) and `hint` (one plain sentence), because the
   vocabulary travels as loanwords and "meaty" often identifies the thing faster
   than any translation.
-- **No CAPCOM assets, ever.** Diagrams are self-authored SVG. Capcom's policy
-  explicitly forbids redistributing extracted in-game elements and permits
-  self-made derivative art. There is an optional `screenshots` slot for the
-  owner's own annotated captures; nothing depends on it.
+- **No CAPCOM assets, ever.** Diagrams *and the 31 character portraits* are
+  self-authored SVG. Capcom's policy explicitly forbids redistributing extracted
+  in-game elements and permits self-made derivative art. The portraits in
+  `components/viz/CharacterFace.tsx` are drawn, deliberately — they are not
+  placeholders waiting to be swapped for real art. They work because the
+  silhouette does the identifying at tile size, not the face: mohawk, buns,
+  flat-top, eyepatch, cap, topknot. `OWN_PORTRAITS` is the one opt-in, for the
+  owner's own captures dropped into `public/portraits/`.
 
 ## Commands
 
