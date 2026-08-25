@@ -3,6 +3,7 @@ import { Topbar } from './components/Topbar'
 import { OptionTable } from './components/OptionTable'
 import { DefaultMix } from './components/viz/DefaultMix'
 import { CharacterPanel, CharacterSelect } from './components/CharacterPanel'
+import { StageDiagram } from './components/viz/StageDiagram'
 import { SearchOverlay } from './components/SearchOverlay'
 import type { SearchHit } from './lib/search'
 import { SituationNav } from './components/SituationNav'
@@ -59,9 +60,9 @@ const ROADMAP: RoadmapItem[] = [
   {
     state: 'planned',
     label: {
-      'zh-Hant': 'SVG 圖解：位置圖、frame 時間軸、決策流程',
-      en: 'SVG diagrams: position maps, frame timelines, decision flows',
-      ja: 'SVG 図解：位置図、フレーム時間軸、判断フロー',
+      'zh-Hant': 'SVG 圖解：場地位置圖（完成）、frame 時間軸、決策流程',
+      en: 'SVG diagrams: stage position (done), frame timelines, decision flows',
+      ja: 'SVG 図解：位置図（完了）、フレーム時間軸、判断フロー',
     },
   },
   {
@@ -233,10 +234,17 @@ export default function App() {
         {situation ? (
           <section className="stack" aria-labelledby="situation-heading">
             <div className="sithead">
-              <h2 id="situation-heading">{text(situation.name)}</h2>
-              <span className="sithead__where mono">
-                {situation.position.map((p) => t.position[p]).join(' / ')}
-              </span>
+              <StageDiagram
+                position={situation.position}
+                distance={situation.distance}
+                stance={situation.stance}
+              />
+              <div className="sithead__text">
+                <h2 id="situation-heading">{text(situation.name)}</h2>
+                <span className="sithead__where mono">
+                  {situation.position.map((p) => t.position[p]).join(' / ')}
+                </span>
+              </div>
             </div>
 
             <CharacterPanel />

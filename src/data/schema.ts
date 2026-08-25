@@ -53,6 +53,12 @@ export type FollowUp =
 
 export type Position = 'midscreen' | 'nearCorner' | 'cornered'
 
+/** How far apart the two of you are. Drives the stage diagram. */
+export type Distance = 'pointBlank' | 'close' | 'mid' | 'long'
+
+/** Who is on the floor, which is what the diagram draws differently. */
+export type Stance = 'iAmDown' | 'theyAreDown' | 'neutral'
+
 /**
  * What kind of answer this is. Drives grouping in the table: a reader comparing
  * "should I tech or delay-tech" wants those two adjacent, not separated by a
@@ -239,6 +245,9 @@ export interface Situation {
   group: string
   name: I18nText
   position: Position[]
+  /** For the stage diagram; defaults to point blank and both standing. */
+  distance?: Distance
+  stance?: Stance
   /** Offensive situations only. */
   knockdownType?: KnockdownType
   /** Your own drive bands where this situation reads differently. */

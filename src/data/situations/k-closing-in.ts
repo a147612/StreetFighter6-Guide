@@ -20,6 +20,8 @@ export const GROUP_K: Situation[] = [
       ja: '遠距離から詰める',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'long',
+    stance: 'neutral',
     opponentOptions: ['walk-back', 'poke', 'projectile', 'whiff-punish', 'anti-air', 'drive-parry'],
     evaluations: [
       {
@@ -235,6 +237,8 @@ export const GROUP_K: Situation[] = [
       ja: '中距離で攻める',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'mid',
+    stance: 'neutral',
     opponentOptions: ['walk-back', 'poke', 'projectile', 'whiff-punish', 'anti-air', 'drive-parry'],
     evaluations: [
       {

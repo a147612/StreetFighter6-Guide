@@ -21,6 +21,8 @@ export const GROUP_G: Situation[] = [
       ja: '画面中央でのDI',
     },
     position: ['midscreen'],
+    distance: 'close',
+    stance: 'neutral',
     opponentOptions: ['drive-impact', 'blockstring', 'throw', 'poke'],
     evaluations: [
       {
@@ -244,6 +246,8 @@ export const GROUP_G: Situation[] = [
       ja: '画面端でのDI',
     },
     position: ['cornered'],
+    distance: 'close',
+    stance: 'neutral',
     opponentOptions: ['drive-impact', 'blockstring', 'throw', 'poke'],
     evaluations: [
       {

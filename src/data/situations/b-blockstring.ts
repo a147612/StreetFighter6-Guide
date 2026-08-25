@@ -21,6 +21,8 @@ export const GROUP_B: Situation[] = [
       ja: '画面中央で攻められている',
     },
     position: ['midscreen'],
+    distance: 'pointBlank',
+    stance: 'neutral',
     opponentOptions: ['blockstring', 'delayed-attack', 'throw', 'low-overhead-mix', 'bait-block', 'drive-impact'],
     evaluations: [
       {
@@ -349,6 +351,8 @@ export const GROUP_B: Situation[] = [
       ja: '画面端寄りで攻められている',
     },
     position: ['nearCorner'],
+    distance: 'pointBlank',
+    stance: 'neutral',
     opponentOptions: ['blockstring', 'delayed-attack', 'throw', 'low-overhead-mix', 'bait-block', 'drive-impact'],
     evaluations: [
       {
@@ -677,6 +681,8 @@ export const GROUP_B: Situation[] = [
       ja: '画面端で攻められている',
     },
     position: ['cornered'],
+    distance: 'pointBlank',
+    stance: 'neutral',
     opponentOptions: ['blockstring', 'delayed-attack', 'throw', 'low-overhead-mix', 'bait-block', 'drive-impact'],
     evaluations: [
       {

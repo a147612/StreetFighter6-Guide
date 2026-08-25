@@ -20,6 +20,8 @@ export const GROUP_C: Situation[] = [
       ja: '相手が有利（ガード直後）',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'pointBlank',
+    stance: 'neutral',
     opponentOptions: ['throw', 'shimmy', 'low-overhead-mix', 'poke', 'bait-block', 'dash-in'],
     evaluations: [
       {
@@ -318,6 +320,8 @@ export const GROUP_C: Situation[] = [
       ja: '五分の至近距離',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'close',
+    stance: 'neutral',
     opponentOptions: ['throw', 'shimmy', 'low-overhead-mix', 'poke', 'bait-block', 'dash-in'],
     evaluations: [
       {

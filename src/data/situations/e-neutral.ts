@@ -20,6 +20,8 @@ export const GROUP_E: Situation[] = [
       ja: '遠距離',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'long',
+    stance: 'neutral',
     opponentOptions: ['projectile', 'poke', 'dash-in', 'jump-in', 'whiff-punish'],
     evaluations: [
       {
@@ -277,6 +279,8 @@ export const GROUP_E: Situation[] = [
       ja: '中距離',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'mid',
+    stance: 'neutral',
     opponentOptions: ['projectile', 'poke', 'dash-in', 'jump-in', 'whiff-punish'],
     evaluations: [
       {

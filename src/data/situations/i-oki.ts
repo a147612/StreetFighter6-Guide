@@ -23,6 +23,8 @@ export const GROUP_I: Situation[] = [
       ja: '投げでダウンを取った後',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'pointBlank',
+    stance: 'theyAreDown',
     opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal', 'backdash'],
     evaluations: [
       {
@@ -317,6 +319,8 @@ export const GROUP_I: Situation[] = [
       ja: 'ハードダウンを取った後',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'pointBlank',
+    stance: 'theyAreDown',
     opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal', 'backdash'],
     evaluations: [
       {
@@ -616,6 +620,8 @@ export const GROUP_I: Situation[] = [
       ja: '通常ダウンを取った後',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'pointBlank',
+    stance: 'theyAreDown',
     opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal', 'backdash'],
     evaluations: [
       {

@@ -1584,3 +1584,65 @@ html[data-theme='dark'] .notation__btn--h {
     width: 100%;
   }
 }
+
+/* ── Stage diagram ───────────────────────────────────────────────────
+   Schematic on purpose: relative position is the only information here, and
+   anything more detailed would be both wrong and someone else's artwork. */
+.sithead {
+  align-items: center;
+}
+
+.sithead__text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+}
+
+.stage {
+  flex: none;
+  width: 12.5rem;
+  height: auto;
+}
+
+.stage__ground {
+  fill: var(--surface-sunken);
+  stroke: var(--border);
+}
+
+.stage__wall {
+  fill: color-mix(in srgb, var(--text) 14%, transparent);
+}
+
+/* The wall you are backed against is the situation, so it reads louder. */
+.stage__wall--live {
+  fill: var(--risk-extreme);
+  opacity: 0.55;
+}
+
+.stage__gap {
+  stroke: var(--text-faint);
+  stroke-width: 1;
+  stroke-dasharray: 2 2;
+}
+
+.stage__fig--mine {
+  fill: var(--accent);
+}
+
+.stage__fig--theirs {
+  fill: var(--text-muted);
+}
+
+.stage__label {
+  fill: var(--text-faint);
+  font-size: 10px;
+  font-family: var(--font-sans);
+  text-anchor: middle;
+}
+
+@media (max-width: 30rem) {
+  .stage {
+    width: 10.5rem;
+  }
+}

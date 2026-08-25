@@ -21,6 +21,8 @@ export const GROUP_A: Situation[] = [
       ja: '画面中央でダウン',
     },
     position: ['midscreen'],
+    distance: 'pointBlank',
+    stance: 'iAmDown',
     opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
     evaluations: [
       {
@@ -472,6 +474,8 @@ export const GROUP_A: Situation[] = [
       ja: '画面端寄りでダウン',
     },
     position: ['nearCorner'],
+    distance: 'pointBlank',
+    stance: 'iAmDown',
     opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
     evaluations: [
       {
@@ -923,6 +927,8 @@ export const GROUP_A: Situation[] = [
       ja: '画面端でダウン',
     },
     position: ['cornered'],
+    distance: 'pointBlank',
+    stance: 'iAmDown',
     opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
     evaluations: [
       {

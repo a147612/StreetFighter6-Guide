@@ -21,6 +21,8 @@ export const GROUP_J: Situation[] = [
       ja: '相手のドライブに余裕がある',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'pointBlank',
+    stance: 'neutral',
     opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'drive-reversal', 'drive-impact', 'mash-light'],
     evaluations: [
       {
@@ -295,6 +297,8 @@ export const GROUP_J: Situation[] = [
       ja: '相手のドライブが残り僅か',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'pointBlank',
+    stance: 'neutral',
     opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal'],
     evaluations: [
       {
@@ -567,6 +571,8 @@ export const GROUP_J: Situation[] = [
       ja: '相手がバーンアウト',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'pointBlank',
+    stance: 'neutral',
     opponentOptions: ['do-nothing', 'delayed-tech', 'mash-light', 'reversal'],
     evaluations: [
       {

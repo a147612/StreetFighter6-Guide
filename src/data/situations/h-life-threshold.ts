@@ -21,6 +21,8 @@ export const GROUP_H: Situation[] = [
       ja: 'こちらがコンボ一発圏内',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'pointBlank',
+    stance: 'neutral',
     opponentOptions: ['meaty', 'throw', 'blockstring', 'bait-block', 'drive-impact'],
     evaluations: [
       {
@@ -206,6 +208,8 @@ export const GROUP_H: Situation[] = [
       ja: '相手がコンボ一発圏内',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'pointBlank',
+    stance: 'neutral',
     opponentOptions: ['meaty', 'throw', 'blockstring', 'bait-block', 'drive-impact'],
     evaluations: [
       {

@@ -71,6 +71,7 @@ export interface UiStrings {
   }
   mix: { heading: string; note: string }
   scale: { heading: string; body: string; source: string }
+  stage: { me: string; them: string; pointBlank: string; close: string; mid: string; long: string }
   character: {
     label: string
     universal: string
@@ -202,6 +203,7 @@ const zhHant: UiStrings = {
     invincibility: '無敵',
     cost: '消耗',
   },
+  stage: { me: '我', them: '對手', pointBlank: '貼身', close: '近距離', mid: '中距離', long: '遠距離' },
   scale: {
     heading: '數值怎麼讀',
     body:
@@ -345,6 +347,7 @@ const en: UiStrings = {
     invincibility: 'Invincibility',
     cost: 'Cost',
   },
+  stage: { me: 'You', them: 'Them', pointBlank: 'point blank', close: 'close', mid: 'mid range', long: 'long range' },
   scale: {
     heading: 'How to read the numbers',
     body:
@@ -489,6 +492,7 @@ const ja: UiStrings = {
     invincibility: '無敵',
     cost: '消費',
   },
+  stage: { me: '自分', them: '相手', pointBlank: '密着', close: '近距離', mid: '中距離', long: '遠距離' },
   scale: {
     heading: '数値の読み方',
     body:

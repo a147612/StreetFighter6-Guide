@@ -20,6 +20,8 @@ export const GROUP_F: Situation[] = [
       ja: '遠くから飛び込まれる',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'mid',
+    stance: 'neutral',
     opponentOptions: ['jump-in', 'empty-jump', 'air-throw'],
     evaluations: [
       {
@@ -186,6 +188,8 @@ export const GROUP_F: Situation[] = [
       ja: '密着から跳ばれる',
     },
     position: ['midscreen', 'nearCorner', 'cornered'],
+    distance: 'close',
+    stance: 'neutral',
     opponentOptions: ['jump-in', 'empty-jump', 'air-throw'],
     evaluations: [
       {

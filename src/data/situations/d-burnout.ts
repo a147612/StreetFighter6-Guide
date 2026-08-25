@@ -20,6 +20,8 @@ export const GROUP_D: Situation[] = [
       ja: 'バーンアウト・画面中央',
     },
     position: ['midscreen'],
+    distance: 'pointBlank',
+    stance: 'neutral',
     opponentOptions: ['meaty', 'blockstring', 'throw', 'low-overhead-mix', 'drive-impact', 'bait-block'],
     evaluations: [
       {
@@ -247,6 +249,8 @@ export const GROUP_D: Situation[] = [
       ja: 'バーンアウト・画面端',
     },
     position: ['cornered'],
+    distance: 'pointBlank',
+    stance: 'neutral',
     opponentOptions: ['meaty', 'blockstring', 'throw', 'low-overhead-mix', 'drive-impact', 'bait-block'],
     evaluations: [
       {
