@@ -99,7 +99,14 @@ export interface UiStrings {
     high: string
     extreme: string
   }
-  verified: { estimated: string; sourced: string; estimatedHint: string; sourcedHint: string }
+  verified: {
+    estimated: string
+    sourced: string
+    estimatedHint: string
+    sourcedHint: string
+    /** Prefixes a source's date. None of the sources state a game version. */
+    readOn: string
+  }
 
   option: {
     input: string
@@ -238,7 +245,8 @@ const zhHant: UiStrings = {
     estimated: '概念判斷',
     sourced: '已查證',
     estimatedHint: '定性判斷，未逐項查證 frame data 或精確傷害。用來理解決策方向，不要當精確數據引用。',
-    sourcedHint: '已對照外部資料來源並標註遊戲版本。',
+    sourcedHint: '已對照外部資料來源。沒有任何來源標註遊戲版本，所以記錄的是查閱日期。',
+    readOn: '查閱於',
   },
 
   option: {
@@ -389,7 +397,8 @@ const en: UiStrings = {
     sourced: 'Sourced',
     estimatedHint:
       'A qualitative read, not verified against frame data or exact damage. Use it to understand the decision, not to quote numbers.',
-    sourcedHint: 'Checked against an external source and tagged with the game version.',
+    sourcedHint: 'Checked against an external source. None of them state a game version, so what is recorded is the date it was read.',
+    readOn: 'read',
   },
 
   option: {
@@ -540,7 +549,8 @@ const ja: UiStrings = {
     sourced: '出典あり',
     estimatedHint:
       'フレームデータや正確なダメージ値は未検証の定性的な判断です。判断の方向性を掴む用途で、数値として引用しないでください。',
-    sourcedHint: '外部の出典と照合し、ゲームバージョンを明記しています。',
+    sourcedHint: '外部の出典と照合済み。どの出典もゲームバージョンを明記していないため、記録しているのは閲覧日です。',
+    readOn: '閲覧',
   },
 
   option: {

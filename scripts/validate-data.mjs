@@ -104,6 +104,18 @@ for (const situation of SITUATIONS) {
       if (!evaluation.sources || evaluation.sources.length === 0) {
         errors.push(`${where} marks "${evaluation.optionId}" sourced with no sources`)
       }
+      for (const source of evaluation.sources ?? []) {
+        // `patch` is rendered verbatim next to the link in every locale, so it
+        // is the one content field that cannot carry prose. It held
+        // "2026-08 查閱" for all 290 sources, which put Chinese in the English
+        // and Japanese citation lines; the wording lives in ui.ts now.
+        if (!/^[\x20-\x7E]*$/.test(source.patch)) {
+          errors.push(
+            `${where} / "${evaluation.optionId}" source patch "${source.patch}" ` +
+              `is not locale-neutral — it renders as-is in all three languages`,
+          )
+        }
+      }
     }
 
     if (seen.has(evaluation.optionId)) {
@@ -166,6 +178,33 @@ for (const situation of SITUATIONS) {
       // Already reported as an unknown option above.
     } else if (!evaluation.onFail.hpLoss.match(/\d/)) {
       warnings.push(`${where} / "${evaluation.optionId}" hpLoss has no number`)
+    }
+  }
+}
+
+/* ── The default-mix bar draws a proportion, so the numbers must be one ──
+   `DefaultMix` divides each share by the situation's total, so the bar always
+   fills its width whatever the authored bands add up to. They added up to
+   between 93% and 165%, which meant nineteen situations printed "30-40%" beside
+   a segment drawn at 21%. The picture and the caption have to agree, and the
+   only way to check that is here. */
+const midpoint = (value) => {
+  const numbers = (value.match(/\d+(?:\.\d+)?/g) ?? []).map(Number)
+  return numbers.length ? numbers.reduce((a, b) => a + b, 0) / numbers.length : 0
+}
+for (const situation of SITUATIONS) {
+  const axes = { timing: 0, action: 0 }
+  for (const evaluation of situation.evaluations) {
+    if (!evaluation.mixRatio) continue
+    const axis = optionCategory.get(evaluation.optionId) === 'timing' ? 'timing' : 'action'
+    axes[axis] += midpoint(evaluation.mixRatio)
+  }
+  for (const [axis, sum] of Object.entries(axes)) {
+    if (sum > 0 && (sum < 92 || sum > 108)) {
+      errors.push(
+        `situation "${situation.id}" ${axis}-axis mixRatio midpoints sum to ` +
+          `${sum.toFixed(0)}%, but the bar draws them as a proportion of 100%`,
+      )
     }
   }
 }

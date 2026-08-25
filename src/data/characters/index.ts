@@ -98,7 +98,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/ken',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -179,7 +179,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/cammy',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -260,7 +260,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/akuma',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -341,7 +341,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/luke',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -422,7 +422,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/ryu',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -503,7 +503,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/chunli',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -570,7 +570,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/guile',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -651,7 +651,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/juri',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -732,7 +732,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/sagat',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -813,7 +813,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/terry',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -894,7 +894,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/ed',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -961,7 +961,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/elena',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -1028,7 +1028,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/deejay',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -1109,7 +1109,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/jamie',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -1190,7 +1190,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/blanka',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -1271,7 +1271,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/rashid',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -1338,7 +1338,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/mai',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -1405,7 +1405,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/yasmine',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -1509,7 +1509,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/jp',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -1614,7 +1614,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/zangief',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -1718,7 +1718,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/ingrid',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -1809,7 +1809,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/manon',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -1872,7 +1872,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/aki',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -1963,7 +1963,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/alex',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -2054,7 +2054,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/cviper',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -2145,7 +2145,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/dhalsim',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -2236,7 +2236,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/ehonda',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -2327,7 +2327,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/kimberly',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -2432,7 +2432,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/lily',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -2509,7 +2509,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/mbison',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],
@@ -2586,7 +2586,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     sources: [
       {
         url: 'https://ultimateframedata.com/sf6/marisa',
-        patch: '2026-08 查閱',
+        patch: '2026-08',
         note: '無敵幀數、倒地有利格數與角色數值；來源未標註遊戲版本',
       },
     ],

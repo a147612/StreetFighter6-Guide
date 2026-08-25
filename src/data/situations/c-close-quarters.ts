@@ -53,12 +53,12 @@ export const GROUP_C: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
           { vs: 'dash-in', outcome: 'even' },
         ],
-        mixRatio: '30-40%',
+        mixRatio: '21-29%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 1,200 傷害 / 5F 發生 / 命中 +17，血量基準 10,000（Akuma 9,000～Zangief 11,000）',
           },
         ],
@@ -90,17 +90,17 @@ export const GROUP_C: Situation[] = [
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
         ],
-        mixRatio: '25-35%',
+        mixRatio: '18-25%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入 LP+LK，成功的一方回復一格動力槽。來源未標註遊戲版本',
           },
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔判定為 9 幀窗口，且該窗口內若輸入了會妨礙站立摔的動作就不成立 —— 這是延遲解摔無法做成 OS 的原因。來源未標註遊戲版本',
           },
         ],
@@ -140,17 +140,17 @@ export const GROUP_C: Situation[] = [
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '7-11%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
           },
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -183,7 +183,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'dash-in', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
         ],
-        mixRatio: '15-20%',
+        mixRatio: '11-14%',
         verified: 'estimated',
         notes: {
           'zh-Hant': '最被忽略的防摔手段。它不像解摔那樣有硬直，失敗時只是被打到而不是被重罰。',
@@ -218,17 +218,17 @@ export const GROUP_C: Situation[] = [
           { vs: 'poke', outcome: 'loss' },
           { vs: 'dash-in', outcome: 'loss' },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '4-7%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://www.hotspawn.com/street-fighter/guide/street-fighter-6-how-to-play-defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '後衝刺帶投擲無敵並實際拉開距離，因此對退康有效。來源未標註遊戲版本',
           },
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '各角色後衝刺總幀數（本站角色面板的 backdashFrames 即來自此）',
           },
         ],
@@ -261,12 +261,12 @@ export const GROUP_C: Situation[] = [
           { vs: 'low-overhead-mix', outcome: 'even' },
           { vs: 'dash-in', outcome: 'win' },
         ],
-        mixRatio: '15-20%',
+        mixRatio: '11-14%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -300,12 +300,12 @@ export const GROUP_C: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'dash-in', outcome: 'win' },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '4-7%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 5F / 輕拳 4F / 同格打擊優先，來源未標註遊戲版本',
           },
         ],
@@ -344,7 +344,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'dash-in', outcome: 'win' },
           { vs: 'bait-block', outcome: 'even' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '7-11%',
         verified: 'estimated',
         notes: {
           'zh-Hant': '要求你認得對手的招的距離與收招長度。難度高，但它是唯一「不冒險就有大回報」的選項。',
@@ -397,12 +397,12 @@ export const GROUP_C: Situation[] = [
           { vs: 'bait-block', outcome: 'even' },
           { vs: 'dash-in', outcome: 'even' },
         ],
-        mixRatio: '20-25%',
+        mixRatio: '15-18%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 1,200 傷害 / 5F 發生 / 命中 +17，血量基準 10,000（Akuma 9,000～Zangief 11,000）',
           },
         ],
@@ -434,17 +434,17 @@ export const GROUP_C: Situation[] = [
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
         ],
-        mixRatio: '25-35%',
+        mixRatio: '18-25%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入 LP+LK，成功的一方回復一格動力槽。來源未標註遊戲版本',
           },
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔判定為 9 幀窗口，且該窗口內若輸入了會妨礙站立摔的動作就不成立 —— 這是延遲解摔無法做成 OS 的原因。來源未標註遊戲版本',
           },
         ],
@@ -484,17 +484,17 @@ export const GROUP_C: Situation[] = [
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '7-11%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
           },
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -527,7 +527,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'dash-in', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
         ],
-        mixRatio: '15-20%',
+        mixRatio: '11-15%',
         verified: 'estimated',
         notes: {
           'zh-Hant': '最被忽略的防摔手段。它不像解摔那樣有硬直，失敗時只是被打到而不是被重罰。',
@@ -562,17 +562,17 @@ export const GROUP_C: Situation[] = [
           { vs: 'poke', outcome: 'loss' },
           { vs: 'dash-in', outcome: 'loss' },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '4-7%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://www.hotspawn.com/street-fighter/guide/street-fighter-6-how-to-play-defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '後衝刺帶投擲無敵並實際拉開距離，因此對退康有效。來源未標註遊戲版本',
           },
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '各角色後衝刺總幀數（本站角色面板的 backdashFrames 即來自此）',
           },
         ],
@@ -605,12 +605,12 @@ export const GROUP_C: Situation[] = [
           { vs: 'low-overhead-mix', outcome: 'even' },
           { vs: 'dash-in', outcome: 'win' },
         ],
-        mixRatio: '15-20%',
+        mixRatio: '11-15%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -644,17 +644,17 @@ export const GROUP_C: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'dash-in', outcome: 'win' },
         ],
-        mixRatio: '15-20%',
+        mixRatio: '11-15%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 5F 發生、輕拳 4F；同一幀打擊優先於摔投，所以在 +1 以內出拳打得贏摔。來源未標註遊戲版本',
           },
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 5F 發生 / 1,200 傷害；各角色最快普通技的發生幀數見各角色頁',
           },
         ],
@@ -688,7 +688,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'dash-in', outcome: 'win' },
           { vs: 'bait-block', outcome: 'even' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '7-11%',
         verified: 'estimated',
         notes: {
           'zh-Hant': '要求你認得對手的招的距離與收招長度。難度高，但它是唯一「不冒險就有大回報」的選項。',

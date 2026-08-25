@@ -52,17 +52,17 @@ export const GROUP_G: Situation[] = [
           { vs: 'throw', outcome: 'loss' },
           { vs: 'poke', outcome: 'win' },
         ],
-        mixRatio: '35-45%',
+        mixRatio: '33-42%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Burnout',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '防禦會消耗動力槽；槽耗盡即進入 Burnout，屆時無法使用任何動力技能，並會被必殺技與 SA 削血。來源未標註遊戲版本',
           },
           {
             url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '必殺技削血為該招傷害的 25%，且可以致死；Burnout 中防禦硬直 +4F',
           },
         ],
@@ -95,12 +95,12 @@ export const GROUP_G: Situation[] = [
           { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'poke', outcome: 'win' },
         ],
-        mixRatio: '20-25%',
+        mixRatio: '19-23%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -137,12 +137,12 @@ export const GROUP_G: Situation[] = [
           { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'poke', outcome: 'win' },
         ],
-        mixRatio: '15-20%',
+        mixRatio: '14-19%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -180,12 +180,12 @@ export const GROUP_G: Situation[] = [
           { vs: 'throw', outcome: 'loss' },
           { vs: 'blockstring', outcome: 'loss' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '9-14%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '動力衝擊只有兩次霸體，第三下就破 —— 連續的輕攻擊串是最容易破霸體的方式。來源未標註遊戲版本',
           },
         ],
@@ -222,12 +222,12 @@ export const GROUP_G: Situation[] = [
           { vs: 'blockstring', outcome: 'win' },
           { vs: 'throw', outcome: 'loss' },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '5-9%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '各角色 SA 的等級、發生與無敵幀數見各角色頁；SA 槽與動力槽是分開的兩條，Burnout 也用得出來',
           },
         ],
@@ -259,17 +259,17 @@ export const GROUP_G: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'blockstring', outcome: 'loss' },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '5-9%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://www.hotspawn.com/street-fighter/guide/street-fighter-6-how-to-play-defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '後衝刺帶投擲無敵並實際拉開距離，因此對退康有效。來源未標註遊戲版本',
           },
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '各角色後衝刺總幀數（本站角色面板的 backdashFrames 即來自此）',
           },
         ],
@@ -327,12 +327,12 @@ export const GROUP_G: Situation[] = [
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Burnout',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '防禦會消耗動力槽；槽耗盡即進入 Burnout，屆時無法使用任何動力技能，並會被必殺技與 SA 削血。來源未標註遊戲版本',
           },
           {
             url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '必殺技削血為該招傷害的 25%，且可以致死；Burnout 中防禦硬直 +4F',
           },
         ],
@@ -375,7 +375,7 @@ export const GROUP_G: Situation[] = [
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -417,7 +417,7 @@ export const GROUP_G: Situation[] = [
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -460,7 +460,7 @@ export const GROUP_G: Situation[] = [
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '動力衝擊只有兩次霸體，第三下就破 —— 連續的輕攻擊串是最容易破霸體的方式。來源未標註遊戲版本',
           },
         ],
@@ -502,7 +502,7 @@ export const GROUP_G: Situation[] = [
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '各角色 SA 的等級、發生與無敵幀數見各角色頁；SA 槽與動力槽是分開的兩條，Burnout 也用得出來',
           },
         ],

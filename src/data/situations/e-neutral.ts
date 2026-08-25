@@ -52,7 +52,7 @@ export const GROUP_E: Situation[] = [
           { vs: 'projectile', outcome: 'loss' },
           { vs: 'jump-in', outcome: 'loss' },
         ],
-        mixRatio: '25-35%',
+        mixRatio: '19-26%',
         verified: 'estimated',
         notes: {
           'zh-Hant': '立回最基本也最有效的一手，但它有方向性 —— 你退掉的是自己的場地。',
@@ -88,7 +88,7 @@ export const GROUP_E: Situation[] = [
           { vs: 'jump-in', outcome: 'bigLoss' },
           { vs: 'dash-in', outcome: 'loss' },
         ],
-        mixRatio: '25-35%',
+        mixRatio: '19-26%',
         verified: 'estimated',
       },
       {
@@ -120,7 +120,7 @@ export const GROUP_E: Situation[] = [
           { vs: 'jump-in', outcome: 'loss' },
           { vs: 'whiff-punish', outcome: 'even' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '8-11%',
         verified: 'estimated',
       },
       {
@@ -151,12 +151,12 @@ export const GROUP_E: Situation[] = [
           { vs: 'poke', outcome: 'loss' },
           { vs: 'projectile', outcome: 'even' },
         ],
-        mixRatio: '15-20%',
+        mixRatio: '11-15%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '各角色對空技的發生與無敵幀數見各角色頁：LP/MP/HP 版升龍多半正是「對空無敵」，這也是它們打得掉跳入卻打不掉壓起身的原因。空中無法防禦，所以打中就是確定的。來源未標註遊戲版本',
           },
         ],
@@ -193,12 +193,12 @@ export const GROUP_E: Situation[] = [
           { vs: 'dash-in', outcome: 'loss' },
           { vs: 'jump-in', outcome: 'loss' },
         ],
-        mixRatio: '15-20%',
+        mixRatio: '11-15%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -235,12 +235,12 @@ export const GROUP_E: Situation[] = [
           { vs: 'whiff-punish', outcome: 'loss' },
           { vs: 'jump-in', outcome: 'even' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '8-11%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '生動力箭步一格，從可取消普通技取消（DRC）三格；箭步後的下一招多 4 幀硬直與有利，並讓整套連段多吃 15% 傷害衰減。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -278,7 +278,7 @@ export const GROUP_E: Situation[] = [
           { vs: 'whiff-punish', outcome: 'even' },
           { vs: 'dash-in', outcome: 'loss' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '8-11%',
         verified: 'estimated',
       },
     ],
@@ -325,7 +325,7 @@ export const GROUP_E: Situation[] = [
           { vs: 'projectile', outcome: 'even' },
           { vs: 'jump-in', outcome: 'loss' },
         ],
-        mixRatio: '20-30%',
+        mixRatio: '16-24%',
         verified: 'estimated',
         notes: {
           'zh-Hant': '立回最基本也最有效的一手，但它有方向性 —— 你退掉的是自己的場地。',
@@ -361,7 +361,7 @@ export const GROUP_E: Situation[] = [
           { vs: 'jump-in', outcome: 'bigLoss' },
           { vs: 'dash-in', outcome: 'bigLoss' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '8-12%',
         verified: 'estimated',
         notes: {
           'zh-Hant': '中距離丟投射物很危險 —— 對手的反應時間夠短，跳過來就直接接連段。這是遠距離的工具。',
@@ -398,7 +398,7 @@ export const GROUP_E: Situation[] = [
           { vs: 'jump-in', outcome: 'loss' },
           { vs: 'whiff-punish', outcome: 'even' },
         ],
-        mixRatio: '20-30%',
+        mixRatio: '16-24%',
         verified: 'estimated',
       },
       {
@@ -429,12 +429,12 @@ export const GROUP_E: Situation[] = [
           { vs: 'poke', outcome: 'loss' },
           { vs: 'projectile', outcome: 'even' },
         ],
-        mixRatio: '15-20%',
+        mixRatio: '12-16%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '各角色對空技的發生與無敵幀數見各角色頁：LP/MP/HP 版升龍多半正是「對空無敵」，這也是它們打得掉跳入卻打不掉壓起身的原因。空中無法防禦，所以打中就是確定的。來源未標註遊戲版本',
           },
         ],
@@ -471,12 +471,12 @@ export const GROUP_E: Situation[] = [
           { vs: 'dash-in', outcome: 'loss' },
           { vs: 'jump-in', outcome: 'loss' },
         ],
-        mixRatio: '15-20%',
+        mixRatio: '12-16%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -513,12 +513,12 @@ export const GROUP_E: Situation[] = [
           { vs: 'whiff-punish', outcome: 'loss' },
           { vs: 'jump-in', outcome: 'even' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '8-12%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '生動力箭步一格，從可取消普通技取消（DRC）三格；箭步後的下一招多 4 幀硬直與有利，並讓整套連段多吃 15% 傷害衰減。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -556,7 +556,7 @@ export const GROUP_E: Situation[] = [
           { vs: 'whiff-punish', outcome: 'even' },
           { vs: 'dash-in', outcome: 'loss' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '8-12%',
         verified: 'estimated',
       },
     ],

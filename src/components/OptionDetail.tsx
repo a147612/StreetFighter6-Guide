@@ -161,7 +161,7 @@ export function OptionDetail({ row }: { row: OptionRow }) {
         <p className="detail__sources small">
           {evaluation.sources.map((source) => (
             <a key={source.url} href={source.url} target="_blank" rel="noreferrer noopener">
-              {source.url} ({source.patch})
+              {source.url} ({t.verified.readOn} {source.patch})
             </a>
           ))}
         </p>

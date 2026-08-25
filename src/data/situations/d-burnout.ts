@@ -59,7 +59,7 @@ export const GROUP_D: Situation[] = [
         sources: [
           {
             url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '防禦硬直 +4F、必殺技削血 25%、力盡中被撞牆會暈眩；來源未標註遊戲版本',
           },
         ],
@@ -102,7 +102,7 @@ export const GROUP_D: Situation[] = [
         sources: [
           {
             url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '防禦硬直 +4F、必殺技削血 25%、力盡中被撞牆會暈眩；來源未標註遊戲版本',
           },
         ],
@@ -147,12 +147,12 @@ export const GROUP_D: Situation[] = [
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
           },
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -189,12 +189,12 @@ export const GROUP_D: Situation[] = [
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Burnout',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: 'Burnout 期間完全無法使用任何動力技能（動力衝擊、動力箭步、動力反攻、動力撥擋），且會被必殺技與 SA 削血；撞牆改為暈眩，是 SF6 唯一的暈眩來源。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
           {
             url: 'https://www.eventhubs.com/news/2022/jun/14/burnout-state-street-fighter-6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '動力槽為六格，耗盡後約 17 秒回滿；Burnout 期間防禦到的攻擊，對手多得 4 幀有利',
           },
         ],
@@ -236,12 +236,12 @@ export const GROUP_D: Situation[] = [
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Burnout',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: 'Burnout 期間完全無法使用任何動力技能（動力衝擊、動力箭步、動力反攻、動力撥擋），且會被必殺技與 SA 削血；撞牆改為暈眩，是 SF6 唯一的暈眩來源。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
           {
             url: 'https://www.eventhubs.com/news/2022/jun/14/burnout-state-street-fighter-6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '動力槽為六格，耗盡後約 17 秒回滿；Burnout 期間防禦到的攻擊，對手多得 4 幀有利',
           },
         ],
@@ -284,12 +284,12 @@ export const GROUP_D: Situation[] = [
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Burnout',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: 'Burnout 期間完全無法使用任何動力技能（動力衝擊、動力箭步、動力反攻、動力撥擋），且會被必殺技與 SA 削血；撞牆改為暈眩，是 SF6 唯一的暈眩來源。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
           {
             url: 'https://www.eventhubs.com/news/2022/jun/14/burnout-state-street-fighter-6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '動力槽為六格，耗盡後約 17 秒回滿；Burnout 期間防禦到的攻擊，對手多得 4 幀有利',
           },
         ],
@@ -353,7 +353,7 @@ export const GROUP_D: Situation[] = [
         sources: [
           {
             url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '防禦硬直 +4F、必殺技削血 25%、力盡中被撞牆會暈眩；來源未標註遊戲版本',
           },
         ],
@@ -396,7 +396,7 @@ export const GROUP_D: Situation[] = [
         sources: [
           {
             url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '防禦硬直 +4F、必殺技削血 25%、力盡中被撞牆會暈眩；來源未標註遊戲版本',
           },
         ],
@@ -441,12 +441,12 @@ export const GROUP_D: Situation[] = [
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
           },
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -483,12 +483,12 @@ export const GROUP_D: Situation[] = [
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Burnout',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: 'Burnout 期間完全無法使用任何動力技能（動力衝擊、動力箭步、動力反攻、動力撥擋），且會被必殺技與 SA 削血；撞牆改為暈眩，是 SF6 唯一的暈眩來源。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
           {
             url: 'https://www.eventhubs.com/news/2022/jun/14/burnout-state-street-fighter-6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '動力槽為六格，耗盡後約 17 秒回滿；Burnout 期間防禦到的攻擊，對手多得 4 幀有利',
           },
         ],
@@ -530,12 +530,12 @@ export const GROUP_D: Situation[] = [
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Burnout',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: 'Burnout 期間完全無法使用任何動力技能（動力衝擊、動力箭步、動力反攻、動力撥擋），且會被必殺技與 SA 削血；撞牆改為暈眩，是 SF6 唯一的暈眩來源。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
           {
             url: 'https://www.eventhubs.com/news/2022/jun/14/burnout-state-street-fighter-6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '動力槽為六格，耗盡後約 17 秒回滿；Burnout 期間防禦到的攻擊，對手多得 4 幀有利',
           },
         ],
@@ -572,12 +572,12 @@ export const GROUP_D: Situation[] = [
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Burnout',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: 'Burnout 期間完全無法使用任何動力技能（動力衝擊、動力箭步、動力反攻、動力撥擋），且會被必殺技與 SA 削血；撞牆改為暈眩，是 SF6 唯一的暈眩來源。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
           {
             url: 'https://www.eventhubs.com/news/2022/jun/14/burnout-state-street-fighter-6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '動力槽為六格，耗盡後約 17 秒回滿；Burnout 期間防禦到的攻擊，對手多得 4 幀有利',
           },
         ],

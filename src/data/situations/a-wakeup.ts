@@ -69,12 +69,12 @@ export const GROUP_A: Situation[] = [
         sources: [
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: 'SF6 只有「その場受け身（原地）」與「後ろ受け身（後受身，落地瞬間押兩顆以上攻擊鍵）」兩種起身，兩者的倒地有利格數相同 —— 沒有延遲起身這種東西；強制倒地不能後受身。來源未標註遊戲版本',
           },
           {
             url: 'https://nandemo-ziten.com/sf6-ukemi-guide/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '日文解說：後受身在落地瞬間押兩顆以上按鍵成立，起身位置比倒地處更後面；能選的只有その場與後方兩種',
           },
         ],
@@ -114,12 +114,12 @@ export const GROUP_A: Situation[] = [
         sources: [
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: 'SF6 只有「その場受け身（原地）」與「後ろ受け身（後受身，落地瞬間押兩顆以上攻擊鍵）」兩種起身，兩者的倒地有利格數相同 —— 沒有延遲起身這種東西；強制倒地不能後受身。來源未標註遊戲版本',
           },
           {
             url: 'https://nandemo-ziten.com/sf6-ukemi-guide/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '日文解說：後受身在落地瞬間押兩顆以上按鍵成立，起身位置比倒地處更後面；能選的只有その場與後方兩種',
           },
         ],
@@ -159,12 +159,12 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'delayed-attack', outcome: 'win' },
         ],
-        mixRatio: '20-30%',
+        mixRatio: '12-19%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 1,200 傷害 / 5F 發生 / 命中 +17，血量基準 10,000（Akuma 9,000～Zangief 11,000）',
           },
         ],
@@ -201,17 +201,17 @@ export const GROUP_A: Situation[] = [
           { vs: 'shimmy', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
         ],
-        mixRatio: '30-40%',
+        mixRatio: '19-25%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入 LP+LK，成功的一方回復一格動力槽。來源未標註遊戲版本',
           },
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔判定為 9 幀窗口，且該窗口內若輸入了會妨礙站立摔的動作就不成立 —— 這是延遲解摔無法做成 OS 的原因。來源未標註遊戲版本',
           },
         ],
@@ -251,17 +251,17 @@ export const GROUP_A: Situation[] = [
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'loss' },
         ],
-        mixRatio: '15-25%',
+        mixRatio: '9-16%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
           },
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -293,12 +293,12 @@ export const GROUP_A: Situation[] = [
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'win' },
         ],
-        mixRatio: '20-30%',
+        mixRatio: '12-19%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -339,12 +339,12 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '6-9%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -402,7 +402,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'bigLoss' },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '3-6%',
         notes: {
           'zh-Hant': '常被誤會成「只有防禦中能用」。起身時也出得來，發生還快兩幀（18F）。代價是兩格、被擋 −6，而且傷害是白血 —— 它買的是脫身，不是傷害。',
           en: 'Widely believed to be blockstun-only. It exists on wakeup too, and is two frames faster there (18F). The price is two bars, -6 on block, and white damage only: what it buys is an escape, not damage.',
@@ -412,12 +412,12 @@ export const GROUP_A: Situation[] = [
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '起身動力反攻發生 18F（防禦硬直中為 20F），發生時全程無敵且破霸體，被擋 −6（對手 Burnout 時 −2），傷害 500 白血無法收頭，消耗兩格。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
           {
             url: 'https://www.eventhubs.com/news/2024/oct/24/secret-technique-drive-reversal/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '確認起身動力反攻存在，並說明用小技接 SA 的 OS 可以釣它',
           },
         ],
@@ -449,12 +449,12 @@ export const GROUP_A: Situation[] = [
           { vs: 'shimmy', outcome: 'win' },
           { vs: 'delayed-attack', outcome: 'loss' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '6-9%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://www.hotspawn.com/street-fighter/guide/street-fighter-6-how-to-play-defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -501,7 +501,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '3-6%',
         verified: 'estimated',
         notes: {
           'zh-Hant': '回報最高也最容易被讀。最好在對手剛剛壓空一次之後用 —— 那是他最沒準備對空的時候。',
@@ -554,17 +554,17 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'bigLoss' },
           { vs: 'bait-block', outcome: 'loss' },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '3-6%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 5F 發生、輕拳 4F；同一幀打擊優先於摔投，所以在 +1 以內出拳打得贏摔。來源未標註遊戲版本',
           },
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 5F 發生 / 1,200 傷害；各角色最快普通技的發生幀數見各角色頁',
           },
         ],
@@ -611,12 +611,12 @@ export const GROUP_A: Situation[] = [
             },
           },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '3-6%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '各角色 OD 起身反擊的無敵幀數取自各自的角色頁，並已抄進本站的角色面板；LP/MP/HP 版的升龍通常只有對空無敵，擋不掉算好時間點的壓起身。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -678,12 +678,12 @@ export const GROUP_A: Situation[] = [
         sources: [
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: 'SF6 只有「その場受け身（原地）」與「後ろ受け身（後受身，落地瞬間押兩顆以上攻擊鍵）」兩種起身，兩者的倒地有利格數相同 —— 沒有延遲起身這種東西；強制倒地不能後受身。來源未標註遊戲版本',
           },
           {
             url: 'https://nandemo-ziten.com/sf6-ukemi-guide/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '日文解說：後受身在落地瞬間押兩顆以上按鍵成立，起身位置比倒地處更後面；能選的只有その場與後方兩種',
           },
         ],
@@ -723,12 +723,12 @@ export const GROUP_A: Situation[] = [
         sources: [
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: 'SF6 只有「その場受け身（原地）」與「後ろ受け身（後受身，落地瞬間押兩顆以上攻擊鍵）」兩種起身，兩者的倒地有利格數相同 —— 沒有延遲起身這種東西；強制倒地不能後受身。來源未標註遊戲版本',
           },
           {
             url: 'https://nandemo-ziten.com/sf6-ukemi-guide/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '日文解說：後受身在落地瞬間押兩顆以上按鍵成立，起身位置比倒地處更後面；能選的只有その場與後方兩種',
           },
         ],
@@ -768,12 +768,12 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'delayed-attack', outcome: 'win' },
         ],
-        mixRatio: '20-30%',
+        mixRatio: '12-19%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 1,200 傷害 / 5F 發生 / 命中 +17，血量基準 10,000（Akuma 9,000～Zangief 11,000）',
           },
         ],
@@ -810,17 +810,17 @@ export const GROUP_A: Situation[] = [
           { vs: 'shimmy', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
         ],
-        mixRatio: '30-40%',
+        mixRatio: '19-25%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入 LP+LK，成功的一方回復一格動力槽。來源未標註遊戲版本',
           },
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔判定為 9 幀窗口，且該窗口內若輸入了會妨礙站立摔的動作就不成立 —— 這是延遲解摔無法做成 OS 的原因。來源未標註遊戲版本',
           },
         ],
@@ -860,17 +860,17 @@ export const GROUP_A: Situation[] = [
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'loss' },
         ],
-        mixRatio: '15-25%',
+        mixRatio: '9-16%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
           },
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -902,12 +902,12 @@ export const GROUP_A: Situation[] = [
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'win' },
         ],
-        mixRatio: '20-30%',
+        mixRatio: '12-19%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -948,12 +948,12 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '6-9%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -1011,7 +1011,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'bigLoss' },
         ],
-        mixRatio: '5-12%',
+        mixRatio: '3-7%',
         notes: {
           'zh-Hant': '靠角落的時候它比場中更值：推開的距離就是你離牆的距離。仍然是兩格、被擋 −6、白血傷害。',
           en: 'Worth more near the corner than midscreen: the distance it shoves them is the distance you gain from the wall. Still two bars, still -6 on block, still white damage.',
@@ -1021,12 +1021,12 @@ export const GROUP_A: Situation[] = [
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '起身動力反攻發生 18F（防禦硬直中為 20F），發生時全程無敵且破霸體，被擋 −6（對手 Burnout 時 −2），傷害 500 白血無法收頭，消耗兩格。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
           {
             url: 'https://www.eventhubs.com/news/2024/oct/24/secret-technique-drive-reversal/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '確認起身動力反攻存在，並說明用小技接 SA 的 OS 可以釣它',
           },
         ],
@@ -1058,12 +1058,12 @@ export const GROUP_A: Situation[] = [
           { vs: 'shimmy', outcome: 'win' },
           { vs: 'delayed-attack', outcome: 'loss' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '6-9%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://www.hotspawn.com/street-fighter/guide/street-fighter-6-how-to-play-defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -1110,7 +1110,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '3-6%',
         verified: 'estimated',
         notes: {
           'zh-Hant': '回報最高也最容易被讀。最好在對手剛剛壓空一次之後用 —— 那是他最沒準備對空的時候。',
@@ -1163,17 +1163,17 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'bigLoss' },
           { vs: 'bait-block', outcome: 'loss' },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '3-6%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 5F 發生、輕拳 4F；同一幀打擊優先於摔投，所以在 +1 以內出拳打得贏摔。來源未標註遊戲版本',
           },
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 5F 發生 / 1,200 傷害；各角色最快普通技的發生幀數見各角色頁',
           },
         ],
@@ -1220,12 +1220,12 @@ export const GROUP_A: Situation[] = [
             },
           },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '3-6%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '各角色 OD 起身反擊的無敵幀數取自各自的角色頁，並已抄進本站的角色面板；LP/MP/HP 版的升龍通常只有對空無敵，擋不掉算好時間點的壓起身。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -1294,12 +1294,12 @@ export const GROUP_A: Situation[] = [
         sources: [
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: 'SF6 只有「その場受け身（原地）」與「後ろ受け身（後受身，落地瞬間押兩顆以上攻擊鍵）」兩種起身，兩者的倒地有利格數相同 —— 沒有延遲起身這種東西；強制倒地不能後受身。來源未標註遊戲版本',
           },
           {
             url: 'https://nandemo-ziten.com/sf6-ukemi-guide/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '日文解說：後受身在落地瞬間押兩顆以上按鍵成立，起身位置比倒地處更後面；能選的只有その場與後方兩種',
           },
         ],
@@ -1339,12 +1339,12 @@ export const GROUP_A: Situation[] = [
         sources: [
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: 'SF6 只有「その場受け身（原地）」與「後ろ受け身（後受身，落地瞬間押兩顆以上攻擊鍵）」兩種起身，兩者的倒地有利格數相同 —— 沒有延遲起身這種東西；強制倒地不能後受身。來源未標註遊戲版本',
           },
           {
             url: 'https://nandemo-ziten.com/sf6-ukemi-guide/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '日文解說：後受身在落地瞬間押兩顆以上按鍵成立，起身位置比倒地處更後面；能選的只有その場與後方兩種',
           },
         ],
@@ -1384,12 +1384,12 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'delayed-attack', outcome: 'win' },
         ],
-        mixRatio: '20-30%',
+        mixRatio: '13-19%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 1,200 傷害 / 5F 發生 / 命中 +17，血量基準 10,000（Akuma 9,000～Zangief 11,000）',
           },
         ],
@@ -1426,17 +1426,17 @@ export const GROUP_A: Situation[] = [
           { vs: 'shimmy', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
         ],
-        mixRatio: '30-40%',
+        mixRatio: '19-26%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入 LP+LK，成功的一方回復一格動力槽。來源未標註遊戲版本',
           },
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔判定為 9 幀窗口，且該窗口內若輸入了會妨礙站立摔的動作就不成立 —— 這是延遲解摔無法做成 OS 的原因。來源未標註遊戲版本',
           },
         ],
@@ -1476,17 +1476,17 @@ export const GROUP_A: Situation[] = [
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'loss' },
         ],
-        mixRatio: '15-25%',
+        mixRatio: '10-16%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
           },
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -1518,12 +1518,12 @@ export const GROUP_A: Situation[] = [
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'win' },
         ],
-        mixRatio: '20-30%',
+        mixRatio: '13-19%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Parry',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -1569,12 +1569,12 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '6-10%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -1632,7 +1632,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'bigLoss' },
         ],
-        mixRatio: '8-15%',
+        mixRatio: '5-10%',
         notes: {
           'zh-Hant': '角落起身最被忽略的一手，尤其是沒有 OD 起身反擊的角色 —— 那 11 隻角色不是沒有選擇，只是選擇貴而且不能收頭。被擋 −6 在角落等於一整套。',
           en: 'The most overlooked cornered wakeup, especially for a character with no OD escape: those eleven are not without an answer, the answer is just expensive and cannot finish a round. Blocked at -6 in the corner is a full combo.',
@@ -1642,12 +1642,12 @@ export const GROUP_A: Situation[] = [
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '起身動力反攻發生 18F（防禦硬直中為 20F），發生時全程無敵且破霸體，被擋 −6（對手 Burnout 時 −2），傷害 500 白血無法收頭，消耗兩格。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
           {
             url: 'https://www.eventhubs.com/news/2024/oct/24/secret-technique-drive-reversal/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '確認起身動力反攻存在，並說明用小技接 SA 的 OS 可以釣它',
           },
         ],
@@ -1679,17 +1679,17 @@ export const GROUP_A: Situation[] = [
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'loss' },
         ],
-        mixRatio: '5%',
+        mixRatio: '3%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://www.hotspawn.com/street-fighter/guide/street-fighter-6-how-to-play-defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '後衝刺帶投擲無敵並實際拉開距離，因此對退康有效。來源未標註遊戲版本',
           },
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '各角色後衝刺總幀數（本站角色面板的 backdashFrames 即來自此）',
           },
         ],
@@ -1736,7 +1736,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '3-6%',
         verified: 'estimated',
         notes: {
           'zh-Hant': '回報最高也最容易被讀。最好在對手剛剛壓空一次之後用 —— 那是他最沒準備對空的時候。另外角落被打下來不一定是最差結果：空中互毆換到的有時候等於一次犧牲打，落地後反而拿回一次進攻權。',
@@ -1824,17 +1824,17 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'bigLoss' },
           { vs: 'bait-block', outcome: 'loss' },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '3-6%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 5F 發生、輕拳 4F；同一幀打擊優先於摔投，所以在 +1 以內出拳打得贏摔。來源未標註遊戲版本',
           },
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '摔投 5F 發生 / 1,200 傷害；各角色最快普通技的發生幀數見各角色頁',
           },
         ],
@@ -1881,12 +1881,12 @@ export const GROUP_A: Situation[] = [
             },
           },
         ],
-        mixRatio: '5-10%',
+        mixRatio: '3-6%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '各角色 OD 起身反擊的無敵幀數取自各自的角色頁，並已抄進本站的角色面板；LP/MP/HP 版的升龍通常只有對空無敵，擋不掉算好時間點的壓起身。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],

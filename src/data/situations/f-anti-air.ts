@@ -51,12 +51,12 @@ export const GROUP_F: Situation[] = [
           { vs: 'empty-jump', outcome: 'win' },
           { vs: 'air-throw', outcome: 'win' },
         ],
-        mixRatio: '40-50%',
+        mixRatio: '35-43%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '各角色對空技的發生與無敵幀數見各角色頁：LP/MP/HP 版升龍多半正是「對空無敵」，這也是它們打得掉跳入卻打不掉壓起身的原因。空中無法防禦，所以打中就是確定的。來源未標註遊戲版本',
           },
         ],
@@ -87,7 +87,7 @@ export const GROUP_F: Situation[] = [
           { vs: 'empty-jump', outcome: 'even' },
           { vs: 'air-throw', outcome: 'loss' },
         ],
-        mixRatio: '15-20%',
+        mixRatio: '13-17%',
         verified: 'estimated',
         notes: {
           'zh-Hant': '對付「跳過來但你來不及對空」的距離特別有用，因為它不需要精準時機，只需要先跳。',
@@ -121,17 +121,17 @@ export const GROUP_F: Situation[] = [
           { vs: 'empty-jump', outcome: 'loss' },
           { vs: 'air-throw', outcome: 'win' },
         ],
-        mixRatio: '20-25%',
+        mixRatio: '17-22%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Burnout',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '防禦會消耗動力槽；槽耗盡即進入 Burnout，屆時無法使用任何動力技能，並會被必殺技與 SA 削血。來源未標註遊戲版本',
           },
           {
             url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '必殺技削血為該招傷害的 25%，且可以致死；Burnout 中防禦硬直 +4F',
           },
         ],
@@ -170,17 +170,17 @@ export const GROUP_F: Situation[] = [
           { vs: 'jump-in', outcome: 'bigLoss' },
           { vs: 'air-throw', outcome: 'loss' },
         ],
-        mixRatio: '15-20%',
+        mixRatio: '13-17%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
           },
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -212,12 +212,12 @@ export const GROUP_F: Situation[] = [
           { vs: 'empty-jump', outcome: 'bigLoss' },
           { vs: 'air-throw', outcome: 'loss' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '9-13%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -265,12 +265,12 @@ export const GROUP_F: Situation[] = [
           { vs: 'empty-jump', outcome: 'win' },
           { vs: 'air-throw', outcome: 'win' },
         ],
-        mixRatio: '25-35%',
+        mixRatio: '22-31%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '各角色對空技的發生與無敵幀數見各角色頁：LP/MP/HP 版升龍多半正是「對空無敵」，這也是它們打得掉跳入卻打不掉壓起身的原因。空中無法防禦，所以打中就是確定的。來源未標註遊戲版本',
           },
         ],
@@ -306,7 +306,7 @@ export const GROUP_F: Situation[] = [
           { vs: 'empty-jump', outcome: 'even' },
           { vs: 'air-throw', outcome: 'loss' },
         ],
-        mixRatio: '25-35%',
+        mixRatio: '22-31%',
         verified: 'estimated',
         notes: {
           'zh-Hant': '對付「跳過來但你來不及對空」的距離特別有用，因為它不需要精準時機，只需要先跳。',
@@ -340,17 +340,17 @@ export const GROUP_F: Situation[] = [
           { vs: 'empty-jump', outcome: 'loss' },
           { vs: 'air-throw', outcome: 'win' },
         ],
-        mixRatio: '20-25%',
+        mixRatio: '18-22%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Burnout',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '防禦會消耗動力槽；槽耗盡即進入 Burnout，屆時無法使用任何動力技能，並會被必殺技與 SA 削血。來源未標註遊戲版本',
           },
           {
             url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '必殺技削血為該招傷害的 25%，且可以致死；Burnout 中防禦硬直 +4F',
           },
         ],
@@ -389,17 +389,17 @@ export const GROUP_F: Situation[] = [
           { vs: 'jump-in', outcome: 'bigLoss' },
           { vs: 'air-throw', outcome: 'loss' },
         ],
-        mixRatio: '15-20%',
+        mixRatio: '13-18%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://ultimateframedata.com/sf6/stats',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '普通摔投 5F 發生、1,200 傷害、命中 +17，血量基準 10,000',
           },
           {
             url: 'https://streetfighter.fandom.com/wiki/Technical',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '解摔輸入為 LP+LK；SF6 解摔成功的一方回復一格動力槽。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
@@ -431,12 +431,12 @@ export const GROUP_F: Situation[] = [
           { vs: 'empty-jump', outcome: 'bigLoss' },
           { vs: 'air-throw', outcome: 'loss' },
         ],
-        mixRatio: '10-15%',
+        mixRatio: '9-13%',
         verified: 'sourced',
         sources: [
           {
             url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
-            patch: '2026-08 查閱',
+            patch: '2026-08',
             note: '26F 發生、1F 起兩次霸體、擋住 −3 且防禦方進入踉蹌無法動力反攻；六格空隙可被摔、九格空隙可被跳掉；霸體吸收的是可回復傷害但仍會 KO。來源未標註遊戲版本，patch 欄位記錄的是查閱日期',
           },
         ],
