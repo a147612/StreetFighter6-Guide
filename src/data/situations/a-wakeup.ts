@@ -125,7 +125,14 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'win' },
         ],
         mixRatio: '20-30%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '摔投 1,200 傷害 / 5F 發生 / 命中 +17，血量基準 10,000（Akuma 9,000～Zangief 11,000）',
+          },
+        ],
         notes: {
           'zh-Hant': '最被低估的一手。失敗代價固定又低 —— 對手用摔投磨你，比一套連段慢得多。',
           en: 'The most underrated answer. Its failure cost is fixed and small: grinding you down with throws is far slower than one combo.',
@@ -569,7 +576,14 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'win' },
         ],
         mixRatio: '20-30%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '摔投 1,200 傷害 / 5F 發生 / 命中 +17，血量基準 10,000（Akuma 9,000～Zangief 11,000）',
+          },
+        ],
         notes: {
           'zh-Hant': '最被低估的一手。失敗代價固定又低 —— 對手用摔投磨你，比一套連段慢得多。',
           en: 'The most underrated answer. Its failure cost is fixed and small: grinding you down with throws is far slower than one combo.',
@@ -1013,7 +1027,14 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'win' },
         ],
         mixRatio: '20-30%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '摔投 1,200 傷害 / 5F 發生 / 命中 +17，血量基準 10,000（Akuma 9,000～Zangief 11,000）',
+          },
+        ],
         notes: {
           'zh-Hant': '最被低估的一手。失敗代價固定又低 —— 對手用摔投磨你，比一套連段慢得多。',
           en: 'The most underrated answer. Its failure cost is fixed and small: grinding you down with throws is far slower than one combo.',

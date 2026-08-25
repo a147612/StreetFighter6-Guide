@@ -120,6 +120,18 @@ src/
 懸空的選項 id、重複 id、標成 `sourced` 卻沒有來源、空白的語言欄位（`tsc` 抓不到這個，
 因為空字串仍是合法字串）都會讓 CI 失敗。
 
+## 資料來源與致謝
+
+系統機制與數值對照自社群整理的公開資料，**本專案不複製任何人的資料庫** —— frame data 逐版本
+會變，鏡像一份只會過期，而且那是別人的勞動成果。作法是引用、換算、標註來源連結。
+
+- [Ultimate Frame Data](https://ultimateframedata.com/sf6/)（MetalMusicMan）—— 角色數值與逐招 frame data。
+  血量基準、摔投數值、衝刺與起跳格數取自此處。
+- [SuperCombo Wiki](https://wiki.supercombo.gg/w/Street_Fighter_6/Defense) —— 防禦機制。
+- [Street Fighter Wiki](https://streetfighter.fandom.com/wiki/Drive_Parry) —— 動力系統細節。
+- [EventHubs](https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/) —— 力盡狀態。
+- [PTT 快打板術語表](https://www.ptt.cc/bbs/streetfight/M.1688196913.A.C6E.html) —— 繁中用語。
+
 ## 致謝與授權
 
 Liquid Glass 的 UI 基底來自 [stormaref/LiquidGlassSkill](https://github.com/stormaref/LiquidGlassSkill)（MIT）；其折射場公式源自 [dashersw/liquid-glass-js](https://github.com/dashersw/liquid-glass-js)（MIT, © 2025 Armagan Amcalar）。移植版保留原著作權標示於

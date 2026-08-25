@@ -2,6 +2,7 @@ import { Fragment, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { OptionDetail } from './OptionDetail'
 import { HpLossBar } from './viz/HpLossBar'
 import { OutcomeCell, OutcomeLegend } from './viz/OutcomeCell'
+import { ScaleNote } from './ScaleNote'
 import { RiskPips } from './viz/Tier'
 import { getOption, type OptionRow } from '~/data'
 import { CATEGORY_ORDER, type Category, type RewardTier, type RiskTier } from '~/data/schema'
@@ -167,6 +168,7 @@ export function OptionTable({
       <div className="table-block__bar">
         <OutcomeLegend />
         <div className="table-block__actions small">
+          <ScaleNote />
           {sort && (
             <button type="button" className="linkish" onClick={() => setSort(null)}>
               {t.table.sortDefault}

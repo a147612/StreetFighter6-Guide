@@ -52,7 +52,14 @@ export const GROUP_C: Situation[] = [
           { vs: 'dash-in', outcome: 'even' },
         ],
         mixRatio: '30-40%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '摔投 1,200 傷害 / 5F 發生 / 命中 +17，血量基準 10,000（Akuma 9,000～Zangief 11,000）',
+          },
+        ],
       },
       {
         optionId: 'delayed-tech',
@@ -343,7 +350,14 @@ export const GROUP_C: Situation[] = [
           { vs: 'dash-in', outcome: 'even' },
         ],
         mixRatio: '20-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '摔投 1,200 傷害 / 5F 發生 / 命中 +17，血量基準 10,000（Akuma 9,000～Zangief 11,000）',
+          },
+        ],
       },
       {
         optionId: 'delayed-tech',

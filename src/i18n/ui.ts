@@ -70,6 +70,7 @@ export interface UiStrings {
     bait: string
   }
   mix: { heading: string; note: string }
+  scale: { heading: string; body: string; source: string }
   browse: { groups: string; situations: string; notWritten: string; coverage: string }
 
   risk: { label: string; safe: string; low: string; medium: string; high: string; extreme: string }
@@ -170,6 +171,12 @@ const zhHant: UiStrings = {
     strike: '打擊',
     throw: '投擲',
     bait: '誘導',
+  },
+  scale: {
+    heading: '數值怎麼讀',
+    body:
+      '「失敗扣血」是**佔自己血條的百分比**，基準為 10,000 血。角色血量不同（Akuma 9,000、多數角色 10,000、E. Honda 與 Marisa 10,500、Zangief 11,000），所以同一招對不同角色的百分比會差一成左右。換算方式：傷害 ÷ 自己的血量。例如普通摔投 1,200 傷害，對 10,000 血的角色是 12%。\n區間代表的是「對手打出稱職的懲罰」，不是最佳化連段；對手拿到最大傷害時會超出上限。',
+    source: '角色數值與 frame data 來源',
   },
   mix: {
     heading: '預設打法',
@@ -289,6 +296,12 @@ const en: UiStrings = {
     throw: 'Throws',
     bait: 'Baits',
   },
+  scale: {
+    heading: 'How to read the numbers',
+    body:
+      '"Health cost" is a **percentage of your own bar**, based on 10,000 health. Characters differ (Akuma 9,000, most 10,000, E. Honda and Marisa 10,500, Zangief 11,000), so the same move is worth roughly ten percent more or less depending on who you are. To convert: damage ÷ your health. A normal throw does 1,200, which is 12% of a 10,000 bar.\nThe bands assume a competent punish, not an optimised one; a maximised combo goes past the top of the range.',
+    source: 'Character stats and frame data source',
+  },
   mix: {
     heading: 'Default mix',
     note: 'Suggested proportions. Options without a fixed share are left out.',
@@ -407,6 +420,12 @@ const ja: UiStrings = {
     strike: '打撃',
     throw: '投げ',
     bait: '誘い',
+  },
+  scale: {
+    heading: '数値の読み方',
+    body:
+      '「被ダメージ」は**自分の体力に対する割合**で、体力10,000を基準としている。キャラごとに体力は異なり（豪鬼9,000、多くは10,000、E.本田とマリーザ10,500、ザンギエフ11,000）、同じ技でも割合は一割ほど変わる。換算はダメージ ÷ 自分の体力。通常投げは1,200なので体力10,000なら12%となる。\n区間は「相手が手堅い反撃を入れた場合」を想定しており、最適化されたコンボは上限を超える。',
+    source: 'キャラ数値とフレームデータの出典',
   },
   mix: {
     heading: '基本の配分',
