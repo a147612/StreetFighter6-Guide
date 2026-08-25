@@ -1983,16 +1983,91 @@ html[data-theme='dark'] .notation__btn--h {
     display: block;
   }
 
-  /* The headings move into the cells, so the header row has nothing left to do
-     — and with no header to pin, its floating copy has nothing to copy. */
-  .opt-table thead,
+  /* Anchored `right: 0` to a summary that sits near the right edge, a 343px
+     popover extends left — off the screen. In flow it just opens downwards. */
+  .table-block__bar,
+  .table-block__actions {
+    flex-wrap: wrap;
+  }
+
+  .scalenote > div {
+    position: static;
+    width: auto;
+  }
+
+  /* The opponent columns move into the cells, but the aggregates do not: risk
+     and cost sit at the right of every row and need saying once at the top. */
+  .opt-table thead {
+    display: block;
+  }
+
+  .opt-table thead tr {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: var(--space-2);
+    border-bottom: 1px solid var(--border-strong);
+  }
+
+  .opt-table thead .opt-table__vs {
+    display: none;
+  }
+
+  .opt-table thead .opt-table__name {
+    flex: 1 1 auto;
+    position: static;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  /* Both aggregates get the same box in the header and in the rows, so the
+     labels sit over the values they name rather than merely near them. */
+  .opt-table thead .opt-table__agg,
+  .opt-row .opt-table__agg {
+    flex: 0 0 4.6rem;
+    /* The wide table reserves 8.5rem here for the bar plus the number; with the
+       bar gone that min-width outranks the basis and the column stops lining up
+       with its heading. */
+    min-width: 0;
+    justify-content: flex-end;
+    padding: 0;
+    border: 0;
+    text-align: right;
+  }
+
+  .opt-table thead .opt-table__agg--first,
+  .opt-row .opt-table__agg--first {
+    margin-left: auto;
+  }
+
+  .opt-table thead .th-sort {
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  /* No column widths to copy once the table is not a table. */
   .opt-stickyhead {
     display: none;
   }
 
+  /* A category is a heading, not an object. The bordered, filled cell read as
+     a card sitting between the cards it was supposed to be labelling. */
   .opt-table__group th {
-    display: block;
-    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-2) var(--space-1);
+    border: 0;
+    background: none;
+  }
+
+  .opt-table__group th::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
   }
 
   .opt-table__group span {
@@ -2018,14 +2093,22 @@ html[data-theme='dark'] .notation__btn--h {
     border: 0;
   }
 
-  /* Name on its own line, then risk and cost, then the chips. The pseudo-element
-     is the line break between the second row and the third. */
+  /* Name and its two aggregates share the first line, aggregates pushed right;
+     the pseudo-element breaks the line before the outcome chips. */
   .opt-row__name {
     order: 0;
-    flex: 1 1 100%;
+    /* Shrinkable, so a long option name wraps onto a second line rather than
+       shoving the risk and the cost off the first one. */
+    flex: 1 1 6rem;
+    min-width: 0;
     position: static;
     background: none;
     box-shadow: none;
+  }
+
+  .opt-row__toggle {
+    white-space: normal;
+    text-align: left;
   }
 
   .opt-table__agg {
@@ -2040,11 +2123,12 @@ html[data-theme='dark'] .notation__btn--h {
     height: 0;
   }
 
+  /* No capsule: the outcome badge is already a shape, and wrapping it in a
+     second one made every cell look like a button. */
   .opt-table__vs {
     order: 3;
-    padding: 0.1rem 0.4rem 0.1rem 0.5rem;
-    border-radius: 9999px;
-    background: var(--surface-sunken);
+    padding: 0;
+    margin-right: var(--space-3);
     text-align: left !important;
   }
 
@@ -2053,6 +2137,29 @@ html[data-theme='dark'] .notation__btn--h {
      reading "not relevant" about nothing in particular is just noise. */
   .opt-table__vs:has(.oc--na) {
     display: none;
+  }
+
+  /* An inactive sort arrow renders as a bare interpunct, which beside a heading
+     reads as a value rather than as a control. */
+  .opt-table thead .th-sort__arrow {
+    display: none;
+  }
+
+  .opt-table thead .th-sort.is-active .th-sort__arrow {
+    display: inline;
+  }
+
+  /* The bar is a second rendering of the number beside it. On one line with the
+     name and the risk pips there is no room for both, and the number is the
+     fact — dropping the bar is what keeps the row from wrapping. */
+  .opt-row__hp .hploss__track {
+    display: none;
+  }
+
+  .opt-table__vs .oc {
+    min-width: 1.6rem;
+    padding: 0 0.25rem;
+    line-height: 1.35;
   }
 
   .opt-table__vs .oc__who {
