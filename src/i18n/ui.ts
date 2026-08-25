@@ -72,6 +72,7 @@ export interface UiStrings {
   mix: { heading: string; note: string }
   scale: { heading: string; body: string; source: string }
   stage: { me: string; them: string; pointBlank: string; close: string; mid: string; long: string }
+  glossary: { intro: string; origin: string; what: string; note: string; open: string }
   character: {
     label: string
     universal: string
@@ -202,6 +203,13 @@ const zhHant: UiStrings = {
     coverage: '角色資料完整度',
     invincibility: '無敵',
     cost: '消耗',
+  },
+  glossary: {
+    intro: '三種語言並排，方便對照日文或英文攻略裡的說法。括號裡是同義的別稱。',
+    origin: '英文原詞',
+    what: '是什麼',
+    note: '這裡只收錄本指南實際用到的動作名稱，不是完整的格鬥遊戲術語表。',
+    open: '術語表',
   },
   stage: { me: '我', them: '對手', pointBlank: '貼身', close: '近距離', mid: '中距離', long: '遠距離' },
   scale: {
@@ -347,6 +355,13 @@ const en: UiStrings = {
     invincibility: 'Invincibility',
     cost: 'Cost',
   },
+  glossary: {
+    intro: 'All three languages side by side, so a Japanese or English guide maps onto what you read here. Aliases follow the main name.',
+    origin: 'English term',
+    what: 'What it is',
+    note: 'Only the actions this guide actually uses — not a complete fighting-game glossary.',
+    open: 'Glossary',
+  },
   stage: { me: 'You', them: 'Them', pointBlank: 'point blank', close: 'close', mid: 'mid range', long: 'long range' },
   scale: {
     heading: 'How to read the numbers',
@@ -491,6 +506,13 @@ const ja: UiStrings = {
     coverage: 'キャラデータ',
     invincibility: '無敵',
     cost: '消費',
+  },
+  glossary: {
+    intro: '三言語を並べて表示する。日本語や英語の攻略で使われる呼び方との対応が取れる。括弧内は別称。',
+    origin: '英語の原語',
+    what: '内容',
+    note: '本ガイドで実際に使う行動のみを収録しており、格闘ゲーム用語の網羅的な一覧ではない。',
+    open: '用語集',
   },
   stage: { me: '自分', them: '相手', pointBlank: '密着', close: '近距離', mid: '中距離', long: '遠距離' },
   scale: {

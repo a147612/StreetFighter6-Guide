@@ -1171,6 +1171,12 @@ html[data-theme='dark'] .notation__btn--h {
    Side toggle and navigation share one band so the table starts near the top
    of the page. This gets consulted between matches; scrolling past a hero to
    reach the answer is the wrong shape for that. */
+/* A class rule with `display` beats the `hidden` attribute's UA style, so the
+   attribute silently does nothing without this. */
+.browse[hidden] {
+  display: none;
+}
+
 .browse {
   display: flex;
   flex-direction: column;
@@ -1645,4 +1651,37 @@ html[data-theme='dark'] .notation__btn--h {
   .stage {
     width: 10.5rem;
   }
+}
+
+/* ── Glossary ────────────────────────────────────────────────────────
+   Three languages in three columns, because nowhere else in the interface can
+   they be seen at once — the whole point is mapping one to another. */
+.glossary th,
+.glossary td {
+  vertical-align: top;
+}
+
+.glossary__name {
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.glossary__row .opt-table__name {
+  border-right: 0;
+}
+
+.glossary__aka {
+  display: block;
+  font-weight: 400;
+}
+
+.glossary__what {
+  min-width: 18rem;
+  white-space: normal;
+  line-height: 1.5;
+}
+
+.glossary .opt-row__hp {
+  min-width: 0;
 }

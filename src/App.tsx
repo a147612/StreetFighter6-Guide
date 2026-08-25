@@ -5,6 +5,7 @@ import { DefaultMix } from './components/viz/DefaultMix'
 import { CharacterPanel, CharacterSelect } from './components/CharacterPanel'
 import { StageDiagram } from './components/viz/StageDiagram'
 import { SearchOverlay } from './components/SearchOverlay'
+import { GlossaryView } from './components/GlossaryView'
 import type { SearchHit } from './lib/search'
 import { SituationNav } from './components/SituationNav'
 import { GlassPanel } from './components/glass/GlassPanel'
@@ -75,11 +76,11 @@ const ROADMAP: RoadmapItem[] = [
     },
   },
   {
-    state: 'planned',
+    state: 'done',
     label: {
-      'zh-Hant': '術語表',
-      en: 'Glossary',
-      ja: '用語集',
+      'zh-Hant': '術語表：43 個動作的三語對照，方便讀日文或英文攻略時互相映射',
+      en: 'Glossary: all 43 actions in three languages side by side, so other guides map onto this one',
+      ja: '用語集：43の行動を三言語で並記し、他言語の攻略と対応が取れるようにした',
     },
   },
   {
@@ -118,6 +119,7 @@ export default function App() {
   const [situationId, setSituationId] = useState(SITUATIONS[0]?.id ?? '')
 
   const [searchOpen, setSearchOpen] = useState(false)
+  const [glossary, setGlossary] = useState(false)
   const [targetOption, setTargetOption] = useState<string | undefined>(undefined)
   const characterId = useCharacter()
   const situation = getSituation(situationId)
@@ -145,6 +147,7 @@ export default function App() {
   const goTo = useCallback((situationTarget: string, optionTarget?: string) => {
     const found = getSituation(situationTarget)
     if (!found) return
+    setGlossary(false)
     setSide(found.side)
     setGroupId(found.group)
     setSituationId(found.id)
@@ -154,7 +157,12 @@ export default function App() {
   useEffect(() => {
     const apply = (): void => {
       const [, situationTarget, optionTarget] = window.location.hash.split('/')
-      if (situationTarget) goTo(decodeURIComponent(situationTarget), optionTarget)
+      if (situationTarget === 'glossary') {
+        setGlossary(true)
+      } else if (situationTarget) {
+        setGlossary(false)
+        goTo(decodeURIComponent(situationTarget), optionTarget)
+      }
     }
     apply()
     window.addEventListener('hashchange', apply)
@@ -162,12 +170,18 @@ export default function App() {
   }, [goTo])
 
   useEffect(() => {
+    if (glossary) {
+      if (window.location.hash !== '#/glossary') {
+        window.history.replaceState(null, '', '#/glossary')
+      }
+      return
+    }
     if (!situationId) return
     const next = `#/${situationId}${targetOption ? `/${targetOption}` : ''}`
     if (window.location.hash !== next) {
       window.history.replaceState(null, '', next)
     }
-  }, [situationId, targetOption])
+  }, [situationId, targetOption, glossary])
 
   /** `/` and ⌘K are both muscle memory for "find something"; accept either. */
   useEffect(() => {
@@ -206,7 +220,7 @@ export default function App() {
       <Topbar onSearch={() => setSearchOpen(true)} />
 
       <main id="main" className="shell app__main">
-        <div className="browse">
+        <div className="browse" hidden={glossary}>
           <Segmented<Side>
             label={t.side.label}
             value={side}
@@ -231,7 +245,7 @@ export default function App() {
           )}
         </div>
 
-        {situation ? (
+        {glossary ? <GlossaryView /> : situation ? (
           <section className="stack" aria-labelledby="situation-heading">
             <div className="sithead">
               <StageDiagram
@@ -285,6 +299,10 @@ export default function App() {
           <p>{t.footer.disclaimer}</p>
           <p className="muted">{t.footer.trademark}</p>
           <p className="footer__links">
+            <button type="button" className="linkish" onClick={() => setGlossary((v) => !v)}>
+              {glossary ? t.browse.situations : t.glossary.open}
+            </button>
+            <span aria-hidden="true"> · </span>
             <a href={REPO_URL} target="_blank" rel="noreferrer noopener">
               {t.footer.source}
             </a>
