@@ -22,96 +22,10 @@ import {
   situationsInGroup,
 } from './data'
 import { useCharacter } from './lib/prefs'
-import type { I18nText, Side } from './data/schema'
+import type { Side } from './data/schema'
 
 const REPO_URL = 'https://github.com/a147612/StreetFighter6-Guide'
 const POLICY_URL = 'https://www.capcomusa.com/video-policy/'
-
-interface RoadmapItem {
-  state: 'done' | 'active' | 'planned'
-  label: I18nText
-}
-
-const ROADMAP: RoadmapItem[] = [
-  {
-    state: 'done',
-    label: {
-      'zh-Hant': '設計系統、主題切換、三語骨架、部署管線、資料模型',
-      en: 'Design system, theming, trilingual shell, deploy pipeline, data model',
-      ja: 'デザインシステム、テーマ切替、三言語の基盤、デプロイ、データモデル',
-    },
-  },
-  {
-    state: 'done',
-    label: {
-      'zh-Hant':
-        '防守情境 A–H 全部完成：18 個情境、137 筆評價、相剋矩陣與預設打法（倒地起身、防禦中被壓、貼身對峙、Burnout、立回、對空、動力衝擊、血量門檻）',
-      en: 'Defensive groups A–H complete: 18 situations, 137 evaluations, relation matrix and default mix (wakeup, pressure, close quarters, Burnout, neutral, anti-air, Drive Impact, life thresholds)',
-      ja: '守り側 A〜H 完了：18状況・137評価・相性表と基本の配分（起き上がり、ガード中、至近距離、バーンアウト、立ち回り、対空、DI、体力ライン）',
-    },
-  },
-  {
-    state: 'done',
-    label: {
-      'zh-Hant':
-        '進攻情境 I–K 完成：8 個情境、59 筆評價（起攻依倒地類型、壓制依對手資源、接近依距離）。矩陣的欄位就是防守方的選項 —— 同一份關係的另一個讀法',
-      en: 'Offensive groups I–K complete: 8 situations, 59 evaluations (oki by knockdown type, pressure by their Drive, approach by distance). The columns are the defender’s options — the same relation read from the other side',
-      ja: '攻め側 I〜K 完了：8状況・59評価（ダウン種別の起き攻め、相手ゲージ別の攻め、距離別の接近）。列は守り側の選択肢であり、同じ関係を逆から読んだもの',
-    },
-  },
-  {
-    state: 'planned',
-    label: {
-      'zh-Hant': 'SVG 圖解：場地位置圖（完成）、frame 時間軸、決策流程',
-      en: 'SVG diagrams: stage position (done), frame timelines, decision flows',
-      ja: 'SVG 図解：位置図（完了）、フレーム時間軸、判断フロー',
-    },
-  },
-  {
-    state: 'done',
-    label: {
-      'zh-Hant':
-        '速查：全站搜尋（同時輸入位置與選項會直接跳到那一列）、鍵盤 / 或 ⌘K、可書籤的網址',
-      en: 'Quick reference: search across everything (name a place and an option to land on that exact row), / or ⌘K, and bookmarkable URLs',
-      ja: '早見：全体検索（位置と択を一緒に入力するとその行に直接移動）、/ または ⌘K、ブックマーク可能なURL',
-    },
-  },
-  {
-    state: 'done',
-    label: {
-      'zh-Hant': '術語表：43 個動作的三語對照，方便讀日文或英文攻略時互相映射',
-      en: 'Glossary: all 43 actions in three languages side by side, so other guides map onto this one',
-      ja: '用語集：43の行動を三言語で並記し、他言語の攻略と対応が取れるようにした',
-    },
-  },
-  {
-    state: 'done',
-    label: {
-      'zh-Hant':
-        '角色層 8 隻（Ken、Cammy、Akuma、Luke、JP、Zangief、Ingrid、Manon）：無敵選項、主要倒地招、血量差異。沒有 OD 無敵技的角色會直接把那一列從表格移除',
-      en: 'Character layer for 8 (Ken, Cammy, Akuma, Luke, JP, Zangief, Ingrid, Manon): real invincible options, key knockdowns, health differences. Characters without an OD reversal have that row removed from every table',
-      ja: 'キャラ別レイヤー8体（ケン、キャミィ、豪鬼、ルーク、JP、ザンギエフ、イングリッド、マノン）：無敵択、主なダウン技、体力差。OD無敵技を持たないキャラはその行を表から除外',
-    },
-  },
-  {
-    state: 'done',
-    label: {
-      'zh-Hant':
-        '角色層補齊全 31 隻。其中 11 隻沒有能同時擋掉打擊與摔投的 OD 起身反擊，選了他們會直接把那一列從表格移除',
-      en: 'Character layer complete for all 31. Eleven have no OD wakeup escape covering both strike and throw; picking one removes that row from every table',
-      ja: 'キャラ別レイヤーを全31体に拡大。うち11体は打撃と投げの両方に対応するOD切り返しを持たず、選ぶとその行が表から消える',
-    },
-  },
-  {
-    state: 'planned',
-    label: {
-      'zh-Hant': '逐項查證，把 estimated 換成 sourced（附來源與版本號）',
-      en: 'Verify entry by entry, turning estimated into sourced with a link and patch version',
-      ja: '項目ごとに検証し、estimated を出典とバージョン付きの sourced に置き換える',
-    },
-  },
-
-]
 
 export default function App() {
   const { t, text } = useT()
@@ -284,24 +198,6 @@ export default function App() {
           </section>
         ) : null}
 
-        {/* Meta, not product — collapsed so it does not compete with the table. */}
-        <details className="disclosure disclosure--foot">
-          <summary>{t.roadmap.heading}</summary>
-          <ol className="roadmap">
-            {ROADMAP.map((item, i) => (
-              <li key={i} className={`roadmap__item roadmap__item--${item.state}`}>
-                <span className="roadmap__state small">
-                  {item.state === 'done'
-                    ? t.roadmap.done
-                    : item.state === 'active'
-                      ? t.roadmap.inProgress
-                      : t.roadmap.planned}
-                </span>
-                <span>{text(item.label)}</span>
-              </li>
-            ))}
-          </ol>
-        </details>
       </main>
 
       <GlassPanel as="footer" className="footer">

@@ -124,7 +124,6 @@ export interface UiStrings {
   followUp: { combo: string; pressure: string; neutral: string; none: string }
   position: { midscreen: string; nearCorner: string; cornered: string }
 
-  roadmap: { heading: string; done: string; inProgress: string; planned: string }
   footer: { disclaimer: string; trademark: string; source: string; policy: string }
 }
 
@@ -270,7 +269,6 @@ const zhHant: UiStrings = {
   },
   position: { midscreen: '場中', nearCorner: '靠角', cornered: '完全角落' },
 
-  roadmap: { heading: '建置進度', done: '完成', inProgress: '進行中', planned: '待做' },
   footer: {
     disclaimer: '非官方同人攻略，與 CAPCOM 無關聯，也未經其授權或背書。',
     trademark: 'Street Fighter 6 © CAPCOM。商標與著作權歸原權利人所有。',
@@ -422,7 +420,6 @@ const en: UiStrings = {
   },
   position: { midscreen: 'Midscreen', nearCorner: 'Near corner', cornered: 'Cornered' },
 
-  roadmap: { heading: 'Build progress', done: 'Done', inProgress: 'In progress', planned: 'Planned' },
   footer: {
     disclaimer: 'Unofficial fan-made guide. Not affiliated with, authorised by, or endorsed by CAPCOM.',
     trademark: 'Street Fighter 6 © CAPCOM. Trademarks and copyrights belong to their respective owners.',
@@ -574,7 +571,6 @@ const ja: UiStrings = {
   },
   position: { midscreen: '画面中央', nearCorner: '画面端寄り', cornered: '画面端' },
 
-  roadmap: { heading: '進捗', done: '完了', inProgress: '進行中', planned: '未着手' },
   footer: {
     disclaimer: '非公式のファン制作ガイドです。CAPCOM とは無関係で、許諾も承認も受けていません。',
     trademark: 'Street Fighter 6 © CAPCOM。商標および著作権は各権利者に帰属します。',

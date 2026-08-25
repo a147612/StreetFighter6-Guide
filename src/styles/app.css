@@ -461,6 +461,15 @@
   background: var(--hploss-color);
 }
 
+/* The floor starts at the left edge, said explicitly. Without a `left` an
+   absolutely positioned box falls at its static position, which inherits the
+   containing block's `text-align` — so right-aligning the cell on a phone slid
+   the solid segment past the end of its own track, where `overflow: hidden`
+   ate it. The bar looked empty; the data was fine. */
+.hploss__solid {
+  left: 0;
+}
+
 /* The band above the guaranteed floor is hatched, because the data is a range
    and a solid bar to the top would claim more precision than exists. */
 .hploss__range {
@@ -719,55 +728,6 @@ html[data-theme='dark'] .notation__btn--h {
   background: var(--surface-inset);
   color: var(--text-muted);
   font-size: var(--step--1);
-}
-
-/* ── Roadmap ─────────────────────────────────────────────────────── */
-.roadmap {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.roadmap__item {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-2) var(--space-3);
-  padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-sm);
-  background: var(--surface-sunken);
-  font-size: var(--step--1);
-}
-
-.roadmap__state {
-  flex: none;
-  min-width: 4.5rem;
-  padding: 0.05rem 0.45rem;
-  border-radius: 9999px;
-  font-weight: 650;
-  text-align: center;
-}
-
-.roadmap__item--done .roadmap__state {
-  background: var(--risk-safe-soft);
-  color: var(--risk-safe);
-}
-
-.roadmap__item--active .roadmap__state {
-  background: var(--accent-soft);
-  color: var(--accent-fg);
-}
-
-.roadmap__item--planned .roadmap__state {
-  background: var(--surface-inset);
-  color: var(--text-faint);
-}
-
-.roadmap__item--planned {
-  color: var(--text-muted);
 }
 
 /* ── Footer ──────────────────────────────────────────────────────── */
