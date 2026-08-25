@@ -1,5 +1,6 @@
 import type { OptionDef, OptionEval, Situation } from './schema'
 import { getOption } from './options'
+import type { CharacterOverlay } from './schema'
 import { GROUP_A } from './situations/a-wakeup'
 import { GROUP_B } from './situations/b-blockstring'
 import { GROUP_C } from './situations/c-close-quarters'
@@ -14,6 +15,7 @@ import { GROUP_K } from './situations/k-closing-in'
 
 export * from './schema'
 export { OPTIONS, getOption } from './options'
+export { CHARACTERS, getCharacter } from './characters'
 
 /** A situation's evaluation joined to the option it grades. */
 export interface OptionRow {
@@ -56,6 +58,34 @@ export function resolveRows(situation: Situation): OptionRow[] {
     if (def) rows.push({ def, evaluation })
   }
   return rows
+}
+
+/**
+ * Apply a character overlay to a situation's rows.
+ *
+ * Subtraction first: an option the character does not have is removed rather
+ * than shown with a bad grade, because a reader planning around a button they
+ * cannot press is worse off than one who never saw it.
+ */
+export function applyOverlay(rows: OptionRow[], character?: CharacterOverlay): OptionRow[] {
+  if (!character) return rows
+  const removed = new Set(character.removesOptions ?? [])
+  return rows
+    .filter((row) => !removed.has(row.def.id))
+    .map((row) => {
+      const override = character.overrides?.[row.def.id]
+      if (!override) return row
+      return {
+        def: row.def,
+        evaluation: {
+          ...row.evaluation,
+          ...(override.risk ? { risk: override.risk } : {}),
+          ...(override.reward ? { reward: override.reward } : {}),
+          ...(override.mixRatio ? { mixRatio: override.mixRatio } : {}),
+          ...(override.notes ? { notes: override.notes } : {}),
+        },
+      }
+    })
 }
 
 /** Group letters, in reading order. A–H defend, I–K attack. */

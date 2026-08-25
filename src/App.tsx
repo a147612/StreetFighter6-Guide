@@ -2,11 +2,21 @@ import { useMemo, useState } from 'react'
 import { Topbar } from './components/Topbar'
 import { OptionTable } from './components/OptionTable'
 import { DefaultMix } from './components/viz/DefaultMix'
+import { CharacterPanel, CharacterSelect } from './components/CharacterPanel'
 import { SituationNav } from './components/SituationNav'
 import { GlassPanel } from './components/glass/GlassPanel'
 import { Segmented } from './components/Segmented'
 import { useT } from './i18n/useT'
-import { GROUPS, SITUATIONS, getSituation, resolveRows, situationsInGroup } from './data'
+import {
+  GROUPS,
+  SITUATIONS,
+  applyOverlay,
+  getCharacter,
+  getSituation,
+  resolveRows,
+  situationsInGroup,
+} from './data'
+import { useCharacter } from './lib/prefs'
 import type { I18nText, Side } from './data/schema'
 
 const REPO_URL = 'https://github.com/a147612/StreetFighter6-Guide'
@@ -61,11 +71,20 @@ const ROADMAP: RoadmapItem[] = [
     },
   },
   {
+    state: 'done',
+    label: {
+      'zh-Hant':
+        '角色層 8 隻（Ken、Cammy、Akuma、Luke、JP、Zangief、Ingrid、Manon）：無敵選項、主要倒地招、血量差異。沒有 OD 無敵技的角色會直接把那一列從表格移除',
+      en: 'Character layer for 8 (Ken, Cammy, Akuma, Luke, JP, Zangief, Ingrid, Manon): real invincible options, key knockdowns, health differences. Characters without an OD reversal have that row removed from every table',
+      ja: 'キャラ別レイヤー8体（ケン、キャミィ、豪鬼、ルーク、JP、ザンギエフ、イングリッド、マノン）：無敵択、主なダウン技、体力差。OD無敵技を持たないキャラはその行を表から除外',
+    },
+  },
+  {
     state: 'planned',
     label: {
-      'zh-Hant': '角色層 8 隻，之後補齊全角色',
-      en: 'Character layer for 8 characters, then the full roster',
-      ja: 'キャラ別レイヤー 8 体、その後に全キャラ',
+      'zh-Hant': '角色層補齊剩下 23 隻',
+      en: 'The remaining 23 characters',
+      ja: '残り23キャラ',
     },
   },
   {
@@ -85,8 +104,12 @@ export default function App() {
   const [groupId, setGroupId] = useState('A')
   const [situationId, setSituationId] = useState(SITUATIONS[0]?.id ?? '')
 
+  const characterId = useCharacter()
   const situation = getSituation(situationId)
-  const rows = useMemo(() => (situation ? resolveRows(situation) : []), [situation])
+  const rows = useMemo(
+    () => (situation ? applyOverlay(resolveRows(situation), getCharacter(characterId)) : []),
+    [situation, characterId],
+  )
 
   /** Picking a group jumps to its first situation; leaving the reader on a
    *  situation from the previous group would be a dead end. */
@@ -123,6 +146,7 @@ export default function App() {
               { value: 'offense', label: t.side.offense },
             ]}
           />
+          <CharacterSelect />
           {(
             <SituationNav
               side={side}
@@ -142,6 +166,8 @@ export default function App() {
                 {situation.position.map((p) => t.position[p]).join(' / ')}
               </span>
             </div>
+
+            <CharacterPanel />
 
             <DefaultMix rows={rows} />
 

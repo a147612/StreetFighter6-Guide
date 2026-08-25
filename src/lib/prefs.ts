@@ -147,6 +147,15 @@ export function useLocale(): { locale: Locale; setLocale: (next: Locale) => void
   return { locale, setLocale: localeStore.set }
 }
 
+/* ── Character ────────────────────────────────────────────────────────
+   '' means the universal tables with no overlay applied. */
+
+export const characterStore = createStore<string>('character', read('character') ?? '', () => {})
+
+export function useCharacter(): string {
+  return useSyncExternalStore(characterStore.subscribe, characterStore.get, () => '')
+}
+
 /* ── Refraction ───────────────────────────────────────────────────────
    The glass CSS stands on its own; refraction is the expensive half (a canvas
    displacement bake per surface) and Chromium-only, so it stays switchable. */

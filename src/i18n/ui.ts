@@ -71,6 +71,17 @@ export interface UiStrings {
   }
   mix: { heading: string; note: string }
   scale: { heading: string; body: string; source: string }
+  character: {
+    label: string
+    universal: string
+    health: string
+    reversals: string
+    knockdowns: string
+    noReversal: string
+    coverage: string
+    invincibility: string
+    cost: string
+  }
   browse: { groups: string; situations: string; notWritten: string; coverage: string }
 
   risk: { label: string; safe: string; low: string; medium: string; high: string; extreme: string }
@@ -171,6 +182,17 @@ const zhHant: UiStrings = {
     strike: '打擊',
     throw: '投擲',
     bait: '誘導',
+  },
+  character: {
+    label: '角色',
+    universal: '通用（不套用角色）',
+    health: '血量',
+    reversals: '無敵選項',
+    knockdowns: '主要倒地招',
+    noReversal: '沒有完全無敵的 OD 升龍類招式',
+    coverage: '角色資料完整度',
+    invincibility: '無敵',
+    cost: '消耗',
   },
   scale: {
     heading: '數值怎麼讀',
@@ -296,6 +318,17 @@ const en: UiStrings = {
     throw: 'Throws',
     bait: 'Baits',
   },
+  character: {
+    label: 'Character',
+    universal: 'Universal (no overlay)',
+    health: 'Health',
+    reversals: 'Invincible options',
+    knockdowns: 'Key knockdowns',
+    noReversal: 'No fully invincible OD reversal',
+    coverage: 'Character data',
+    invincibility: 'Invincibility',
+    cost: 'Cost',
+  },
   scale: {
     heading: 'How to read the numbers',
     body:
@@ -420,6 +453,17 @@ const ja: UiStrings = {
     strike: '打撃',
     throw: '投げ',
     bait: '誘い',
+  },
+  character: {
+    label: 'キャラ',
+    universal: '汎用（キャラ未適用）',
+    health: '体力',
+    reversals: '無敵択',
+    knockdowns: '主なダウン技',
+    noReversal: '完全無敵のOD昇龍系を持たない',
+    coverage: 'キャラデータ',
+    invincibility: '無敵',
+    cost: '消費',
   },
   scale: {
     heading: '数値の読み方',

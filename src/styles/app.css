@@ -1346,3 +1346,125 @@ html[data-theme='dark'] .notation__btn--h {
 .scalenote > div > * + * {
   margin-top: var(--space-2);
 }
+
+/* ── Character selector and panel ────────────────────────────────── */
+.charselect {
+  align-items: baseline;
+  gap: var(--space-2);
+  color: var(--text-muted);
+}
+
+.charselect__field {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.charpanel {
+  padding: var(--space-3) var(--space-4);
+}
+
+.charpanel > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  cursor: pointer;
+  list-style: none;
+}
+
+.charpanel > summary::-webkit-details-marker {
+  display: none;
+}
+
+.charpanel > summary::before {
+  content: '▸';
+  font-size: 0.75em;
+  color: var(--text-faint);
+  transition: rotate var(--glass-duration) var(--glass-ease);
+}
+
+.charpanel[open] > summary::before {
+  rotate: 90deg;
+}
+
+.charpanel__name {
+  font-weight: 650;
+  font-size: var(--step-1);
+}
+
+.charpanel__stat {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+/* The fact most likely to invalidate a universal recommendation, so it is on
+   the closed summary rather than inside the panel. */
+.charpanel__warn {
+  padding: 0.05rem 0.5rem;
+  border-radius: 9999px;
+  background: var(--risk-extreme-soft);
+  color: var(--risk-extreme);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.charpanel__body {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+@media (min-width: 56rem) {
+  .charpanel__body {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .charpanel__body > p {
+    grid-column: 1 / -1;
+  }
+}
+
+.charpanel__body h4 {
+  margin-bottom: var(--space-2);
+  font-size: var(--step-0);
+}
+
+.charlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--step--1);
+}
+
+.charlist li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--surface-sunken);
+}
+
+.charlist__move {
+  font-weight: 600;
+}
+
+.charlist code {
+  padding: 0.05rem 0.4rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-inset);
+  color: var(--text-muted);
+}
+
+.charlist__cost {
+  margin-left: auto;
+  color: var(--text-faint);
+  white-space: nowrap;
+}

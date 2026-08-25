@@ -264,17 +264,50 @@ export interface MatrixCell {
   note?: I18nText
 }
 
+/** One of the character's invincible escape options, as documented. */
+export interface Reversal {
+  move: string
+  input: string
+  /** What it is actually invincible to, and when. The distinction that matters:
+   *  most LP/MP/HP DPs are anti-air invincible only and lose to a meaty. */
+  invincibility: I18nText
+  cost: I18nText
+}
+
+export interface CharacterKnockdown {
+  move: string
+  type: KnockdownType
+  /** Frame advantage on hit, e.g. "+40". */
+  advantage?: string
+  note?: I18nText
+}
+
+/**
+ * What changes about the universal tables when you pick a character.
+ *
+ * Mostly subtraction rather than addition: four of the eight characters covered
+ * have no OD invincible reversal at all, and the useful thing the overlay does
+ * is take that row off the table instead of leaving a reader planning around an
+ * option they do not have.
+ */
 export interface CharacterOverlay {
   id: string
   name: I18nText
-  /** Options this character adds (reversals, unique escapes). */
-  addsOptions: OptionDef[]
-  /** Overrides for universal options, keyed by option id. */
-  overrides?: Record<string, Partial<Pick<OptionEval, 'risk' | 'reward' | 'notes' | 'mixRatio'>>>
-  /** Which of this character's moves cause which knockdown type. */
-  knockdowns?: { move: string; type: KnockdownType; note?: I18nText }[]
-  /** Author-facing completeness, surfaced as coverage in the UI. */
+  /** From the character's own stats. The percentage bands assume 10,000. */
+  health: number
+  backdashFrames?: number
+  /** Options this character does not have; removed from every table. */
+  removesOptions?: string[]
+  /** Adjustments applied to an option wherever it appears. */
+  overrides?: Record<
+    string,
+    Partial<Pick<OptionEval, 'risk' | 'reward' | 'mixRatio'>> & { notes?: I18nText }
+  >
+  reversals?: Reversal[]
+  knockdowns?: CharacterKnockdown[]
+  /** Author-facing completeness, surfaced in the UI. */
   coverage: 'stub' | 'partial' | 'complete'
+  sources?: Source[]
 }
 
 /** Losses, derived — never authored alongside `versus`. */
