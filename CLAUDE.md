@@ -51,10 +51,13 @@ derived from `versus`, never authored, so the two cannot disagree.
   extracted in-game elements and permits self-made derivative art, so nothing
   here fetches or reproduces official art on its own initiative.
 - **The character icons in `public/characters/` are the owner's files**, placed
-  there by him deliberately, and they ship. `ICONS` in
-  `data/characters/portraits.ts` maps every id to one; two ids carry a second
-  variant because the name is burned into the art (豪鬼/GOUKI, 維加/VEGA), and
-  every non-English locale gets that one.
+  there deliberately, and they ship. `ICONS` in `data/characters/portraits.ts`
+  maps every id to one; two ids carry a second variant because the name is
+  burned into the art (豪鬼/GOUKI, 維加/VEGA), and every non-English locale gets
+  that one — along with a `latin` override on the character so the label reads
+  Gouki/Vega rather than contradicting the picture. **They are WebP at 160px**:
+  drop a new PNG in and run `npm run icons`, which converts and replaces it.
+  400×400 PNGs made the picker a 2.8 MB download for a 64px tile.
 - **`CharacterFace.tsx` is the fallback, not the current tier.** Thirty-one
   hand-drawn SVG faces, then a monogram. Nothing reaches them today because all
   31 characters have an icon; they exist so a roster addition renders as a face
@@ -105,6 +108,7 @@ not by trusting the workflow: `npm run build | grep index-` against
 | A situation | `src/data/situations/<letter>-<name>.ts`, then wire in `src/data/index.ts` |
 | A character | `src/data/characters/index.ts` |
 | Interface copy | `src/i18n/ui.ts` (all three locales, or tsc fails) |
+| A character icon | `public/characters/`, then `npm run icons` |
 
 Content prose should say what is happening on screen, not explain the idea
 behind the situation. Two short sentences per outcome. This was rewritten once
