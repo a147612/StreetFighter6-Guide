@@ -8,6 +8,9 @@ import { GROUP_E } from './situations/e-neutral'
 import { GROUP_F } from './situations/f-anti-air'
 import { GROUP_G } from './situations/g-drive-impact'
 import { GROUP_H } from './situations/h-life-threshold'
+import { GROUP_I } from './situations/i-oki'
+import { GROUP_J } from './situations/j-pressure'
+import { GROUP_K } from './situations/k-closing-in'
 
 export * from './schema'
 export { OPTIONS, getOption } from './options'
@@ -27,6 +30,9 @@ export const SITUATIONS: Situation[] = [
   ...GROUP_F,
   ...GROUP_G,
   ...GROUP_H,
+  ...GROUP_I,
+  ...GROUP_J,
+  ...GROUP_K,
 ]
 
 const SITUATIONS_BY_ID = new Map(SITUATIONS.map((situation) => [situation.id, situation]))
@@ -102,12 +108,12 @@ export const GROUPS = [
   {
     id: 'J',
     side: 'offense' as const,
-    name: { 'zh-Hant': '壓制節奏', en: 'Pressure pacing', ja: '攻めの緩急' },
+    name: { 'zh-Hant': '壓制', en: 'Pressure', ja: '攻め' },
   },
   {
     id: 'K',
     side: 'offense' as const,
-    name: { 'zh-Hant': '連段抉擇', en: 'Combo choices', ja: 'コンボ選択' },
+    name: { 'zh-Hant': '接近', en: 'Closing in', ja: '接近' },
   },
 ]
 

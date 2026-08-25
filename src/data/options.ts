@@ -20,6 +20,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'quick-rise',
     side: 'defense',
     name: { 'zh-Hant': '受身（快起）', en: 'Quick rise', ja: '受身（早起き）' },
+    short: { 'zh-Hant': '受身', en: 'Quick rise', ja: '受身' },
     origin: 'quick rise',
     hint: {
       'zh-Hant': '倒地後馬上按，立刻起來。',
@@ -37,6 +38,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'delayed-rise',
     side: 'defense',
     name: { 'zh-Hant': '不受身（慢起）', en: 'Stay down', ja: '受身しない（遅起き）' },
+    short: { 'zh-Hant': '不受身', en: 'Stay down', ja: '遅起き' },
     origin: 'delayed rise',
     hint: {
       'zh-Hant': '不按受身，晚一點才起來，讓對手算好的時間點落空。',
@@ -86,6 +88,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'throw-tech',
     side: 'defense',
     name: { 'zh-Hant': '解摔', en: 'Throw tech', ja: '投げ抜け' },
+    short: { 'zh-Hant': '解摔', en: 'Tech', ja: '投げ抜け' },
     origin: 'throw tech',
     hint: {
       'zh-Hant': '在被摔的瞬間按 LP+LK 解開摔投。',
@@ -103,6 +106,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'delayed-tech',
     side: 'defense',
     name: { 'zh-Hant': '延遲解摔', en: 'Delay tech', ja: '遅らせ投げ抜け' },
+    short: { 'zh-Hant': '延遲解摔', en: 'Delay tech', ja: '遅らせ抜け' },
     origin: 'delay tech',
     hint: {
       'zh-Hant': '晚一點才按解摔。打擊會先被你擋下，摔投還來得及解。',
@@ -120,6 +124,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'drive-parry',
     side: 'both',
     name: { 'zh-Hant': '動力撥擋', en: 'Drive Parry', ja: 'ドライブパリィ' },
+    short: { 'zh-Hant': '動力撥擋', en: 'Parry', ja: 'パリィ' },
     origin: 'Drive Parry',
     hint: {
       'zh-Hant': '按住 MP+MK 擋下打擊並回一點動力槽。按下花半格，按住會持續消耗。防不住摔投，而且撥擋中被摔是懲罰反擊摔投。',
@@ -154,6 +159,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'drive-reversal',
     side: 'defense',
     name: { 'zh-Hant': '動力反攻', en: 'Drive Reversal', ja: 'ドライブリバーサル' },
+    short: { 'zh-Hant': '動力反攻', en: 'D.Reversal', ja: 'リバサ' },
     origin: 'Drive Reversal',
     hint: {
       'zh-Hant': '防禦中按 6+HP+HK，花兩格把對手推開並打倒。被擋是 −6，會被確反；而且傷害是白血，收不掉對手最後一滴血。',
@@ -189,6 +195,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'mash-light',
     side: 'defense',
     name: { 'zh-Hant': '速點（搶招）', en: 'Mash a light', ja: '暴れ（弱攻撃）' },
+    short: { 'zh-Hant': '速點', en: 'Mash', ja: '暴れ' },
     origin: 'abare / mash',
     hint: {
       'zh-Hant': '起身後立刻按輕攻擊搶先出手。',
@@ -206,6 +213,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'jump-forward',
     side: 'defense',
     name: { 'zh-Hant': '前跳', en: 'Forward jump', ja: '前ジャンプ' },
+    short: { 'zh-Hant': '前跳', en: 'Fwd jump', ja: '前J' },
     origin: 'forward jump',
     hint: {
       'zh-Hant': '往前跳。可以跳過對手落到他背後，換掉場地位置。',
@@ -222,6 +230,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'jump-back',
     side: 'defense',
     name: { 'zh-Hant': '後跳', en: 'Back jump', ja: 'バックジャンプ' },
+    short: { 'zh-Hant': '後跳', en: 'Back jump', ja: 'バクJ' },
     origin: 'back jump',
     hint: {
       'zh-Hant': '往後跳。躲得掉摔投和下段，但在空中不能防禦。',
@@ -238,6 +247,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'backdash',
     side: 'defense',
     name: { 'zh-Hant': '後衝刺', en: 'Backdash', ja: 'バックダッシュ' },
+    short: { 'zh-Hant': '後衝刺', en: 'Backdash', ja: 'バクステ' },
     origin: 'backdash',
     hint: {
       'zh-Hant': '快速後退一小段。有投擲無敵，但沒有打擊無敵，收招長。',
@@ -255,6 +265,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'drive-rush-out',
     side: 'defense',
     name: { 'zh-Hant': '動力箭步突破', en: 'Drive Rush through', ja: 'ドライブラッシュで割り込む' },
+    short: { 'zh-Hant': '動力箭步', en: 'Drive Rush', ja: 'DR' },
     origin: 'Drive Rush',
     hint: {
       'zh-Hant': '花三格動力槽向前衝，強行接近或改變節奏。',
@@ -272,6 +283,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'reversal',
     side: 'defense',
     name: { 'zh-Hant': '無敵技（角色專屬）', en: 'Invincible reversal', ja: '無敵技（キャラ固有）' },
+    short: { 'zh-Hant': '無敵技', en: 'Reversal', ja: '無敵技' },
     origin: 'reversal / DP',
     hint: {
       'zh-Hant': '起身瞬間發動的無敵招（升龍類）。打得穿打擊和摔投，落空會被重罰。',
@@ -290,6 +302,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'super-reversal',
     side: 'defense',
     name: { 'zh-Hant': '無敵 Super Art（角色專屬）', en: 'Invincible Super Art', ja: '無敵スーパーアーツ（キャラ固有）' },
+    short: { 'zh-Hant': '無敵 SA', en: 'Super rev.', ja: '無敵SA' },
     origin: 'super reversal',
     hint: {
       'zh-Hant': '有無敵的 SA。沒有升龍的角色多半靠這個脫身。',
@@ -308,6 +321,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'do-nothing',
     side: 'defense',
     name: { 'zh-Hant': '純防禦（不出手）', en: 'Just block', ja: 'ガードのみ' },
+    short: { 'zh-Hant': '純防禦', en: 'Block', ja: 'ガード' },
     origin: 'just block',
     hint: {
       'zh-Hant': '什麼都不按，只防禦。輸給摔投，但打擊全部擋下。',
@@ -325,6 +339,7 @@ const DEFENSIVE: OptionDef[] = [
     id: 'air-to-air',
     side: 'defense',
     name: { 'zh-Hant': '空對空', en: 'Air-to-air', ja: '空対空' },
+    short: { 'zh-Hant': '空對空', en: 'Air-to-air', ja: '空対空' },
     origin: 'air-to-air',
     hint: {
       'zh-Hant': '自己也跳起來，在空中打掉對方的跳躍攻擊。',

@@ -1,0 +1,800 @@
+import type { Situation } from '../schema'
+
+/**
+ * Group J — pressure, by what the defender can still spend.
+ *
+ * The axis is his Drive, not your position, because that is what removes
+ * options from his side of the table. Notice the columns shrink as the group
+ * goes on: a defender in Burnout simply does not have Parry, Reversal or Impact
+ * to answer with, and the matrix says so by not listing them.
+ *
+ * Everything is `estimated`.
+ */
+export const GROUP_J: Situation[] = [
+  {
+    id: 'j1-they-have-drive',
+    side: 'offense',
+    group: 'J',
+    name: {
+      'zh-Hant': '對手動力槽充足',
+      en: 'He has Drive to spend',
+      ja: '相手のドライブに余裕がある',
+    },
+    position: ['midscreen', 'nearCorner', 'cornered'],
+    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'drive-reversal', 'drive-impact', 'mash-light'],
+    evaluations: [
+      {
+        optionId: 'blockstring',
+        risk: 'safe',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '接得起來的連段，逼他一直防禦。他每擋一下都在掉動力槽，你是在買他的資源。',
+            en: 'A connected string that keeps him blocking. Every block spends his Drive; you are buying his resources.',
+            ja: '繋がる連係でガードを強要する。ガードのたびに相手のドライブが減り、資源を削っていることになる。',
+          },
+          followUp: 'pressure',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手用動力反攻或動力衝擊把你推開，你花的壓制全部歸零還挨一下。',
+            en: 'A Drive Reversal or Drive Impact shoves you off: the pressure you built resets and you take a hit.',
+            ja: 'ドライブリバーサルかインパクトで押し返され、築いた攻めが消えたうえ被弾する。',
+          },
+          hpLoss: '20-30%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'loss' },
+          { vs: 'drive-reversal', outcome: 'bigLoss' },
+          { vs: 'drive-impact', outcome: 'loss' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+        ],
+        mixRatio: '30-40%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'throw',
+        risk: 'low',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '打穿防禦和撥擋，再拿一次倒地繼續循環。',
+            en: 'Goes through blocking and parry, takes another knockdown, and the loop continues.',
+            ja: 'ガードもパリィも貫通し、再びダウンを奪ってループを続ける。',
+          },
+          followUp: 'pressure',
+          damageBand: '12%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '被解摔就分開，回合結束。',
+            en: 'Teched, you separate and the turn ends.',
+            ja: '抜けられれば距離が離れ、ターンが終わる。',
+          },
+          hpLoss: '12-18%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'bigWin' },
+          { vs: 'delayed-tech', outcome: 'loss' },
+          { vs: 'drive-parry', outcome: 'bigWin' },
+          { vs: 'drive-reversal', outcome: 'loss' },
+          { vs: 'mash-light', outcome: 'loss' },
+        ],
+        mixRatio: '25-35%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'delayed-attack',
+        risk: 'medium',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '在連段的空隙延遲出招，正好打中他的解摔或速點 —— counter hit 接完整連段。',
+            en: 'Delay into the gap so it lands on his tech or his mash — counter hit into a full combo.',
+            ja: '連係の隙間で遅らせて出し、投げ抜けや暴れに重ねる。カウンターヒットからフルコンボ。',
+          },
+          followUp: 'combo',
+          damageBand: '30-45%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手純防禦，你的延遲打擊只是被擋，而且比接好的連段更不利。',
+            en: 'He just blocked, so the delayed strike is only blocked — and less plus than a clean string.',
+            ja: '素直にガードされれば遅らせた打撃はガードされるだけで、繋げた連係より不利になる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'delayed-tech', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'loss' },
+          { vs: 'drive-parry', outcome: 'loss' },
+          { vs: 'drive-reversal', outcome: 'loss' },
+        ],
+        mixRatio: '20-25%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'low-overhead-mix',
+        risk: 'medium',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '中下二擇逼他猜。猜錯就是完整連段。',
+            en: 'An overhead-or-low guess. Wrong is a full combo.',
+            ja: '中下段の二択を迫る。読み違えればフルコンボ。',
+          },
+          followUp: 'combo',
+          damageBand: '25-40%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '猜對就擋下來，而多數中段不利，你被確反。',
+            en: 'Guessed right it is blocked, and most overheads are minus, so you get punished.',
+            ja: '読まれればガードされ、多くの中段は不利なため確反を受ける。',
+          },
+          hpLoss: '20-35%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'drive-reversal', outcome: 'loss' },
+        ],
+        mixRatio: '15-20%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'shimmy',
+        risk: 'medium',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '後退誘他解摔，懲罰他落空的解摔硬直。',
+            en: 'Walk back to bait the tech and punish its whiffed recovery.',
+            ja: '下がって投げ抜けを誘い、空振りの硬直を狩る。',
+          },
+          followUp: 'combo',
+          damageBand: '30-45%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '他沒解摔，你退開時無防備，被速點或無敵技抓到。',
+            en: 'He did not tech, and your walk-back is exposed to a mash or a reversal.',
+            ja: '相手が抜けず、下がって無防備な部分を暴れや無敵技に狩られる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'delayed-tech', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'drive-reversal', outcome: 'win' },
+        ],
+        mixRatio: '10-15%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'drive-impact',
+        risk: 'high',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '霸體吃下他的反抗再撞飛。靠牆就是撞牆接完整連段，尤其他力盡的時候擋住也會暈。',
+            en: 'Armour through his answer and launch. Near a wall it is a wall splat into a full combo — and if he is burnt out it stuns even on block.',
+            ja: 'アーマーで相手の抵抗を受けて打ち上げる。壁が近ければ壁やられからフルコンボ。相手がバーンアウト中ならガードしてもスタンする。',
+          },
+          followUp: 'combo',
+          damageBand: '25-40%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '他用自己的動力衝擊撞回來，或是直接摔你 —— 霸體防不住摔投。',
+            en: 'He impacts back, or simply throws you — armour does not stop throws.',
+            ja: '相手のDIで返されるか、単に投げられる。アーマーは投げを防げない。',
+          },
+          hpLoss: '30-50%',
+          driveLoss: 1,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'drive-reversal', outcome: 'bigWin' },
+          { vs: 'drive-impact', outcome: 'loss' },
+          { vs: 'delayed-tech', outcome: 'loss' },
+        ],
+        mixRatio: '10-15%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'bait-block',
+        risk: 'safe',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '停下來防禦，等他的動力反攻、速點或無敵技落空，再打最大懲罰。',
+            en: 'Stop and block, waiting for his Drive Reversal, mash or reversal to whiff, then take the maximum punish.',
+            ja: '攻めを止めてガードし、リバーサルや暴れ、無敵技の空振りを待って最大反撃を入れる。',
+          },
+          followUp: 'combo',
+          damageBand: '35-55%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '他也什麼都沒做，你放掉了一次壓制機會。',
+            en: 'He did nothing either, and you gave up a turn of pressure.',
+            ja: '相手も何もせず、攻めのターンを一度手放すことになる。',
+          },
+          hpLoss: '5%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'drive-reversal', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'delayed-tech', outcome: 'even' },
+          { vs: 'drive-parry', outcome: 'even' },
+        ],
+        mixRatio: '10-15%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'drive-rush-pressure',
+        risk: 'medium',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '花一格用動力箭步把攻擊送得更快更有利，同時逼他繼續消耗動力槽防禦。',
+            en: 'Spend a bar to deliver the attack faster and more plus, and keep him spending Drive to block it.',
+            ja: '1ゲージ使って攻撃をより速く有利に届け、相手にドライブを消費させ続ける。',
+          },
+          followUp: 'pressure',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '他撥擋成功就回了動力槽，你花的一格反而變成他的資源。',
+            en: 'A successful parry returns his Drive: the bar you spent becomes his resource.',
+            ja: 'パリィされれば相手のドライブが回復し、消費した1ゲージが相手の資源に変わる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 1,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'drive-parry', outcome: 'bigLoss' },
+          { vs: 'drive-reversal', outcome: 'loss' },
+        ],
+        mixRatio: '20-25%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '這是資源競賽 —— 你花一格逼他花更多。他動力槽越低，這一手越划算。',
+          en: 'This is a resource race: you spend one bar to make him spend more. The lower his gauge, the better the trade.',
+          ja: '資源の削り合い。1ゲージ払って相手により多く払わせる。相手のゲージが低いほど割が良い。',
+        },
+      },
+    ],
+  },
+  {
+    id: 'j2-they-are-low',
+    side: 'offense',
+    group: 'J',
+    name: {
+      'zh-Hant': '對手動力槽見底',
+      en: 'He is nearly out',
+      ja: '相手のドライブが残り僅か',
+    },
+    position: ['midscreen', 'nearCorner', 'cornered'],
+    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal'],
+    evaluations: [
+      {
+        optionId: 'blockstring',
+        risk: 'safe',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '接得起來的連段，逼他一直防禦。他每擋一下都在掉動力槽，你是在買他的資源。',
+            en: 'A connected string that keeps him blocking. Every block spends his Drive; you are buying his resources.',
+            ja: '繋がる連係でガードを強要する。ガードのたびに相手のドライブが減り、資源を削っていることになる。',
+          },
+          followUp: 'pressure',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手用動力反攻或動力衝擊把你推開，你花的壓制全部歸零還挨一下。',
+            en: 'A Drive Reversal or Drive Impact shoves you off: the pressure you built resets and you take a hit.',
+            ja: 'ドライブリバーサルかインパクトで押し返され、築いた攻めが消えたうえ被弾する。',
+          },
+          hpLoss: '20-30%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'loss' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'reversal', outcome: 'win' },
+        ],
+        mixRatio: '30-40%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'throw',
+        risk: 'low',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '打穿防禦和撥擋，再拿一次倒地繼續循環。',
+            en: 'Goes through blocking and parry, takes another knockdown, and the loop continues.',
+            ja: 'ガードもパリィも貫通し、再びダウンを奪ってループを続ける。',
+          },
+          followUp: 'pressure',
+          damageBand: '12%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '被解摔就分開，回合結束。',
+            en: 'Teched, you separate and the turn ends.',
+            ja: '抜けられれば距離が離れ、ターンが終わる。',
+          },
+          hpLoss: '12-18%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'bigWin' },
+          { vs: 'delayed-tech', outcome: 'loss' },
+          { vs: 'drive-parry', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '25-35%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'delayed-attack',
+        risk: 'medium',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '在連段的空隙延遲出招，正好打中他的解摔或速點 —— counter hit 接完整連段。',
+            en: 'Delay into the gap so it lands on his tech or his mash — counter hit into a full combo.',
+            ja: '連係の隙間で遅らせて出し、投げ抜けや暴れに重ねる。カウンターヒットからフルコンボ。',
+          },
+          followUp: 'combo',
+          damageBand: '30-45%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手純防禦，你的延遲打擊只是被擋，而且比接好的連段更不利。',
+            en: 'He just blocked, so the delayed strike is only blocked — and less plus than a clean string.',
+            ja: '素直にガードされれば遅らせた打撃はガードされるだけで、繋げた連係より不利になる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'delayed-tech', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'loss' },
+          { vs: 'drive-parry', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '20-25%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'low-overhead-mix',
+        risk: 'medium',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '中下二擇逼他猜。猜錯就是完整連段。',
+            en: 'An overhead-or-low guess. Wrong is a full combo.',
+            ja: '中下段の二択を迫る。読み違えればフルコンボ。',
+          },
+          followUp: 'combo',
+          damageBand: '25-40%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '猜對就擋下來，而多數中段不利，你被確反。',
+            en: 'Guessed right it is blocked, and most overheads are minus, so you get punished.',
+            ja: '読まれればガードされ、多くの中段は不利なため確反を受ける。',
+          },
+          hpLoss: '20-35%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '15-20%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'shimmy',
+        risk: 'medium',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '後退誘他解摔，懲罰他落空的解摔硬直。',
+            en: 'Walk back to bait the tech and punish its whiffed recovery.',
+            ja: '下がって投げ抜けを誘い、空振りの硬直を狩る。',
+          },
+          followUp: 'combo',
+          damageBand: '30-45%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '他沒解摔，你退開時無防備，被速點或無敵技抓到。',
+            en: 'He did not tech, and your walk-back is exposed to a mash or a reversal.',
+            ja: '相手が抜けず、下がって無防備な部分を暴れや無敵技に狩られる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'delayed-tech', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '10-15%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'drive-impact',
+        risk: 'high',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '霸體吃下他的反抗再撞飛。靠牆就是撞牆接完整連段，尤其他力盡的時候擋住也會暈。',
+            en: 'Armour through his answer and launch. Near a wall it is a wall splat into a full combo — and if he is burnt out it stuns even on block.',
+            ja: 'アーマーで相手の抵抗を受けて打ち上げる。壁が近ければ壁やられからフルコンボ。相手がバーンアウト中ならガードしてもスタンする。',
+          },
+          followUp: 'combo',
+          damageBand: '25-40%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '他用自己的動力衝擊撞回來，或是直接摔你 —— 霸體防不住摔投。',
+            en: 'He impacts back, or simply throws you — armour does not stop throws.',
+            ja: '相手のDIで返されるか、単に投げられる。アーマーは投げを防げない。',
+          },
+          hpLoss: '30-50%',
+          driveLoss: 1,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'delayed-tech', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '10-15%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'bait-block',
+        risk: 'safe',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '停下來防禦，等他的動力反攻、速點或無敵技落空，再打最大懲罰。',
+            en: 'Stop and block, waiting for his Drive Reversal, mash or reversal to whiff, then take the maximum punish.',
+            ja: '攻めを止めてガードし、リバーサルや暴れ、無敵技の空振りを待って最大反撃を入れる。',
+          },
+          followUp: 'combo',
+          damageBand: '35-55%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '他也什麼都沒做，你放掉了一次壓制機會。',
+            en: 'He did nothing either, and you gave up a turn of pressure.',
+            ja: '相手も何もせず、攻めのターンを一度手放すことになる。',
+          },
+          hpLoss: '5%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'reversal', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'delayed-tech', outcome: 'even' },
+          { vs: 'drive-parry', outcome: 'even' },
+        ],
+        mixRatio: '10-15%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'drive-rush-pressure',
+        risk: 'medium',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '花一格用動力箭步把攻擊送得更快更有利，同時逼他繼續消耗動力槽防禦。',
+            en: 'Spend a bar to deliver the attack faster and more plus, and keep him spending Drive to block it.',
+            ja: '1ゲージ使って攻撃をより速く有利に届け、相手にドライブを消費させ続ける。',
+          },
+          followUp: 'pressure',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '他撥擋成功就回了動力槽，你花的一格反而變成他的資源。',
+            en: 'A successful parry returns his Drive: the bar you spent becomes his resource.',
+            ja: 'パリィされれば相手のドライブが回復し、消費した1ゲージが相手の資源に変わる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 1,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'drive-parry', outcome: 'bigLoss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '20-25%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '這是資源競賽 —— 你花一格逼他花更多。他動力槽越低，這一手越划算。',
+          en: 'This is a resource race: you spend one bar to make him spend more. The lower his gauge, the better the trade.',
+          ja: '資源の削り合い。1ゲージ払って相手により多く払わせる。相手のゲージが低いほど割が良い。',
+        },
+      },
+    ],
+  },
+  {
+    id: 'j3-they-are-burnt-out',
+    side: 'offense',
+    group: 'J',
+    name: {
+      'zh-Hant': '對手已力盡',
+      en: 'He is burnt out',
+      ja: '相手がバーンアウト',
+    },
+    position: ['midscreen', 'nearCorner', 'cornered'],
+    opponentOptions: ['do-nothing', 'delayed-tech', 'mash-light', 'reversal'],
+    evaluations: [
+      {
+        optionId: 'blockstring',
+        risk: 'safe',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '對手擋不掉的連段，逼他一直防禦並消耗動力槽。他已經力盡，防禦硬直每下多 4 frame，你的連係會直接沒有空隙。',
+            en: 'A string he cannot escape, forcing him to keep blocking. He is burnt out, so every block adds 4 frames — your strings simply stop having gaps.',
+            ja: '抜けられない連係でガードを強要する。相手はバーンアウト中でガード硬直が1回4F増えるため、連係から隙間が消える。',
+          },
+          followUp: 'pressure',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手用動力反攻或動力衝擊把你推開，你花的壓制全部歸零還挨一下。',
+            en: 'A Drive Reversal or Drive Impact shoves you off: the pressure you built resets and you take a hit.',
+            ja: 'ドライブリバーサルかインパクトで押し返され、築いた攻めが消えたうえ被弾する。',
+          },
+          hpLoss: '20-30%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'reversal', outcome: 'win' },
+        ],
+        mixRatio: '40-50%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '力盡的對手擋不掉削血。必殺技與 SA 的削血是原傷害的 25%，血量低的時候光靠連段壓制就能收掉。',
+          en: 'A burnt-out defender cannot avoid chip. Blocked specials and Supers deal 25% of their damage, so pressure alone can close a round at low life.',
+          ja: 'バーンアウト中の相手は削りを避けられない。必殺技とSAは本来の25%を削るため、体力が低ければ攻めだけで倒し切れる。',
+        },
+      },
+      {
+        optionId: 'throw',
+        risk: 'low',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '打穿防禦和撥擋，再拿一次倒地繼續循環。',
+            en: 'Goes through blocking and parry, takes another knockdown, and the loop continues.',
+            ja: 'ガードもパリィも貫通し、再びダウンを奪ってループを続ける。',
+          },
+          followUp: 'pressure',
+          damageBand: '12%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '被解摔就分開，回合結束。',
+            en: 'Teched, you separate and the turn ends.',
+            ja: '抜けられれば距離が離れ、ターンが終わる。',
+          },
+          hpLoss: '12-18%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'bigWin' },
+          { vs: 'delayed-tech', outcome: 'loss' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '25-35%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'delayed-attack',
+        risk: 'medium',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '在連段的空隙延遲出招，正好打中他的解摔或速點 —— counter hit 接完整連段。',
+            en: 'Delay into the gap so it lands on his tech or his mash — counter hit into a full combo.',
+            ja: '連係の隙間で遅らせて出し、投げ抜けや暴れに重ねる。カウンターヒットからフルコンボ。',
+          },
+          followUp: 'combo',
+          damageBand: '30-45%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手純防禦，你的延遲打擊只是被擋，而且比接好的連段更不利。',
+            en: 'He just blocked, so the delayed strike is only blocked — and less plus than a clean string.',
+            ja: '素直にガードされれば遅らせた打撃はガードされるだけで、繋げた連係より不利になる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'delayed-tech', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '20-25%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'low-overhead-mix',
+        risk: 'medium',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '中下二擇逼他猜。猜錯就是完整連段。',
+            en: 'An overhead-or-low guess. Wrong is a full combo.',
+            ja: '中下段の二択を迫る。読み違えればフルコンボ。',
+          },
+          followUp: 'combo',
+          damageBand: '25-40%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '猜對就擋下來，而多數中段不利，你被確反。',
+            en: 'Guessed right it is blocked, and most overheads are minus, so you get punished.',
+            ja: '読まれればガードされ、多くの中段は不利なため確反を受ける。',
+          },
+          hpLoss: '20-35%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '15-20%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'shimmy',
+        risk: 'medium',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '後退誘他解摔，懲罰他落空的解摔硬直。',
+            en: 'Walk back to bait the tech and punish its whiffed recovery.',
+            ja: '下がって投げ抜けを誘い、空振りの硬直を狩る。',
+          },
+          followUp: 'combo',
+          damageBand: '30-45%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '他沒解摔，你退開時無防備，被速點或無敵技抓到。',
+            en: 'He did not tech, and your walk-back is exposed to a mash or a reversal.',
+            ja: '相手が抜けず、下がって無防備な部分を暴れや無敵技に狩られる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'delayed-tech', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '10-15%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'drive-impact',
+        risk: 'high',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '霸體吃下他的反抗再撞飛。靠牆就是撞牆接完整連段，尤其他力盡的時候擋住也會暈。',
+            en: 'Armour through his answer and launch. Near a wall it is a wall splat into a full combo — and if he is burnt out it stuns even on block.',
+            ja: 'アーマーで相手の抵抗を受けて打ち上げる。壁が近ければ壁やられからフルコンボ。相手がバーンアウト中ならガードしてもスタンする。',
+          },
+          followUp: 'combo',
+          damageBand: '25-40%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '他用自己的動力衝擊撞回來，或是直接摔你 —— 霸體防不住摔投。',
+            en: 'He impacts back, or simply throws you — armour does not stop throws.',
+            ja: '相手のDIで返されるか、単に投げられる。アーマーは投げを防げない。',
+          },
+          hpLoss: '30-50%',
+          driveLoss: 1,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'delayed-tech', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '10-15%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '對手力盡又在角落的時候，這是全遊戲期望值最高的一手 —— 他擋住也會被撞牆暈眩。',
+          en: 'With him burnt out and cornered this is the highest-expectation option in the game: the wall splat stuns him even through a block.',
+          ja: '相手がバーンアウトかつ画面端の時、ゲーム中最も期待値の高い一手。ガードしていても壁やられからスタンする。',
+        },
+      },
+      {
+        optionId: 'bait-block',
+        risk: 'safe',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '停下來防禦，等他的動力反攻、速點或無敵技落空，再打最大懲罰。',
+            en: 'Stop and block, waiting for his Drive Reversal, mash or reversal to whiff, then take the maximum punish.',
+            ja: '攻めを止めてガードし、リバーサルや暴れ、無敵技の空振りを待って最大反撃を入れる。',
+          },
+          followUp: 'combo',
+          damageBand: '35-55%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '他也什麼都沒做，你放掉了一次壓制機會。',
+            en: 'He did nothing either, and you gave up a turn of pressure.',
+            ja: '相手も何もせず、攻めのターンを一度手放すことになる。',
+          },
+          hpLoss: '5%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'reversal', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'delayed-tech', outcome: 'even' },
+        ],
+        mixRatio: '10-15%',
+        verified: 'estimated',
+      },
+    ],
+  },
+]

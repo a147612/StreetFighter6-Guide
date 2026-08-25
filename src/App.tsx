@@ -6,7 +6,7 @@ import { SituationNav } from './components/SituationNav'
 import { GlassPanel } from './components/glass/GlassPanel'
 import { Segmented } from './components/Segmented'
 import { useT } from './i18n/useT'
-import { SITUATIONS, getSituation, resolveRows, situationsInGroup } from './data'
+import { GROUPS, SITUATIONS, getSituation, resolveRows, situationsInGroup } from './data'
 import type { I18nText, Side } from './data/schema'
 
 const REPO_URL = 'https://github.com/a147612/StreetFighter6-Guide'
@@ -36,11 +36,12 @@ const ROADMAP: RoadmapItem[] = [
     },
   },
   {
-    state: 'planned',
+    state: 'done',
     label: {
-      'zh-Hant': '進攻情境 I–K：起攻（依倒地類型與位置）、壓制節奏、連段抉擇',
-      en: 'Offensive groups I–K: oki by knockdown type and position, pressure pacing, combo choices',
-      ja: '攻め側 I〜K：ダウン種別と位置別の起き攻め、攻めの緩急、コンボ選択',
+      'zh-Hant':
+        '進攻情境 I–K 完成：8 個情境、59 筆評價（起攻依倒地類型、壓制依對手資源、接近依距離）。矩陣的欄位就是防守方的選項 —— 同一份關係的另一個讀法',
+      en: 'Offensive groups I–K complete: 8 situations, 59 evaluations (oki by knockdown type, pressure by their Drive, approach by distance). The columns are the defender’s options — the same relation read from the other side',
+      ja: '攻め側 I〜K 完了：8状況・59評価（ダウン種別の起き攻め、相手ゲージ別の攻め、距離別の接近）。列は守り側の選択肢であり、同じ関係を逆から読んだもの',
     },
   },
   {
@@ -95,6 +96,14 @@ export default function App() {
     if (first) setSituationId(first.id)
   }
 
+  /** Switching seat has to move the group too — the defensive groups do not
+   *  exist on the offensive side and vice versa. */
+  function pickSide(next: Side): void {
+    setSide(next)
+    const firstGroup = GROUPS.find((g) => g.side === next && situationsInGroup(g.id).length > 0)
+    if (firstGroup) pickGroup(firstGroup.id)
+  }
+
   return (
     <div className="liquid-glass-backdrop app" id="top">
       <a className="skip-link" href="#main">
@@ -108,13 +117,13 @@ export default function App() {
           <Segmented<Side>
             label={t.side.label}
             value={side}
-            onChange={setSide}
+            onChange={pickSide}
             options={[
               { value: 'defense', label: t.side.defense },
               { value: 'offense', label: t.side.offense },
             ]}
           />
-          {side === 'defense' && (
+          {(
             <SituationNav
               side={side}
               groupId={groupId}
@@ -125,7 +134,7 @@ export default function App() {
           )}
         </div>
 
-        {side === 'defense' && situation ? (
+        {situation ? (
           <section className="stack" aria-labelledby="situation-heading">
             <div className="sithead">
               <h2 id="situation-heading">{text(situation.name)}</h2>
@@ -142,19 +151,7 @@ export default function App() {
               opponentOptions={situation.opponentOptions}
             />
           </section>
-        ) : (
-          <section className="card card--padded stack">
-            <h2>{text({ 'zh-Hant': '進攻情境', en: 'Offensive situations', ja: '攻め側の状況' })}</h2>
-            <p className="muted">
-              {text({
-                'zh-Hant':
-                  '進攻層（I–K）的資料模型已就位 —— 起攻依「用什麼招打倒對手」與位置分類，壓制節奏依對手的 Drive 存量分類。內容正在建置中。',
-                en: 'The offensive layer (I–K) is modelled: oki keyed on how the knockdown happened plus position, pressure pacing keyed on the opponent\u2019s Drive. Content is being written.',
-                ja: '攻め側（I〜K）のデータモデルは構築済み。起き攻めは「どの技でダウンを取ったか」と位置で分類し、攻めの緩急は相手のドライブ残量で分類する。内容は執筆中。',
-              })}
-            </p>
-          </section>
-        )}
+        ) : null}
 
         {/* Meta, not product — collapsed so it does not compete with the table. */}
         <details className="disclosure disclosure--foot">

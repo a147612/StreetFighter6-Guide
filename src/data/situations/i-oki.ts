@@ -1,0 +1,908 @@
+import type { Situation } from '../schema'
+
+/**
+ * Group I — oki, by how the knockdown happened.
+ *
+ * The axis is the knockdown type rather than position, because that is what
+ * decides whether your timing can be exact: a hard knockdown removes their rise
+ * choice entirely, a soft one leaves it, and everything downstream follows.
+ *
+ * The columns are the defender's options from group A. This is the same
+ * relation read from the other side.
+ *
+ * Everything is `estimated`.
+ */
+export const GROUP_I: Situation[] = [
+  {
+    id: 'i1-after-throw',
+    side: 'offense',
+    group: 'I',
+    name: {
+      'zh-Hant': '摔投倒地後',
+      en: 'After a throw',
+      ja: '投げでダウンを取った後',
+    },
+    position: ['midscreen', 'nearCorner', 'cornered'],
+    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal', 'backdash'],
+    evaluations: [
+      {
+        optionId: 'meaty',
+        risk: 'medium',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '把打擊疊在他起身上，擋到也是你有利，繼續壓。',
+            en: 'Puts the strike on their wakeup; even blocked you stay plus and keep pressing.',
+            ja: '起き上がりに打撃を重ねる。ガードされてもこちらが有利で攻めを継続できる。',
+          },
+          followUp: 'pressure',
+          damageBand: '10-15%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手用無敵技打穿你的打擊，你吃一整套而且失去角落壓制。',
+            en: 'They reverse through it, you eat a full combo and lose the corner pressure you had.',
+            ja: '無敵技で貫通され、フルコンボを受けたうえ築いた攻めも失う。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'even' },
+          { vs: 'drive-parry', outcome: 'loss' },
+          { vs: 'mash-light', outcome: 'win' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'win' },
+        ],
+        mixRatio: '30-40%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'throw',
+        risk: 'low',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '摔投打穿防禦和撥擋。傷害不高，但你再拿一次倒地，起攻可以繼續循環。',
+            en: 'The throw goes through blocking and parry. Modest damage, but you take another knockdown and the loop continues.',
+            ja: '投げはガードもパリィも貫通する。ダメージは小さいが再びダウンを奪え、ループが続く。',
+          },
+          followUp: 'pressure',
+          damageBand: '12%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '被解摔就分開，回合結束；被速點或無敵技打斷更慘。',
+            en: 'Teched, you separate and the turn ends; interrupted by a mash or a reversal, worse.',
+            ja: '抜けられれば距離が離れてターン終了。暴れや無敵技に潰されればさらに悪い。',
+          },
+          hpLoss: '12-18%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'bigWin' },
+          { vs: 'delayed-tech', outcome: 'loss' },
+          { vs: 'drive-parry', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'loss' },
+        ],
+        mixRatio: '25-35%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '對付純防禦和撥擋的答案。他越是不按，摔投的比例就該越高。',
+          en: 'The answer to blocking and to parry. The less they press, the higher this share should be.',
+          ja: 'ガード択とパリィへの回答。相手が押してこないほど、この比率を上げるべきである。',
+        },
+      },
+      {
+        optionId: 'shimmy',
+        risk: 'medium',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '後退誘他按解摔，他的解摔硬直落空，你打一整套。這是對付「一直解摔」的處刑手段。',
+            en: 'Walk back, bait the tech, and punish the whiffed tech animation with a full combo. The execution for someone who techs on autopilot.',
+            ja: '下がって投げ抜けを誘い、空振りの硬直にフルコンボを入れる。投げ抜け一択の相手への処刑手段。',
+          },
+          followUp: 'combo',
+          damageBand: '30-45%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手沒按解摔，你退開的那段是無防備的，被速點或無敵技抓到就換你吃。',
+            en: 'They did not tech, and your walk-back is exposed: a mash or a reversal catches you instead.',
+            ja: '相手が投げ抜けを押さず、下がっている無防備な部分を暴れや無敵技に狩られる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'delayed-tech', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'loss' },
+        ],
+        mixRatio: '15-20%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'delayed-attack',
+        risk: 'medium',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '故意慢一拍出招，正好打在他按解摔的那一格 —— counter hit 接完整連段。',
+            en: 'Hit late, landing exactly on their tech input — counter hit into a full combo.',
+            ja: 'わざと遅らせて出し、投げ抜けの入力に重ねる。カウンターヒットからフルコンボ。',
+          },
+          followUp: 'combo',
+          damageBand: '30-45%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手單純防禦，你延遲的打擊只是被擋，而且比正常疊招更不利。',
+            en: 'They simply blocked, so the delayed strike is just blocked — and less plus than a properly timed meaty.',
+            ja: '相手が素直にガードすれば、遅らせた打撃はガードされるだけで、通常の重ねより有利が減る。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'delayed-tech', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'loss' },
+          { vs: 'drive-parry', outcome: 'loss' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'win' },
+        ],
+        mixRatio: '15-20%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '同時懲罰「延遲解摔」和「速點」兩個最常見的防守選項，是起攻裡覆蓋面最大的一手。',
+          en: 'Punishes delayed tech and mashing at once — the two most common defensive picks — which makes it the broadest single oki option.',
+          ja: '遅らせ投げ抜けと暴れという最も多い二つの守り択を同時に狩れる、起き攻めで最も広い一手。',
+        },
+      },
+      {
+        optionId: 'low-overhead-mix',
+        risk: 'medium',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '中段和下段的二擇，逼他猜站防還是蹲防。猜錯就是完整連段。',
+            en: 'An overhead-versus-low guess: stand block or crouch block. Wrong is a full combo.',
+            ja: '中段と下段の二択。立ちガードかしゃがみガードかを迫り、外せばフルコンボ。',
+          },
+          followUp: 'combo',
+          damageBand: '25-40%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手擋對了，而且多數中段起動慢又不利，被確反。',
+            en: 'They guessed right — and most overheads are slow and minus, so you get punished.',
+            ja: '読まれれば、多くの中段は発生が遅く不利なため確反を受ける。',
+          },
+          hpLoss: '20-35%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '15-25%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'bait-block',
+        risk: 'safe',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '什麼都不做，防好等他的無敵技或速點落空 —— 然後打最大懲罰。',
+            en: 'Do nothing and block, waiting for their reversal or mash to whiff. Then take the maximum punish.',
+            ja: '何もせずガードし、無敵技や暴れの空振りを待って最大反撃を入れる。',
+          },
+          followUp: 'combo',
+          damageBand: '35-55%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手也什麼都不做，你放棄了這次起攻，雙方回到中立。',
+            en: 'They did nothing either: you gave up the oki and both of you return to neutral.',
+            ja: '相手も何もせず、起き攻めを一度放棄してニュートラルに戻る。',
+          },
+          hpLoss: '5%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'reversal', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'delayed-tech', outcome: 'even' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'backdash', outcome: 'even' },
+        ],
+        mixRatio: '10-20%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '對手用過一次無敵技之後，這一手的期望值最高。它幾乎不會賠，只會浪費一次機會。',
+          en: 'Highest expected value right after they have shown you a reversal. It almost never loses; the worst case is a wasted opportunity.',
+          ja: '相手が一度無敵技を見せた直後に最も期待値が高い。ほぼ損をせず、最悪でも機会を一度失うだけ。',
+        },
+      },
+      {
+        optionId: 'empty-jump',
+        risk: 'medium',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '跳過去但不出招，落地直接摔或打下段。對手的對空和防禦都會落空。',
+            en: 'Jump in without attacking and throw or go low on landing. Their anti-air and their block both whiff.',
+            ja: '技を出さずに跳び込み、着地から投げか下段を通す。相手の対空もガードも空振りする。',
+          },
+          followUp: 'combo',
+          damageBand: '20-30%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手對空抓到你，或是落地被速點打斷。',
+            en: 'They anti-air you anyway, or a mash catches you on landing.',
+            ja: '対空されるか、着地を暴れに狩られる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'loss' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '5-10%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'reset-neutral',
+        risk: 'safe',
+        reward: 'none',
+        onSuccess: {
+          text: {
+            'zh-Hant': '不進攻，退回中距離。對手準備好的所有防守選項全部白費。',
+            en: 'Decline the oki and back off. Every defensive option they prepared goes to waste.',
+            ja: '攻めずに下がる。相手が用意した守りの択が全て無駄になる。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '放棄了一次免費的進攻機會，對手也回復了節奏。',
+            en: 'You gave up a free offensive opportunity and let them reset their rhythm too.',
+            ja: '無償の攻撃機会を放棄し、相手にも立て直す時間を与える。',
+          },
+          hpLoss: '5%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'reversal', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'win' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'delayed-tech', outcome: 'even' },
+          { vs: 'backdash', outcome: 'even' },
+        ],
+        mixRatio: '5-10%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '對手每次都無敵技的時候，退開比空防更安全 —— 空防還是有被 SA 打到的風險。',
+          en: 'Against someone reversing every time, backing off is safer than blocking: a block can still be beaten by an invincible Super.',
+          ja: '毎回無敵技を振る相手には、ガードより下がる方が安全。ガードでも無敵SAには通される可能性がある。',
+        },
+      },
+    ],
+  },
+  {
+    id: 'i2-after-hard-knockdown',
+    side: 'offense',
+    group: 'I',
+    name: {
+      'zh-Hant': '強制倒地後',
+      en: 'After a hard knockdown',
+      ja: 'ハードダウンを取った後',
+    },
+    position: ['midscreen', 'nearCorner', 'cornered'],
+    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal', 'backdash'],
+    evaluations: [
+      {
+        optionId: 'meaty',
+        risk: 'medium',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '時間點固定，打擊一定疊在他起身的第一格 —— 他不可能靠早起晚起躲掉。',
+            en: 'The timing is fixed, so the strike lands on the first frame they can act — no rise choice escapes it.',
+            ja: 'タイミングが固定されるため、起き上がりの1F目に必ず重なる。受身の選択では避けられない。',
+          },
+          followUp: 'pressure',
+          damageBand: '10-15%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手用無敵技打穿你的打擊，你吃一整套而且失去角落壓制。',
+            en: 'They reverse through it, you eat a full combo and lose the corner pressure you had.',
+            ja: '無敵技で貫通され、フルコンボを受けたうえ築いた攻めも失う。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'even' },
+          { vs: 'drive-parry', outcome: 'loss' },
+          { vs: 'mash-light', outcome: 'win' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'win' },
+        ],
+        mixRatio: '30-40%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '強制倒地是你能拿到的最好起攻 —— 對手少了一整層混合，你的時間點不可能失手。',
+          en: 'A hard knockdown is the best oki you can get: they lose a whole layer of mixup and your timing cannot miss.',
+          ja: 'ハードダウンは最良の起き攻め。相手は読み合いを一層失い、こちらのタイミングは外れない。',
+        },
+      },
+      {
+        optionId: 'throw',
+        risk: 'low',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '摔投打穿防禦和撥擋。傷害不高，但你再拿一次倒地，起攻可以繼續循環。',
+            en: 'The throw goes through blocking and parry. Modest damage, but you take another knockdown and the loop continues.',
+            ja: '投げはガードもパリィも貫通する。ダメージは小さいが再びダウンを奪え、ループが続く。',
+          },
+          followUp: 'pressure',
+          damageBand: '12%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '被解摔就分開，回合結束；被速點或無敵技打斷更慘。',
+            en: 'Teched, you separate and the turn ends; interrupted by a mash or a reversal, worse.',
+            ja: '抜けられれば距離が離れてターン終了。暴れや無敵技に潰されればさらに悪い。',
+          },
+          hpLoss: '12-18%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'bigWin' },
+          { vs: 'delayed-tech', outcome: 'loss' },
+          { vs: 'drive-parry', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'loss' },
+        ],
+        mixRatio: '25-35%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '對付純防禦和撥擋的答案。他越是不按，摔投的比例就該越高。',
+          en: 'The answer to blocking and to parry. The less they press, the higher this share should be.',
+          ja: 'ガード択とパリィへの回答。相手が押してこないほど、この比率を上げるべきである。',
+        },
+      },
+      {
+        optionId: 'shimmy',
+        risk: 'medium',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '後退誘他按解摔，他的解摔硬直落空，你打一整套。這是對付「一直解摔」的處刑手段。',
+            en: 'Walk back, bait the tech, and punish the whiffed tech animation with a full combo. The execution for someone who techs on autopilot.',
+            ja: '下がって投げ抜けを誘い、空振りの硬直にフルコンボを入れる。投げ抜け一択の相手への処刑手段。',
+          },
+          followUp: 'combo',
+          damageBand: '30-45%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手沒按解摔，你退開的那段是無防備的，被速點或無敵技抓到就換你吃。',
+            en: 'They did not tech, and your walk-back is exposed: a mash or a reversal catches you instead.',
+            ja: '相手が投げ抜けを押さず、下がっている無防備な部分を暴れや無敵技に狩られる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'delayed-tech', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'loss' },
+        ],
+        mixRatio: '15-20%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'delayed-attack',
+        risk: 'medium',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '故意慢一拍出招，正好打在他按解摔的那一格 —— counter hit 接完整連段。',
+            en: 'Hit late, landing exactly on their tech input — counter hit into a full combo.',
+            ja: 'わざと遅らせて出し、投げ抜けの入力に重ねる。カウンターヒットからフルコンボ。',
+          },
+          followUp: 'combo',
+          damageBand: '30-45%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手單純防禦，你延遲的打擊只是被擋，而且比正常疊招更不利。',
+            en: 'They simply blocked, so the delayed strike is just blocked — and less plus than a properly timed meaty.',
+            ja: '相手が素直にガードすれば、遅らせた打撃はガードされるだけで、通常の重ねより有利が減る。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'delayed-tech', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'loss' },
+          { vs: 'drive-parry', outcome: 'loss' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'win' },
+        ],
+        mixRatio: '15-20%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '同時懲罰「延遲解摔」和「速點」兩個最常見的防守選項，是起攻裡覆蓋面最大的一手。',
+          en: 'Punishes delayed tech and mashing at once — the two most common defensive picks — which makes it the broadest single oki option.',
+          ja: '遅らせ投げ抜けと暴れという最も多い二つの守り択を同時に狩れる、起き攻めで最も広い一手。',
+        },
+      },
+      {
+        optionId: 'low-overhead-mix',
+        risk: 'medium',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '中段和下段的二擇，逼他猜站防還是蹲防。猜錯就是完整連段。',
+            en: 'An overhead-versus-low guess: stand block or crouch block. Wrong is a full combo.',
+            ja: '中段と下段の二択。立ちガードかしゃがみガードかを迫り、外せばフルコンボ。',
+          },
+          followUp: 'combo',
+          damageBand: '25-40%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手擋對了，而且多數中段起動慢又不利，被確反。',
+            en: 'They guessed right — and most overheads are slow and minus, so you get punished.',
+            ja: '読まれれば、多くの中段は発生が遅く不利なため確反を受ける。',
+          },
+          hpLoss: '20-35%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '15-25%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'bait-block',
+        risk: 'safe',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '什麼都不做，防好等他的無敵技或速點落空 —— 然後打最大懲罰。',
+            en: 'Do nothing and block, waiting for their reversal or mash to whiff. Then take the maximum punish.',
+            ja: '何もせずガードし、無敵技や暴れの空振りを待って最大反撃を入れる。',
+          },
+          followUp: 'combo',
+          damageBand: '35-55%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手也什麼都不做，你放棄了這次起攻，雙方回到中立。',
+            en: 'They did nothing either: you gave up the oki and both of you return to neutral.',
+            ja: '相手も何もせず、起き攻めを一度放棄してニュートラルに戻る。',
+          },
+          hpLoss: '5%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'reversal', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'delayed-tech', outcome: 'even' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'backdash', outcome: 'even' },
+        ],
+        mixRatio: '10-20%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '對手用過一次無敵技之後，這一手的期望值最高。它幾乎不會賠，只會浪費一次機會。',
+          en: 'Highest expected value right after they have shown you a reversal. It almost never loses; the worst case is a wasted opportunity.',
+          ja: '相手が一度無敵技を見せた直後に最も期待値が高い。ほぼ損をせず、最悪でも機会を一度失うだけ。',
+        },
+      },
+      {
+        optionId: 'empty-jump',
+        risk: 'medium',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '跳過去但不出招，落地直接摔或打下段。對手的對空和防禦都會落空。',
+            en: 'Jump in without attacking and throw or go low on landing. Their anti-air and their block both whiff.',
+            ja: '技を出さずに跳び込み、着地から投げか下段を通す。相手の対空もガードも空振りする。',
+          },
+          followUp: 'combo',
+          damageBand: '20-30%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手對空抓到你，或是落地被速點打斷。',
+            en: 'They anti-air you anyway, or a mash catches you on landing.',
+            ja: '対空されるか、着地を暴れに狩られる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'loss' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '5-10%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'reset-neutral',
+        risk: 'safe',
+        reward: 'none',
+        onSuccess: {
+          text: {
+            'zh-Hant': '不進攻，退回中距離。對手準備好的所有防守選項全部白費。',
+            en: 'Decline the oki and back off. Every defensive option they prepared goes to waste.',
+            ja: '攻めずに下がる。相手が用意した守りの択が全て無駄になる。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '放棄了一次免費的進攻機會，對手也回復了節奏。',
+            en: 'You gave up a free offensive opportunity and let them reset their rhythm too.',
+            ja: '無償の攻撃機会を放棄し、相手にも立て直す時間を与える。',
+          },
+          hpLoss: '5%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'reversal', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'win' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'delayed-tech', outcome: 'even' },
+          { vs: 'backdash', outcome: 'even' },
+        ],
+        mixRatio: '5-10%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '對手每次都無敵技的時候，退開比空防更安全 —— 空防還是有被 SA 打到的風險。',
+          en: 'Against someone reversing every time, backing off is safer than blocking: a block can still be beaten by an invincible Super.',
+          ja: '毎回無敵技を振る相手には、ガードより下がる方が安全。ガードでも無敵SAには通される可能性がある。',
+        },
+      },
+    ],
+  },
+  {
+    id: 'i3-after-soft-knockdown',
+    side: 'offense',
+    group: 'I',
+    name: {
+      'zh-Hant': '軟倒地後（對手可受身）',
+      en: 'After a soft knockdown',
+      ja: '通常ダウンを取った後',
+    },
+    position: ['midscreen', 'nearCorner', 'cornered'],
+    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal', 'backdash'],
+    evaluations: [
+      {
+        optionId: 'meaty',
+        risk: 'medium',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '把打擊疊在他起身上。但他可以選擇受身或不受身，時間點不保證對得準。',
+            en: 'Puts the strike on their wakeup — but they choose when to rise, so the timing is not guaranteed.',
+            ja: '起き上がりに打撃を重ねる。ただし相手が受身を選べるためタイミングは保証されない。',
+          },
+          followUp: 'pressure',
+          damageBand: '10-15%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手用無敵技打穿你的打擊，你吃一整套而且失去角落壓制。',
+            en: 'They reverse through it, you eat a full combo and lose the corner pressure you had.',
+            ja: '無敵技で貫通され、フルコンボを受けたうえ築いた攻めも失う。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'delayed-tech', outcome: 'even' },
+          { vs: 'drive-parry', outcome: 'loss' },
+          { vs: 'mash-light', outcome: 'win' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'win' },
+        ],
+        mixRatio: '30-40%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '對手可以受身或不受身，所以你的疊招時間點是猜的。想要穩定起攻，先拿強制倒地。',
+          en: 'They can quick-rise or stay down, so your timing is a guess. If you want reliable oki, take a hard knockdown instead.',
+          ja: '相手は受身を選べるため重ねのタイミングは読みになる。安定した起き攻めが欲しいならハードダウンを狙う。',
+        },
+      },
+      {
+        optionId: 'throw',
+        risk: 'low',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '摔投打穿防禦和撥擋。傷害不高，但你再拿一次倒地，起攻可以繼續循環。',
+            en: 'The throw goes through blocking and parry. Modest damage, but you take another knockdown and the loop continues.',
+            ja: '投げはガードもパリィも貫通する。ダメージは小さいが再びダウンを奪え、ループが続く。',
+          },
+          followUp: 'pressure',
+          damageBand: '12%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '被解摔就分開，回合結束；被速點或無敵技打斷更慘。',
+            en: 'Teched, you separate and the turn ends; interrupted by a mash or a reversal, worse.',
+            ja: '抜けられれば距離が離れてターン終了。暴れや無敵技に潰されればさらに悪い。',
+          },
+          hpLoss: '12-18%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'bigWin' },
+          { vs: 'delayed-tech', outcome: 'loss' },
+          { vs: 'drive-parry', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'loss' },
+        ],
+        mixRatio: '25-35%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '對付純防禦和撥擋的答案。他越是不按，摔投的比例就該越高。',
+          en: 'The answer to blocking and to parry. The less they press, the higher this share should be.',
+          ja: 'ガード択とパリィへの回答。相手が押してこないほど、この比率を上げるべきである。',
+        },
+      },
+      {
+        optionId: 'shimmy',
+        risk: 'medium',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '後退誘他按解摔，他的解摔硬直落空，你打一整套。這是對付「一直解摔」的處刑手段。',
+            en: 'Walk back, bait the tech, and punish the whiffed tech animation with a full combo. The execution for someone who techs on autopilot.',
+            ja: '下がって投げ抜けを誘い、空振りの硬直にフルコンボを入れる。投げ抜け一択の相手への処刑手段。',
+          },
+          followUp: 'combo',
+          damageBand: '30-45%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手沒按解摔，你退開的那段是無防備的，被速點或無敵技抓到就換你吃。',
+            en: 'They did not tech, and your walk-back is exposed: a mash or a reversal catches you instead.',
+            ja: '相手が投げ抜けを押さず、下がっている無防備な部分を暴れや無敵技に狩られる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'delayed-tech', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'loss' },
+        ],
+        mixRatio: '15-20%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'delayed-attack',
+        risk: 'medium',
+        reward: 'extreme',
+        onSuccess: {
+          text: {
+            'zh-Hant': '故意慢一拍出招，正好打在他按解摔的那一格 —— counter hit 接完整連段。',
+            en: 'Hit late, landing exactly on their tech input — counter hit into a full combo.',
+            ja: 'わざと遅らせて出し、投げ抜けの入力に重ねる。カウンターヒットからフルコンボ。',
+          },
+          followUp: 'combo',
+          damageBand: '30-45%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手單純防禦，你延遲的打擊只是被擋，而且比正常疊招更不利。',
+            en: 'They simply blocked, so the delayed strike is just blocked — and less plus than a properly timed meaty.',
+            ja: '相手が素直にガードすれば、遅らせた打撃はガードされるだけで、通常の重ねより有利が減る。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'delayed-tech', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'loss' },
+          { vs: 'drive-parry', outcome: 'loss' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'win' },
+        ],
+        mixRatio: '15-20%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '同時懲罰「延遲解摔」和「速點」兩個最常見的防守選項，是起攻裡覆蓋面最大的一手。',
+          en: 'Punishes delayed tech and mashing at once — the two most common defensive picks — which makes it the broadest single oki option.',
+          ja: '遅らせ投げ抜けと暴れという最も多い二つの守り択を同時に狩れる、起き攻めで最も広い一手。',
+        },
+      },
+      {
+        optionId: 'low-overhead-mix',
+        risk: 'medium',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '中段和下段的二擇，逼他猜站防還是蹲防。猜錯就是完整連段。',
+            en: 'An overhead-versus-low guess: stand block or crouch block. Wrong is a full combo.',
+            ja: '中段と下段の二択。立ちガードかしゃがみガードかを迫り、外せばフルコンボ。',
+          },
+          followUp: 'combo',
+          damageBand: '25-40%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手擋對了，而且多數中段起動慢又不利，被確反。',
+            en: 'They guessed right — and most overheads are slow and minus, so you get punished.',
+            ja: '読まれれば、多くの中段は発生が遅く不利なため確反を受ける。',
+          },
+          hpLoss: '20-35%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '15-25%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'bait-block',
+        risk: 'safe',
+        reward: 'high',
+        onSuccess: {
+          text: {
+            'zh-Hant': '什麼都不做，防好等他的無敵技或速點落空 —— 然後打最大懲罰。',
+            en: 'Do nothing and block, waiting for their reversal or mash to whiff. Then take the maximum punish.',
+            ja: '何もせずガードし、無敵技や暴れの空振りを待って最大反撃を入れる。',
+          },
+          followUp: 'combo',
+          damageBand: '35-55%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手也什麼都不做，你放棄了這次起攻，雙方回到中立。',
+            en: 'They did nothing either: you gave up the oki and both of you return to neutral.',
+            ja: '相手も何もせず、起き攻めを一度放棄してニュートラルに戻る。',
+          },
+          hpLoss: '5%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'reversal', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'bigWin' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'delayed-tech', outcome: 'even' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'backdash', outcome: 'even' },
+        ],
+        mixRatio: '10-20%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '對手用過一次無敵技之後，這一手的期望值最高。它幾乎不會賠，只會浪費一次機會。',
+          en: 'Highest expected value right after they have shown you a reversal. It almost never loses; the worst case is a wasted opportunity.',
+          ja: '相手が一度無敵技を見せた直後に最も期待値が高い。ほぼ損をせず、最悪でも機会を一度失うだけ。',
+        },
+      },
+      {
+        optionId: 'empty-jump',
+        risk: 'medium',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '跳過去但不出招，落地直接摔或打下段。對手的對空和防禦都會落空。',
+            en: 'Jump in without attacking and throw or go low on landing. Their anti-air and their block both whiff.',
+            ja: '技を出さずに跳び込み、着地から投げか下段を通す。相手の対空もガードも空振りする。',
+          },
+          followUp: 'combo',
+          damageBand: '20-30%',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '對手對空抓到你，或是落地被速點打斷。',
+            en: 'They anti-air you anyway, or a mash catches you on landing.',
+            ja: '対空されるか、着地を暴れに狩られる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'do-nothing', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'win' },
+          { vs: 'delayed-tech', outcome: 'loss' },
+          { vs: 'mash-light', outcome: 'loss' },
+          { vs: 'reversal', outcome: 'bigLoss' },
+        ],
+        mixRatio: '5-10%',
+        verified: 'estimated',
+      },
+      {
+        optionId: 'reset-neutral',
+        risk: 'safe',
+        reward: 'none',
+        onSuccess: {
+          text: {
+            'zh-Hant': '不進攻，退回中距離。對手準備好的所有防守選項全部白費。',
+            en: 'Decline the oki and back off. Every defensive option they prepared goes to waste.',
+            ja: '攻めずに下がる。相手が用意した守りの択が全て無駄になる。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '放棄了一次免費的進攻機會，對手也回復了節奏。',
+            en: 'You gave up a free offensive opportunity and let them reset their rhythm too.',
+            ja: '無償の攻撃機会を放棄し、相手にも立て直す時間を与える。',
+          },
+          hpLoss: '5%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'reversal', outcome: 'bigWin' },
+          { vs: 'mash-light', outcome: 'win' },
+          { vs: 'do-nothing', outcome: 'even' },
+          { vs: 'delayed-tech', outcome: 'even' },
+          { vs: 'backdash', outcome: 'even' },
+        ],
+        mixRatio: '5-10%',
+        verified: 'estimated',
+        notes: {
+          'zh-Hant': '對手每次都無敵技的時候，退開比空防更安全 —— 空防還是有被 SA 打到的風險。',
+          en: 'Against someone reversing every time, backing off is safer than blocking: a block can still be beaten by an invincible Super.',
+          ja: '毎回無敵技を振る相手には、ガードより下がる方が安全。ガードでも無敵SAには通される可能性がある。',
+        },
+      },
+    ],
+  },
+]
