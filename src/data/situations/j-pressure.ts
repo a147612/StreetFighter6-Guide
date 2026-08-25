@@ -55,7 +55,19 @@ export const GROUP_J: Situation[] = [
           { vs: 'mash-light', outcome: 'bigWin' },
         ],
         mixRatio: '30-40%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Burnout',
+            patch: '2026-08 查閱',
+            note: '防禦會消耗動力槽，耗盡即進入 Burnout；Burnout 期間會被必殺技與 SA 削血。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '必殺技削血為原傷害的 25% 且可以致死；Burnout 中每擋一招，攻擊方多得 4 幀有利',
+          },
+        ],
       },
       {
         optionId: 'throw',
@@ -139,7 +151,19 @@ export const GROUP_J: Situation[] = [
           { vs: 'drive-reversal', outcome: 'loss' },
         ],
         mixRatio: '20-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔為 9 幀窗口且必須輸入摔投 —— 延遲打擊之所以能抓延遲解摔，就是打在那個輸入上；命中為 counter hit',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
+            patch: '2026-08 查閱',
+            note: '動力箭步後的下一招多 4 幀有利，本來有空隙的壓制會變成沒有空隙 —— 延遲打擊留下的空隙大小是可以用資源買掉的。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'low-overhead-mix',
@@ -171,7 +195,19 @@ export const GROUP_J: Situation[] = [
           { vs: 'drive-reversal', outcome: 'loss' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色中段技的發生幀數見各角色頁；中段普遍慢到看得到，靠的是對手蹲防的慣性而不是速度',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生 —— 上下段之所以成立，是因為它跟摔投共用同一個「對手在防哪裡」的猜測',
+          },
+        ],
       },
       {
         optionId: 'shimmy',
@@ -302,7 +338,19 @@ export const GROUP_J: Situation[] = [
           { vs: 'drive-parry', outcome: 'even' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08 查閱',
+            note: '動力反攻被擋是 −6，確定被反擊；起身動力反攻空揮的整體動作很長，足以吃到跳入連段。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊被擋後的硬直見各角色頁 —— 純防禦之所以是最乾淨的解，是因為擋下來的懲罰時間是確定的',
+          },
+        ],
       },
       {
         optionId: 'drive-rush-pressure',
@@ -392,7 +440,19 @@ export const GROUP_J: Situation[] = [
           { vs: 'reversal', outcome: 'win' },
         ],
         mixRatio: '30-40%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Burnout',
+            patch: '2026-08 查閱',
+            note: '防禦會消耗動力槽，耗盡即進入 Burnout；Burnout 期間會被必殺技與 SA 削血。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '必殺技削血為原傷害的 25% 且可以致死；Burnout 中每擋一招，攻擊方多得 4 幀有利',
+          },
+        ],
       },
       {
         optionId: 'throw',
@@ -476,7 +536,19 @@ export const GROUP_J: Situation[] = [
           { vs: 'reversal', outcome: 'bigLoss' },
         ],
         mixRatio: '20-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔為 9 幀窗口且必須輸入摔投 —— 延遲打擊之所以能抓延遲解摔，就是打在那個輸入上；命中為 counter hit',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
+            patch: '2026-08 查閱',
+            note: '動力箭步後的下一招多 4 幀有利，本來有空隙的壓制會變成沒有空隙 —— 延遲打擊留下的空隙大小是可以用資源買掉的。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'low-overhead-mix',
@@ -508,7 +580,19 @@ export const GROUP_J: Situation[] = [
           { vs: 'reversal', outcome: 'bigLoss' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色中段技的發生幀數見各角色頁；中段普遍慢到看得到，靠的是對手蹲防的慣性而不是速度',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生 —— 上下段之所以成立，是因為它跟摔投共用同一個「對手在防哪裡」的猜測',
+          },
+        ],
       },
       {
         optionId: 'shimmy',
@@ -630,7 +714,19 @@ export const GROUP_J: Situation[] = [
           { vs: 'drive-parry', outcome: 'even' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08 查閱',
+            note: '動力反攻被擋是 −6，確定被反擊；起身動力反攻空揮的整體動作很長，足以吃到跳入連段。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊被擋後的硬直見各角色頁 —— 純防禦之所以是最乾淨的解，是因為擋下來的懲罰時間是確定的',
+          },
+        ],
       },
       {
         optionId: 'drive-rush-pressure',
@@ -720,7 +816,19 @@ export const GROUP_J: Situation[] = [
           { vs: 'super-reversal', outcome: 'win' },
         ],
         mixRatio: '40-50%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Burnout',
+            patch: '2026-08 查閱',
+            note: '防禦會消耗動力槽，耗盡即進入 Burnout；Burnout 期間會被必殺技與 SA 削血。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://www.eventhubs.com/news/2023/jun/01/what-to-do-burnout-sf6/',
+            patch: '2026-08 查閱',
+            note: '必殺技削血為原傷害的 25% 且可以致死；Burnout 中每擋一招，攻擊方多得 4 幀有利',
+          },
+        ],
         notes: {
           'zh-Hant': '力盡的對手擋不掉削血。必殺技與 SA 的削血是原傷害的 25%，血量低的時候光靠連段壓制就能收掉。',
           en: 'A burnt-out defender cannot avoid chip. Blocked specials and Supers deal 25% of their damage, so pressure alone can close a round at low life.',
@@ -807,7 +915,19 @@ export const GROUP_J: Situation[] = [
           { vs: 'super-reversal', outcome: 'bigLoss' },
         ],
         mixRatio: '20-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔為 9 幀窗口且必須輸入摔投 —— 延遲打擊之所以能抓延遲解摔，就是打在那個輸入上；命中為 counter hit',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
+            patch: '2026-08 查閱',
+            note: '動力箭步後的下一招多 4 幀有利，本來有空隙的壓制會變成沒有空隙 —— 延遲打擊留下的空隙大小是可以用資源買掉的。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'low-overhead-mix',
@@ -838,7 +958,19 @@ export const GROUP_J: Situation[] = [
           { vs: 'super-reversal', outcome: 'bigLoss' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色中段技的發生幀數見各角色頁；中段普遍慢到看得到，靠的是對手蹲防的慣性而不是速度',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生 —— 上下段之所以成立，是因為它跟摔投共用同一個「對手在防哪裡」的猜測',
+          },
+        ],
       },
       {
         optionId: 'shimmy',
@@ -963,7 +1095,19 @@ export const GROUP_J: Situation[] = [
           { vs: 'delayed-tech', outcome: 'even' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08 查閱',
+            note: '動力反攻被擋是 −6，確定被反擊；起身動力反攻空揮的整體動作很長，足以吃到跳入連段。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊被擋後的硬直見各角色頁 —— 純防禦之所以是最乾淨的解，是因為擋下來的懲罰時間是確定的',
+          },
+        ],
       },
     ],
   },

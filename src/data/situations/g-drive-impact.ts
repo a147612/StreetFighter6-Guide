@@ -181,7 +181,14 @@ export const GROUP_G: Situation[] = [
           { vs: 'blockstring', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '動力衝擊只有兩次霸體，第三下就破 —— 連續的輕攻擊串是最容易破霸體的方式。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '不是每隻角色都有堪用的多段技。有的話，這是對付愛撞動力衝擊的對手最省資源的解法。',
           en: 'Not every character has a usable one. If yours does, it is the cheapest answer to an Impact-happy opponent.',
@@ -216,7 +223,14 @@ export const GROUP_G: Situation[] = [
           { vs: 'throw', outcome: 'loss' },
         ],
         mixRatio: '5-10%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 SA 的等級、發生與無敵幀數見各角色頁；SA 槽與動力槽是分開的兩條，Burnout 也用得出來',
+          },
+        ],
       },
       {
         optionId: 'backdash',
@@ -442,7 +456,14 @@ export const GROUP_G: Situation[] = [
           { vs: 'blockstring', outcome: 'loss' },
         ],
         mixRatio: '10-15%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Impact',
+            patch: '2026-08 查閱',
+            note: '動力衝擊只有兩次霸體，第三下就破 —— 連續的輕攻擊串是最容易破霸體的方式。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '不是每隻角色都有堪用的多段技。有的話，這是對付愛撞動力衝擊的對手最省資源的解法。',
           en: 'Not every character has a usable one. If yours does, it is the cheapest answer to an Impact-happy opponent.',
@@ -477,7 +498,14 @@ export const GROUP_G: Situation[] = [
           { vs: 'throw', outcome: 'loss' },
         ],
         mixRatio: '5-10%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 SA 的等級、發生與無敵幀數見各角色頁；SA 槽與動力槽是分開的兩條，Burnout 也用得出來',
+          },
+        ],
       },
     ],
   },

@@ -152,7 +152,14 @@ export const GROUP_E: Situation[] = [
           { vs: 'projectile', outcome: 'even' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色對空技的發生與無敵幀數見各角色頁：LP/MP/HP 版升龍多半正是「對空無敵」，這也是它們打得掉跳入卻打不掉壓起身的原因。空中無法防禦，所以打中就是確定的。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '對空是立回裡回報最穩定的技能。對手每跳一次你就拿一次傷害，他就會停止跳。',
           en: 'Anti-airing is the most reliably rewarded skill in neutral. Take damage off every jump and the jumps stop.',
@@ -423,7 +430,14 @@ export const GROUP_E: Situation[] = [
           { vs: 'projectile', outcome: 'even' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色對空技的發生與無敵幀數見各角色頁：LP/MP/HP 版升龍多半正是「對空無敵」，這也是它們打得掉跳入卻打不掉壓起身的原因。空中無法防禦，所以打中就是確定的。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '對空是立回裡回報最穩定的技能。對手每跳一次你就拿一次傷害，他就會停止跳。',
           en: 'Anti-airing is the most reliably rewarded skill in neutral. Take damage off every jump and the jumps stop.',

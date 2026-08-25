@@ -52,7 +52,14 @@ export const GROUP_F: Situation[] = [
           { vs: 'air-throw', outcome: 'win' },
         ],
         mixRatio: '40-50%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色對空技的發生與無敵幀數見各角色頁：LP/MP/HP 版升龍多半正是「對空無敵」，這也是它們打得掉跳入卻打不掉壓起身的原因。空中無法防禦，所以打中就是確定的。來源未標註遊戲版本',
+          },
+        ],
       },
       {
         optionId: 'air-to-air',
@@ -259,7 +266,14 @@ export const GROUP_F: Situation[] = [
           { vs: 'air-throw', outcome: 'win' },
         ],
         mixRatio: '25-35%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色對空技的發生與無敵幀數見各角色頁：LP/MP/HP 版升龍多半正是「對空無敵」，這也是它們打得掉跳入卻打不掉壓起身的原因。空中無法防禦，所以打中就是確定的。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '近距離跳沒有反應時間，只能預判。這也是為什麼近身讓對手跳起來本身就是失誤。',
           en: 'A close jump gives no reaction time, only a read. Which is why letting them jump from up close is itself the mistake.',

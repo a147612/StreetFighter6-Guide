@@ -234,7 +234,19 @@ export const GROUP_I: Situation[] = [
           { vs: 'drive-reversal', outcome: 'loss' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔為 9 幀窗口且必須輸入摔投 —— 延遲打擊之所以能抓延遲解摔，就是打在那個輸入上；命中為 counter hit',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
+            patch: '2026-08 查閱',
+            note: '動力箭步後的下一招多 4 幀有利，本來有空隙的壓制會變成沒有空隙 —— 延遲打擊留下的空隙大小是可以用資源買掉的。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '同時懲罰「延遲解摔」和「速點」兩個最常見的防守選項，是起攻裡覆蓋面最大的一手。',
           en: 'Punishes delayed tech and mashing at once — the two most common defensive picks — which makes it the broadest single oki option.',
@@ -272,7 +284,19 @@ export const GROUP_I: Situation[] = [
           { vs: 'drive-reversal', outcome: 'loss' },
         ],
         mixRatio: '15-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色中段技的發生幀數見各角色頁；中段普遍慢到看得到，靠的是對手蹲防的慣性而不是速度',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生 —— 上下段之所以成立，是因為它跟摔投共用同一個「對手在防哪裡」的猜測',
+          },
+        ],
       },
       {
         optionId: 'bait-block',
@@ -314,7 +338,19 @@ export const GROUP_I: Situation[] = [
           },
         ],
         mixRatio: '10-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08 查閱',
+            note: '動力反攻被擋是 −6，確定被反擊；起身動力反攻空揮的整體動作很長，足以吃到跳入連段。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊被擋後的硬直見各角色頁 —— 純防禦之所以是最乾淨的解，是因為擋下來的懲罰時間是確定的',
+          },
+        ],
         notes: {
           'zh-Hant': '對手用過一次無敵技之後，這一手的期望值最高。它幾乎不會賠，只會浪費一次機會。',
           en: 'Highest expected value right after they have shown you a reversal. It almost never loses; the worst case is a wasted opportunity.',
@@ -619,7 +655,19 @@ export const GROUP_I: Situation[] = [
           { vs: 'drive-reversal', outcome: 'loss' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔為 9 幀窗口且必須輸入摔投 —— 延遲打擊之所以能抓延遲解摔，就是打在那個輸入上；命中為 counter hit',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
+            patch: '2026-08 查閱',
+            note: '動力箭步後的下一招多 4 幀有利，本來有空隙的壓制會變成沒有空隙 —— 延遲打擊留下的空隙大小是可以用資源買掉的。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '同時懲罰「延遲解摔」和「速點」兩個最常見的防守選項，是起攻裡覆蓋面最大的一手。',
           en: 'Punishes delayed tech and mashing at once — the two most common defensive picks — which makes it the broadest single oki option.',
@@ -657,7 +705,19 @@ export const GROUP_I: Situation[] = [
           { vs: 'drive-reversal', outcome: 'loss' },
         ],
         mixRatio: '15-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色中段技的發生幀數見各角色頁；中段普遍慢到看得到，靠的是對手蹲防的慣性而不是速度',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生 —— 上下段之所以成立，是因為它跟摔投共用同一個「對手在防哪裡」的猜測',
+          },
+        ],
       },
       {
         optionId: 'bait-block',
@@ -699,7 +759,19 @@ export const GROUP_I: Situation[] = [
           },
         ],
         mixRatio: '10-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08 查閱',
+            note: '動力反攻被擋是 −6，確定被反擊；起身動力反攻空揮的整體動作很長，足以吃到跳入連段。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊被擋後的硬直見各角色頁 —— 純防禦之所以是最乾淨的解，是因為擋下來的懲罰時間是確定的',
+          },
+        ],
         notes: {
           'zh-Hant': '對手用過一次無敵技之後，這一手的期望值最高。它幾乎不會賠，只會浪費一次機會。',
           en: 'Highest expected value right after they have shown you a reversal. It almost never loses; the worst case is a wasted opportunity.',
@@ -1004,7 +1076,19 @@ export const GROUP_I: Situation[] = [
           { vs: 'drive-reversal', outcome: 'loss' },
         ],
         mixRatio: '15-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://wiki.supercombo.gg/w/Street_Fighter_6/Defense',
+            patch: '2026-08 查閱',
+            note: '解摔為 9 幀窗口且必須輸入摔投 —— 延遲打擊之所以能抓延遲解摔，就是打在那個輸入上；命中為 counter hit',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Rush',
+            patch: '2026-08 查閱',
+            note: '動力箭步後的下一招多 4 幀有利，本來有空隙的壓制會變成沒有空隙 —— 延遲打擊留下的空隙大小是可以用資源買掉的。來源未標註遊戲版本',
+          },
+        ],
         notes: {
           'zh-Hant': '同時懲罰「延遲解摔」和「速點」兩個最常見的防守選項，是起攻裡覆蓋面最大的一手。',
           en: 'Punishes delayed tech and mashing at once — the two most common defensive picks — which makes it the broadest single oki option.',
@@ -1042,7 +1126,19 @@ export const GROUP_I: Situation[] = [
           { vs: 'drive-reversal', outcome: 'loss' },
         ],
         mixRatio: '15-25%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色中段技的發生幀數見各角色頁；中段普遍慢到看得到，靠的是對手蹲防的慣性而不是速度',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/stats',
+            patch: '2026-08 查閱',
+            note: '普通摔投 5F 發生 —— 上下段之所以成立，是因為它跟摔投共用同一個「對手在防哪裡」的猜測',
+          },
+        ],
       },
       {
         optionId: 'bait-block',
@@ -1084,7 +1180,19 @@ export const GROUP_I: Situation[] = [
           },
         ],
         mixRatio: '10-20%',
-        verified: 'estimated',
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Drive_Reversal',
+            patch: '2026-08 查閱',
+            note: '動力反攻被擋是 −6，確定被反擊；起身動力反攻空揮的整體動作很長，足以吃到跳入連段。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/',
+            patch: '2026-08 查閱',
+            note: '各角色 OD 起身反擊被擋後的硬直見各角色頁 —— 純防禦之所以是最乾淨的解，是因為擋下來的懲罰時間是確定的',
+          },
+        ],
         notes: {
           'zh-Hant': '對手用過一次無敵技之後，這一手的期望值最高。它幾乎不會賠，只會浪費一次機會。',
           en: 'Highest expected value right after they have shown you a reversal. It almost never loses; the worst case is a wasted opportunity.',
