@@ -29,6 +29,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       poke: [
         {
           move: 'Standing Medium Punch',
+          name: {
+            'zh-Hant': '站中拳',
+            en: 'Standing Medium Punch',
+            ja: '立ち中P',
+          },
           input: '5 MP',
           startup: '5',
           onBlock: '-2',
@@ -37,6 +42,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Standing Heavy Punch',
+          name: {
+            'zh-Hant': '站重拳',
+            en: 'Standing Heavy Punch',
+            ja: '立ち強P',
+          },
           input: '5 HP',
           startup: '10',
           onBlock: '-2',
@@ -45,6 +55,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Medium Punch',
+          name: {
+            'zh-Hant': '蹲中拳',
+            en: 'Crouching Medium Punch',
+            ja: 'しゃがみ中P',
+          },
           input: '2 MP',
           startup: '6',
           onBlock: '0',
@@ -53,6 +68,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Medium Kick',
+          name: {
+            'zh-Hant': '蹲中腳',
+            en: 'Crouching Medium Kick',
+            ja: 'しゃがみ中K',
+          },
           input: '2 MK',
           startup: '7',
           onBlock: '-6',
@@ -63,6 +83,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       meaty: [
         {
           move: 'Standing Medium Punch',
+          name: {
+            'zh-Hant': '站中拳',
+            en: 'Standing Medium Punch',
+            ja: '立ち中P',
+          },
           input: '5 MP',
           startup: '5',
           active: '4',
@@ -72,6 +97,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Standing Heavy Punch',
+          name: {
+            'zh-Hant': '站重拳',
+            en: 'Standing Heavy Punch',
+            ja: '立ち強P',
+          },
           input: '5 HP',
           startup: '10',
           active: '5',
@@ -81,6 +111,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Medium Punch',
+          name: {
+            'zh-Hant': '蹲中拳',
+            en: 'Crouching Medium Punch',
+            ja: 'しゃがみ中P',
+          },
           input: '2 MP',
           startup: '6',
           active: '3',
@@ -90,6 +125,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Hadoken (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           startup: '12',
           onBlock: '-2...',
           onHit: '+2...',
@@ -99,6 +135,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+20',
@@ -106,6 +147,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+6',
@@ -121,6 +167,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-1',
@@ -129,6 +180,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -161,6 +217,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Hadoken (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '236 PP',
           startup: '12',
           onBlock: '-2...',
@@ -171,6 +228,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Shoryuken (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '623 PP',
           startup: '6',
           onBlock: '-40',
@@ -271,6 +329,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+17',
@@ -278,6 +341,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+14',
@@ -295,6 +363,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Cannon Spike (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '623 KK',
           startup: '6',
           onBlock: '-40',
@@ -305,6 +374,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-2',
@@ -313,6 +387,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-2',
@@ -404,6 +483,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+28',
@@ -411,6 +495,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+14',
@@ -420,6 +509,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Gou Shoryuken (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '623 PP',
           startup: '6',
           onBlock: '-39',
@@ -430,6 +520,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-1',
@@ -438,6 +533,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -542,6 +642,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+19',
@@ -549,6 +654,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+14',
@@ -558,6 +668,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Rising Uppercut (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '623 PP',
           startup: '6',
           onBlock: '-40',
@@ -568,6 +679,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-2',
@@ -668,6 +784,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+17',
@@ -675,6 +796,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+11',
@@ -684,6 +810,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Shoryuken (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '623 PP',
           startup: '6',
           onBlock: '-40',
@@ -694,6 +821,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-1',
@@ -702,6 +834,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -800,6 +937,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+17',
@@ -807,6 +949,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+14',
@@ -816,6 +963,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Tensho Kicks (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '22 KK',
           startup: '6',
           onBlock: '-40',
@@ -826,6 +974,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-3',
@@ -834,6 +987,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-2',
@@ -842,6 +1000,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Kick',
+          name: {
+            'zh-Hant': '蹲輕腳',
+            en: 'Crouching Light Kick',
+            ja: 'しゃがみ弱K',
+          },
           input: '2 LK',
           startup: '4',
           onBlock: '-2',
@@ -940,6 +1103,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+15',
@@ -947,6 +1115,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+18',
@@ -956,6 +1129,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-2',
@@ -966,6 +1144,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       poke: [
         {
           move: 'Crouching Medium Kick',
+          name: {
+            'zh-Hant': '蹲中腳',
+            en: 'Crouching Medium Kick',
+            ja: 'しゃがみ中K',
+          },
           input: '2 MK',
           startup: '8',
           onBlock: '-4',
@@ -984,6 +1167,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Sonic Boom (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '[4] 6 PP',
           startup: '10',
           onBlock: '+3',
@@ -1000,6 +1184,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Flash Kick (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '[2] 8 KK',
           startup: '6',
           onBlock: '-33',
@@ -1086,6 +1271,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+25',
@@ -1093,6 +1283,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+18',
@@ -1102,6 +1297,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Tensenrin (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '623 PP',
           startup: '6',
           onBlock: '-48',
@@ -1118,6 +1314,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-1',
@@ -1126,6 +1327,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -1216,6 +1422,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+21',
@@ -1223,6 +1434,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+21',
@@ -1232,6 +1448,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Tiger Uppercut (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '623 PP',
           startup: '8',
           onBlock: '-43',
@@ -1242,6 +1459,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -1341,6 +1563,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+22',
@@ -1348,6 +1575,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+18',
@@ -1357,6 +1589,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Rising Tackle (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '623 PP',
           startup: '6',
           onBlock: '-42',
@@ -1367,6 +1600,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-1',
@@ -1375,6 +1613,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -1465,6 +1708,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+24',
@@ -1472,6 +1720,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+17',
@@ -1481,6 +1734,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Psycho Uppercut (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '623 PP',
           startup: '13',
           onBlock: '-28',
@@ -1497,6 +1751,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-1',
@@ -1505,6 +1764,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-3',
@@ -1604,6 +1868,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+24',
@@ -1611,6 +1880,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+19',
@@ -1620,6 +1894,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Scratch Wheel (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '623 KK',
           startup: '6',
           onBlock: '-46',
@@ -1630,6 +1905,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -1739,6 +2019,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+34',
@@ -1746,6 +2031,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+22',
@@ -1755,6 +2045,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Jackknife Maximum (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '[2] 8 KK',
           startup: '6',
           onBlock: '-55',
@@ -1771,6 +2062,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-1',
@@ -1873,6 +2169,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+23 (+7)',
@@ -1886,6 +2187,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+38',
@@ -1910,6 +2216,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Arrow Kick (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '623 KK',
           startup: '6',
           onBlock: '-43',
@@ -1920,6 +2227,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -2031,6 +2343,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+30',
@@ -2038,6 +2355,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+27',
@@ -2068,6 +2390,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Wild Hunt (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '236 K',
           startup: '32',
           onHit: 'Knockdown +64',
@@ -2083,6 +2406,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Vertical Rolling Attack (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '[2] 8 KK',
           startup: '7',
           onBlock: '-40',
@@ -2093,6 +2417,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Kick',
+          name: {
+            'zh-Hant': '站輕腳',
+            en: 'Standing Light Kick',
+            ja: '立ち弱K',
+          },
           input: '5 LK',
           startup: '4',
           onBlock: '-2',
@@ -2188,6 +2517,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+27',
@@ -2195,6 +2529,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+27',
@@ -2204,6 +2543,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Spinning Mixer (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '236 PP',
           startup: '5 [4]',
           onBlock: '-42 [-72]',
@@ -2214,6 +2554,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-1',
@@ -2222,6 +2567,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Standing Light Kick',
+          name: {
+            'zh-Hant': '站輕腳',
+            en: 'Standing Light Kick',
+            ja: '立ち弱K',
+          },
           input: '5 LK',
           startup: '4',
           onBlock: '-1',
@@ -2321,6 +2671,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+21',
@@ -2328,6 +2683,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+17',
@@ -2337,6 +2697,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Hishou Ryuuenjin (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '623 KK',
           startup: '6',
           onBlock: '-40',
@@ -2347,6 +2708,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-2',
@@ -2355,6 +2721,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Standing Light Kick',
+          name: {
+            'zh-Hant': '站輕腳',
+            en: 'Standing Light Kick',
+            ja: '立ち弱K',
+          },
           input: '5 LK',
           startup: '4',
           onBlock: '-1',
@@ -2363,6 +2734,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -2458,6 +2834,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+29',
@@ -2465,6 +2846,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+24',
@@ -2474,6 +2860,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Lipad ng Agila (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '623 KK',
           startup: '6',
           onBlock: '-40',
@@ -2484,6 +2871,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -2579,6 +2971,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+23',
@@ -2586,6 +2983,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+36',
@@ -2620,6 +3022,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -2744,6 +3151,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       poke: [
         {
           move: 'Crouching Medium Punch',
+          name: {
+            'zh-Hant': '蹲中拳',
+            en: 'Crouching Medium Punch',
+            ja: 'しゃがみ中P',
+          },
           input: '2 MP',
           startup: '8',
           onBlock: '-1',
@@ -2754,6 +3166,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       meaty: [
         {
           move: 'Standing Medium Punch',
+          name: {
+            'zh-Hant': '站中拳',
+            en: 'Standing Medium Punch',
+            ja: '立ち中P',
+          },
           input: '5 MP',
           startup: '9',
           active: '4',
@@ -2763,6 +3180,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Medium Punch',
+          name: {
+            'zh-Hant': '蹲中拳',
+            en: 'Crouching Medium Punch',
+            ja: 'しゃがみ中P',
+          },
           input: '2 MP',
           startup: '8',
           active: '3',
@@ -2772,6 +3194,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Medium Kick',
+          name: {
+            'zh-Hant': '蹲中腳',
+            en: 'Crouching Medium Kick',
+            ja: 'しゃがみ中K',
+          },
           input: '2 MK',
           startup: '9',
           active: '3',
@@ -2781,6 +3208,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Forward + Medium Kick (Knee Hammer)',
+          name: {
+            'zh-Hant': '前中腳（Knee Hammer）',
+            en: 'Forward + Medium Kick (Knee Hammer)',
+            ja: '前中K（Knee Hammer）',
+          },
           input: '6 MK',
           startup: '14',
           active: '7',
@@ -2792,6 +3224,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+10',
@@ -2805,6 +3242,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+8',
@@ -2835,6 +3277,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Screw Piledriver (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '360 P',
           startup: '5',
           onHit: 'Knockdown +28',
@@ -2844,6 +3287,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Crouching Light Kick',
+          name: {
+            'zh-Hant': '蹲輕腳',
+            en: 'Crouching Light Kick',
+            ja: 'しゃがみ弱K',
+          },
           input: '2 LK',
           startup: '4',
           onBlock: '-3',
@@ -2966,6 +3414,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+21',
@@ -2973,6 +3426,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+20',
@@ -2997,6 +3455,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-1',
@@ -3005,6 +3468,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -3131,6 +3599,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+16',
@@ -3138,6 +3611,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+18',
@@ -3168,6 +3646,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Manège Doré (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '41236 P',
           startup: '8',
           onHit: 'Knockdown +19',
@@ -3177,6 +3656,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-1',
@@ -3185,6 +3669,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-2',
@@ -3298,6 +3787,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+19',
@@ -3305,6 +3799,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+27',
@@ -3323,6 +3822,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Kick',
+          name: {
+            'zh-Hant': '站輕腳',
+            en: 'Standing Light Kick',
+            ja: '立ち弱K',
+          },
           input: '5 LK',
           startup: '4',
           onBlock: '-3',
@@ -3331,6 +3835,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -3405,6 +3914,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+28',
@@ -3412,6 +3926,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+16',
@@ -3428,6 +3947,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Power Bomb (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '41236 P',
           startup: '5',
           onHit: 'Knockdown +15',
@@ -3437,6 +3957,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-1',
@@ -3536,6 +4061,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+28',
@@ -3543,6 +4073,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+19',
@@ -3552,6 +4087,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-2',
@@ -3560,6 +4100,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -3659,6 +4204,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       poke: [
         {
           move: 'Back + Medium Punch (Yoga Uppercut)',
+          name: {
+            'zh-Hant': '後中拳（Yoga Uppercut）',
+            en: 'Back + Medium Punch (Yoga Uppercut)',
+            ja: '後ろ中P（Yoga Uppercut）',
+          },
           input: '4 MP',
           startup: '8',
           onBlock: '-3',
@@ -3667,6 +4217,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back + Medium Kick (Divine Kick)',
+          name: {
+            'zh-Hant': '後中腳（Divine Kick）',
+            en: 'Back + Medium Kick (Divine Kick)',
+            ja: '後ろ中K（Divine Kick）',
+          },
           input: '4 MK',
           startup: '7',
           onBlock: '0',
@@ -3677,6 +4232,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       meaty: [
         {
           move: 'Crouching Medium Kick',
+          name: {
+            'zh-Hant': '蹲中腳',
+            en: 'Crouching Medium Kick',
+            ja: 'しゃがみ中K',
+          },
           input: '2 MK',
           startup: '10',
           active: '13',
@@ -3686,6 +4246,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back + Medium Punch (Yoga Uppercut)',
+          name: {
+            'zh-Hant': '後中拳（Yoga Uppercut）',
+            en: 'Back + Medium Punch (Yoga Uppercut)',
+            ja: '後ろ中P（Yoga Uppercut）',
+          },
           input: '4 MP',
           startup: '8',
           active: '6',
@@ -3695,6 +4260,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back + Medium Kick (Divine Kick)',
+          name: {
+            'zh-Hant': '後中腳（Divine Kick）',
+            en: 'Back + Medium Kick (Divine Kick)',
+            ja: '後ろ中K（Divine Kick）',
+          },
           input: '4 MK',
           startup: '7',
           active: '4',
@@ -3704,6 +4274,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Yoga Fire (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           startup: '12',
           onBlock: '-3...',
           onHit: 'Knockdown +49...',
@@ -3713,6 +4284,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+31',
@@ -3720,6 +4296,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+19',
@@ -3729,6 +4310,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Punch',
+          name: {
+            'zh-Hant': '站輕拳',
+            en: 'Standing Light Punch',
+            ja: '立ち弱P',
+          },
           input: '5 LP',
           startup: '4',
           onBlock: '-1',
@@ -3737,6 +4323,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Kick',
+          name: {
+            'zh-Hant': '蹲輕腳',
+            en: 'Crouching Light Kick',
+            ja: 'しゃがみ弱K',
+          },
           input: '2 LK',
           startup: '4',
           onBlock: '-10...-4',
@@ -3848,6 +4439,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+17',
@@ -3855,6 +4451,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+14',
@@ -3891,6 +4492,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Oicho Throw (Overdrive)',
+          cost: { drive: 2, sa: 0 },
           input: '41236 K',
           startup: '6',
           onHit: 'Knockdown +7',
@@ -3900,6 +4502,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Kick',
+          name: {
+            'zh-Hant': '站輕腳',
+            en: 'Standing Light Kick',
+            ja: '立ち弱K',
+          },
           input: '5 LK',
           startup: '4',
           onBlock: '-1',
@@ -3908,6 +4515,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -4018,6 +4630,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+17',
@@ -4025,6 +4642,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+8',
@@ -4042,6 +4664,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',
@@ -4149,6 +4776,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+20',
@@ -4156,6 +4788,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+32',
@@ -4179,6 +4816,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Kick',
+          name: {
+            'zh-Hant': '站輕腳',
+            en: 'Standing Light Kick',
+            ja: '立ち弱K',
+          },
           input: '5 LK',
           startup: '4',
           onBlock: '-1',
@@ -4293,6 +4935,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+21',
@@ -4300,6 +4947,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+18',
@@ -4309,6 +4961,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Standing Light Kick',
+          name: {
+            'zh-Hant': '站輕腳',
+            en: 'Standing Light Kick',
+            ja: '立ち弱K',
+          },
           input: '5 LK',
           startup: '4',
           onBlock: '-1',
@@ -4317,6 +4974,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-2',
@@ -4402,6 +5064,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       throw: [
         {
           move: 'Forward Throw',
+          name: {
+            'zh-Hant': '前摔',
+            en: 'Forward Throw',
+            ja: '前投げ',
+          },
           input: '6 LP+LK',
           startup: '5',
           onHit: '+23',
@@ -4409,6 +5076,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Back Throw',
+          name: {
+            'zh-Hant': '後摔',
+            en: 'Back Throw',
+            ja: '後ろ投げ',
+          },
           input: '4 LP+LK',
           startup: '5',
           onHit: '+33',
@@ -4418,6 +5090,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'mash-light': [
         {
           move: 'Crouching Light Punch',
+          name: {
+            'zh-Hant': '蹲輕拳',
+            en: 'Crouching Light Punch',
+            ja: 'しゃがみ弱P',
+          },
           input: '2 LP',
           startup: '4',
           onBlock: '-1',

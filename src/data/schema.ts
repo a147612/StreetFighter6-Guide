@@ -360,7 +360,19 @@ export interface CharacterKnockdown {
  * `move` is UFD's own name for it, and is the join key.
  */
 export interface MoveFrames {
+  /**
+   * UFD's own name for the move, verbatim. This is the join key `npm run
+   * frames` matches on, so it stays English and stays exactly as published
+   * even when `name` gives the reader something better to read.
+   */
   move: string
+  /**
+   * The move's name in each language, when it has one worth showing. Falls
+   * back to `move`. Normals are derived from their notation — "Standing Medium
+   * Punch" is not a name, it is a description, and every language already has
+   * its own way of writing it.
+   */
+  name?: I18nText
   /** Numpad notation. Authored, not from UFD, which writes inputs as prose. */
   input?: string
   startup: string
@@ -373,6 +385,15 @@ export interface MoveFrames {
    * with the two numbers it comes from.
    */
   active?: string
+  /**
+   * What *this move* costs, when that differs from the option's own cost.
+   *
+   * The option can only carry one price, and "meaty" is free — right up until
+   * the meaty is an OD fireball, which is two bars. The choice of button is
+   * often a choice of what to spend, so the price belongs beside the frames
+   * rather than above them.
+   */
+  cost?: Cost
   /** Absent for a throw, which cannot be blocked. */
   onBlock?: string
   onHit?: string

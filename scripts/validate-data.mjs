@@ -341,7 +341,16 @@ for (const character of CHARACTERS ?? []) {
           `${where} frames "${optionId}" / "${move.move}" startup "${move.startup}" has no number`,
         )
       }
+      if (move.name) checkLocales(move.name, `${where} frames ${optionId} "${move.move}" name`)
       if (move.note) checkLocales(move.note, `${where} frames ${optionId} "${move.move}" note`)
+      // Every Overdrive move is two Drive bars. Mechanical, so it is checked
+      // rather than trusted — the price is what makes the button a choice.
+      if (move.move.includes('(Overdrive)') && move.cost?.drive !== 2) {
+        errors.push(
+          `${where} frames "${optionId}" / "${move.move}" is an Overdrive move ` +
+            `costing ${move.cost?.drive ?? 0} Drive bar(s), not 2`,
+        )
+      }
     }
   }
 

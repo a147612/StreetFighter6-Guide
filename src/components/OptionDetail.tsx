@@ -43,11 +43,6 @@ export function OptionDetail({ row }: { row: OptionRow }) {
         </p>
       )}
 
-      {/* Above the tiers, because when the number exists it is the more
-          specific answer — and because it is the one thing here that a balance
-          patch can invalidate on its own. */}
-      {frames && <FrameStrip frames={frames} />}
-
       <dl className="detail__meta">
         {/* Nothing universal to print for a character-specific option, and a
             plausible-looking wrong notation is worse than none. */}
@@ -93,6 +88,11 @@ export function OptionDetail({ row }: { row: OptionRow }) {
       </dl>
 
       <VerifiedTag verified={evaluation.verified} />
+
+      {/* Under the option's own summary, not above it. The tiers say what kind
+          of choice this is; the table says which buttons it actually is and
+          what each costs — that is detail about the summary, so it follows it. */}
+      {frames && <FrameStrip frames={frames} />}
 
       <div className="detail__outcomes">
         <section className="outcome outcome--success">

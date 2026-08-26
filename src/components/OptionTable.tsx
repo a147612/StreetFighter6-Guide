@@ -389,14 +389,15 @@ export function OptionTable({
                           {/* Startup only. The rest needs the detail panel, but
                               "how fast is it" is the one number worth scanning
                               a whole column of. */}
-                          {row.frames?.[0] && (
+                          {/* Only when the option is one button. A count of
+                              how many buttons there are is not a fact about
+                              the option, and startup is not one number once
+                              there are several. Stored as UFD writes it, which
+                              can be "3 (1)" or "16...32" — the badge wants the
+                              number you would say out loud. */}
+                          {row.frames?.length === 1 && row.frames[0] && (
                             <span className="opt-row__frames mono">
-                              {row.frames.length > 1
-                                ? `${row.frames.length}×`
-                                : // Startup is stored as UFD writes it, which can be
-                                  // "3 (1)" or "16...32". The badge wants the number
-                                  // you would say out loud; the rest is in the table.
-                                  `${row.frames[0].startup.match(/\d+/)?.[0] ?? row.frames[0].startup}F`}
+                              {row.frames[0].startup.match(/\d+/)?.[0] ?? row.frames[0].startup}F
                             </span>
                           )}
                           {row.opponentNotes && row.opponentNotes.length > 0 && (

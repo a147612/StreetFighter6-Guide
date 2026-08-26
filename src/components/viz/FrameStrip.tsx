@@ -56,6 +56,17 @@ export function FrameStrip({ frames }: { frames: MoveFrames[] }) {
   if (frames.length === 0) return null
   // Only where it was authored, which is only where meatying is the point.
   const showMeaty = frames.some((move) => move.active)
+  // Only where a button costs something the option's own price does not cover.
+  const showCost = frames.some((move) => move.cost)
+
+  const price = (move: MoveFrames): string | undefined => {
+    if (!move.cost) return undefined
+    const parts = [
+      move.cost.drive > 0 ? `${move.cost.drive} ${t.option.driveBars}` : null,
+      move.cost.sa > 0 ? `SA${move.cost.sa}` : null,
+    ].filter(Boolean)
+    return parts.length > 0 ? parts.join(' · ') : undefined
+  }
 
   return (
     <div className="frames">
@@ -64,6 +75,7 @@ export function FrameStrip({ frames }: { frames: MoveFrames[] }) {
           <thead>
             <tr>
               <th scope="col">{t.frames.move}</th>
+              {showCost && <th scope="col">{t.option.cost}</th>}
               <th scope="col">{t.frames.startup}</th>
               {showMeaty && <th scope="col">{t.frames.active}</th>}
               <th scope="col">{t.frames.onBlock}</th>
@@ -76,9 +88,10 @@ export function FrameStrip({ frames }: { frames: MoveFrames[] }) {
             {frames.map((move) => (
               <tr key={move.move}>
                 <th scope="row" className="frames__move">
-                  {move.move}
+                  {move.name ? text(move.name) : move.move}
                   {move.input && <InputNotation input={move.input} />}
                 </th>
+                {showCost && <Cell value={price(move)} />}
                 <Cell value={move.startup} />
                 {showMeaty && <Cell value={move.active} />}
                 <Cell value={move.onBlock} />
@@ -94,7 +107,9 @@ export function FrameStrip({ frames }: { frames: MoveFrames[] }) {
         (move) =>
           move.note && (
             <p key={move.move} className="frames__note small">
-              <span className="frames__note-move">{move.move}</span>
+              <span className="frames__note-move">
+                {move.name ? text(move.name) : move.move}
+              </span>
               <Emphasis text={text(move.note)} />
             </p>
           ),
