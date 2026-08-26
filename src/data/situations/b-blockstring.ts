@@ -23,7 +23,7 @@ export const GROUP_B: Situation[] = [
     position: ['midscreen'],
     distance: 'pointBlank',
     stance: 'neutral',
-    opponentOptions: ['blockstring', 'delayed-attack', 'throw', 'low-overhead-mix', 'bait-block', 'drive-impact'],
+    opponentOptions: ['blockstring', 'delayed-attack', 'throw', 'command-grab', 'low-overhead-mix', 'bait-block', 'drive-impact'],
     evaluations: [
       {
         optionId: 'do-nothing',
@@ -53,6 +53,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
           { vs: 'drive-impact', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '21-28%',
         verified: 'sourced',
@@ -101,6 +102,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '18-25%',
         verified: 'sourced',
@@ -152,6 +154,16 @@ export const GROUP_B: Situation[] = [
           },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '解摔的輸入對指令投不會發生作用 —— 它沒有解摔窗口。',
+              en: 'The tech input does nothing against a command grab: there is no tech window to hit.',
+              ja: '投げ抜けの入力はコマンド投げには作用しない。抜ける窓が存在しない。',
+            },
+          },
         ],
         mixRatio: '7-14%',
         verified: 'sourced',
@@ -196,6 +208,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'low-overhead-mix', outcome: 'even' },
           { vs: 'drive-impact', outcome: 'win' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '14-21%',
         verified: 'sourced',
@@ -243,6 +256,7 @@ export const GROUP_B: Situation[] = [
           },
           { vs: 'bait-block', outcome: 'bigLoss' },
           { vs: 'drive-impact', outcome: 'bigWin' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '7-11%',
         verified: 'sourced',
@@ -300,6 +314,16 @@ export const GROUP_B: Situation[] = [
             },
           },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '霸體吃打擊，吃不了投。',
+              en: 'Armour eats strikes, not throws.',
+              ja: 'アーマーは打撃を吸うが投げは吸わない。',
+            },
+          },
         ],
         mixRatio: '7-11%',
         verified: 'sourced',
@@ -338,6 +362,16 @@ export const GROUP_B: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'low-overhead-mix', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '4 幀的小技比 5 幀的指令投先打到 —— 最便宜的答案。他延遲一拍，同一顆按鈕就變成他的確反。',
+              en: 'A 4-frame light hits before a 5-frame command grab — the cheapest answer there is. Delayed by a beat, the same button becomes their punish.',
+              ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たる。最も安い対策だが、一拍遅らされれば同じボタンが確反の的になる。',
+            },
+          },
         ],
         mixRatio: '4%',
         verified: 'sourced',
@@ -393,6 +427,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'delayed-attack', outcome: 'bigWin' },
           { vs: 'throw', outcome: 'win' },
           { vs: 'bait-block', outcome: 'bigLoss' },
+          { vs: 'command-grab', outcome: 'bigWin' },
         ],
         verified: 'sourced',
         sources: [
@@ -408,7 +443,83 @@ export const GROUP_B: Situation[] = [
           ja: 'ガード中に無敵技の出番はほぼない。抜けたいならドライブリバーサルを使う。',
         },
       },
-      {
+        {
+        optionId: 'jump-neutral',
+        risk: 'high',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '摔投從你腳下落空，你原地落回他面前 —— 壓制被打斷，回到中立。',
+            en: 'The throw whiffs under you and you come back down in front of them: the pressure is broken and you are back at neutral.',
+            ja: '投げが足元を空振りし、そのまま目の前に落ちる。攻めが途切れて中立に戻る。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '壓制沒有空隙就跳不出去，而起跳幀照地上判定 —— 他繼續壓，你就是站著挨打。',
+            en: 'With no gap there is nothing to jump out of, and the prejump frames count as grounded: if they keep the string going, you are simply standing in it.',
+            ja: '隙間が無ければ跳ぶこと自体ができず、前置きフレームは地上判定のまま。相手が連係を続ければ、ただ立って食らうだけになる。',
+          },
+          hpLoss: '30-45%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '起跳的前置幀投不到 —— 只要壓制留的空隙夠你按出跳，摔就落空。',
+              en: 'The prejump frames cannot be thrown, so as long as the gap is wide enough for the input, the throw whiffs.',
+              ja: '跳び上がりの前置きフレームは投げられないため、連係の隙間が入力に足りていれば投げは空振りする。',
+            },
+          },
+          {
+            vs: 'command-grab',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant':
+                '一樣投不到，而且指令投抓空要站 60 幀上下 —— 你落地打得到。壓制中被指令投角色貼著的時候，這是回報最高的一手。',
+              en: 'Equally unthrowable, and a whiffed command grab stands there for around sixty frames, so you land on it. Under pressure from a grappler this is the highest-paying option you have.',
+              ja: '同じく投げられず、しかもコマ投げの空振りは60F前後立ちっぱなしになるため、着地して殴れる。コマ投げキャラに固められている状況では最もリターンの高い択。',
+            },
+          },
+          { vs: 'blockstring', outcome: 'loss' },
+          { vs: 'delayed-attack', outcome: 'loss' },
+          { vs: 'low-overhead-mix', outcome: 'loss' },
+          { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'drive-impact',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '動力衝擊照地上判定打到起跳幀，而且霸體讓你打不斷它。壓制中最不該跳的時候就是他有槽的時候。',
+              en: 'Drive Impact hits the prejump frames as grounded, and the armour means you cannot interrupt it either. The worst moment to jump out is the moment they have the bar for this.',
+              ja: 'ドライブインパクトは前置きフレームを地上として捉え、しかもアーマーでこちらの割り込みも通らない。相手にゲージがある瞬間が、最も跳んではいけない瞬間になる。',
+            },
+          },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Jump',
+            patch: '2026-08',
+            note: '該頁寫明起跳的前置幀算「空中」、不能被投，但被打擊判定時仍算地上 —— 這一列的兩半都由這一句決定。這是全系列通則頁，不是 SF6 專頁。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/zangief',
+            patch: '2026-08',
+            note: 'Screw Piledriver 抓空 61 幀；同一頁的普通前摔抓空 30 幀。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '只在讀到摔的時候用。壓制中跳是七個欄位裡只贏兩個的選擇，而那兩個剛好是你最怕的兩個。',
+          en: 'Only on a throw read. Jumping out of pressure beats two of the seven columns — and those two happen to be the two you are most afraid of.',
+          ja: '投げを読んだときだけの択。固めからのジャンプは7列のうち2列にしか勝てないが、その2つがちょうど最も怖い2つでもある。',
+        },
+      },
+    {
         optionId: 'backdash',
         risk: 'high',
         reward: 'low',
@@ -434,6 +545,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'delayed-attack', outcome: 'loss' },
           { vs: 'throw', outcome: 'win' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '4-7%',
         verified: 'sourced',
@@ -464,7 +576,7 @@ export const GROUP_B: Situation[] = [
     position: ['nearCorner'],
     distance: 'pointBlank',
     stance: 'neutral',
-    opponentOptions: ['blockstring', 'delayed-attack', 'throw', 'low-overhead-mix', 'bait-block', 'drive-impact'],
+    opponentOptions: ['blockstring', 'delayed-attack', 'throw', 'command-grab', 'low-overhead-mix', 'bait-block', 'drive-impact'],
     evaluations: [
       {
         optionId: 'do-nothing',
@@ -494,6 +606,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
           { vs: 'drive-impact', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '21-28%',
         verified: 'sourced',
@@ -542,6 +655,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '18-25%',
         verified: 'sourced',
@@ -593,6 +707,16 @@ export const GROUP_B: Situation[] = [
           },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '解摔的輸入對指令投不會發生作用 —— 它沒有解摔窗口。',
+              en: 'The tech input does nothing against a command grab: there is no tech window to hit.',
+              ja: '投げ抜けの入力はコマンド投げには作用しない。抜ける窓が存在しない。',
+            },
+          },
         ],
         mixRatio: '7-14%',
         verified: 'sourced',
@@ -637,6 +761,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'low-overhead-mix', outcome: 'even' },
           { vs: 'drive-impact', outcome: 'win' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '14-21%',
         verified: 'sourced',
@@ -684,6 +809,7 @@ export const GROUP_B: Situation[] = [
           },
           { vs: 'bait-block', outcome: 'bigLoss' },
           { vs: 'drive-impact', outcome: 'bigWin' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '7-11%',
         verified: 'sourced',
@@ -741,6 +867,16 @@ export const GROUP_B: Situation[] = [
             },
           },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '霸體吃打擊，吃不了投。',
+              en: 'Armour eats strikes, not throws.',
+              ja: 'アーマーは打撃を吸うが投げは吸わない。',
+            },
+          },
         ],
         mixRatio: '7-11%',
         verified: 'sourced',
@@ -779,6 +915,16 @@ export const GROUP_B: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'low-overhead-mix', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '4 幀的小技比 5 幀的指令投先打到 —— 最便宜的答案。他延遲一拍，同一顆按鈕就變成他的確反。',
+              en: 'A 4-frame light hits before a 5-frame command grab — the cheapest answer there is. Delayed by a beat, the same button becomes their punish.',
+              ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たる。最も安い対策だが、一拍遅らされれば同じボタンが確反の的になる。',
+            },
+          },
         ],
         mixRatio: '4%',
         verified: 'sourced',
@@ -834,6 +980,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'delayed-attack', outcome: 'bigWin' },
           { vs: 'throw', outcome: 'win' },
           { vs: 'bait-block', outcome: 'bigLoss' },
+          { vs: 'command-grab', outcome: 'bigWin' },
         ],
         verified: 'sourced',
         sources: [
@@ -849,7 +996,83 @@ export const GROUP_B: Situation[] = [
           ja: 'ガード中に無敵技の出番はほぼない。抜けたいならドライブリバーサルを使う。',
         },
       },
-      {
+        {
+        optionId: 'jump-neutral',
+        risk: 'high',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '摔投落空，你原地落回原位。靠角時這比後跳好 —— 後跳把你推進角落，垂直跳不會。',
+            en: 'The throw whiffs and you land where you were. Near the corner that beats a back jump, which would push you further into it.',
+            ja: '投げが空振りし、元の位置に落ちる。画面端が近いときは後ろジャンプより良い——あちらは端に押し込まれる。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '沒有空隙就跳不出去；起跳幀照地上判定，被打到就是往角落飛。',
+            en: 'No gap, no jump; the prejump frames are grounded, and being hit here sends you towards the corner.',
+            ja: '隙間が無ければ跳べず、前置きフレームは地上判定。ここで食らえば端へ運ばれる。',
+          },
+          hpLoss: '30-45%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '起跳的前置幀投不到 —— 只要壓制留的空隙夠你按出跳，摔就落空。',
+              en: 'The prejump frames cannot be thrown, so as long as the gap is wide enough for the input, the throw whiffs.',
+              ja: '跳び上がりの前置きフレームは投げられないため、連係の隙間が入力に足りていれば投げは空振りする。',
+            },
+          },
+          {
+            vs: 'command-grab',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant':
+                '一樣投不到，而且指令投抓空要站 60 幀上下 —— 你落地打得到。壓制中被指令投角色貼著的時候，這是回報最高的一手。',
+              en: 'Equally unthrowable, and a whiffed command grab stands there for around sixty frames, so you land on it. Under pressure from a grappler this is the highest-paying option you have.',
+              ja: '同じく投げられず、しかもコマ投げの空振りは60F前後立ちっぱなしになるため、着地して殴れる。コマ投げキャラに固められている状況では最もリターンの高い択。',
+            },
+          },
+          { vs: 'blockstring', outcome: 'loss' },
+          { vs: 'delayed-attack', outcome: 'loss' },
+          { vs: 'low-overhead-mix', outcome: 'loss' },
+          { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'drive-impact',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '動力衝擊照地上判定打到起跳幀，而且霸體讓你打不斷它。壓制中最不該跳的時候就是他有槽的時候。',
+              en: 'Drive Impact hits the prejump frames as grounded, and the armour means you cannot interrupt it either. The worst moment to jump out is the moment they have the bar for this.',
+              ja: 'ドライブインパクトは前置きフレームを地上として捉え、しかもアーマーでこちらの割り込みも通らない。相手にゲージがある瞬間が、最も跳んではいけない瞬間になる。',
+            },
+          },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Jump',
+            patch: '2026-08',
+            note: '該頁寫明起跳的前置幀算「空中」、不能被投，但被打擊判定時仍算地上 —— 這一列的兩半都由這一句決定。這是全系列通則頁，不是 SF6 專頁。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/zangief',
+            patch: '2026-08',
+            note: 'Screw Piledriver 抓空 61 幀；同一頁的普通前摔抓空 30 幀。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '靠角時後跳開始付出位置成本，垂直跳沒有。同樣是讀摔，這裡它比較便宜。',
+          en: 'Near the corner a back jump starts costing position and this does not. On the same throw read it is the cheaper one.',
+          ja: '画面端が近づくと後ろジャンプは位置を失い始めるが、こちらは失わない。同じ投げ読みならこちらが安い。',
+        },
+      },
+    {
         optionId: 'backdash',
         risk: 'high',
         reward: 'low',
@@ -875,6 +1098,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'delayed-attack', outcome: 'loss' },
           { vs: 'throw', outcome: 'win' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '4-7%',
         verified: 'sourced',
@@ -905,7 +1129,7 @@ export const GROUP_B: Situation[] = [
     position: ['cornered'],
     distance: 'pointBlank',
     stance: 'neutral',
-    opponentOptions: ['blockstring', 'delayed-attack', 'throw', 'low-overhead-mix', 'bait-block', 'drive-impact'],
+    opponentOptions: ['blockstring', 'delayed-attack', 'throw', 'command-grab', 'low-overhead-mix', 'bait-block', 'drive-impact'],
     evaluations: [
       {
         optionId: 'do-nothing',
@@ -935,6 +1159,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
           { vs: 'drive-impact', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '22-30%',
         verified: 'sourced',
@@ -983,6 +1208,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '19-26%',
         verified: 'sourced',
@@ -1034,6 +1260,16 @@ export const GROUP_B: Situation[] = [
           },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '解摔的輸入對指令投不會發生作用 —— 它沒有解摔窗口。',
+              en: 'The tech input does nothing against a command grab: there is no tech window to hit.',
+              ja: '投げ抜けの入力はコマンド投げには作用しない。抜ける窓が存在しない。',
+            },
+          },
         ],
         mixRatio: '7-15%',
         verified: 'sourced',
@@ -1078,6 +1314,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'low-overhead-mix', outcome: 'even' },
           { vs: 'drive-impact', outcome: 'win' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '15-22%',
         verified: 'sourced',
@@ -1125,6 +1362,7 @@ export const GROUP_B: Situation[] = [
           },
           { vs: 'bait-block', outcome: 'bigLoss' },
           { vs: 'drive-impact', outcome: 'bigWin' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '7-11%',
         verified: 'sourced',
@@ -1182,6 +1420,16 @@ export const GROUP_B: Situation[] = [
             },
           },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '霸體吃打擊，吃不了投。',
+              en: 'Armour eats strikes, not throws.',
+              ja: 'アーマーは打撃を吸うが投げは吸わない。',
+            },
+          },
         ],
         mixRatio: '7-11%',
         verified: 'sourced',
@@ -1193,7 +1441,83 @@ export const GROUP_B: Situation[] = [
           },
         ],
       },
-      {
+        {
+        optionId: 'jump-neutral',
+        risk: 'high',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '摔投落空，你落回原地。角落沒有拿走它任何東西 —— 它本來就不靠位移。',
+            en: 'The throw whiffs and you land where you started. The corner takes nothing from this one, because it never used any ground.',
+            ja: '投げが空振りし、元の位置に着地する。この択は移動を使わないので、画面端でも失うものが無い。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '角落的壓制空隙最少，起跳幀又照地上判定 —— 猜錯就是在角落挨一整套。',
+            en: 'The corner is where the gaps are thinnest and the prejump frames are still grounded: guess wrong and you eat a full combo with nowhere to go.',
+            ja: '画面端は隙間が最も薄く、前置きフレームは地上判定のまま。読み負ければ逃げ場のないままフルコンボを食らう。',
+          },
+          hpLoss: '30-45%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '起跳的前置幀投不到 —— 只要壓制留的空隙夠你按出跳，摔就落空。',
+              en: 'The prejump frames cannot be thrown, so as long as the gap is wide enough for the input, the throw whiffs.',
+              ja: '跳び上がりの前置きフレームは投げられないため、連係の隙間が入力に足りていれば投げは空振りする。',
+            },
+          },
+          {
+            vs: 'command-grab',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant':
+                '一樣投不到，而且指令投抓空要站 60 幀上下 —— 你落地打得到。壓制中被指令投角色貼著的時候，這是回報最高的一手。',
+              en: 'Equally unthrowable, and a whiffed command grab stands there for around sixty frames, so you land on it. Under pressure from a grappler this is the highest-paying option you have.',
+              ja: '同じく投げられず、しかもコマ投げの空振りは60F前後立ちっぱなしになるため、着地して殴れる。コマ投げキャラに固められている状況では最もリターンの高い択。',
+            },
+          },
+          { vs: 'blockstring', outcome: 'loss' },
+          { vs: 'delayed-attack', outcome: 'loss' },
+          { vs: 'low-overhead-mix', outcome: 'loss' },
+          { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'drive-impact',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '動力衝擊照地上判定打到起跳幀，而且霸體讓你打不斷它。壓制中最不該跳的時候就是他有槽的時候。',
+              en: 'Drive Impact hits the prejump frames as grounded, and the armour means you cannot interrupt it either. The worst moment to jump out is the moment they have the bar for this.',
+              ja: 'ドライブインパクトは前置きフレームを地上として捉え、しかもアーマーでこちらの割り込みも通らない。相手にゲージがある瞬間が、最も跳んではいけない瞬間になる。',
+            },
+          },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Jump',
+            patch: '2026-08',
+            note: '該頁寫明起跳的前置幀算「空中」、不能被投，但被打擊判定時仍算地上 —— 這一列的兩半都由這一句決定。這是全系列通則頁，不是 SF6 專頁。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/zangief',
+            patch: '2026-08',
+            note: 'Screw Piledriver 抓空 61 幀；同一頁的普通前摔抓空 30 幀。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '後跳在角落等於不能用，垂直跳的評價完全沒變 —— 角落唯一還在的跳。對指令投角色來說，這裡也是最該用它的地方。',
+          en: 'A back jump is unusable cornered and this grade does not move — it is the only jump left. Against a grappler the corner is also where it matters most.',
+          ja: '後ろジャンプは画面端で使えなくなるが、この評価は動かない。端に残る唯一のジャンプであり、コマ投げキャラ相手ならここが最も重要な場所でもある。',
+        },
+      },
+    {
         optionId: 'mash-light',
         risk: 'extreme',
         reward: 'none',
@@ -1220,6 +1544,16 @@ export const GROUP_B: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'low-overhead-mix', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '4 幀的小技比 5 幀的指令投先打到 —— 最便宜的答案。他延遲一拍，同一顆按鈕就變成他的確反。',
+              en: 'A 4-frame light hits before a 5-frame command grab — the cheapest answer there is. Delayed by a beat, the same button becomes their punish.',
+              ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たる。最も安い対策だが、一拍遅らされれば同じボタンが確反の的になる。',
+            },
+          },
         ],
         mixRatio: '4%',
         verified: 'sourced',
@@ -1275,6 +1609,7 @@ export const GROUP_B: Situation[] = [
           { vs: 'delayed-attack', outcome: 'bigWin' },
           { vs: 'throw', outcome: 'win' },
           { vs: 'bait-block', outcome: 'bigLoss' },
+          { vs: 'command-grab', outcome: 'bigWin' },
         ],
         verified: 'sourced',
         sources: [

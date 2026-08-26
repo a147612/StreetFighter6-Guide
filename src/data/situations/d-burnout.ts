@@ -23,7 +23,7 @@ export const GROUP_D: Situation[] = [
     distance: 'pointBlank',
     stance: 'neutral',
     noDrive: true,
-    opponentOptions: ['meaty', 'blockstring', 'throw', 'low-overhead-mix', 'drive-impact', 'bait-block'],
+    opponentOptions: ['meaty', 'blockstring', 'throw', 'command-grab', 'low-overhead-mix', 'drive-impact', 'bait-block'],
     evaluations: [
       {
         optionId: 'do-nothing',
@@ -53,6 +53,16 @@ export const GROUP_D: Situation[] = [
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'drive-impact', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                'Burnout 沒有動力槽，代表撥擋和動力反攻都不在了 —— 對指令投角色來說，這是他最想看到的狀態。',
+              en: 'Burnout means no gauge, so parry and Drive Reversal are both gone. Against a grappler this is the state they are playing for.',
+              ja: 'バーンアウトはゲージが無い＝パリィもリバーサルも無いということ。コマ投げキャラにとっては、この状態こそが狙い。',
+            },
+          },
         ],
         mixRatio: '40-50%',
         verified: 'sourced',
@@ -96,6 +106,7 @@ export const GROUP_D: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '25-35%',
         verified: 'sourced',
@@ -141,6 +152,16 @@ export const GROUP_D: Situation[] = [
           },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '解摔的輸入對指令投不會發生作用 —— 它沒有解摔窗口。',
+              en: 'The tech input does nothing against a command grab: there is no tech window to hit.',
+              ja: '投げ抜けの入力はコマンド投げには作用しない。抜ける窓が存在しない。',
+            },
+          },
         ],
         mixRatio: '10-15%',
         verified: 'sourced',
@@ -183,6 +204,16 @@ export const GROUP_D: Situation[] = [
           { vs: 'blockstring', outcome: 'bigLoss' },
           { vs: 'throw', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '4 幀的小技比 5 幀的指令投先打到 —— 最便宜的答案。他延遲一拍，同一顆按鈕就變成他的確反。',
+              en: 'A 4-frame light hits before a 5-frame command grab — the cheapest answer there is. Delayed by a beat, the same button becomes their punish.',
+              ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たる。最も安い対策だが、一拍遅らされれば同じボタンが確反の的になる。',
+            },
+          },
         ],
         mixRatio: '5%',
         verified: 'sourced',
@@ -230,6 +261,7 @@ export const GROUP_D: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'bait-block', outcome: 'even' },
           { vs: 'drive-impact', outcome: 'loss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '5-10%',
         verified: 'sourced',
@@ -273,6 +305,7 @@ export const GROUP_D: Situation[] = [
           { vs: 'throw', outcome: 'bigWin' },
           { vs: 'blockstring', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'bigLoss' },
+          { vs: 'command-grab', outcome: 'bigWin' },
         ],
         mixRatio: '5%',
         notes: {
@@ -309,7 +342,7 @@ export const GROUP_D: Situation[] = [
     distance: 'pointBlank',
     stance: 'neutral',
     noDrive: true,
-    opponentOptions: ['meaty', 'blockstring', 'throw', 'low-overhead-mix', 'drive-impact', 'bait-block'],
+    opponentOptions: ['meaty', 'blockstring', 'throw', 'command-grab', 'low-overhead-mix', 'drive-impact', 'bait-block'],
     evaluations: [
       {
         optionId: 'do-nothing',
@@ -347,6 +380,16 @@ export const GROUP_D: Situation[] = [
             },
           },
           { vs: 'bait-block', outcome: 'even' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                'Burnout 沒有動力槽，代表撥擋和動力反攻都不在了 —— 對指令投角色來說，這是他最想看到的狀態。',
+              en: 'Burnout means no gauge, so parry and Drive Reversal are both gone. Against a grappler this is the state they are playing for.',
+              ja: 'バーンアウトはゲージが無い＝パリィもリバーサルも無いということ。コマ投げキャラにとっては、この状態こそが狙い。',
+            },
+          },
         ],
         mixRatio: '40-50%',
         verified: 'sourced',
@@ -390,6 +433,7 @@ export const GROUP_D: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '25-35%',
         verified: 'sourced',
@@ -435,6 +479,16 @@ export const GROUP_D: Situation[] = [
           },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '解摔的輸入對指令投不會發生作用 —— 它沒有解摔窗口。',
+              en: 'The tech input does nothing against a command grab: there is no tech window to hit.',
+              ja: '投げ抜けの入力はコマンド投げには作用しない。抜ける窓が存在しない。',
+            },
+          },
         ],
         mixRatio: '10-15%',
         verified: 'sourced',
@@ -477,6 +531,16 @@ export const GROUP_D: Situation[] = [
           { vs: 'blockstring', outcome: 'bigLoss' },
           { vs: 'throw', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '4 幀的小技比 5 幀的指令投先打到 —— 最便宜的答案。他延遲一拍，同一顆按鈕就變成他的確反。',
+              en: 'A 4-frame light hits before a 5-frame command grab — the cheapest answer there is. Delayed by a beat, the same button becomes their punish.',
+              ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たる。最も安い対策だが、一拍遅らされれば同じボタンが確反の的になる。',
+            },
+          },
         ],
         mixRatio: '5%',
         verified: 'sourced',
@@ -524,6 +588,7 @@ export const GROUP_D: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'bait-block', outcome: 'even' },
           { vs: 'drive-impact', outcome: 'bigLoss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '5-10%',
         verified: 'sourced',
@@ -566,6 +631,7 @@ export const GROUP_D: Situation[] = [
           { vs: 'meaty', outcome: 'bigWin' },
           { vs: 'throw', outcome: 'bigWin' },
           { vs: 'bait-block', outcome: 'bigLoss' },
+          { vs: 'command-grab', outcome: 'bigWin' },
         ],
         mixRatio: '5%',
         verified: 'sourced',

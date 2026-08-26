@@ -23,7 +23,7 @@ export const GROUP_J: Situation[] = [
     position: ['midscreen', 'nearCorner', 'cornered'],
     distance: 'pointBlank',
     stance: 'neutral',
-    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'drive-reversal', 'drive-impact', 'mash-light'],
+    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'drive-reversal', 'drive-impact', 'mash-light', 'jump-neutral'],
     evaluations: [
       {
         optionId: 'blockstring',
@@ -53,6 +53,16 @@ export const GROUP_J: Situation[] = [
           { vs: 'drive-reversal', outcome: 'bigLoss' },
           { vs: 'drive-impact', outcome: 'loss' },
           { vs: 'mash-light', outcome: 'bigWin' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '不留空隙他就跳不出去 —— 起跳幀照地上判定，連段直接把它打斷。跳得掉是空隙的問題，不是膽量的問題。',
+              en: 'With no gap there is nothing to jump out of: the prejump frames count as grounded and the string simply hits them out of it. Whether a jump works is a question about your gaps, not about their nerve.',
+              ja: '隙間を作らなければ跳ばれない。前置きフレームは地上判定なので、連係がそのまま潰す。跳べるかどうかは隙間の問題であって、相手の度胸の問題ではない。',
+            },
+          },
         ],
         mixRatio: '18-24%',
         verified: 'sourced',
@@ -105,6 +115,16 @@ export const GROUP_J: Situation[] = [
           { vs: 'drive-parry', outcome: 'bigWin' },
           { vs: 'drive-reversal', outcome: 'loss' },
           { vs: 'mash-light', outcome: 'loss' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '起跳幀投不到。普通摔抓空只有 30 幀，他落地時你已經恢復 —— 摔空了，不是被確反。',
+              en: 'The prejump frames cannot be thrown. A whiffed normal throw is only 30 frames and you are recovered by the time they land: you missed, you were not punished.',
+              ja: '前置きフレームは投げられない。通常投げの空振りは30Fしかなく、相手が着地する頃には回復している。外しただけで確反ではない。',
+            },
+          },
         ],
         mixRatio: '15-21%',
         verified: 'sourced',
@@ -183,6 +203,16 @@ export const GROUP_J: Situation[] = [
               ja: 'コマンド投げは発生が遅く、4Fの弱攻撃が先に当たる。最も安上がりな対策。',
             },
           },
+          {
+            vs: 'jump-neutral',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '起跳幀投不到，所以壓得再準也沒用 —— 抓空 60 幀上下，他落地就是一整套。要嘛先用打擊把跳按死，要嘛延遲指令投去抓他落地。',
+              en: 'The prejump frames cannot be thrown, so timing it better does not help: sixty-odd frames of whiff and they land on you for a full combo. Either shut the jump down with a strike first, or delay the grab onto their landing.',
+              ja: '前置きフレームは投げられないため、丁寧に重ねても意味が無い。60F前後の空振りに着地からフルコンボが入る。先に打撃でジャンプを潰すか、コマ投げを遅らせて着地を狙うかのどちらか。',
+            },
+          },
         ],
         notes: {
           'zh-Hant': '只有 11 隻角色有，所以它不在「預設打法」的比例裡 —— 那條是通用的。但對有的角色來說，它不是選項之一，而是整個起攻的核心：對手一旦不能靠防禦解決，你的壓起身和退康才真的有威脅。',
@@ -231,6 +261,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'do-nothing', outcome: 'loss' },
           { vs: 'drive-parry', outcome: 'loss' },
           { vs: 'drive-reversal', outcome: 'loss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '12-15%',
         verified: 'sourced',
@@ -275,6 +306,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'drive-parry', outcome: 'even' },
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'drive-reversal', outcome: 'loss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '9-12%',
         verified: 'sourced',
@@ -319,6 +351,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'drive-parry', outcome: 'even' },
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'drive-reversal', outcome: 'win' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '6-9%',
         verified: 'sourced',
@@ -383,6 +416,16 @@ export const GROUP_J: Situation[] = [
             orderDependent: true,
           },
           { vs: 'delayed-tech', outcome: 'loss' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '動力衝擊照地上判定抓到起跳幀，霸體又讓他打不斷 —— 這是壓制中對跳最乾淨的答案。',
+              en: 'Drive Impact catches the prejump frames as grounded and the armour means they cannot interrupt it either. It is the cleanest answer to a jump there is in pressure.',
+              ja: 'ドライブインパクトは前置きフレームを地上として捉え、アーマーで割り込みも許さない。固めにおけるジャンプへの最もきれいな回答。',
+            },
+          },
         ],
         mixRatio: '6-9%',
         verified: 'sourced',
@@ -422,6 +465,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'do-nothing', outcome: 'even' },
           { vs: 'delayed-tech', outcome: 'even' },
           { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '6-9%',
         verified: 'sourced',
@@ -465,6 +509,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'mash-light', outcome: 'bigWin' },
           { vs: 'drive-parry', outcome: 'bigLoss' },
           { vs: 'drive-reversal', outcome: 'loss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '12-15%',
         verified: 'sourced',
@@ -495,7 +540,7 @@ export const GROUP_J: Situation[] = [
     position: ['midscreen', 'nearCorner', 'cornered'],
     distance: 'pointBlank',
     stance: 'neutral',
-    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal'],
+    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'jump-neutral', 'reversal'],
     evaluations: [
       {
         optionId: 'blockstring',
@@ -524,6 +569,16 @@ export const GROUP_J: Situation[] = [
           { vs: 'drive-parry', outcome: 'loss' },
           { vs: 'mash-light', outcome: 'bigWin' },
           { vs: 'reversal', outcome: 'win' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '不留空隙他就跳不出去 —— 起跳幀照地上判定，連段直接把它打斷。跳得掉是空隙的問題，不是膽量的問題。',
+              en: 'With no gap there is nothing to jump out of: the prejump frames count as grounded and the string simply hits them out of it. Whether a jump works is a question about your gaps, not about their nerve.',
+              ja: '隙間を作らなければ跳ばれない。前置きフレームは地上判定なので、連係がそのまま潰す。跳べるかどうかは隙間の問題であって、相手の度胸の問題ではない。',
+            },
+          },
         ],
         mixRatio: '18-24%',
         verified: 'sourced',
@@ -576,6 +631,16 @@ export const GROUP_J: Situation[] = [
           { vs: 'drive-parry', outcome: 'bigWin' },
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '起跳幀投不到。普通摔抓空只有 30 幀，他落地時你已經恢復 —— 摔空了，不是被確反。',
+              en: 'The prejump frames cannot be thrown. A whiffed normal throw is only 30 frames and you are recovered by the time they land: you missed, you were not punished.',
+              ja: '前置きフレームは投げられない。通常投げの空振りは30Fしかなく、相手が着地する頃には回復している。外しただけで確反ではない。',
+            },
+          },
         ],
         mixRatio: '15-21%',
         verified: 'sourced',
@@ -644,6 +709,16 @@ export const GROUP_J: Situation[] = [
             },
           },
           { vs: 'reversal', outcome: 'bigLoss' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '起跳幀投不到，所以壓得再準也沒用 —— 抓空 60 幀上下，他落地就是一整套。要嘛先用打擊把跳按死，要嘛延遲指令投去抓他落地。',
+              en: 'The prejump frames cannot be thrown, so timing it better does not help: sixty-odd frames of whiff and they land on you for a full combo. Either shut the jump down with a strike first, or delay the grab onto their landing.',
+              ja: '前置きフレームは投げられないため、丁寧に重ねても意味が無い。60F前後の空振りに着地からフルコンボが入る。先に打撃でジャンプを潰すか、コマ投げを遅らせて着地を狙うかのどちらか。',
+            },
+          },
         ],
         notes: {
           'zh-Hant': '只有 11 隻角色有，所以它不在「預設打法」的比例裡 —— 那條是通用的。但對有的角色來說，它不是選項之一，而是整個起攻的核心：對手一旦不能靠防禦解決，你的壓起身和退康才真的有威脅。',
@@ -692,6 +767,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'do-nothing', outcome: 'loss' },
           { vs: 'drive-parry', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '12-15%',
         verified: 'sourced',
@@ -736,6 +812,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'drive-parry', outcome: 'even' },
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '9-12%',
         verified: 'sourced',
@@ -780,6 +857,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'drive-parry', outcome: 'even' },
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigWin' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '6-9%',
         verified: 'sourced',
@@ -831,6 +909,16 @@ export const GROUP_J: Situation[] = [
           },
           { vs: 'delayed-tech', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '動力衝擊照地上判定抓到起跳幀，霸體又讓他打不斷 —— 這是壓制中對跳最乾淨的答案。',
+              en: 'Drive Impact catches the prejump frames as grounded and the armour means they cannot interrupt it either. It is the cleanest answer to a jump there is in pressure.',
+              ja: 'ドライブインパクトは前置きフレームを地上として捉え、アーマーで割り込みも許さない。固めにおけるジャンプへの最もきれいな回答。',
+            },
+          },
         ],
         mixRatio: '6-9%',
         verified: 'sourced',
@@ -870,6 +958,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'do-nothing', outcome: 'even' },
           { vs: 'delayed-tech', outcome: 'even' },
           { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '6-9%',
         verified: 'sourced',
@@ -913,6 +1002,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'mash-light', outcome: 'bigWin' },
           { vs: 'drive-parry', outcome: 'bigLoss' },
           { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '12-15%',
         verified: 'sourced',
@@ -944,7 +1034,7 @@ export const GROUP_J: Situation[] = [
     distance: 'pointBlank',
     stance: 'neutral',
     opponentNoDrive: true,
-    opponentOptions: ['do-nothing', 'delayed-tech', 'mash-light', 'super-reversal'],
+    opponentOptions: ['do-nothing', 'delayed-tech', 'mash-light', 'jump-neutral', 'super-reversal'],
     evaluations: [
       {
         optionId: 'blockstring',
@@ -972,6 +1062,16 @@ export const GROUP_J: Situation[] = [
           { vs: 'delayed-tech', outcome: 'win' },
           { vs: 'mash-light', outcome: 'bigWin' },
           { vs: 'super-reversal', outcome: 'win' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '不留空隙他就跳不出去 —— 起跳幀照地上判定，連段直接把它打斷。跳得掉是空隙的問題，不是膽量的問題。',
+              en: 'With no gap there is nothing to jump out of: the prejump frames count as grounded and the string simply hits them out of it. Whether a jump works is a question about your gaps, not about their nerve.',
+              ja: '隙間を作らなければ跳ばれない。前置きフレームは地上判定なので、連係がそのまま潰す。跳べるかどうかは隙間の問題であって、相手の度胸の問題ではない。',
+            },
+          },
         ],
         mixRatio: '26-33%',
         verified: 'sourced',
@@ -1028,6 +1128,16 @@ export const GROUP_J: Situation[] = [
           },
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'super-reversal', outcome: 'bigLoss' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '起跳幀投不到。普通摔抓空只有 30 幀，他落地時你已經恢復 —— 摔空了，不是被確反。',
+              en: 'The prejump frames cannot be thrown. A whiffed normal throw is only 30 frames and you are recovered by the time they land: you missed, you were not punished.',
+              ja: '前置きフレームは投げられない。通常投げの空振りは30Fしかなく、相手が着地する頃には回復している。外しただけで確反ではない。',
+            },
+          },
         ],
         mixRatio: '16-23%',
         verified: 'sourced',
@@ -1095,6 +1205,16 @@ export const GROUP_J: Situation[] = [
             },
           },
           { vs: 'super-reversal', outcome: 'bigLoss' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '起跳幀投不到，所以壓得再準也沒用 —— 抓空 60 幀上下，他落地就是一整套。要嘛先用打擊把跳按死，要嘛延遲指令投去抓他落地。',
+              en: 'The prejump frames cannot be thrown, so timing it better does not help: sixty-odd frames of whiff and they land on you for a full combo. Either shut the jump down with a strike first, or delay the grab onto their landing.',
+              ja: '前置きフレームは投げられないため、丁寧に重ねても意味が無い。60F前後の空振りに着地からフルコンボが入る。先に打撃でジャンプを潰すか、コマ投げを遅らせて着地を狙うかのどちらか。',
+            },
+          },
         ],
         notes: {
           'zh-Hant': '只有 11 隻角色有，所以它不在「預設打法」的比例裡 —— 那條是通用的。但對有的角色來說，它不是選項之一，而是整個起攻的核心：對手一旦不能靠防禦解決，你的壓起身和退康才真的有威脅。',
@@ -1142,6 +1262,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'mash-light', outcome: 'bigWin' },
           { vs: 'do-nothing', outcome: 'loss' },
           { vs: 'super-reversal', outcome: 'bigLoss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '13-16%',
         verified: 'sourced',
@@ -1185,6 +1306,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'delayed-tech', outcome: 'win' },
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'super-reversal', outcome: 'bigLoss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '10-13%',
         verified: 'sourced',
@@ -1228,6 +1350,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'do-nothing', outcome: 'even' },
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'super-reversal', outcome: 'bigLoss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '7-10%',
         verified: 'sourced',
@@ -1279,6 +1402,16 @@ export const GROUP_J: Situation[] = [
           },
           { vs: 'delayed-tech', outcome: 'loss' },
           { vs: 'super-reversal', outcome: 'bigLoss' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '動力衝擊照地上判定抓到起跳幀，霸體又讓他打不斷 —— 這是壓制中對跳最乾淨的答案。',
+              en: 'Drive Impact catches the prejump frames as grounded and the armour means they cannot interrupt it either. It is the cleanest answer to a jump there is in pressure.',
+              ja: 'ドライブインパクトは前置きフレームを地上として捉え、アーマーで割り込みも許さない。固めにおけるジャンプへの最もきれいな回答。',
+            },
+          },
         ],
         mixRatio: '7-10%',
         verified: 'sourced',
@@ -1322,6 +1455,7 @@ export const GROUP_J: Situation[] = [
           { vs: 'super-reversal', outcome: 'bigWin' },
           { vs: 'do-nothing', outcome: 'even' },
           { vs: 'delayed-tech', outcome: 'even' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '7-10%',
         verified: 'sourced',

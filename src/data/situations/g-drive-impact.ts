@@ -23,7 +23,7 @@ export const GROUP_G: Situation[] = [
     position: ['midscreen'],
     distance: 'close',
     stance: 'neutral',
-    opponentOptions: ['drive-impact', 'blockstring', 'throw', 'poke'],
+    opponentOptions: ['drive-impact', 'blockstring', 'throw', 'command-grab', 'poke'],
     evaluations: [
       {
         optionId: 'do-nothing',
@@ -51,6 +51,7 @@ export const GROUP_G: Situation[] = [
           { vs: 'blockstring', outcome: 'even' },
           { vs: 'throw', outcome: 'loss' },
           { vs: 'poke', outcome: 'win' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '33-42%',
         verified: 'sourced',
@@ -94,6 +95,16 @@ export const GROUP_G: Situation[] = [
           { vs: 'blockstring', outcome: 'win' },
           { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'poke', outcome: 'win' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '霸體吃打擊，吃不了投。',
+              en: 'Armour eats strikes, not throws.',
+              ja: 'アーマーは打撃を吸うが投げは吸わない。',
+            },
+          },
         ],
         mixRatio: '19-23%',
         verified: 'sourced',
@@ -136,6 +147,7 @@ export const GROUP_G: Situation[] = [
           { vs: 'blockstring', outcome: 'win' },
           { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'poke', outcome: 'win' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '14-19%',
         verified: 'sourced',
@@ -179,6 +191,7 @@ export const GROUP_G: Situation[] = [
           { vs: 'poke', outcome: 'even' },
           { vs: 'throw', outcome: 'loss' },
           { vs: 'blockstring', outcome: 'loss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '9-14%',
         verified: 'sourced',
@@ -221,6 +234,16 @@ export const GROUP_G: Situation[] = [
           { vs: 'drive-impact', outcome: 'bigWin' },
           { vs: 'blockstring', outcome: 'win' },
           { vs: 'throw', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'even',
+            note: {
+              'zh-Hant':
+                '看你的 SA 是哪一種。多數角色的 SA1 只有打擊無敵 —— 打擊無敵對投沒用。角色面板列出了你這隻的實際無敵範圍。',
+              en: 'It depends which Super you have. Most SA1s are strike invincible only, and strike invincibility does nothing against a throw. The character panel lists what yours actually covers.',
+              ja: '自分のSA次第。多くのSA1は打撃無敵のみで、打撃無敵は投げには効かない。実際の無敵範囲はキャラパネルに載っている。',
+            },
+          },
         ],
         mixRatio: '5-9%',
         verified: 'sourced',
@@ -258,6 +281,7 @@ export const GROUP_G: Situation[] = [
           { vs: 'poke', outcome: 'loss' },
           { vs: 'throw', outcome: 'win' },
           { vs: 'blockstring', outcome: 'loss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '5-9%',
         verified: 'sourced',
@@ -293,7 +317,7 @@ export const GROUP_G: Situation[] = [
     position: ['cornered'],
     distance: 'close',
     stance: 'neutral',
-    opponentOptions: ['drive-impact', 'blockstring', 'throw', 'poke'],
+    opponentOptions: ['drive-impact', 'blockstring', 'throw', 'command-grab', 'poke'],
     evaluations: [
       {
         optionId: 'do-nothing',
@@ -321,6 +345,7 @@ export const GROUP_G: Situation[] = [
           { vs: 'blockstring', outcome: 'even' },
           { vs: 'throw', outcome: 'loss' },
           { vs: 'poke', outcome: 'win' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '35-45%',
         verified: 'sourced',
@@ -369,6 +394,16 @@ export const GROUP_G: Situation[] = [
           { vs: 'blockstring', outcome: 'win' },
           { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'poke', outcome: 'win' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '霸體吃打擊，吃不了投。',
+              en: 'Armour eats strikes, not throws.',
+              ja: 'アーマーは打撃を吸うが投げは吸わない。',
+            },
+          },
         ],
         mixRatio: '20-25%',
         verified: 'sourced',
@@ -411,6 +446,7 @@ export const GROUP_G: Situation[] = [
           { vs: 'blockstring', outcome: 'win' },
           { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'poke', outcome: 'win' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '15-20%',
         verified: 'sourced',
@@ -454,6 +490,7 @@ export const GROUP_G: Situation[] = [
           { vs: 'poke', outcome: 'even' },
           { vs: 'throw', outcome: 'loss' },
           { vs: 'blockstring', outcome: 'loss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '10-15%',
         verified: 'sourced',
@@ -496,6 +533,16 @@ export const GROUP_G: Situation[] = [
           { vs: 'drive-impact', outcome: 'bigWin' },
           { vs: 'blockstring', outcome: 'win' },
           { vs: 'throw', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'even',
+            note: {
+              'zh-Hant':
+                '看你的 SA 是哪一種。多數角色的 SA1 只有打擊無敵 —— 打擊無敵對投沒用。角色面板列出了你這隻的實際無敵範圍。',
+              en: 'It depends which Super you have. Most SA1s are strike invincible only, and strike invincibility does nothing against a throw. The character panel lists what yours actually covers.',
+              ja: '自分のSA次第。多くのSA1は打撃無敵のみで、打撃無敵は投げには効かない。実際の無敵範囲はキャラパネルに載っている。',
+            },
+          },
         ],
         mixRatio: '5-10%',
         verified: 'sourced',
