@@ -73,6 +73,7 @@ derived from `versus`, never authored, so the two cannot disagree.
 npm run dev       # http://localhost:5173/StreetFighter6-Guide/
 npm run build     # tsc -b && vite build
 npm run validate  # referential integrity; run before committing data
+npm run frames    # diff every frame number against UFD (--fetch to re-download)
 ```
 
 `validate` bundles `src/data/index.ts` with esbuild and imports the real module
@@ -85,6 +86,36 @@ characters with no OD wakeup escape — a number that must not drift silently.
 Deploy is automatic on push to `main`. **Verify a deploy by comparing hashes**,
 not by trusting the workflow: `npm run build | grep index-` against
 `curl -sS <live URL> | grep -oE 'index-[A-Za-z0-9_-]+\.js'`.
+
+## The frame layer
+
+**Numbers live on the character, never in a situation cell.** `CharacterOverlay.frames`
+is keyed by option id and holds a *list* of moves, because most options are a
+choice of button: Ken's `meaty` is 2MP at ±0 on block, 5HP at −2, or an OD
+fireball at −2. A judgement ("a shimmy beats a delay tech") survives a balance
+patch and a measurement ("−6 on block") does not, so storing them together would
+mean re-checking every cell the numbers touch instead of a dozen rows per
+character.
+
+**Every value is stored exactly as UFD writes it** — `-7...` stays `-7...`, and
+a throw's total stays `30 (whiff) / 123 (hit)`. That is what lets `npm run frames`
+diff the whole layer by string match. Prettying (real minus signs, `±0`, `…`)
+happens in `FrameStrip`, not in the data.
+
+**There is deliberately no universal tier.** An averaged frame number is true of
+nobody, and the reason to look one up is that it is yours; nothing renders until
+a character is picked.
+
+**Bind the option to the role, not to the obvious button.** `mash-light` is the
+character's *fastest* light — all 31 have a 4-frame one, but it is a standing LP
+for most, a standing LK for five, a crouching LP for eight, and for Zangief a
+crouching LK that is a Low and ±0 on hit. Binding his standing LP instead put a
+correct number on the wrong row and produced a whole paragraph of wrong content.
+
+`src/data/version.ts` records the game's balance state the data was read
+against, hand-maintained because nothing here can detect a patch. When one
+lands: `npm run frames -- --fetch`, fix what moved, update those constants in
+the same commit.
 
 ## Gotchas learned the hard way here
 
@@ -112,6 +143,7 @@ not by trusting the workflow: `npm run build | grep index-` against
 | A character | `src/data/characters/index.ts` |
 | Interface copy | `src/i18n/ui.ts` (all three locales, or tsc fails) |
 | A character icon | `public/characters/`, then `npm run icons` |
+| Frame data for a move | `frames` on the character in `src/data/characters/index.ts`, then `npm run frames` |
 
 Content prose should say what is happening on screen, not explain the idea
 behind the situation. Two short sentences per outcome. This was rewritten once

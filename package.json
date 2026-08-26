@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
     "validate": "node scripts/validate-data.mjs",
-    "icons": "node scripts/convert-icons.mjs"
+    "icons": "node scripts/convert-icons.mjs",
+    "frames": "node scripts/check-frames.mjs"
   },
   "dependencies": {
     "react": "^19.1.0",

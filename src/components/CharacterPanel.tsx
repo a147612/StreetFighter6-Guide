@@ -1,6 +1,7 @@
 import { useCharacterName } from './CharacterName'
 import { InputNotation } from './viz/InputNotation'
-import { getCharacter } from '~/data'
+import { FrameStrip } from './viz/FrameStrip'
+import { getCharacter, getOption } from '~/data'
 import type { CharacterOverlay } from '~/data/schema'
 import { useCharacter, useOpponent } from '~/lib/prefs'
 import { useT } from '~/i18n/useT'
@@ -86,6 +87,28 @@ function CharacterCard({ character, seat }: { character: CharacterOverlay; seat:
             ))}
           </ul>
         </section>
+
+        {/* The same numbers the option rows carry, gathered in one place. From
+            the opponent seat this is the more useful reading of the two: their
+            on-block is your punish window, and it is the number you cannot
+            look up mid-match. */}
+        {character.frames && Object.keys(character.frames).length > 0 && (
+          <section className="charframes">
+            <h4>{t.character.frames}</h4>
+            <p className="small muted">
+              {theirs ? t.character.framesTheirs : t.character.framesMine}
+            </p>
+            {Object.entries(character.frames).map(([optionId, list]) => {
+              const option = getOption(optionId)
+              return (
+                <div key={optionId}>
+                  <h5 className="charframes__opt">{option ? text(option.name) : optionId}</h5>
+                  <FrameStrip frames={list} />
+                </div>
+              )
+            })}
+          </section>
+        )}
 
         {source && (
           <p className="small">

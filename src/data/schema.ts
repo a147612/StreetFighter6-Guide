@@ -348,29 +348,27 @@ export interface CharacterKnockdown {
  * option they do not have.
  */
 /**
- * The frame data for the move this character actually uses for an option.
+ * One move's frame data, as Ultimate Frame Data states it.
  *
- * Numbers live on the character, never in a situation cell. A balance patch
- * invalidates moves, not judgements: "a shimmy beats a delay tech" survives a
- * patch and "-6 on block" does not, so the two must not be stored together. It
- * also keeps the re-check bounded — roughly a dozen rows per character rather
- * than every cell those numbers touch.
+ * Every field is stored **verbatim from the source**, including its ellipses
+ * and its ranges: `-7...` stays `-7...` rather than becoming "-7 or better".
+ * That is what makes `npm run frames` able to diff the whole layer against the
+ * site by exact string match — a paraphrase here would have to be re-checked by
+ * a human forever, and this is the one part of the guide that goes stale on its
+ * own. The prettying happens at render time.
  *
- * `move` is UFD's own name for it, verbatim, so a row can always be traced back
- * to the line it was read from.
+ * `move` is UFD's own name for it, and is the join key.
  */
 export interface MoveFrames {
   move: string
-  /** Numpad notation, when the move has one. Normals do not need it. */
+  /** Numpad notation. Authored, not from UFD, which writes inputs as prose. */
   input?: string
-  /** Frames before the first active frame. */
   startup: string
-  /** Advantage on block. Absent for a throw, which cannot be blocked. */
+  /** Absent for a throw, which cannot be blocked. */
   onBlock?: string
-  /** Advantage on hit — or what it gives instead, for a knockdown. */
   onHit?: string
-  /** Total frames on a whiff: what a whiff punish is worth against it. */
-  whiff?: string
+  /** UFD's total frames — what the move costs you when it whiffs. */
+  total?: string
   note?: I18nText
 }
 
@@ -426,14 +424,19 @@ export interface CharacterOverlay {
     }
   >
   /**
-   * Frame data, keyed by the option the move plays the part of.
+   * Frame data, keyed by the option each move plays the part of.
    *
-   * The join between the universal option registry and this character's actual
-   * buttons: `mash-light` is a 4-frame jab for Ken, a 5-frame one for Guile and
-   * a 7-frame one that is *plus on block* for Zangief. The option row can only
-   * say "press a light"; this says which light and what it does.
+   * A list, because most options are a choice of button rather than one button:
+   * "meaty" for Ken is 2MP at ±0 on block, or 5HP at -2, or an OD fireball at
+   * -2 — three different bets, and the numbers are the whole difference between
+   * them. The option row can only say "press something meaty"; this says which,
+   * and what each one leaves you at.
+   *
+   * Only ever shown once a character is picked. There is deliberately no
+   * universal tier: an averaged frame number is true of nobody, and the reason
+   * to look a number up is that it is *yours*.
    */
-  frames?: Record<string, MoveFrames>
+  frames?: Record<string, MoveFrames[]>
   reversals?: Reversal[]
   knockdowns?: CharacterKnockdown[]
   /** Author-facing completeness, surfaced in the UI. */

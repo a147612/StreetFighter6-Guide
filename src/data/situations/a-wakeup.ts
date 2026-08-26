@@ -696,9 +696,9 @@ export const GROUP_A: Situation[] = [
             outcome: 'win',
             note: {
               'zh-Hant':
-                '最快的小技多半 4-5 幀，比 5 幀的指令投先打到 —— 最便宜的答案。但不是每隻都這麼快（桑吉爾夫自己的要 7 幀），選了角色會顯示你的實際數字。而且他只要延遲一拍，你的速點就變成他的確反。',
-              en: 'The fastest light is usually 4 or 5 frames and beats a 5-frame command grab, which makes it the cheapest answer there is. Not every character is that fast — Zangief\'s own is 7 — and picking one shows your actual number. Delay the grab by a beat and your mash becomes his punish.',
-              ja: '最速の弱攻撃はたいてい4〜5Fで、5Fのコマンド投げより先に当たる。最も安い対策だが、全キャラがその速さではなく（ザンギエフ自身は7F）、キャラを選べば実際の数字が出る。さらに一拍遅らされれば、暴れがそのまま確反の的になる。',
+                '**每一隻角色都有 4 幀的小技**，比 5 幀的指令投先打到 —— 這是對指令投最便宜的答案。但他只要延遲一拍，你的速點就變成他的確反。',
+              en: '**Every character has a 4-frame light**, and it hits before a 5-frame command grab. That makes it the cheapest answer there is — but delay the grab by a beat and your mash becomes his punish.',
+              ja: '**全キャラが4Fの弱攻撃を持っている**ため、5Fのコマンド投げより先に当たる。最も安い対策だが、相手が一拍遅らせれば暴れがそのまま確反の的になる。',
             },
           },
         ],
@@ -1454,9 +1454,9 @@ export const GROUP_A: Situation[] = [
             outcome: 'win',
             note: {
               'zh-Hant':
-                '最快的小技多半 4-5 幀，比 5 幀的指令投先打到 —— 最便宜的答案。但不是每隻都這麼快（桑吉爾夫自己的要 7 幀），選了角色會顯示你的實際數字。而且他只要延遲一拍，你的速點就變成他的確反。',
-              en: 'The fastest light is usually 4 or 5 frames and beats a 5-frame command grab, which makes it the cheapest answer there is. Not every character is that fast — Zangief\'s own is 7 — and picking one shows your actual number. Delay the grab by a beat and your mash becomes his punish.',
-              ja: '最速の弱攻撃はたいてい4〜5Fで、5Fのコマンド投げより先に当たる。最も安い対策だが、全キャラがその速さではなく（ザンギエフ自身は7F）、キャラを選べば実際の数字が出る。さらに一拍遅らされれば、暴れがそのまま確反の的になる。',
+                '**每一隻角色都有 4 幀的小技**，比 5 幀的指令投先打到 —— 這是對指令投最便宜的答案。但他只要延遲一拍，你的速點就變成他的確反。',
+              en: '**Every character has a 4-frame light**, and it hits before a 5-frame command grab. That makes it the cheapest answer there is — but delay the grab by a beat and your mash becomes his punish.',
+              ja: '**全キャラが4Fの弱攻撃を持っている**ため、5Fのコマンド投げより先に当たる。最も安い対策だが、相手が一拍遅らせれば暴れがそのまま確反の的になる。',
             },
           },
         ],
@@ -2277,9 +2277,9 @@ export const GROUP_A: Situation[] = [
             outcome: 'win',
             note: {
               'zh-Hant':
-                '最快的小技多半 4-5 幀，比 5 幀的指令投先打到 —— 最便宜的答案。但不是每隻都這麼快（桑吉爾夫自己的要 7 幀），選了角色會顯示你的實際數字。而且他只要延遲一拍，你的速點就變成他的確反。',
-              en: 'The fastest light is usually 4 or 5 frames and beats a 5-frame command grab, which makes it the cheapest answer there is. Not every character is that fast — Zangief\'s own is 7 — and picking one shows your actual number. Delay the grab by a beat and your mash becomes his punish.',
-              ja: '最速の弱攻撃はたいてい4〜5Fで、5Fのコマンド投げより先に当たる。最も安い対策だが、全キャラがその速さではなく（ザンギエフ自身は7F）、キャラを選べば実際の数字が出る。さらに一拍遅らされれば、暴れがそのまま確反の的になる。',
+                '**每一隻角色都有 4 幀的小技**，比 5 幀的指令投先打到 —— 這是對指令投最便宜的答案。但他只要延遲一拍，你的速點就變成他的確反。',
+              en: '**Every character has a 4-frame light**, and it hits before a 5-frame command grab. That makes it the cheapest answer there is — but delay the grab by a beat and your mash becomes his punish.',
+              ja: '**全キャラが4Fの弱攻撃を持っている**ため、5Fのコマンド投げより先に当たる。最も安い対策だが、相手が一拍遅らせれば暴れがそのまま確反の的になる。',
             },
           },
         ],

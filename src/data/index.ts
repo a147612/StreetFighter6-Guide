@@ -32,8 +32,8 @@ export interface OptionRow {
   /** What the *opponent's* character changes about pressing this. Attached by
    *  trait, so one sentence covers everyone who shares the property. */
   opponentNotes?: OpponentNote[]
-  /** Which move this option is for the picked character, and its numbers. */
-  frames?: MoveFrames
+  /** Which moves this option is for the picked character, and their numbers. */
+  frames?: MoveFrames[]
 }
 
 /** One trait's advice about one option, resolved for the picked opponent. */

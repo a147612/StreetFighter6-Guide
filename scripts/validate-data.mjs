@@ -304,8 +304,11 @@ for (const character of CHARACTERS ?? []) {
   // Frame data hangs off an option, so it has to be an option this character
   // can actually be shown pressing — and a startup with no digit in it is a
   // string that will render as a number and mean nothing.
-  for (const [optionId, move] of Object.entries(character.frames ?? {})) {
-    frameRows++
+  for (const [optionId, list] of Object.entries(character.frames ?? {})) {
+    if (!Array.isArray(list) || list.length === 0) {
+      errors.push(`${where} frames "${optionId}" is not a non-empty list of moves`)
+      continue
+    }
     if (!optionIds.has(optionId)) {
       errors.push(`${where} has frame data for unknown option "${optionId}"`)
     } else if (!rowIds.has(optionId)) {
@@ -320,11 +323,26 @@ for (const character of CHARACTERS ?? []) {
           `overlay says they do not have the move it measures`,
       )
     }
-    if (!move.move) errors.push(`${where} frames "${optionId}" names no move`)
-    if (!/\d/.test(move.startup ?? '')) {
-      errors.push(`${where} frames "${optionId}" startup "${move.startup}" has no number`)
+    const seenMoves = new Set()
+    for (const move of list) {
+      frameRows++
+      if (!move.move) {
+        errors.push(`${where} frames "${optionId}" has an entry with no move name`)
+        continue
+      }
+      // `move` is the join key for `npm run frames` and the React key here, so
+      // a repeat is both an unverifiable row and a dropped one.
+      if (seenMoves.has(move.move)) {
+        errors.push(`${where} frames "${optionId}" lists "${move.move}" twice`)
+      }
+      seenMoves.add(move.move)
+      if (!/\d/.test(move.startup ?? '')) {
+        errors.push(
+          `${where} frames "${optionId}" / "${move.move}" startup "${move.startup}" has no number`,
+        )
+      }
+      if (move.note) checkLocales(move.note, `${where} frames ${optionId} "${move.move}" note`)
     }
-    if (move.note) checkLocales(move.note, `${where} frames ${optionId} note`)
   }
 
   for (const reversal of character.reversals ?? []) {

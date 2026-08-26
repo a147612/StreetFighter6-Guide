@@ -872,19 +872,75 @@ html[data-theme='dark'] .notation__btn--h {
   white-space: nowrap;
 }
 
+/* The panel's own copy of the frame tables. Spans both columns of the panel
+   body grid — five numeric columns do not fit in half of one. */
+.charframes {
+  grid-column: 1 / -1;
+}
+
+.charframes__opt {
+  margin: var(--space-3) 0 0;
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+/* Right-aligned under the footer links: a provenance stamp, not a sentence. */
+.footer__stamp {
+  margin: 0;
+  text-align: right;
+}
+
 /* ── Frame data ──────────────────────────────────────────────────────
    Set apart from the tiers deliberately. Risk and reward are judgements that
    survive a balance patch; these are measurements that do not, and a reader
    should be able to see at a glance which kind of claim they are reading. */
 .frames {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.35rem var(--space-3);
   margin: var(--space-3) 0;
   padding: 0.5rem 0.7rem;
   border-radius: var(--radius);
   background: var(--surface-inset);
+}
+
+/* Five short columns still overflow a narrow phone once a move name is in the
+   first one, so the table scrolls inside its own box rather than the page. */
+.frames__scroll {
+  overflow-x: auto;
+}
+
+.frames__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+}
+
+.frames__table th,
+.frames__table td {
+  padding: 0.2rem 0.5rem 0.2rem 0;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.frames__table thead th {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.frames__table tbody tr + tr th,
+.frames__table tbody tr + tr td {
+  border-top: 1px solid var(--border);
+}
+
+/* The move column absorbs all the slack so the five numeric columns hug each
+   other on the right, where they can be read down. Left to `width: 100%` on the
+   table alone they spread across the panel and stop being a column at all. */
+/* The first column absorbs all the slack — on both rows, or the header cells
+   cluster on the left while the numbers sit on the right and the two stop
+   being the same columns. */
+.frames__table th:first-child {
+  width: 100%;
+  padding-right: var(--space-4);
+  text-align: left;
 }
 
 .frames__move {
@@ -892,25 +948,8 @@ html[data-theme='dark'] .notation__btn--h {
   font-weight: 650;
 }
 
-.frames__cells {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem var(--space-3);
-}
-
-.frames__cell {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.35rem;
-}
-
-.frames__label {
-  color: var(--text-muted);
-  font-size: var(--step--1);
-}
-
 /* The sign carries the meaning and the hue only reinforces it — a real minus
-   sign rather than a hyphen, so the two columns stay apart without colour. */
+   sign rather than a hyphen, so the two signed columns stay apart without it. */
 .frames__value {
   font-weight: 700;
 }
@@ -923,14 +962,24 @@ html[data-theme='dark'] .notation__btn--h {
   color: var(--risk-high);
 }
 
+.frames__na {
+  color: var(--text-faint);
+}
+
 .frames__note {
-  flex-basis: 100%;
-  margin: 0.15rem 0 0;
+  margin: 0.4rem 0 0;
   color: var(--text-muted);
 }
 
-/* Startup, riding along in the option name. Faint on purpose: it is a detail
-   you scan a column for, not something competing with the option's name. */
+.frames__note-move {
+  margin-right: 0.4rem;
+  color: var(--text-faint);
+  font-weight: 600;
+}
+
+/* Startup, riding along in the option name — or how many buttons there are to
+   choose between, which is the more useful number once there is more than one.
+   Faint on purpose: a detail you scan a column for, not a second name. */
 .opt-row__frames {
   margin-left: 0.4rem;
   color: var(--text-faint);

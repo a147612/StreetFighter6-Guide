@@ -86,6 +86,9 @@ export interface UiStrings {
     health: string
     reversals: string
     knockdowns: string
+    frames: string
+    framesMine: string
+    framesTheirs: string
     noReversal: string
     coverage: string
     invincibility: string
@@ -97,11 +100,11 @@ export interface UiStrings {
   matchup: { removed: string; same: string; traits: string; affects: string }
   /** The frame-data strip. Labels only — every number is per character. */
   frames: {
+    move: string
     startup: string
     onBlock: string
     onHit: string
-    whiff: string
-    hint: string
+    total: string
   }
   browse: { groups: string; situations: string; notWritten: string; coverage: string }
 
@@ -139,7 +142,14 @@ export interface UiStrings {
   followUp: { combo: string; pressure: string; neutral: string; none: string }
   position: { midscreen: string; nearCorner: string; cornered: string }
 
-  footer: { disclaimer: string; trademark: string; source: string; policy: string }
+  footer: {
+    disclaimer: string
+    trademark: string
+    source: string
+    policy: string
+    updated: string
+    gameVersion: string
+  }
 }
 
 const zhHant: UiStrings = {
@@ -226,6 +236,9 @@ const zhHant: UiStrings = {
     health: '血量',
     reversals: '起身反擊選項',
     knockdowns: '主要倒地招',
+    frames: '招式幀數',
+    framesMine: '這些是你的角色在這些選項上實際會按的招。',
+    framesTheirs: '「防禦時」的數字是他的劣勢 —— 也就是你擋下來之後有多少幀可以確反。',
     noReversal: '沒有 OD 起身反擊 —— 起身要擋掉打擊＋摔投只剩動力反攻或無敵 SA',
     coverage: '角色資料完整度',
     invincibility: '無敵',
@@ -238,11 +251,11 @@ const zhHant: UiStrings = {
     affects: '對上這隻角色',
   },
   frames: {
+    move: '招式',
     startup: '發生',
     onBlock: '防禦時',
     onHit: '命中',
-    whiff: '打空',
-    hint: '這一項對這隻角色實際上是哪一招，以及它的幀數',
+    total: '全長',
   },
   glossary: {
     intro: '三種語言並排，方便對照日文或英文攻略裡的說法。括號裡是同義的別稱。',
@@ -304,6 +317,8 @@ const zhHant: UiStrings = {
     disclaimer: '非官方同人攻略，與 CAPCOM 無關聯，也未經其授權或背書。',
     trademark: 'Street Fighter 6 © CAPCOM。商標與著作權歸原權利人所有。',
     source: '原始碼',
+    updated: '最後更新',
+    gameVersion: '資料對應版本',
     policy: 'Capcom Video Policy',
   },
 }
@@ -392,6 +407,9 @@ const en: UiStrings = {
     health: 'Health',
     reversals: 'Wakeup escapes',
     knockdowns: 'Key knockdowns',
+    frames: 'Frame data',
+    framesMine: 'The moves your character actually presses for these options.',
+    framesTheirs: 'On block is stated from their side, so it is also your punish window once you have blocked it.',
     noReversal: 'No OD wakeup escape — covering both strike and throw means a Drive Reversal or an invincible Super',
     coverage: 'Character data',
     invincibility: 'Invincibility',
@@ -404,11 +422,11 @@ const en: UiStrings = {
     affects: 'Against this opponent',
   },
   frames: {
+    move: 'Move',
     startup: 'Startup',
     onBlock: 'On block',
     onHit: 'On hit',
-    whiff: 'Whiff',
-    hint: 'Which move this option actually is for this character, and its numbers',
+    total: 'Total',
   },
   glossary: {
     intro: 'All three languages side by side, so a Japanese or English guide maps onto what you read here. Aliases follow the main name.',
@@ -471,6 +489,8 @@ const en: UiStrings = {
     disclaimer: 'Unofficial fan-made guide. Not affiliated with, authorised by, or endorsed by CAPCOM.',
     trademark: 'Street Fighter 6 © CAPCOM. Trademarks and copyrights belong to their respective owners.',
     source: 'Source',
+    updated: 'Last updated',
+    gameVersion: 'Data reflects',
     policy: 'Capcom Video Policy',
   },
 }
@@ -559,6 +579,9 @@ const ja: UiStrings = {
     health: '体力',
     reversals: '切り返し択',
     knockdowns: '主なダウン技',
+    frames: 'フレームデータ',
+    framesMine: '選んだキャラがこれらの択で実際に押す技。',
+    framesTheirs: '「ガード時」の数値は相手側の不利、つまりガードした後にこちらが持つ確反の猶予でもある。',
     noReversal: 'OD切り返しなし —— 打撃と投げの両方に対応するにはリバーサルか無敵SAのみ',
     coverage: 'キャラデータ',
     invincibility: '無敵',
@@ -571,11 +594,11 @@ const ja: UiStrings = {
     affects: 'この相手に対して',
   },
   frames: {
+    move: '技',
     startup: '発生',
     onBlock: 'ガード時',
     onHit: 'ヒット時',
-    whiff: '空振り',
-    hint: 'この択がこのキャラでは実際どの技になるか、そのフレーム',
+    total: '全体',
   },
   glossary: {
     intro: '三言語を並べて表示する。日本語や英語の攻略で使われる呼び方との対応が取れる。括弧内は別称。',
@@ -638,6 +661,8 @@ const ja: UiStrings = {
     disclaimer: '非公式のファン制作ガイドです。CAPCOM とは無関係で、許諾も承認も受けていません。',
     trademark: 'Street Fighter 6 © CAPCOM。商標および著作権は各権利者に帰属します。',
     source: 'ソースコード',
+    updated: '最終更新',
+    gameVersion: '対応バージョン',
     policy: 'Capcom Video Policy',
   },
 }

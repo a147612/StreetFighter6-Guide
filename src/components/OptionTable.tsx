@@ -389,8 +389,12 @@ export function OptionTable({
                           {/* Startup only. The rest needs the detail panel, but
                               "how fast is it" is the one number worth scanning
                               a whole column of. */}
-                          {row.frames && (
-                            <span className="opt-row__frames mono">{row.frames.startup}F</span>
+                          {row.frames?.[0] && (
+                            <span className="opt-row__frames mono">
+                              {row.frames.length > 1
+                                ? `${row.frames.length}×`
+                                : `${row.frames[0].startup}F`}
+                            </span>
                           )}
                           {row.opponentNotes && row.opponentNotes.length > 0 && (
                             <span

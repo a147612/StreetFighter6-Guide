@@ -16,6 +16,7 @@ import { useT } from './i18n/useT'
 import { GROUPS, SITUATIONS, getCharacter, getSituation, resolveMatchup, situationsInGroup } from './data'
 import { useCharacter, useOpponent } from './lib/prefs'
 import type { Side } from './data/schema'
+import { GAME_VERSION, GAME_VERSION_DATE } from './data/version'
 
 const REPO_URL = 'https://github.com/a147612/StreetFighter6-Guide'
 const POLICY_URL = 'https://www.capcomusa.com/video-policy/'
@@ -216,6 +217,18 @@ export default function App() {
         <div className="shell footer__inner small">
           <p>{t.footer.disclaimer}</p>
           <p className="muted">{t.footer.trademark}</p>
+          {/* The two dates a reader needs to decide whether to trust a number:
+              when this copy was built, and what the game looked like when the
+              sources behind it were read. */}
+          <p className="footer__stamp small faint mono">
+            <span>
+              {t.footer.updated} {__BUILD_DATE__}
+            </span>
+            <span aria-hidden="true"> · </span>
+            <span>
+              {t.footer.gameVersion} {GAME_VERSION}（{GAME_VERSION_DATE}）
+            </span>
+          </p>
           <p className="footer__links">
             <button type="button" className="linkish" onClick={toggleGlossary}>
               {glossary ? t.browse.situations : t.glossary.open}

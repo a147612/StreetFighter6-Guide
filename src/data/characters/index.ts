@@ -26,45 +26,117 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
-      'mash-light': {
-        move: 'Standing Light Punch',
-        input: '5 LP',
-        startup: '4',
-        onBlock: '-1',
-        onHit: '+4',
-        whiff: '13',
-      },
-      poke: {
-        move: 'Crouching Medium Kick',
-        input: '2 MK',
-        startup: '7',
-        onBlock: '-6',
-        onHit: '-2',
-        whiff: '28',
-      },
-      projectile: {
-        move: 'Hadoken (Light Punch)',
-        input: '236 LP',
-        startup: '16',
-        onBlock: '-7 or better',
-        onHit: '-1 or better',
-        whiff: '49',
-      },
-      reversal: {
-        move: 'Shoryuken (Overdrive)',
-        input: '623 PP',
-        startup: '6',
-        onBlock: '-40',
-        onHit: 'Knockdown +22',
-        whiff: '67',
-      },
-      throw: {
-        move: 'Forward Throw',
-        input: 'LP+LK',
-        startup: '5',
-        onHit: '+20',
-        whiff: '30',
-      },
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '13',
+        },
+      ],
+      meaty: [
+        {
+          move: 'Crouching Medium Punch',
+          input: '2 MP',
+          startup: '6',
+          onBlock: '0',
+          onHit: '+5',
+          total: '22 (24 on whiff)',
+          note: {
+            'zh-Hant':
+              '**防禦時 ±0** —— 壓起身用這顆，對手擋了也搶不到你的回合。',
+            en: '**Zero on block** — meaty with this and blocking it does not give them a turn back.',
+            ja: '**ガードで±0**。これを重ねれば、ガードされてもターンは返らない。',
+          },
+        },
+        {
+          move: 'Standing Heavy Punch',
+          input: '5 HP',
+          startup: '10',
+          onBlock: '-2',
+          onHit: '+3',
+          total: '31',
+        },
+        {
+          move: 'Hadoken (Overdrive)',
+          input: '236 PP',
+          startup: '12',
+          onBlock: '-2...',
+          onHit: '+2...',
+          total: '40',
+        },
+      ],
+      poke: [
+        {
+          move: 'Crouching Medium Kick',
+          input: '2 MK',
+          startup: '7',
+          onBlock: '-6',
+          onHit: '-2',
+          total: '28',
+        },
+        {
+          move: 'Standing Medium Kick',
+          input: '5 MK',
+          startup: '8',
+          onBlock: '-5',
+          onHit: '+3',
+          total: '30',
+        },
+      ],
+      projectile: [
+        {
+          move: 'Hadoken (Light Punch)',
+          input: '236 LP',
+          startup: '16',
+          onBlock: '-7...',
+          onHit: '-1...',
+          total: '49',
+          note: {
+            'zh-Hant':
+              '發生 **16 幀**。凱爾的音速手刀是 10 —— 中距離對波，那 6 幀就是勝負。',
+            en: 'Sixteen frames of startup. Guile\'s Sonic Boom is ten, and at mid range those six frames are the entire fireball war.',
+            ja: '発生**16F**。ガイルのソニックブームは10Fで、中距離の飛び道具戦はこの6Fで決まる。',
+          },
+        },
+        {
+          move: 'Hadoken (Heavy Punch)',
+          input: '236 HP',
+          startup: '12',
+          onBlock: '-11...',
+          onHit: '-5...',
+          total: '49',
+        },
+        {
+          move: 'Hadoken (Overdrive)',
+          input: '236 PP',
+          startup: '12',
+          onBlock: '-2...',
+          onHit: '+2...',
+          total: '40',
+        },
+      ],
+      reversal: [
+        {
+          move: 'Shoryuken (Overdrive)',
+          input: '623 PP',
+          startup: '6',
+          onBlock: '-40',
+          onHit: 'Knockdown +22',
+          total: '67',
+        },
+      ],
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: 'LP+LK',
+          startup: '5',
+          onHit: '+20',
+          total: '30 (whiff) / 123 (hit)',
+        },
+      ],
     },
     reversals: [
       {
@@ -586,51 +658,69 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab'],
     backdashFrames: 23,
     frames: {
-      'mash-light': {
-        move: 'Standing Light Punch',
-        input: '5 LP',
-        startup: '5',
-        onBlock: '-2',
-        onHit: '+4',
-        whiff: '14',
-      },
-      poke: {
-        move: 'Crouching Medium Kick',
-        input: '2 MK',
-        startup: '8',
-        onBlock: '-4',
-        onHit: '+4',
-        whiff: '28',
-      },
-      projectile: {
-        move: 'Sonic Boom',
-        input: '[4] 6 P',
-        startup: '10',
-        onBlock: '-3 or better',
-        onHit: '+3 or better',
-        whiff: '40',
-        note: {
-          'zh-Hant':
-            '**發生 10 幀**，隆的波要 16 —— 這是隆在中距離贏不了對波的原因，不是傷害或硬直的問題。',
-          en: 'Ten frames of startup against Ryu\'s sixteen. That is why Ryu loses the fireball war at mid range, and it is not about damage or recovery.',
-          ja: '**発生10F**、リュウの波動拳は16F。中距離の飛び道具戦でリュウが勝てない理由はここにあり、ダメージや硬直の問題ではない。',
+      'mash-light': [
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-2',
+          onHit: '+5',
+          total: '14',
         },
-      },
-      reversal: {
-        move: 'Flash Kick (Overdrive)',
-        input: '[2] 8 KK',
-        startup: '6',
-        onBlock: '-33',
-        onHit: 'Knockdown +29 or better',
-        whiff: '55',
-      },
-      throw: {
-        move: 'Forward Throw',
-        input: 'LP+LK',
-        startup: '5',
-        onHit: '+15',
-        whiff: '30',
-      },
+      ],
+      poke: [
+        {
+          move: 'Crouching Medium Kick',
+          input: '2 MK',
+          startup: '8',
+          onBlock: '-4',
+          onHit: '+4',
+          total: '28',
+        },
+      ],
+      projectile: [
+        {
+          move: 'Sonic Boom',
+          input: '[4] 6 P',
+          startup: '10',
+          onBlock: '-3... (-3...)',
+          onHit: '+3... (+4...)',
+          total: '40',
+        },
+        {
+          move: 'Sonic Boom (Overdrive)',
+          input: '[4] 6 PP',
+          startup: '10',
+          onBlock: '+3',
+          onHit: 'Variable Knockdown of +48 minimum',
+          total: '38',
+          note: {
+            'zh-Hant':
+              '**防禦時 +3** —— 波打到人身上還是你的回合。',
+            en: '**Plus three on block.** The fireball connects and the turn is still yours.',
+            ja: '**ガードで+3**。当てても自分のターンが続く。',
+          },
+        },
+      ],
+      reversal: [
+        {
+          move: 'Flash Kick (Overdrive)',
+          input: '[2] 8 KK',
+          startup: '6',
+          onBlock: '-33',
+          onHit: 'Knockdown +29...',
+          total: '55',
+        },
+      ],
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: 'LP+LK',
+          startup: '5',
+          onHit: '+15',
+          total: '30 (whiff) / 139 (hit)',
+        },
+      ],
     },
     reversals: [
       {
@@ -1771,47 +1861,71 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
-      'mash-light': {
-        move: 'Standing Light Punch',
-        input: '5 LP',
-        startup: '7',
-        onBlock: '+2',
-        onHit: '+4',
-        whiff: '18',
-        note: {
-          'zh-Hant':
-            '**7 幀，而且防禦時 +2** —— 全場最慢的小技之一，卻是少數擋了還有利的。搶招搶不贏 5 幀的指令投，但按中之後這一輪是他的。',
-          en: 'Seven frames, and **plus two on block** — one of the slowest lights on the roster and one of the few that keeps its turn. It loses the race to a 5-frame command grab, but once it lands the turn is his.',
-          ja: '**7F、しかもガードで+2**。ロスター屈指の遅い弱攻撃でありながら、ガードされてもターンが続く数少ない技。5Fのコマ投げには速度で負けるが、当たればターンは彼のもの。',
+      'mash-light': [
+        {
+          move: 'Crouching Light Kick',
+          input: '2 LK',
+          startup: '4',
+          onBlock: '-3',
+          onHit: '0',
+          total: '18',
+          note: {
+            'zh-Hant':
+              '他最快的小技是**蹲弱腳**，4 幀，跟全場所有角色一樣快 —— 但它是**下段**，而且**命中 ±0**。搶贏了那一下換不到後續，這是他跟其他角色最大的差別。',
+            en: 'His fastest light is a **crouching light kick** at 4 frames, exactly as fast as everyone else on the roster — but it is a **low**, and it is **±0 on hit**. Winning the exchange buys him nothing after it, which is the real difference.',
+            ja: '彼の最速の弱攻撃は**しゃがみ弱K**の4Fで、速さはロスター全員と同じ。ただし**下段**であり、**ヒットで±0**。競り勝っても後が続かないのが他キャラとの本当の差。',
+          },
         },
-      },
-      poke: {
-        move: 'Crouching Medium Kick',
-        input: '2 MK',
-        startup: '9',
-        onBlock: '-2',
-        onHit: '+3',
-        whiff: '29',
-      },
-      'command-grab': {
-        move: 'Screw Piledriver (Light Punch)',
-        input: '360 LP',
-        startup: '5',
-        onHit: 'Knockdown +30',
-        whiff: '61',
-        note: {
-          'zh-Hant': '抓空 61 幀 —— 這個數字就是垂直跳那一列存在的理由。',
-          en: 'Sixty-one frames on a whiff. That number is the entire reason the neutral-jump row exists.',
-          ja: '空振り61F。この数字こそが垂直ジャンプの行が存在する理由。',
+      ],
+      poke: [
+        {
+          move: 'Crouching Medium Kick',
+          input: '2 MK',
+          startup: '9',
+          onBlock: '-2',
+          onHit: '+3',
+          total: '29',
         },
-      },
-      throw: {
-        move: 'Forward Throw',
-        input: 'LP+LK',
-        startup: '5',
-        onHit: '+10',
-        whiff: '30',
-      },
+        {
+          move: 'Standing Heavy Punch',
+          input: '5 HP',
+          startup: '16...32',
+          onBlock: '-3',
+          onHit: '+3',
+          total: '40...58',
+        },
+      ],
+      'command-grab': [
+        {
+          move: 'Screw Piledriver (Light Punch)',
+          input: '360 LP',
+          startup: '5',
+          onHit: 'Knockdown +30',
+          total: '61',
+          note: {
+            'zh-Hant':
+              '抓空 **61 幀** —— 這個數字就是垂直跳那一列存在的理由。',
+            en: 'Sixty-one frames on a whiff. That number is the entire reason the neutral-jump row exists.',
+            ja: '空振り**61F**。この数字こそが垂直ジャンプの行が存在する理由。',
+          },
+        },
+        {
+          move: 'Screw Piledriver (Overdrive)',
+          input: '360 PP',
+          startup: '5',
+          onHit: 'Knockdown +28',
+          total: '61',
+        },
+      ],
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: 'LP+LK',
+          startup: '5',
+          onHit: '+10',
+          total: '30 (whiff) / 180 (hit)',
+        },
+      ],
     },
     reversals: [
       {
