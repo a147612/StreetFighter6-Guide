@@ -525,9 +525,10 @@ const OFFENSIVE: OptionDef[] = [
     name: { 'zh-Hant': '摔投', en: 'Throw', ja: '投げ' },
     origin: 'throw',
     hint: {
-      'zh-Hant': '普通摔投，5 frame 發生。防禦擋不住，只能解摔或用位移躲開。同一格相遇時打擊贏摔投，所以 4 frame 的輕拳打得贏他的摔。',
-      en: 'A normal throw, 5 frames of startup. Blocking does nothing; you tech it or move out of range. Strikes beat throws when they meet on the same frame, so a 4-frame jab beats it.',
-      ja: '通常投げ、発生5F。ガードでは防げず、投げ抜けか移動で回避するしかない。同フレームで噛み合えば打撃が投げに勝つため、4Fの弱パンチで潰せる。',
+      'zh-Hant':
+        '普通摔投，5 frame 發生。防禦擋不住，只能解摔或用位移躲開。同一格相遇時打擊贏摔投，所以 4 frame 的輕拳打得贏他的摔。\n\n**它的價值有兩半，幀數只是其中一半。** 前摔把對手留在你面前、也留在他原本的那一側；後摔把他推到你剛才站的地方 —— 換邊，而且把他往那個方向送。所以起攻幀數低的後摔不等於爛：**想把對手換進角落的時候，位置本身就是你要的東西**。選了角色會顯示前摔和後摔各自的實際數字。',
+      en: 'A normal throw, 5 frames of startup. Blocking does nothing; you tech it or move out of range. Strikes beat throws when they meet on the same frame, so a 4-frame jab beats it.\n\n**Its value comes in two halves and the frame number is only one of them.** A forward throw leaves them in front of you and on the side they were already on; a back throw puts them where you were standing — a side switch, and a carry in that direction. So a back throw with poor oki is not automatically the worse one: **when the corner is what you are after, the position is the thing you wanted**. Pick a character and the row shows both throws.',
+      ja: '通常投げ、発生5F。ガードでは防げず、投げ抜けか移動で回避するしかない。同フレームで噛み合えば打撃が投げに勝つため、4Fの弱パンチで潰せる。\n\n**価値は二つあり、フレームはその片方でしかない。** 前投げは相手を目の前・元の側に残し、後ろ投げは自分が立っていた位置へ送る——サイド交換であり、その方向への運びでもある。したがって起き攻めフレームの低い後ろ投げが自動的に劣るわけではない。**画面端に入れたいときは、その位置取りこそが目的**。キャラを選べば前後それぞれの実数が出る。',
     },
     short: { 'zh-Hant': '摔投', en: 'Throw', ja: '投げ' },
     input: 'LP LK',

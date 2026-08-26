@@ -1384,16 +1384,20 @@ html[data-theme='dark'] .notation__btn--h {
 }
 
 /* ── Plain-language hint in the detail ───────────────────────────── */
+/* Not flex. `Emphasis` returns the sentence as several text nodes, and in a
+   flex container each of those becomes its own anonymous item — so every
+   `**bold**` clause was being pushed onto a line of its own and the sentence
+   read as fragments. Plain flow keeps it a sentence; `pre-line` keeps the
+   paragraph breaks an author wrote. */
 .detail__hint {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-2);
   font-size: var(--step-0);
   color: var(--text-muted);
+  white-space: pre-line;
 }
 
 .detail__origin {
+  display: inline-block;
+  margin-right: var(--space-2);
   padding: 0.05rem 0.45rem;
   border-radius: 9999px;
   background: var(--surface-inset);

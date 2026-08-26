@@ -42,9 +42,9 @@ export const CHARACTERS: CharacterOverlay[] = [
           total: '30 (whiff) / 123 (hit)',
           note: {
             'zh-Hant':
-              '**+6，全場最差的後摔。** 他的前摔是 +20 —— 換邊在他身上幾乎純虧，除非你要的就是那個位置。',
-            en: '**Plus six, the worst back throw on the roster,** against +20 on his forward throw. Switching sides costs him almost everything, unless the side is the point.',
-            ja: '**+6でロスター最低のバック投げ**。前投げは+20なので、位置を入れ替えること自体が目的でない限りほぼ損。',
+              '**起攻只有 +6，所以按它的理由從來不是起攻。** 後摔換邊，而且把對手往你剛才站的方向送 —— 想把人推進角落的時候，它比 +20 的前摔有用。這裡的幀數是你付的價錢，不是你買到的東西。',
+            en: '**Only +6, so oki was never the reason to press it.** A back throw switches sides and carries them back the way you came — when the corner is what you are after, this beats the +20 forward throw. The frame number here is what you pay, not what you buy.',
+            ja: '**起き攻めは+6しかなく、これを押す理由は最初から起き攻めではない。** 後ろ投げはサイドを入れ替え、自分が来た方向へ運ぶ。画面端に入れたいなら+20の前投げよりこちらが有効。ここでのフレームは支払う代償であって、買うものではない。',
           },
         },
       ],
@@ -1857,6 +1857,12 @@ export const CHARACTERS: CharacterOverlay[] = [
           startup: '5',
           onHit: '+23 (+7)',
           total: '30 (whiff) / 124 (hit)',
+          note: {
+            'zh-Hant':
+              '**按住摔可以順便喝一口** —— 起攻從 +23 掉到 +7，換一層酒。這是他唯一不用另外冒險的喝法：層數在摔的動畫裡就進去了。單獨喝一次要 50 幀以上，連後摔的 +38 都蓋不住。',
+            en: '**Hold the throw and he drinks on the way through** — oki drops from +23 to +7 and he gains a Drink. It is the only free one he has: the level goes in inside the throw animation. A standalone drink is 50-plus frames, which not even the +38 back throw covers.',
+            ja: '**投げを押しっぱなしにすると、その流れで一口飲む** ——起き攻めが+23から+7に落ちる代わりにドリンクが1つ増える。彼にとって唯一リスクの無い飲み方で、レベルは投げのモーション中に入る。単独のドリンクは50F以上必要で、+38のバック投げでも足りない。',
+          },
         },
         {
           move: 'Back Throw',
@@ -1864,6 +1870,12 @@ export const CHARACTERS: CharacterOverlay[] = [
           startup: '5',
           onHit: '+38',
           total: '30 (whiff) / 124 (hit)',
+          note: {
+            'zh-Hant':
+              '**+38，全場最好的後摔起攻。** 但單獨喝一口要 50 幀以上，這 38 幀蓋不住 —— 要補層數就用前摔按住的那個版本。',
+            en: '**Plus thirty-eight, the best back-throw oki on the roster.** It still does not cover a drink, which is 50-plus frames — if a Drink is what you want, hold the forward throw instead.',
+            ja: '**+38でロスター最高のバック投げ起き攻め**。ただし単独のドリンクは50F以上必要で、この38Fでは足りない。レベルを増やしたいなら前投げの押しっぱなし版を使うこと。',
+          },
         },
       ],
       'command-grab': [
@@ -2718,9 +2730,9 @@ export const CHARACTERS: CharacterOverlay[] = [
           total: '30 (whiff) / 180 (hit)',
           note: {
             'zh-Hant':
-              '**+10，全場最差的普通摔起攻。** 迪·傑是 +34。他的普通摔本來就不是拿來起攻的 —— 螺旋打樁機 +30 才是，這是他非得貼身不可的原因之一。',
-            en: '**Plus ten, the worst normal-throw oki on the roster** — Dee Jay gets +34. His normal throw was never the one meant to start offence; the Screw Piledriver at +30 is, and that is part of why he has to be in your face at all.',
-            ja: '**+10、ロスター最低の通常投げ起き攻め**（ディージェイは+34）。彼の通常投げはそもそも攻めの起点ではなく、+30のスクリューパイルドライバーがそれにあたる。彼が密着せざるを得ない理由の一つ。',
+              '**+10，全場最差的普通摔起攻**（迪·傑是 +34）。他的普通摔本來就不是起攻工具 —— 螺旋打樁機 +30 才是，這也是他非得貼身不可的原因之一。不過前摔照樣把對手留在原本那一側，在角落摔一次還是角落，這一點跟誰摔都一樣。',
+            en: '**Plus ten, the worst normal-throw oki on the roster** — Dee Jay gets +34. His normal throw was never the offence starter; the Screw Piledriver at +30 is, and that is part of why he has to be in your face at all. It still keeps them on the side they were on, though: a throw in the corner leaves them in the corner, and that half is the same for everybody.',
+            ja: '**+10、ロスター最低の通常投げ起き攻め**（ディージェイは+34）。彼の通常投げは元々攻めの起点ではなく、+30のスクリューパイルドライバーがそれにあたる。彼が密着せざるを得ない理由の一つ。ただし前投げが相手を元の側に残すのは誰でも同じで、画面端で投げれば端のままになる。',
           },
         },
         {
@@ -4046,9 +4058,9 @@ export const CHARACTERS: CharacterOverlay[] = [
           total: '30 (whiff) / 132 (hit)',
           note: {
             'zh-Hant':
-              '**後摔 +32，比前摔 +20 好得多。** 莉莉、傑米、JP、瑪莉莎都是後摔起攻比前摔好 —— 換邊在他們身上不是代價，是選擇。',
-            en: '**Plus thirty-two on the back throw against +20 forward.** Lily, Jamie, JP and Marisa all get better oki from switching sides — for them the side switch is not a cost, it is the pick.',
-            ja: '**バック投げ+32に対し前投げ+20**。リリー、ジェイミー、JP、マリーザはいずれもバック投げのほうが起き攻めが良い。位置入れ替えは代償ではなく選択になる。',
+              '**+32，比前摔的 +20 好。** 莉莉、傑米、JP、瑪莉莎的後摔起攻都比前摔好 —— 對他們來說換邊不只是不用付代價，是直接賺。其他角色的後摔要用它把人放到哪裡來衡量，不是用這個數字。',
+            en: '**Plus thirty-two against +20 forward.** Lily, Jamie, JP and Marisa all get better oki from the back throw — for them the side switch is not merely free, it pays. For everyone else, judge the back throw on where it puts them rather than on this number.',
+            ja: '**+32、前投げの+20より良い。** リリー・ジェイミー・JP・マリーザはいずれも後ろ投げのほうが起き攻めが良く、彼らにとってサイド交換はタダどころか得になる。他キャラの後ろ投げは、この数字ではなく相手をどこへ置くかで判断すること。',
           },
         },
       ],
