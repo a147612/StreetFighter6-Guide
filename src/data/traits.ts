@@ -153,9 +153,9 @@ export const OPPONENT_TRAITS: TraitDef[] = [
       },
       'jump-neutral': {
         'zh-Hant':
-          '對這隻角色，這是回報最高的一手 —— 指令投抓空 60 幀上下，你落地他還站在那裡，直接一套。代價是起跳前 4 幀還在地上，壓在起身第一幀的投照樣抓得到。',
-        en: 'The highest-payoff answer to this character: a whiffed command grab is around 60 frames, so you land on top of them for a full combo. The price is the four prejump frames, which a throw timed on your first wakeup frame still catches.',
-        ja: 'このキャラに対して最もリターンの高い択。コマ投げの空振りは60F前後で、着地したとき相手はまだそこに立っており、フルコンボが入る。代償は跳び上がる前の4Fで、起き上がり1F目に合わせた投げには掴まれる。',
+          '對這隻角色，這是回報最高的一手 —— 指令投抓空 60 幀上下，你落地他還站在那裡，直接一套。而且起跳的前置幀投不到，他把投壓得再準也抓不到。他的解法是改壓打擊，或者延遲指令投去抓你落地。',
+        en: 'The highest-payoff answer to this character: a whiffed command grab is around sixty frames, so you land on top of them for a full combo. And the prejump frames cannot be thrown, so timing the grab better does not help them. Their answer is to meaty with a strike instead, or to delay the grab onto your landing.',
+        ja: 'このキャラに対して最もリターンの高い択。コマ投げの空振りは60F前後で、着地したとき相手はまだそこに立っており、フルコンボが入る。しかも跳び上がりの前置きフレームは投げられないため、投げを丁寧に重ねても掴めない。相手の解答は打撃を重ねるか、コマ投げを遅らせて着地を狙うこと。',
       },
       'mash-light': {
         'zh-Hant':

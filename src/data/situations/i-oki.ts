@@ -70,9 +70,9 @@ export const GROUP_I: Situation[] = [
             outcome: 'win',
             note: {
               'zh-Hant':
-                '起跳前的 4 幀還在地上，壓起身照樣抓得到 —— 這是垂直跳唯一的破口。對面會跳不是不壓的理由，是壓準一點的理由。',
-              en: 'The four prejump frames are still grounded and the meaty catches them anyway. This is the only hole in a neutral jump: someone who jumps is a reason to time the meaty, not a reason to stop meatying.',
-              ja: '跳び上がる前の4Fはまだ地上で、重ねはそこを普通に狩る。垂直ジャンプ唯一の穴がここで、相手が跳ぶことは重ねをやめる理由ではなく、重ねを丁寧にする理由になる。',
+                '起跳的前置幀投不到，但打擊照地上判定 —— 壓起身照樣把它打下來。這是垂直跳唯一的破口：對面會跳，不是不壓的理由，是壓打擊而不是壓投的理由。',
+              en: 'The prejump frames cannot be thrown, but strikes still treat them as grounded, so a meaty hits the jump out of the ground. This is the only hole in a neutral jump: someone who jumps is a reason to meaty with a strike rather than a grab, not a reason to stop meatying.',
+              ja: '跳び上がりの前置きフレームは投げられないが、打撃は地上判定のままなので、重ねはそのまま落とせる。垂直ジャンプ唯一の穴がここで、相手が跳ぶことは重ねをやめる理由ではなく、投げではなく打撃を重ねる理由になる。',
             },
           },
         ],
@@ -627,9 +627,9 @@ export const GROUP_I: Situation[] = [
             outcome: 'win',
             note: {
               'zh-Hant':
-                '起跳前的 4 幀還在地上，壓起身照樣抓得到 —— 這是垂直跳唯一的破口。對面會跳不是不壓的理由，是壓準一點的理由。',
-              en: 'The four prejump frames are still grounded and the meaty catches them anyway. This is the only hole in a neutral jump: someone who jumps is a reason to time the meaty, not a reason to stop meatying.',
-              ja: '跳び上がる前の4Fはまだ地上で、重ねはそこを普通に狩る。垂直ジャンプ唯一の穴がここで、相手が跳ぶことは重ねをやめる理由ではなく、重ねを丁寧にする理由になる。',
+                '起跳的前置幀投不到，但打擊照地上判定 —— 壓起身照樣把它打下來。這是垂直跳唯一的破口：對面會跳，不是不壓的理由，是壓打擊而不是壓投的理由。',
+              en: 'The prejump frames cannot be thrown, but strikes still treat them as grounded, so a meaty hits the jump out of the ground. This is the only hole in a neutral jump: someone who jumps is a reason to meaty with a strike rather than a grab, not a reason to stop meatying.',
+              ja: '跳び上がりの前置きフレームは投げられないが、打撃は地上判定のままなので、重ねはそのまま落とせる。垂直ジャンプ唯一の穴がここで、相手が跳ぶことは重ねをやめる理由ではなく、投げではなく打撃を重ねる理由になる。',
             },
           },
         ],
@@ -1189,9 +1189,9 @@ export const GROUP_I: Situation[] = [
             outcome: 'win',
             note: {
               'zh-Hant':
-                '起跳前的 4 幀還在地上，壓起身照樣抓得到 —— 這是垂直跳唯一的破口。對面會跳不是不壓的理由，是壓準一點的理由。',
-              en: 'The four prejump frames are still grounded and the meaty catches them anyway. This is the only hole in a neutral jump: someone who jumps is a reason to time the meaty, not a reason to stop meatying.',
-              ja: '跳び上がる前の4Fはまだ地上で、重ねはそこを普通に狩る。垂直ジャンプ唯一の穴がここで、相手が跳ぶことは重ねをやめる理由ではなく、重ねを丁寧にする理由になる。',
+                '起跳的前置幀投不到，但打擊照地上判定 —— 壓起身照樣把它打下來。這是垂直跳唯一的破口：對面會跳，不是不壓的理由，是壓打擊而不是壓投的理由。',
+              en: 'The prejump frames cannot be thrown, but strikes still treat them as grounded, so a meaty hits the jump out of the ground. This is the only hole in a neutral jump: someone who jumps is a reason to meaty with a strike rather than a grab, not a reason to stop meatying.',
+              ja: '跳び上がりの前置きフレームは投げられないが、打撃は地上判定のままなので、重ねはそのまま落とせる。垂直ジャンプ唯一の穴がここで、相手が跳ぶことは重ねをやめる理由ではなく、投げではなく打撃を重ねる理由になる。',
             },
           },
         ],

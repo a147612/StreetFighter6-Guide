@@ -216,23 +216,23 @@ export const GROUP_C: Situation[] = [
           ja: '最も見落とされている投げ対策。投げ抜けと違い硬直がなく、外しても重い反撃ではなく被弾で済む。',
         },
       },
-        {
+          {
         optionId: 'jump-neutral',
-        risk: 'extreme',
-        reward: 'none',
+        risk: 'high',
+        reward: 'low',
         onSuccess: {
           text: {
-            'zh-Hant': '起跳成功的時候摔投會落空 —— 但你有劣勢，這種情況很少發生。',
-            en: 'When the jump does get off the ground the throw whiffs — but you are minus, and that combination does not come up often.',
-            ja: '跳び上がれた場合は投げが空振りする——ただしこちらは不利フレームで、その状況はめったに起きない。',
+            'zh-Hant': '摔投從你腳下落空 —— 起跳的前置幀已經算空中。你有劣勢也一樣成立，只要按得出來。',
+            en: 'The throw whiffs under you: the prejump frames already count as airborne. Being minus does not change that, as long as the input comes out.',
+            ja: '投げが足元を空振りする——跳び上がりの前置きフレームはすでに空中扱いになっている。不利フレームでも、入力さえ出れば同じこと。',
           },
           followUp: 'neutral',
         },
         onFail: {
           text: {
-            'zh-Hant': '他有利，你起跳的 4 幀他隨便按一顆都打得到。貼身被打到空中通常是一整套。',
-            en: 'They are plus and any button they press catches your four prejump frames. Being hit into the air at point blank is usually a full combo.',
-            ja: '相手は有利で、どのボタンを押してもこちらの4Fの跳び上がりを狩れる。密着で空中に浮かされればたいていフルコンボになる。',
+            'zh-Hant': '他有利，所以他可以先按一顆打擊 —— 打擊照地上判定，起跳直接被打斷。貼身被打到空中通常是一整套。',
+            en: 'They are plus, so they can put a strike out first — and strikes treat the prejump frames as grounded, so the jump is hit out of the ground. Being hit into the air at point blank is usually a full combo.',
+            ja: '相手は有利なので先に打撃を出せる。打撃は前置きフレームを地上として扱うため、跳び上がりはそのまま潰される。密着で浮かされればたいていフルコンボになる。',
           },
           hpLoss: '30-45%',
           driveLoss: 0,
@@ -240,24 +240,22 @@ export const GROUP_C: Situation[] = [
         versus: [
           {
             vs: 'throw',
-            outcome: 'loss',
-            orderDependent: true,
+            outcome: 'win',
             note: {
               'zh-Hant':
-                '他有利，代表他先動 —— 你 4 幀的起跳還在地上時投就抓到了。跳躲得掉投的前提是兩邊同時動，而這裡不是。',
-              en: 'They are plus, so they move first: the throw lands while your four prejump frames are still on the ground. A jump escapes a throw only when both of you start together, and here you do not.',
-              ja: '相手が有利ということは先に動けるということで、こちらの4Fの跳び上がりはまだ地上にある間に投げが成立する。ジャンプで投げを避けられるのは同時に動いた場合だけで、ここはそうではない。',
+                '摔投發生 5 幀，而起跳的前置幀投不到 —— 有劣勢也躲得掉，只要你在他的投判定成立之前按得出跳。臨界點是 **+5**：對手 +5 以上，投在你能動之前就判定完了；防到一般普通技是 +1～+4，跳得掉。',
+              en: 'A throw starts in 5 frames and the prejump frames cannot be thrown, so this escapes even while you are minus — as long as the jump comes out before the throw becomes active. The threshold is **+5**: past that the throw resolves before you can act at all. Blocking an ordinary normal leaves them at +1 to +4, and the jump gets out.',
+              ja: '投げの発生は5Fで、跳び上がりの前置きフレームは投げられない。したがって不利フレームでも、投げが発生する前にジャンプが出れば逃げられる。分岐点は**+5**で、それ以上あると自分が動く前に投げが成立する。通常技をガードした程度なら+1〜+4で、ジャンプは間に合う。',
             },
           },
           {
             vs: 'command-grab',
-            outcome: 'loss',
-            orderDependent: true,
+            outcome: 'bigWin',
             note: {
               'zh-Hant':
-                '同樣的道理，而且代價更高 —— 起身和五五時垂直跳是指令投的答案，你有劣勢的時候它不是。差的是幀數，不是選項。',
-              en: 'The same reason and a higher price. A neutral jump is the answer to a command grab on wakeup and at neutral; while you are minus it is not. What changed is the frame advantage, not the option.',
-              ja: '理屈は同じで代償はさらに大きい。垂直ジャンプは起き上がりや五分ではコマンド投げへの答えになるが、不利フレームを背負っている間は答えにならない。変わったのは択ではなくフレーム差である。',
+                '一樣投不到，而且他抓空要站 60 幀上下 —— 你落地打得到。指令投角色貼著你的時候，這是唯一「猜對還能拿一套」的選項。',
+              en: 'Equally unthrowable, and his whiff leaves him standing for around sixty frames, so you land on it. With a grappler in your face this is the only option that pays you for guessing right.',
+              ja: '同じく投げられず、しかも空振りの硬直は60F前後で着地して殴れる。コマ投げキャラに密着されている状況で、読み勝ちにリターンが付く唯一の択。',
             },
           },
           { vs: 'shimmy', outcome: 'loss' },
@@ -268,20 +266,26 @@ export const GROUP_C: Situation[] = [
         verified: 'sourced',
         sources: [
           {
-            url: 'https://ultimateframedata.com/sf6/zangief',
+            url: 'https://streetfighter.fandom.com/wiki/Jump',
             patch: '2026-08',
-            note: 'Screw Piledriver 抓空 61 幀。同一頁的普通前摔抓空 30 幀 —— 差距就是落地打不打得到的分界。來源未標註遊戲版本',
+            note: '該頁寫明起跳的前置幀算「空中」、不能被投，但被打擊判定時仍算地上。這是全系列通則頁，不是 SF6 專頁。來源未標註遊戲版本',
           },
           {
             url: 'https://ultimateframedata.com/sf6/ryu',
             patch: '2026-08',
-            note: 'Prejump Frames — 4。起跳前這 4 幀還在地上，也是投抓得到的幀 —— 所以對手有利的時候跳躲不掉投。來源未標註遊戲版本',
+            note: 'Prejump Frames — 4（桑吉爾夫與莉莉是 5）；普通前摔發生 5 幀。兩個數字相減就是本列的臨界點：對手 +5 以上，投在你能動之前就判定完了。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/zangief',
+            patch: '2026-08',
+            note: 'Screw Piledriver 抓空 61 幀。同一頁的普通前摔抓空 30 幀 —— 差距就是落地打不打得到的分界。來源未標註遊戲版本',
           },
         ],
         notes: {
-          'zh-Hant': '這一列存在是為了說明它在這裡不成立。同一個垂直跳，倒地起身和五五對峙時是指令投的答案，你有劣勢時完全不是 —— 決定它的是幀數差，不是選項本身。',
-          en: 'This row is here to say that it does not work here. The same neutral jump answers a command grab on wakeup and at neutral, and answers nothing while you are minus. Frame advantage decides it, not the option.',
-          ja: 'この行はここでは成立しないことを示すために存在する。同じ垂直ジャンプが起き上がりと五分ではコマンド投げへの答えになり、不利フレーム中は何の答えにもならない。決めるのはフレーム差であって択ではない。',
+          'zh-Hant':
+            '有劣勢一樣投不到 —— 這一列真正的風險不是投，是他有利、可以先按一顆打擊，而打擊把起跳當地上打。要跳就要賭他選投不選打。',
+          en: 'Being minus does not make you throwable — the risk on this row is not the throw, it is that they are plus and can lead with a strike, and a strike treats the jump as grounded. Pressing it is a bet that they picked the throw.',
+          ja: '不利フレームでも投げられはしない。この行の本当のリスクは投げではなく、相手が有利で先に打撃を出せること、そして打撃が跳び上がりを地上として扱うことにある。跳ぶなら「相手が投げを選ぶ」方に賭けることになる。',
         },
       },
     {
@@ -738,9 +742,14 @@ export const GROUP_C: Situation[] = [
             note: 'Screw Piledriver 抓空 61 幀。同一頁的普通前摔抓空 30 幀 —— 差距就是落地打不打得到的分界。來源未標註遊戲版本',
           },
           {
+            url: 'https://streetfighter.fandom.com/wiki/Jump',
+            patch: '2026-08',
+            note: '該頁寫明起跳的前置幀算「空中」、不能被投，但被打擊判定時仍算地上。這是全系列通則頁，不是 SF6 專頁。來源未標註遊戲版本',
+          },
+          {
             url: 'https://ultimateframedata.com/sf6/ryu',
             patch: '2026-08',
-            note: 'Prejump Frames — 4。起跳前這 4 幀還在地上，也是投抓得到的幀 —— 所以對手有利的時候跳躲不掉投。來源未標註遊戲版本',
+            note: 'Prejump Frames — 4（桑吉爾夫與莉莉是 5）；普通前摔發生 5 幀。來源未標註遊戲版本',
           },
         ],
         notes: {

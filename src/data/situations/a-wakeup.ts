@@ -589,9 +589,9 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '起跳的 4 幀還在地上，壓起身或壓在第一幀的摔投照樣抓得到；被看到就是確定對空。',
-            en: 'The four prejump frames are still grounded, so a meaty — or a throw timed on frame one — catches it anyway. Seen, it is a guaranteed anti-air.',
-            ja: '跳び上がる4Fはまだ地上なので、重ねや1F目に合わせた投げには掴まれる。見られれば対空が確定する。',
+            'zh-Hant': '前置幀投不到，但打擊照地上判定 —— 壓起身直接把起跳打斷。被看到就是確定對空，而對空通常接得到連段。',
+            en: 'The prejump frames cannot be thrown, but strikes still treat them as grounded: a meaty hits the jump out of the ground. Seen, it is a guaranteed anti-air, and anti-airs usually convert.',
+            ja: '前置きフレームは投げられないが、打撃は地上判定のままなので、重ねはそのまま跳び上がりを潰す。見られれば対空が確定し、対空はたいていコンボに繋がる。',
           },
           hpLoss: '30-45%',
           driveLoss: 0,
@@ -633,7 +633,12 @@ export const GROUP_A: Situation[] = [
           {
             url: 'https://ultimateframedata.com/sf6/ryu',
             patch: '2026-08',
-            note: 'Prejump Frames — 4（桑吉爾夫與莉莉是 5）。起跳前這幾幀還在地上，所以壓在起身第一幀的摔投照樣抓得到跳。來源未標註遊戲版本',
+            note: 'Prejump Frames — 4（桑吉爾夫與莉莉是 5）。這幾幀算空中、投不到，但打擊照地上判定 —— 所以壓起身打得到，摔投打不到。摔投發生 5 幀，起身按著跳的話投永遠慢一步。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Jump',
+            patch: '2026-08',
+            note: '該頁寫明起跳的前置幀算「空中」、不能被投，但被打擊判定時仍算地上。這是全系列通則頁，不是 SF6 專頁。來源未標註遊戲版本',
           },
         ],
         notes: {
@@ -1342,9 +1347,9 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '起跳的 4 幀還在地上，壓起身或壓在第一幀的摔投照樣抓得到；被看到就是確定對空。',
-            en: 'The four prejump frames are still grounded, so a meaty — or a throw timed on frame one — catches it anyway. Seen, it is a guaranteed anti-air.',
-            ja: '跳び上がる4Fはまだ地上なので、重ねや1F目に合わせた投げには掴まれる。見られれば対空が確定する。',
+            'zh-Hant': '前置幀投不到，但打擊照地上判定 —— 壓起身直接把起跳打斷。被看到就是確定對空，而對空通常接得到連段。',
+            en: 'The prejump frames cannot be thrown, but strikes still treat them as grounded: a meaty hits the jump out of the ground. Seen, it is a guaranteed anti-air, and anti-airs usually convert.',
+            ja: '前置きフレームは投げられないが、打撃は地上判定のままなので、重ねはそのまま跳び上がりを潰す。見られれば対空が確定し、対空はたいていコンボに繋がる。',
           },
           hpLoss: '30-45%',
           driveLoss: 0,
@@ -1386,7 +1391,12 @@ export const GROUP_A: Situation[] = [
           {
             url: 'https://ultimateframedata.com/sf6/ryu',
             patch: '2026-08',
-            note: 'Prejump Frames — 4（桑吉爾夫與莉莉是 5）。起跳前這幾幀還在地上，所以壓在起身第一幀的摔投照樣抓得到跳。來源未標註遊戲版本',
+            note: 'Prejump Frames — 4（桑吉爾夫與莉莉是 5）。這幾幀算空中、投不到，但打擊照地上判定 —— 所以壓起身打得到，摔投打不到。摔投發生 5 幀，起身按著跳的話投永遠慢一步。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Jump',
+            patch: '2026-08',
+            note: '該頁寫明起跳的前置幀算「空中」、不能被投，但被打擊判定時仍算地上。這是全系列通則頁，不是 SF6 專頁。來源未標註遊戲版本',
           },
         ],
         notes: {
@@ -2112,9 +2122,9 @@ export const GROUP_A: Situation[] = [
         },
         onFail: {
           text: {
-            'zh-Hant': '起跳的 4 幀還在地上，壓起身或壓在第一幀的摔投照樣抓得到；被看到就是確定對空。',
-            en: 'The four prejump frames are still grounded, so a meaty — or a throw timed on frame one — catches it anyway. Seen, it is a guaranteed anti-air.',
-            ja: '跳び上がる4Fはまだ地上なので、重ねや1F目に合わせた投げには掴まれる。見られれば対空が確定する。',
+            'zh-Hant': '前置幀投不到，但打擊照地上判定 —— 壓起身直接把起跳打斷。被看到就是確定對空，而對空通常接得到連段。',
+            en: 'The prejump frames cannot be thrown, but strikes still treat them as grounded: a meaty hits the jump out of the ground. Seen, it is a guaranteed anti-air, and anti-airs usually convert.',
+            ja: '前置きフレームは投げられないが、打撃は地上判定のままなので、重ねはそのまま跳び上がりを潰す。見られれば対空が確定し、対空はたいていコンボに繋がる。',
           },
           hpLoss: '30-45%',
           driveLoss: 0,
@@ -2156,7 +2166,12 @@ export const GROUP_A: Situation[] = [
           {
             url: 'https://ultimateframedata.com/sf6/ryu',
             patch: '2026-08',
-            note: 'Prejump Frames — 4（桑吉爾夫與莉莉是 5）。起跳前這幾幀還在地上，所以壓在起身第一幀的摔投照樣抓得到跳。來源未標註遊戲版本',
+            note: 'Prejump Frames — 4（桑吉爾夫與莉莉是 5）。這幾幀算空中、投不到，但打擊照地上判定 —— 所以壓起身打得到，摔投打不到。摔投發生 5 幀，起身按著跳的話投永遠慢一步。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://streetfighter.fandom.com/wiki/Jump',
+            patch: '2026-08',
+            note: '該頁寫明起跳的前置幀算「空中」、不能被投，但被打擊判定時仍算地上。這是全系列通則頁，不是 SF6 專頁。來源未標註遊戲版本',
           },
         ],
         notes: {

@@ -234,9 +234,9 @@ const DEFENSIVE: OptionDef[] = [
     origin: 'neutral jump',
     hint: {
       'zh-Hant':
-        '原地往上跳，不往前也不往後。摔投抓不到空中的人，而且落地時你還在他面前 —— 這就是它跟後跳的差別：後跳躲得掉，但換不到東西。真正的價值在指令投：**普通摔投抓空 30 幀，指令投抓空 60 幀上下**，你落地時他還站在那裡。代價是起跳前的 4 幀還在地上，壓在起身第一幀的投照樣抓得到。',
-      en: 'Jump straight up, going nowhere. A throw cannot catch someone in the air, and you land in front of them instead of away from them — which is the whole difference from a back jump, where you escape and get nothing for it. The real value is against a command grab: **a whiffed normal throw is 30 frames, a whiffed command grab is around 60**, so you land while they are still standing in it. The price is the four prejump frames, which are still on the ground: a throw timed on your first wakeup frame catches the jump anyway.',
-      ja: '真上に跳ぶ。前にも後ろにも動かない。投げは空中の相手を掴めず、しかも着地するのは相手の目の前——後ろジャンプとの決定的な違いがそこで、後ろジャンプは避けられても何も返せない。本当の価値はコマ投げに対してで、**通常投げの空振りが30F、コマ投げの空振りは60F前後**。着地したとき相手はまだそこに立っている。代償は跳び上がる前の4Fで、そこはまだ地上なので、起き上がり1F目に重ねられた投げには掴まれる。',
+        '原地往上跳，不往前也不往後。**起跳的前置幀就已經投不到了** —— 遊戲把那幾幀算成空中，所以只要按得出來，投一定落空；但打擊還是照地上判定，壓起身照樣把你打下來。真正的價值在指令投：**普通摔投抓空 30 幀，指令投抓空 60 幀上下**，你落地時他還站在那裡。落回他面前而不是退開，這是它跟後跳的差別。',
+      en: 'Jump straight up, going nowhere. **The prejump frames already cannot be thrown** — the game counts them as airborne, so the throw whiffs as long as the input comes out. Strikes still treat you as grounded, which is why a meaty hits you out of it anyway. The real value is against a command grab: **a whiffed normal throw is 30 frames, a whiffed command grab is around 60**, so you land while they are still standing in it. Landing in front of them rather than away from them is the difference from a back jump.',
+      ja: '真上に跳ぶ。前にも後ろにも動かない。**跳び上がりの前置きフレームの時点でもう投げられない**——ゲームがそこを空中扱いにするため、入力さえ出れば投げは必ず空振りする。ただし打撃は地上判定のままで、重ねには普通に落とされる。本当の価値はコマ投げに対してで、**通常投げの空振りが30F、コマ投げの空振りは60F前後**。着地したとき相手はまだそこに立っている。離れるのではなく目の前に落ちるのが後ろジャンプとの違い。',
     },
     aka: {
       'zh-Hant': ['原地跳', '垂直 J'],
