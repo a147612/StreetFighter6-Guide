@@ -217,31 +217,36 @@ export default function App() {
         <div className="shell footer__inner small">
           <p>{t.footer.disclaimer}</p>
           <p className="muted">{t.footer.trademark}</p>
-          {/* The two dates a reader needs to decide whether to trust a number:
-              when this copy was built, and what the game looked like when the
-              sources behind it were read. */}
-          <p className="footer__stamp small faint mono">
-            <span>
-              {t.footer.updated} {__BUILD_DATE__}
-            </span>
-            <span aria-hidden="true"> · </span>
-            <span>
-              {t.footer.gameVersion} {GAME_VERSION}（{GAME_VERSION_DATE}）
-            </span>
-          </p>
-          <p className="footer__links">
-            <button type="button" className="linkish" onClick={toggleGlossary}>
-              {glossary ? t.browse.situations : t.glossary.open}
-            </button>
-            <span aria-hidden="true"> · </span>
-            <a href={REPO_URL} target="_blank" rel="noreferrer noopener">
-              {t.footer.source}
-            </a>
-            <span aria-hidden="true"> · </span>
-            <a href={POLICY_URL} target="_blank" rel="noreferrer noopener">
-              {t.footer.policy}
-            </a>
-          </p>
+          {/* Links left, provenance right, on one line where there is room.
+              The stamp is last in the source as well as last on the page: it
+              is the thing you go looking for, not the thing you read. */}
+          <div className="footer__bottom">
+            <p className="footer__links">
+              <button type="button" className="linkish" onClick={toggleGlossary}>
+                {glossary ? t.browse.situations : t.glossary.open}
+              </button>
+              <span aria-hidden="true"> · </span>
+              <a href={REPO_URL} target="_blank" rel="noreferrer noopener">
+                {t.footer.source}
+              </a>
+              <span aria-hidden="true"> · </span>
+              <a href={POLICY_URL} target="_blank" rel="noreferrer noopener">
+                {t.footer.policy}
+              </a>
+            </p>
+            {/* The two dates a reader needs to decide whether to trust a
+                number: when this copy was built, and what the game looked like
+                when the sources behind it were read. */}
+            <p className="footer__stamp faint mono">
+              <span>
+                {t.footer.updated} {__BUILD_DATE__}
+              </span>
+              <span aria-hidden="true"> · </span>
+              <span>
+                {t.footer.gameVersion} {GAME_VERSION}（{GAME_VERSION_DATE}）
+              </span>
+            </p>
+          </div>
         </div>
       </GlassPanel>
     </div>

@@ -364,6 +364,15 @@ export interface MoveFrames {
   /** Numpad notation. Authored, not from UFD, which writes inputs as prose. */
   input?: string
   startup: string
+  /**
+   * UFD's active frames. Authored only where the late-meaty arithmetic matters,
+   * because that is the only place it is worth a column: a meaty timed on the
+   * last active frame gains `active - 1` over the listed on-block, and that
+   * derived number is the actual answer to "if they block my meaty, whose turn
+   * is it". Derived at render time rather than stored, so it cannot disagree
+   * with the two numbers it comes from.
+   */
+  active?: string
   /** Absent for a throw, which cannot be blocked. */
   onBlock?: string
   onHit?: string

@@ -36,9 +36,26 @@ function Cell({ value }: { value: string | undefined }) {
   return <td className={`frames__value mono ${polarity(value)}`}>{typeset(value)}</td>
 }
 
+/**
+ * What a meaty timed on its last active frame leaves you at.
+ *
+ * A move's on-block assumes it connected on active frame 1. Meaty it late and
+ * every frame of active you skip past is a frame of theirs you eat, so the real
+ * number is `onBlock + active - 1`. Derived rather than stored: it is exactly
+ * the two columns beside it, and a stored copy could disagree with them.
+ */
+function meatyLate(move: MoveFrames): string | undefined {
+  if (!move.active || !move.onBlock) return undefined
+  if (!/^-?\d+$/.test(move.onBlock) || !/^\d+$/.test(move.active)) return undefined
+  const value = Number(move.onBlock) + Number(move.active) - 1
+  return value > 0 ? `+${value}` : String(value)
+}
+
 export function FrameStrip({ frames }: { frames: MoveFrames[] }) {
   const { t, text } = useT()
   if (frames.length === 0) return null
+  // Only where it was authored, which is only where meatying is the point.
+  const showMeaty = frames.some((move) => move.active)
 
   return (
     <div className="frames">
@@ -48,7 +65,9 @@ export function FrameStrip({ frames }: { frames: MoveFrames[] }) {
             <tr>
               <th scope="col">{t.frames.move}</th>
               <th scope="col">{t.frames.startup}</th>
+              {showMeaty && <th scope="col">{t.frames.active}</th>}
               <th scope="col">{t.frames.onBlock}</th>
+              {showMeaty && <th scope="col">{t.frames.meatyLate}</th>}
               <th scope="col">{t.frames.onHit}</th>
               <th scope="col">{t.frames.total}</th>
             </tr>
@@ -61,7 +80,9 @@ export function FrameStrip({ frames }: { frames: MoveFrames[] }) {
                   {move.input && <InputNotation input={move.input} />}
                 </th>
                 <Cell value={move.startup} />
+                {showMeaty && <Cell value={move.active} />}
                 <Cell value={move.onBlock} />
+                {showMeaty && <Cell value={meatyLate(move)} />}
                 <Cell value={move.onHit} />
                 <Cell value={move.total} />
               </tr>

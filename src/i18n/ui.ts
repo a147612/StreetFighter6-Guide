@@ -102,6 +102,8 @@ export interface UiStrings {
   frames: {
     move: string
     startup: string
+    active: string
+    meatyLate: string
     onBlock: string
     onHit: string
     total: string
@@ -253,6 +255,8 @@ const zhHant: UiStrings = {
   frames: {
     move: '招式',
     startup: '發生',
+    active: '主動',
+    meatyLate: '壓好最多',
     onBlock: '防禦時',
     onHit: '命中',
     total: '全長',
@@ -424,6 +428,8 @@ const en: UiStrings = {
   frames: {
     move: 'Move',
     startup: 'Startup',
+    active: 'Active',
+    meatyLate: 'Meatied late',
     onBlock: 'On block',
     onHit: 'On hit',
     total: 'Total',
@@ -596,6 +602,8 @@ const ja: UiStrings = {
   frames: {
     move: '技',
     startup: '発生',
+    active: '持続',
+    meatyLate: '重ね最大',
     onBlock: 'ガード時',
     onHit: 'ヒット時',
     total: '全体',
