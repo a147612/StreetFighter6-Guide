@@ -26,6 +26,28 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+20',
+          total: '30 (whiff) / 123 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+6',
+          total: '30 (whiff) / 123 (hit)',
+          note: {
+            'zh-Hant':
+              '**+6，全場最差的後摔。** 他的前摔是 +20 —— 換邊在他身上幾乎純虧，除非你要的就是那個位置。',
+            en: '**Plus six, the worst back throw on the roster,** against +20 on his forward throw. Switching sides costs him almost everything, unless the side is the point.',
+            ja: '**+6でロスター最低のバック投げ**。前投げは+20なので、位置を入れ替えること自体が目的でない限りほぼ損。',
+          },
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -136,15 +158,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           total: '67',
         },
       ],
-      throw: [
-        {
-          move: 'Forward Throw',
-          input: 'LP+LK',
-          startup: '5',
-          onHit: '+20',
-          total: '30 (whiff) / 123 (hit)',
-        },
-      ],
     },
     reversals: [
       {
@@ -235,6 +248,30 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['projectile'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+17',
+          total: '30 (whiff) / 140 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+14',
+          total: '30 (whiff) / 123 (hit)',
+        },
+      ],
+      'command-grab': [
+        {
+          move: 'Hooligan Combination > Fatal Leg Twister (Throw)',
+          input: 'Hooligan > LP+LK',
+          startup: '10',
+          onHit: 'Knockdown +18',
+        },
+      ],
       reversal: [
         {
           move: 'Cannon Spike (Overdrive)',
@@ -344,6 +381,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+28',
+          total: '30 (whiff) / 119 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+14',
+          total: '30 (whiff) / 120 (hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Gou Shoryuken (Overdrive)',
@@ -466,6 +519,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+19',
+          total: '30 (whiff) / 125 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+14',
+          total: '30 (whiff) / 139 (hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Rising Uppercut (Overdrive)',
@@ -576,6 +645,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'super-reversal', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+17',
+          total: '30 (whiff) / 96 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+11',
+          total: '30 (whiff) / 100 (hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Shoryuken (Overdrive)',
@@ -692,6 +777,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab'],
     backdashFrames: 25,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+17',
+          total: '30 (whiff) / 140 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+14',
+          total: '30 (whiff) / 123 (hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Tensho Kicks (Overdrive)',
@@ -816,6 +917,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+15',
+          total: '30 (whiff) / 139 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+18',
+          total: '30 (whiff) / 99 (hit)',
+        },
+      ],
       'mash-light': [
         {
           move: 'Crouching Light Punch',
@@ -868,15 +985,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           onBlock: '-33',
           onHit: 'Knockdown +29...',
           total: '55',
-        },
-      ],
-      throw: [
-        {
-          move: 'Forward Throw',
-          input: 'LP+LK',
-          startup: '5',
-          onHit: '+15',
-          total: '30 (whiff) / 139 (hit)',
         },
       ],
     },
@@ -955,6 +1063,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+25',
+          total: '30 (whiff) / 79 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+18',
+          total: '30 (whiff) / 118 (hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Tensenrin (Overdrive)',
@@ -1069,6 +1193,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+21',
+          total: '30 (whiff) / 16 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+21',
+          total: '30 (whiff) / 149 (hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Tiger Uppercut (Overdrive)',
@@ -1178,6 +1318,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+22',
+          total: '30 (whiff) / 141 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+18',
+          total: '30 (whiff) / 108 (hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Rising Tackle (Overdrive)',
@@ -1286,6 +1442,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+24',
+          total: '30 (whiff) / 114 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+17',
+          total: '30 (whiff) / 130 (hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Psycho Uppercut (Overdrive)',
@@ -1409,6 +1581,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'projectile'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+24',
+          total: '30 (whiff) / 134 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+19',
+          total: '30 (whiff) / 103 (hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Scratch Wheel (Overdrive)',
@@ -1528,6 +1716,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+34',
+          total: '30 (whiff) / 113 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+22',
+          total: '30 (whiff) / 124 (hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Jackknife Maximum (Overdrive)',
@@ -1646,6 +1850,31 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['projectile', 'air-throw'],
     backdashFrames: 25,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+23 (+7)',
+          total: '30 (whiff) / 124 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+38',
+          total: '30 (whiff) / 124 (hit)',
+        },
+      ],
+      'command-grab': [
+        {
+          move: 'Tenshin',
+          input: '41236 K',
+          startup: '8',
+          onHit: '+8 (Knockdown +86)',
+          total: '61',
+        },
+      ],
       reversal: [
         {
           move: 'Arrow Kick (Overdrive)',
@@ -1767,6 +1996,58 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+30',
+          total: '30 (whiff) / 161 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+27',
+          total: '30 (whiff) / 92 (hit)',
+        },
+      ],
+      'command-grab': [
+        {
+          move: 'Wild Hunt (Light Kick)',
+          input: '236 K',
+          startup: '34',
+          onHit: 'Knockdown +35',
+          total: '93 (213)',
+        },
+        {
+          move: 'Wild Hunt (Medium Kick)',
+          input: '236 K',
+          startup: '39',
+          onHit: 'Knockdown +35',
+          total: '98 (218)',
+        },
+        {
+          move: 'Wild Hunt (Heavy Kick)',
+          input: '236 K',
+          startup: '45',
+          onHit: 'Knockdown +35',
+          total: '102 (222)',
+        },
+        {
+          move: 'Wild Hunt (Overdrive)',
+          input: '236 K',
+          startup: '32',
+          onHit: 'Knockdown +64',
+          total: '91 (211)',
+          note: {
+            'zh-Hant':
+              '**OD 版是最快的一顆（32 幀），命中還是 +64。** 一般版 34／39／45 幀全部看得到，OD 反而又快又賺 —— 但仍然是 32 幀，還是反應得掉。',
+            en: '**The OD version is both the fastest at 32 frames and the best on hit at +64.** The normal versions are 34, 39 and 45, all of them visible — and 32 still is.',
+            ja: '**OD版が最速の32Fで、しかもヒット+64と最も得**。通常版は34／39／45Fですべて見えるが、32Fもやはり見える。',
+          },
+        },
+      ],
       reversal: [
         {
           move: 'Vertical Rolling Attack (Overdrive)',
@@ -1872,6 +2153,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab'],
     backdashFrames: 25,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+27',
+          total: '30 (whiff) / 109 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+27',
+          total: '30 (whiff) / 134(hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Spinning Mixer (Overdrive)',
@@ -1989,6 +2286,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+21',
+          total: '30 (whiff) / 134 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+17',
+          total: '30 (whiff) / 110 (hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Hishou Ryuuenjin (Overdrive)',
@@ -2110,6 +2423,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'projectile', 'super-reversal', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+29',
+          total: '30 (whiff) / 107 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+24',
+          total: '30 (whiff) / 129 (hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Lipad ng Agila (Overdrive)',
@@ -2215,6 +2544,31 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+23',
+          total: '30 (whiff) / 119 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+36',
+          total: '30 (whiff) / 114 (hit)',
+        },
+      ],
+      'command-grab': [
+        {
+          move: 'Embrace',
+          input: '214 K',
+          startup: '(25...)+1',
+          onHit: 'Knockdown +18',
+          total: '72 (Hit: 182...)',
+        },
+      ],
       reversal: [
         {
           move: 'Amnesia',
@@ -2355,6 +2709,58 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+10',
+          total: '30 (whiff) / 180 (hit)',
+          note: {
+            'zh-Hant':
+              '**+10，全場最差的普通摔起攻。** 迪·傑是 +34。他的普通摔本來就不是拿來起攻的 —— 螺旋打樁機 +30 才是，這是他非得貼身不可的原因之一。',
+            en: '**Plus ten, the worst normal-throw oki on the roster** — Dee Jay gets +34. His normal throw was never the one meant to start offence; the Screw Piledriver at +30 is, and that is part of why he has to be in your face at all.',
+            ja: '**+10、ロスター最低の通常投げ起き攻め**（ディージェイは+34）。彼の通常投げはそもそも攻めの起点ではなく、+30のスクリューパイルドライバーがそれにあたる。彼が密着せざるを得ない理由の一つ。',
+          },
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+8',
+          total: '30 (whiff) / 151 (hit)',
+        },
+      ],
+      'command-grab': [
+        {
+          move: 'Screw Piledriver (Light Punch)',
+          input: '360 P',
+          startup: '5',
+          onHit: 'Knockdown +30',
+          total: '61',
+        },
+        {
+          move: 'Screw Piledriver (Medium Punch)',
+          input: '360 P',
+          startup: '5',
+          onHit: 'Knockdown +28',
+          total: '61',
+        },
+        {
+          move: 'Screw Piledriver (Heavy Punch)',
+          input: '360 P',
+          startup: '5',
+          onHit: 'Knockdown +28',
+          total: '61',
+        },
+        {
+          move: 'Screw Piledriver (Overdrive)',
+          input: '360 P',
+          startup: '5',
+          onHit: 'Knockdown +28',
+          total: '61',
+        },
+      ],
       'mash-light': [
         {
           move: 'Crouching Light Kick',
@@ -2387,37 +2793,6 @@ export const CHARACTERS: CharacterOverlay[] = [
           onBlock: '-3',
           onHit: '+3',
           total: '40...58',
-        },
-      ],
-      'command-grab': [
-        {
-          move: 'Screw Piledriver (Light Punch)',
-          input: '360 LP',
-          startup: '5',
-          onHit: 'Knockdown +30',
-          total: '61',
-          note: {
-            'zh-Hant':
-              '抓空 **61 幀** —— 這個數字就是垂直跳那一列存在的理由。',
-            en: 'Sixty-one frames on a whiff. That number is the entire reason the neutral-jump row exists.',
-            ja: '空振り**61F**。この数字こそが垂直ジャンプの行が存在する理由。',
-          },
-        },
-        {
-          move: 'Screw Piledriver (Overdrive)',
-          input: '360 PP',
-          startup: '5',
-          onHit: 'Knockdown +28',
-          total: '61',
-        },
-      ],
-      throw: [
-        {
-          move: 'Forward Throw',
-          input: 'LP+LK',
-          startup: '5',
-          onHit: '+10',
-          total: '30 (whiff) / 180 (hit)',
         },
       ],
     },
@@ -2526,6 +2901,22 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+21',
+          total: '30 (whiff) / 125 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+20',
+          total: '30 (whiff) / 127 (hit)',
+        },
+      ],
       reversal: [
         {
           move: 'Sun Veil',
@@ -2675,6 +3066,52 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+16',
+          total: '30 (whiff) / 95 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+18',
+          total: '30 (whiff) / 94 (hit)',
+        },
+      ],
+      'command-grab': [
+        {
+          move: 'Manège Doré (Light Punch)',
+          input: '41236 P',
+          startup: '10',
+          onHit: 'Knockdown +19',
+          total: '60',
+        },
+        {
+          move: 'Manège Doré (Medium Punch)',
+          input: '41236 P',
+          startup: '8',
+          onHit: 'Knockdown +19',
+          total: '60',
+        },
+        {
+          move: 'Manège Doré (Heavy Punch)',
+          input: '41236 P',
+          startup: '5',
+          onHit: 'Knockdown +19',
+          total: '60',
+        },
+        {
+          move: 'Manège Doré (Overdrive)',
+          input: '41236 P',
+          startup: '8',
+          onHit: 'Knockdown +19',
+          total: '60',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -2796,6 +3233,31 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+19',
+          total: '30 (whiff) / 129 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+27',
+          total: '30 (whiff) / 163 (hit)',
+        },
+      ],
+      'command-grab': [
+        {
+          move: 'Entrapment',
+          input: 'Slide > LP+LK',
+          startup: '11...+23',
+          onHit: 'Hard Knockdown +16',
+          total: '80 (226)',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Kick',
@@ -2878,6 +3340,38 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+28',
+          total: '30 (whiff) / 130 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+16',
+          total: '30 (whiff) / 94 (hit)',
+        },
+      ],
+      'command-grab': [
+        {
+          move: 'Power Bomb',
+          input: '41236 P',
+          startup: '9 / 7 / 5',
+          onHit: 'Knockdown +15',
+          total: '61 on whiff',
+        },
+        {
+          move: 'Power Bomb (Overdrive)',
+          input: '41236 P',
+          startup: '5',
+          onHit: 'Knockdown +15',
+          total: '61 on whiff',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -2977,6 +3471,22 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+28',
+          total: '30 (whiff) / 166 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+19',
+          total: '30 (whiff) / 174 (hit)',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -3084,6 +3594,22 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+31',
+          total: '30 (whiff) / 173 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+19',
+          total: '30 (whiff) / 104 (hit)',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -3203,6 +3729,58 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+17',
+          total: '30 (whiff) / 140 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+14',
+          total: '30 (whiff) / 123 (hit)',
+        },
+      ],
+      'command-grab': [
+        {
+          move: 'Oicho Throw (Light Kick)',
+          input: '41236 K',
+          startup: '6',
+          onHit: 'Knockdown +7',
+          total: '61 (174)',
+          note: {
+            'zh-Hant':
+              '**四種強度完全一樣，而且命中只有 +7。** 6 幀、解不掉，但抓中之後幾乎沒有起攻 —— 他的指令投是用來換傷害和角落的，不是用來接續的。',
+            en: '**All four strengths are identical, and it is only +7 on hit.** Six frames and untechable, but landing it buys almost no oki: his command grab trades for damage and corner, not for a follow-up.',
+            ja: '**4種の強度が完全に同じで、しかもヒット+7しかない**。6Fで抜けられないが、当てても起き攻めはほぼ無い。彼のコマ投げはダメージと画面端との交換であって、継続のためのものではない。',
+          },
+        },
+        {
+          move: 'Oicho Throw (Medium Kick)',
+          input: '41236 K',
+          startup: '6',
+          onHit: 'Knockdown +7',
+          total: '61 (174)',
+        },
+        {
+          move: 'Oicho Throw (Heavy Kick)',
+          input: '41236 K',
+          startup: '6',
+          onHit: 'Knockdown +7',
+          total: '61 (174)',
+        },
+        {
+          move: 'Oicho Throw (Overdrive)',
+          input: '41236 K',
+          startup: '6',
+          onHit: 'Knockdown +7',
+          total: '61 (222)',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Kick',
@@ -3321,6 +3899,30 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+17',
+          total: '30 (whiff) / 113 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+8',
+          total: '30 (whiff) / 132 (hit)',
+        },
+      ],
+      'command-grab': [
+        {
+          move: 'Nue Twister',
+          input: '236 P',
+          startup: '5',
+          onHit: 'Knockdown +22 (Knockdown +98)',
+        },
+      ],
       'mash-light': [
         {
           move: 'Crouching Light Punch',
@@ -3428,6 +4030,36 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+20',
+          total: '30 (whiff) / 116 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+32',
+          total: '30 (whiff) / 132 (hit)',
+          note: {
+            'zh-Hant':
+              '**後摔 +32，比前摔 +20 好得多。** 莉莉、傑米、JP、瑪莉莎都是後摔起攻比前摔好 —— 換邊在他們身上不是代價，是選擇。',
+            en: '**Plus thirty-two on the back throw against +20 forward.** Lily, Jamie, JP and Marisa all get better oki from switching sides — for them the side switch is not a cost, it is the pick.',
+            ja: '**バック投げ+32に対し前投げ+20**。リリー、ジェイミー、JP、マリーザはいずれもバック投げのほうが起き攻めが良い。位置入れ替えは代償ではなく選択になる。',
+          },
+        },
+      ],
+      'command-grab': [
+        {
+          move: 'Mexican Typhoon',
+          input: '360 P',
+          startup: '5',
+          onHit: 'Knockdown +28',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Kick',
@@ -3542,6 +4174,22 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+21',
+          total: '30 (whiff) / 129 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+18',
+          total: '30 (whiff) / 153 (hit)',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Kick',
@@ -3635,6 +4283,22 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      throw: [
+        {
+          move: 'Forward Throw',
+          input: '6 LP+LK',
+          startup: '5',
+          onHit: '+23',
+          total: '30 (whiff) / 132 (hit)',
+        },
+        {
+          move: 'Back Throw',
+          input: '4 LP+LK',
+          startup: '5',
+          onHit: '+33',
+          total: '30 (whiff) / 106 (hit)',
+        },
+      ],
       'mash-light': [
         {
           move: 'Crouching Light Punch',
