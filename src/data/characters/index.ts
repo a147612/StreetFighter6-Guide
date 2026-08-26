@@ -235,6 +235,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['projectile'],
     backdashFrames: 23,
     frames: {
+      reversal: [
+        {
+          move: 'Cannon Spike (Overdrive)',
+          input: '623 KK',
+          startup: '6',
+          onBlock: '-40',
+          onHit: 'Knockdown +19',
+          total: '74',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -334,6 +344,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      reversal: [
+        {
+          move: 'Gou Shoryuken (Overdrive)',
+          input: '623 PP',
+          startup: '6',
+          onBlock: '-39',
+          onHit: 'Knockdown +14',
+          total: '68 (119 on hit)',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -446,6 +466,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      reversal: [
+        {
+          move: 'Rising Uppercut (Overdrive)',
+          input: '623 PP',
+          startup: '6',
+          onBlock: '-40',
+          onHit: 'Knockdown +25',
+          total: '65',
+        },
+      ],
       'mash-light': [
         {
           move: 'Crouching Light Punch',
@@ -546,6 +576,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'super-reversal', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      reversal: [
+        {
+          move: 'Shoryuken (Overdrive)',
+          input: '623 PP',
+          startup: '6',
+          onBlock: '-40',
+          onHit: 'Knockdown +29',
+          total: '67',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -652,6 +692,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab'],
     backdashFrames: 25,
     frames: {
+      reversal: [
+        {
+          move: 'Tensho Kicks (Overdrive)',
+          input: '22 KK',
+          startup: '6',
+          onBlock: '-40',
+          onHit: 'Knockdown +30',
+          total: '115',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -905,6 +955,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab'],
     backdashFrames: 23,
     frames: {
+      reversal: [
+        {
+          move: 'Tensenrin (Overdrive)',
+          input: '623 PP',
+          startup: '6',
+          onBlock: '-48',
+          onHit: 'Knockdown +5',
+          total: '75',
+          note: {
+            'zh-Hant':
+              '**兩邊都是全場最差的一顆**：命中只有 +5（別人是 +20 到 +40 的起攻），被防 −48（只有迪·傑更貴）。賭贏了換到中立，賭輸了被打一套 —— 這一顆是純粹的保命鍵，不是翻盤鍵。',
+            en: '**The worst one on the roster at both ends**: +5 on hit where everyone else converts into +20 to +40 of oki, and -48 on block with only Dee Jay behind her. Win the gamble and you get neutral; lose it and you get combo\u2019d. This is a survival button, not a comeback button.',
+            ja: '**両端ともロスター最悪**。ヒットで+5（他キャラは+20〜+40の起き攻め）、ガードで−48（これより高いのはディージェイだけ）。賭けに勝って中立、負けてフルコンボ。逆転の一手ではなく、生き延びるためのボタン。',
+          },
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -1003,6 +1069,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      reversal: [
+        {
+          move: 'Tiger Uppercut (Overdrive)',
+          input: '623 PP',
+          startup: '8',
+          onBlock: '-43',
+          onHit: 'Knockdown +25',
+          total: '72',
+        },
+      ],
       'mash-light': [
         {
           move: 'Crouching Light Punch',
@@ -1102,6 +1178,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      reversal: [
+        {
+          move: 'Rising Tackle (Overdrive)',
+          input: '623 PP',
+          startup: '6',
+          onBlock: '-42',
+          onHit: 'Knockdown +27',
+          total: '69',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -1200,6 +1286,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      reversal: [
+        {
+          move: 'Psycho Uppercut (Overdrive)',
+          input: '623 PP',
+          startup: '13',
+          onBlock: '-28',
+          onHit: 'Knockdown +18',
+          total: '54',
+          note: {
+            'zh-Hant':
+              '**發生 13 幀、防禦時只有 −28** —— 全場最慢，但也是被防之後最便宜的。無敵有 1-12 幀蓋到出招，所以慢不影響它擋起身，只影響你拿它當確反用。',
+            en: '**Thirteen frames of startup and only -28 on block** — the slowest on the roster and also the cheapest one to have blocked. Invincibility runs 1-12, right up to the active frame, so the startup does not hurt it on wakeup; it hurts it as a punish.',
+            ja: '**発生13F、ガードで−28** ——ロスター最遅だが、ガードされたときの代償も最も安い。無敵は1-12Fで発生直前まで続くため、起き上がりでの性能は落ちない。落ちるのは確反用途のほう。',
+          },
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -1307,6 +1409,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'projectile'],
     backdashFrames: 23,
     frames: {
+      reversal: [
+        {
+          move: 'Scratch Wheel (Overdrive)',
+          input: '623 KK',
+          startup: '6',
+          onBlock: '-46',
+          onHit: 'Knockdown +25...',
+          total: '72',
+        },
+      ],
       'mash-light': [
         {
           move: 'Crouching Light Punch',
@@ -1416,6 +1528,22 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      reversal: [
+        {
+          move: 'Jackknife Maximum (Overdrive)',
+          input: '[2] 8 KK',
+          startup: '6',
+          onBlock: '-55',
+          onHit: 'Knockdown +23',
+          total: '77 whiff / 102 hit',
+          note: {
+            'zh-Hant':
+              '**防禦時 −55，全場最貴的一顆。** 猜錯不是被小連段，是被對手挑一套最痛的打。',
+            en: '**Minus fifty-five on block — the most expensive one on the roster.** Guessing wrong here does not cost you a short combo, it costs you whatever they feel like doing.',
+            ja: '**ガードで−55、ロスターで最も高くつく一発。** 読み負けたときに食らうのは軽いコンボではなく、相手が選んだ最大反撃。',
+          },
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -1518,6 +1646,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['projectile', 'air-throw'],
     backdashFrames: 25,
     frames: {
+      reversal: [
+        {
+          move: 'Arrow Kick (Overdrive)',
+          input: '623 KK',
+          startup: '6',
+          onBlock: '-43',
+          onHit: 'Knockdown +40',
+          total: '65',
+        },
+      ],
       'mash-light': [
         {
           move: 'Crouching Light Punch',
@@ -1629,6 +1767,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     backdashFrames: 23,
     frames: {
+      reversal: [
+        {
+          move: 'Vertical Rolling Attack (Overdrive)',
+          input: '[2] 8 KK',
+          startup: '7',
+          onBlock: '-40',
+          onHit: 'Knockdown +28',
+          total: '69 (70)',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Kick',
@@ -1724,6 +1872,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab'],
     backdashFrames: 25,
     frames: {
+      reversal: [
+        {
+          move: 'Spinning Mixer (Overdrive)',
+          input: '236 PP',
+          startup: '5 [4]',
+          onBlock: '-42 [-72]',
+          onHit: 'Knockdown +9 [Knockdown +42]',
+          total: '105 [114]',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -1831,6 +1989,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      reversal: [
+        {
+          move: 'Hishou Ryuuenjin (Overdrive)',
+          input: '623 KK',
+          startup: '6',
+          onBlock: '-40',
+          onHit: 'Knockdown +20 (Knockdown +27)',
+          total: '57',
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',
@@ -1942,6 +2110,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'projectile', 'super-reversal', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      reversal: [
+        {
+          move: 'Lipad ng Agila (Overdrive)',
+          input: '623 KK',
+          startup: '6',
+          onBlock: '-40',
+          onHit: 'Knockdown +21',
+          total: '61 (83 on hit)',
+        },
+      ],
       'mash-light': [
         {
           move: 'Crouching Light Punch',
@@ -2037,6 +2215,22 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      reversal: [
+        {
+          move: 'Amnesia',
+          input: '22 KK',
+          startup: '3 (1)',
+          onBlock: '"+28" ("+28, +28")',
+          onHit: 'Knockdown "+88" (Knockdown "+131")',
+          total: '55 (55)',
+          note: {
+            'zh-Hant':
+              'UFD 把兩個版本寫在同一列，**括號裡的是 OD 版**。一般版只擋打擊、3-18 幀；**OD 版連摔投一起擋，而且從第 1 幀開始**（1-20）—— 這是全場少數「一顆按鈕同時吃下打擊和摔投」的起身選項。',
+            en: 'UFD keeps both versions on one row and **the parenthesised values are the OD one**. The normal version counters strikes only, frames 3-18; **the OD version counters throws as well and starts on frame 1** (1-20), which makes it one of the few wakeup buttons on the roster that covers a strike and a throw at once.',
+            ja: 'UFDは両バージョンを同じ行に載せており、**括弧内がOD版**。通常版は打撃のみ3-18F、**OD版は投げも受け、しかも1F目から**（1-20）。打撃と投げを一手で同時にカバーできる数少ない起き上がり択。',
+          },
+        },
+      ],
       'mash-light': [
         {
           move: 'Crouching Light Punch',
@@ -2332,6 +2526,21 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      reversal: [
+        {
+          move: 'Sun Veil',
+          input: '22 KK',
+          startup: '6 (1)',
+          onHit: '+23 (+52)',
+          total: '55',
+          note: {
+            'zh-Hant':
+              'UFD 把兩個版本寫在同一列，**括號裡的是 OD 版**。一般版吸打擊和彈幕、6-20 幀；**OD 版連摔投一起吸，1-20 幀**。它是當身不是升龍，所以「防禦時」欄位不適用。',
+            en: 'UFD keeps both versions on one row and **the parenthesised values are the OD one**. The normal version absorbs strikes and projectiles, frames 6-20; **the OD version absorbs throws too, frames 1-20**. It is a counter rather than an uppercut, which is why the on-block column does not apply.',
+            ja: 'UFDは両バージョンを同じ行に載せており、**括弧内がOD版**。通常版は打撃と飛び道具を6-20Fで吸収、**OD版は投げも含めて1-20F**。昇龍ではなく当身なので、ガード時の欄は該当しない。',
+          },
+        },
+      ],
       'mash-light': [
         {
           move: 'Standing Light Punch',

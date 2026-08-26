@@ -393,7 +393,10 @@ export function OptionTable({
                             <span className="opt-row__frames mono">
                               {row.frames.length > 1
                                 ? `${row.frames.length}×`
-                                : `${row.frames[0].startup}F`}
+                                : // Startup is stored as UFD writes it, which can be
+                                  // "3 (1)" or "16...32". The badge wants the number
+                                  // you would say out loud; the rest is in the table.
+                                  `${row.frames[0].startup.match(/\d+/)?.[0] ?? row.frames[0].startup}F`}
                             </span>
                           )}
                           {row.opponentNotes && row.opponentNotes.length > 0 && (

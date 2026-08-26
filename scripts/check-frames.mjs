@@ -120,8 +120,8 @@ for (const character of CHARACTERS) {
       for (const field of FIELDS) {
         const ours = authored[field]
         if (ours === undefined) continue
-        // UFD writes an absent value as "--" or blank; we omit the field.
-        const theirs = live[field] === '--' ? '' : live[field]
+        // UFD writes an absent value as "--" or "**"; we omit the field.
+        const theirs = live[field] === '--' || live[field] === '**' ? '' : live[field]
         if (ours !== theirs) {
           problems.push(
             `${character.id} / ${optionId} / ${authored.move}: ${field} is ` +
