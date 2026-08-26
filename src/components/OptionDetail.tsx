@@ -7,7 +7,7 @@ import { Emphasis } from './viz/Emphasis'
 import { getOption, type OptionRow } from '~/data'
 import { counteredBy } from '~/data/schema'
 import { getCharacter } from '~/data'
-import { useCharacter } from '~/lib/prefs'
+import { useCharacter, useOpponent } from '~/lib/prefs'
 
 /**
  * Everything the table row leaves out, plus everything a narrow screen had to
@@ -16,8 +16,9 @@ import { useCharacter } from '~/lib/prefs'
  */
 export function OptionDetail({ row }: { row: OptionRow }) {
   const { t, text } = useT()
-  const { def, evaluation, characterNote, inputIsCharacters } = row
+  const { def, evaluation, characterNote, inputIsCharacters, opponentNotes } = row
   const character = getCharacter(useCharacter())
+  const opponent = getCharacter(useOpponent())
   const { cost } = def
 
   const costLabel =
@@ -131,6 +132,24 @@ export function OptionDetail({ row }: { row: OptionRow }) {
           <span className="detail__charnote-who">{text(character.name)}</span>
           <Emphasis text={text(characterNote)} />
         </p>
+      )}
+
+      {/* The other half of the matchup layer. The trait is the attribution, not
+          the character: "no invincible reversal" says why the advice holds,
+          and it holds identically for the other ten who share it. */}
+      {opponentNotes && opponentNotes.length > 0 && opponent && (
+        <div className="detail__opponent">
+          <p className="option__label">
+            {t.matchup.affects}
+            <span className="detail__opponent-who">{text(opponent.name)}</span>
+          </p>
+          {opponentNotes.map((note) => (
+            <p key={note.traitId} className="detail__oppnote small">
+              <span className="detail__oppnote-trait">{text(note.trait)}</span>
+              <Emphasis text={text(note.text)} />
+            </p>
+          ))}
+        </div>
       )}
 
       {evaluation.versus.length > 0 && (

@@ -37,7 +37,7 @@ export default function App() {
     () =>
       situation
         ? resolveMatchup(situation, getCharacter(characterId), getCharacter(opponentId))
-        : { rows: [], opponentOptions: [], removedColumns: [] },
+        : { rows: [], opponentOptions: [], removedColumns: [], traits: [] },
     [situation, characterId, opponentId],
   )
 
@@ -199,7 +199,7 @@ export default function App() {
 
             <DefaultMix rows={matchup.rows} />
 
-            <MatchupNote removed={matchup.removedColumns} />
+            <MatchupNote removed={matchup.removedColumns} traits={matchup.traits} />
 
             <OptionTable
               key={situation.id}

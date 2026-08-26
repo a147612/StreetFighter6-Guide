@@ -41,7 +41,7 @@ try {
   process.exit(1)
 }
 
-const { OPTIONS, SITUATIONS, CHARACTERS } = await import(pathToFileURL(outfile).href)
+const { OPTIONS, SITUATIONS, CHARACTERS, OPPONENT_TRAITS } = await import(pathToFileURL(outfile).href)
 await rm(workDir, { recursive: true, force: true })
 
 /* ── Options ─────────────────────────────────────────────────────── */
@@ -363,6 +363,111 @@ for (const situation of SITUATIONS) {
   }
 }
 
+/* ── Opponent traits ──────────────────────────────────────────────────
+   A trait is written once and points at the characters that have it, which is
+   the only reason 961 matchups fit in seven paragraphs — and also the only
+   place a roster can quietly disagree with the overlay it is describing. The
+   derived ones cannot: they read `removesOptions`. These check the rest. */
+
+const traits = OPPONENT_TRAITS ?? []
+const traitIds = new Set()
+let traitNotes = 0
+
+for (const trait of traits) {
+  const where = `trait "${trait.id}"`
+  if (traitIds.has(trait.id)) errors.push(`duplicate ${where}`)
+  traitIds.add(trait.id)
+  checkLocales(trait.name, `${where} name`)
+  checkLocales(trait.hint, `${where} hint`)
+
+  if (!trait.sources || trait.sources.length === 0) {
+    errors.push(`${where} has no source`)
+  }
+  for (const source of trait.sources ?? []) {
+    if (!/^[\x20-\x7E]*$/.test(source.patch)) {
+      errors.push(`${where} source patch "${source.patch}" is not locale-neutral`)
+    }
+  }
+
+  const members = roster.filter((character) => trait.has(character))
+  if (members.length === 0) {
+    errors.push(`${where} matches no character, so its notes can never render`)
+  } else if (members.length === roster.length) {
+    errors.push(
+      `${where} matches all ${members.length} characters — a property everybody ` +
+        `has is not a matchup fact, it is a rule, and rules belong in the option`,
+    )
+  }
+
+  for (const [optionId, note] of Object.entries(trait.affects ?? {})) {
+    traitNotes++
+    checkLocales(note, `${where} affects "${optionId}"`)
+    if (!optionIds.has(optionId)) {
+      errors.push(`${where} annotates unknown option "${optionId}"`)
+    } else if (!rowIds.has(optionId)) {
+      // Notes hang off *your* rows. Pointed at a column, the advice is written
+      // about a button you never press and nothing renders it.
+      errors.push(
+        `${where} annotates "${optionId}", which is never graded as a row — ` +
+          `trait notes attach to your options, not to the opponent's columns`,
+      )
+    }
+  }
+  if (Object.keys(trait.affects ?? {}).length === 0) {
+    warnings.push(`${where} changes nothing about any option`)
+  }
+}
+
+/* The command-grab traits split one roster three ways — unreactable, off a
+   setup, and slow enough to see. Three lists that must add up to exactly the
+   eleven characters who have the option, with nobody counted twice: a name in
+   the wrong bucket is advice that is precisely backwards. */
+const grabTraits = traits.filter((trait) => trait.id.endsWith('command-grab'))
+const grabbers = new Set(
+  roster.filter((c) => !(c.removesOptions ?? []).includes('command-grab')).map((c) => c.id),
+)
+const claimed = new Map()
+for (const trait of grabTraits) {
+  for (const character of roster.filter((c) => trait.has(c))) {
+    if (claimed.has(character.id)) {
+      errors.push(
+        `character "${character.id}" is in both "${claimed.get(character.id)}" and ` +
+          `"${trait.id}" — the command-grab traits give opposite advice`,
+      )
+    }
+    claimed.set(character.id, trait.id)
+    if (!grabbers.has(character.id)) {
+      errors.push(
+        `trait "${trait.id}" lists "${character.id}", who has no command grab at all`,
+      )
+    }
+  }
+}
+for (const id of grabbers) {
+  if (!claimed.has(id)) {
+    errors.push(
+      `character "${id}" has a command grab that no trait describes — the reader ` +
+        `is told nothing about whether they can react to it`,
+    )
+  }
+}
+
+/* `charge` is listed by hand because no field records it. The per-character
+   inputs do though, in UFD's own notation, so the list is checkable. */
+const chargeTrait = traits.find((trait) => trait.id === 'charge')
+if (chargeTrait) {
+  for (const character of roster) {
+    const inputs = Object.values(character.overrides ?? {}).map((o) => o.input ?? '')
+    const holdsCharge = inputs.some((input) => input.includes('['))
+    if (holdsCharge !== chargeTrait.has(character)) {
+      errors.push(
+        `character "${character.id}" ${holdsCharge ? 'has' : 'has no'} charge input, ` +
+          `but the charge trait says ${chargeTrait.has(character) ? 'they do' : 'they do not'}`,
+      )
+    }
+  }
+}
+
 function checkLocales(value, where) {
   if (!value || typeof value !== 'object') {
     errors.push(`${where} is not a localised string`)
@@ -381,6 +486,7 @@ console.log(
     `${characterIds.size} characters (${noReversalCount} with no OD reversal), ` +
     `${evaluationCount} evaluations (${sourcedCount} sourced / ${estimated} estimated), ` +
     `${cutPages}/${SITUATIONS.length * roster.length} matchup pages drop a column, ` +
+    `${traitIds.size} opponent traits (${traitNotes} notes), ` +
     `${errors.length} error(s), ${warnings.length} warning(s)`,
 )
 

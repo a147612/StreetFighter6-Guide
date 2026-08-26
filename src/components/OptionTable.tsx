@@ -382,6 +382,19 @@ export function OptionTable({
                               ★
                             </span>
                           )}
+                          {/* This row reads differently against the opponent
+                              you picked. Marked here because the reason is in
+                              the detail panel, and nothing else on the closed
+                              row would tell you there was one to open. */}
+                          {row.opponentNotes && row.opponentNotes.length > 0 && (
+                            <span
+                              className="opt-row__matchup"
+                              title={row.opponentNotes.map((n) => text(n.trait)).join(' · ')}
+                              aria-hidden="true"
+                            >
+                              ◆
+                            </span>
+                          )}
                         </button>
                       </th>
                       {columns.map(({ id, def: opponent }) => (

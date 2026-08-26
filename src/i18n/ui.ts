@@ -94,7 +94,7 @@ export interface UiStrings {
   /** What picking an opponent did to the table. Stated either way: a matchup
    *  that changes nothing has to say so, or a filter that quietly did nothing
    *  reads as a filter that is broken. */
-  matchup: { removed: string; same: string }
+  matchup: { removed: string; same: string; traits: string; affects: string }
   browse: { groups: string; situations: string; notWritten: string; coverage: string }
 
   risk: { label: string; safe: string; low: string; medium: string; high: string; extreme: string }
@@ -226,6 +226,8 @@ const zhHant: UiStrings = {
   matchup: {
     removed: '這隻對手沒有的選項，已從表中移除',
     same: '這個情境沒有差別 —— 對手的選項跟通用表完全一樣',
+    traits: '對手特性',
+    affects: '對上這隻角色',
   },
   glossary: {
     intro: '三種語言並排，方便對照日文或英文攻略裡的說法。括號裡是同義的別稱。',
@@ -383,6 +385,8 @@ const en: UiStrings = {
   matchup: {
     removed: 'Removed — this opponent does not have',
     same: 'No difference here — this opponent has every column the universal table lists',
+    traits: 'This opponent',
+    affects: 'Against this opponent',
   },
   glossary: {
     intro: 'All three languages side by side, so a Japanese or English guide maps onto what you read here. Aliases follow the main name.',
@@ -541,6 +545,8 @@ const ja: UiStrings = {
   matchup: {
     removed: 'この相手が持たない択を表から除外した',
     same: 'この状況では差がない —— 相手は汎用表の択をすべて持っている',
+    traits: '相手の特性',
+    affects: 'この相手に対して',
   },
   glossary: {
     intro: '三言語を並べて表示する。日本語や英語の攻略で使われる呼び方との対応が取れる。括弧内は別称。',

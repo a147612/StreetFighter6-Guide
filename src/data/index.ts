@@ -1,5 +1,6 @@
-import type { I18nText, OptionDef, OptionEval, Situation } from './schema'
+import type { I18nText, OptionDef, OptionEval, Situation, Source } from './schema'
 import { getOption } from './options'
+import { traitsFor, type OpponentTrait } from './traits'
 import type { CharacterOverlay } from './schema'
 import { GROUP_A } from './situations/a-wakeup'
 import { GROUP_B } from './situations/b-blockstring'
@@ -16,6 +17,7 @@ import { GROUP_K } from './situations/k-closing-in'
 export * from './schema'
 export { OPTIONS, getOption } from './options'
 export { CHARACTERS, getCharacter } from './characters'
+export { OPPONENT_TRAITS, traitsFor, type OpponentTrait } from './traits'
 
 /** A situation's evaluation joined to the option it grades. */
 export interface OptionRow {
@@ -27,6 +29,17 @@ export interface OptionRow {
   /** `def.input` came from the character overlay, so it is true for them and
    *  worth showing. The universal one never is, and stays hidden. */
   inputIsCharacters?: true
+  /** What the *opponent's* character changes about pressing this. Attached by
+   *  trait, so one sentence covers everyone who shares the property. */
+  opponentNotes?: OpponentNote[]
+}
+
+/** One trait's advice about one option, resolved for the picked opponent. */
+export interface OpponentNote {
+  traitId: string
+  trait: I18nText
+  text: I18nText
+  sources: Source[]
 }
 
 export const SITUATIONS: Situation[] = [
@@ -111,6 +124,13 @@ export interface MatchupView {
    *  ninety-two percent of cells are the same in every matchup, so a table that
    *  silently loses a column reads as a table that was never matchup-aware. */
   removedColumns: OptionDef[]
+  /** The opponent's traits that actually changed a row *on this page*, carried
+   *  up so the matchup line can state them once rather than leaving them to be
+   *  found one expanded row at a time. Filtered deliberately: a five-frame
+   *  command grab explains nothing on an oki page, where every row is one of
+   *  your offensive options, and a chip that explains nothing is noise sitting
+   *  where the reader looks for what changed. */
+  traits: OpponentTrait[]
 }
 
 /**
@@ -122,37 +142,62 @@ export interface MatchupView {
  * detail list cannot go on naming a button nobody in this match can press.
  *
  * Only four of the twenty-five column ids vary by character (`projectile`,
- * `reversal`, `super-reversal`, `air-throw`), which is the honest size of this:
- * it subtracts what cannot happen, it does not re-grade what can. A matchup
- * where nothing is removed is the common case, not a bug.
+ * `reversal`, `super-reversal`, `air-throw`), so subtraction alone leaves 676
+ * of the 806 pages identical. The traits are the other half: they annotate
+ * rows that survive, which is where most of what a matchup actually changes
+ * lives. Neither half re-grades — risk and reward stay the situation's.
  */
 export function resolveMatchup(
   situation: Situation,
   me?: CharacterOverlay,
   them?: CharacterOverlay,
 ): MatchupView {
-  const rows = applyOverlay(resolveRows(situation), me)
+  const base = applyOverlay(resolveRows(situation), me)
+  const traits = traitsFor(them)
   const gone = new Set(them?.removesOptions ?? [])
   const removedIds = situation.opponentOptions.filter((id) => gone.has(id))
-  if (removedIds.length === 0) {
-    return { rows, opponentOptions: situation.opponentOptions, removedColumns: [] }
-  }
-  return {
-    rows: rows.map((row) =>
-      row.evaluation.versus.some((entry) => gone.has(entry.vs))
+
+  const rows = base.map((row) => {
+    const opponentNotes: OpponentNote[] = []
+    for (const trait of traits) {
+      const text = trait.affects[row.def.id]
+      if (text) {
+        opponentNotes.push({
+          traitId: trait.id,
+          trait: trait.name,
+          text,
+          sources: trait.sources,
+        })
+      }
+    }
+    const cut = removedIds.length > 0 && row.evaluation.versus.some((entry) => gone.has(entry.vs))
+    if (opponentNotes.length === 0 && !cut) return row
+    return {
+      ...row,
+      ...(cut
         ? {
-            ...row,
             evaluation: {
               ...row.evaluation,
               versus: row.evaluation.versus.filter((entry) => !gone.has(entry.vs)),
             },
           }
-        : row,
-    ),
-    opponentOptions: situation.opponentOptions.filter((id) => !gone.has(id)),
+        : {}),
+      ...(opponentNotes.length > 0 ? { opponentNotes } : {}),
+    }
+  })
+
+  const applied = new Set(rows.flatMap((row) => row.opponentNotes?.map((n) => n.traitId) ?? []))
+
+  return {
+    rows,
+    opponentOptions:
+      removedIds.length > 0
+        ? situation.opponentOptions.filter((id) => !gone.has(id))
+        : situation.opponentOptions,
     removedColumns: removedIds
       .map((id) => getOption(id))
       .filter((def): def is OptionDef => Boolean(def)),
+    traits: traits.filter((trait) => applied.has(trait.id)),
   }
 }
 
