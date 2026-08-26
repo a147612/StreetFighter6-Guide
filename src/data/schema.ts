@@ -198,6 +198,18 @@ export interface Versus {
   /** Stated from *your* side: 'bigWin' means you come out well ahead. */
   outcome: Outcome
   note?: I18nText
+  /**
+   * This pairing legitimately resolves differently depending on who committed
+   * first, so the cross-seat sign check must not compare it.
+   *
+   * Explicit, and deliberately not inferred from `note`. The check used to
+   * exempt any cell that carried one, which meant writing an explanation
+   * silently switched the check off — and it hid a real contradiction:
+   * `command-grab` was graded as losing to Drive Impact in one place while
+   * twelve others said a throw beats armour. Six cells need this. Everything
+   * else is compared.
+   */
+  orderDependent?: true
 }
 
 /**

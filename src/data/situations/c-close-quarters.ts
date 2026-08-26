@@ -22,7 +22,7 @@ export const GROUP_C: Situation[] = [
     position: ['midscreen', 'nearCorner', 'cornered'],
     distance: 'pointBlank',
     stance: 'neutral',
-    opponentOptions: ['throw', 'shimmy', 'low-overhead-mix', 'poke', 'bait-block', 'dash-in'],
+    opponentOptions: ['throw', 'command-grab', 'shimmy', 'low-overhead-mix', 'poke', 'bait-block', 'dash-in'],
     evaluations: [
       {
         optionId: 'do-nothing',
@@ -52,6 +52,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'poke', outcome: 'win' },
           { vs: 'bait-block', outcome: 'even' },
           { vs: 'dash-in', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '21-29%',
         verified: 'sourced',
@@ -89,6 +90,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'shimmy', outcome: 'loss' },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '18-25%',
         verified: 'sourced',
@@ -139,6 +141,16 @@ export const GROUP_C: Situation[] = [
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '解摔的輸入對指令投不會發生作用 —— 它沒有解摔窗口。',
+              en: 'The tech input does nothing against a command grab: there is no tech window to hit.',
+              ja: '投げ抜けの入力はコマンド投げには作用しない。抜ける窓が存在しない。',
+            },
+          },
         ],
         mixRatio: '7-11%',
         verified: 'sourced',
@@ -182,6 +194,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'poke', outcome: 'loss' },
           { vs: 'dash-in', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '11-14%',
         verified: 'sourced',
@@ -203,7 +216,75 @@ export const GROUP_C: Situation[] = [
           ja: '最も見落とされている投げ対策。投げ抜けと違い硬直がなく、外しても重い反撃ではなく被弾で済む。',
         },
       },
-      {
+        {
+        optionId: 'jump-neutral',
+        risk: 'extreme',
+        reward: 'none',
+        onSuccess: {
+          text: {
+            'zh-Hant': '起跳成功的時候摔投會落空 —— 但你有劣勢，這種情況很少發生。',
+            en: 'When the jump does get off the ground the throw whiffs — but you are minus, and that combination does not come up often.',
+            ja: '跳び上がれた場合は投げが空振りする——ただしこちらは不利フレームで、その状況はめったに起きない。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '他有利，你起跳的 4 幀他隨便按一顆都打得到。貼身被打到空中通常是一整套。',
+            en: 'They are plus and any button they press catches your four prejump frames. Being hit into the air at point blank is usually a full combo.',
+            ja: '相手は有利で、どのボタンを押してもこちらの4Fの跳び上がりを狩れる。密着で空中に浮かされればたいていフルコンボになる。',
+          },
+          hpLoss: '30-45%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'throw',
+            outcome: 'loss',
+            orderDependent: true,
+            note: {
+              'zh-Hant':
+                '他有利，代表他先動 —— 你 4 幀的起跳還在地上時投就抓到了。跳躲得掉投的前提是兩邊同時動，而這裡不是。',
+              en: 'They are plus, so they move first: the throw lands while your four prejump frames are still on the ground. A jump escapes a throw only when both of you start together, and here you do not.',
+              ja: '相手が有利ということは先に動けるということで、こちらの4Fの跳び上がりはまだ地上にある間に投げが成立する。ジャンプで投げを避けられるのは同時に動いた場合だけで、ここはそうではない。',
+            },
+          },
+          {
+            vs: 'command-grab',
+            outcome: 'loss',
+            orderDependent: true,
+            note: {
+              'zh-Hant':
+                '同樣的道理，而且代價更高 —— 起身和五五時垂直跳是指令投的答案，你有劣勢的時候它不是。差的是幀數，不是選項。',
+              en: 'The same reason and a higher price. A neutral jump is the answer to a command grab on wakeup and at neutral; while you are minus it is not. What changed is the frame advantage, not the option.',
+              ja: '理屈は同じで代償はさらに大きい。垂直ジャンプは起き上がりや五分ではコマンド投げへの答えになるが、不利フレームを背負っている間は答えにならない。変わったのは択ではなくフレーム差である。',
+            },
+          },
+          { vs: 'shimmy', outcome: 'loss' },
+          { vs: 'poke', outcome: 'loss' },
+          { vs: 'bait-block', outcome: 'loss' },
+          { vs: 'dash-in', outcome: 'loss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/zangief',
+            patch: '2026-08',
+            note: 'Screw Piledriver 抓空 61 幀。同一頁的普通前摔抓空 30 幀 —— 差距就是落地打不打得到的分界。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/ryu',
+            patch: '2026-08',
+            note: 'Prejump Frames — 4。起跳前這 4 幀還在地上，也是投抓得到的幀 —— 所以對手有利的時候跳躲不掉投。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '這一列存在是為了說明它在這裡不成立。同一個垂直跳，倒地起身和五五對峙時是指令投的答案，你有劣勢時完全不是 —— 決定它的是幀數差，不是選項本身。',
+          en: 'This row is here to say that it does not work here. The same neutral jump answers a command grab on wakeup and at neutral, and answers nothing while you are minus. Frame advantage decides it, not the option.',
+          ja: 'この行はここでは成立しないことを示すために存在する。同じ垂直ジャンプが起き上がりと五分ではコマンド投げへの答えになり、不利フレーム中は何の答えにもならない。決めるのはフレーム差であって択ではない。',
+        },
+      },
+    {
         optionId: 'backdash',
         risk: 'high',
         reward: 'low',
@@ -229,6 +310,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'poke', outcome: 'loss' },
           { vs: 'dash-in', outcome: 'loss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '4-7%',
         verified: 'sourced',
@@ -272,6 +354,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'poke', outcome: 'win' },
           { vs: 'low-overhead-mix', outcome: 'even' },
           { vs: 'dash-in', outcome: 'win' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '11-14%',
         verified: 'sourced',
@@ -311,6 +394,16 @@ export const GROUP_C: Situation[] = [
           { vs: 'poke', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'dash-in', outcome: 'win' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '4 幀的小技比 5 幀的指令投先打到。他延遲一拍，這一手就變成他的確反。',
+              en: 'A 4-frame light hits before a 5-frame command grab. Delayed by a beat, the same button becomes their punish.',
+              ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たる。一拍遅らされれば同じボタンが相手の確反になる。',
+            },
+          },
         ],
         mixRatio: '4-7%',
         verified: 'sourced',
@@ -355,6 +448,16 @@ export const GROUP_C: Situation[] = [
           { vs: 'shimmy', outcome: 'win' },
           { vs: 'dash-in', outcome: 'win' },
           { vs: 'bait-block', outcome: 'even' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant':
+                '抓空的指令投 60 幀上下，是全遊戲最好確反的東西之一 —— 守住你的距離，等他伸手。',
+              en: 'A whiffed command grab is around sixty frames, which makes it one of the most punishable things in the game. Hold your range and let them reach.',
+              ja: '空振りしたコマンド投げは60F前後で、ゲーム中でも屈指の確定反撃対象になる。自分の間合いを保って相手が手を出すのを待てばよい。',
+            },
+          },
         ],
         mixRatio: '7-11%',
         verified: 'sourced',
@@ -385,7 +488,7 @@ export const GROUP_C: Situation[] = [
     position: ['midscreen', 'nearCorner', 'cornered'],
     distance: 'close',
     stance: 'neutral',
-    opponentOptions: ['throw', 'shimmy', 'low-overhead-mix', 'poke', 'bait-block', 'dash-in'],
+    opponentOptions: ['throw', 'command-grab', 'shimmy', 'low-overhead-mix', 'poke', 'bait-block', 'dash-in'],
     evaluations: [
       {
         optionId: 'do-nothing',
@@ -415,6 +518,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'poke', outcome: 'win' },
           { vs: 'bait-block', outcome: 'even' },
           { vs: 'dash-in', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '15-18%',
         verified: 'sourced',
@@ -452,6 +556,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'shimmy', outcome: 'loss' },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '18-25%',
         verified: 'sourced',
@@ -502,6 +607,16 @@ export const GROUP_C: Situation[] = [
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'low-overhead-mix', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '解摔的輸入對指令投不會發生作用 —— 它沒有解摔窗口。',
+              en: 'The tech input does nothing against a command grab: there is no tech window to hit.',
+              ja: '投げ抜けの入力はコマンド投げには作用しない。抜ける窓が存在しない。',
+            },
+          },
         ],
         mixRatio: '7-11%',
         verified: 'sourced',
@@ -545,6 +660,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'poke', outcome: 'loss' },
           { vs: 'dash-in', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'even' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '11-15%',
         verified: 'sourced',
@@ -566,7 +682,74 @@ export const GROUP_C: Situation[] = [
           ja: '最も見落とされている投げ対策。投げ抜けと違い硬直がなく、外しても重い反撃ではなく被弾で済む。',
         },
       },
-      {
+        {
+        optionId: 'jump-neutral',
+        risk: 'high',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '摔投從你腳下落空，你原地落回原位。五五的距離下他不一定來得及對空。',
+            en: 'The throw whiffs under you and you come straight back down where you were. At even frames they may not have time to anti-air.',
+            ja: '投げが足元を空振りし、元の位置にそのまま落ちる。五分の間合いでは相手が対空を間に合わせられるとは限らない。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '空中不能防禦。被看到就是對空，而對空通常接得到連段。',
+            en: 'You cannot block in the air. Seen, it is an anti-air, and an anti-air usually converts.',
+            ja: '空中ではガードできない。見られれば対空され、対空はたいていコンボに繋がる。',
+          },
+          hpLoss: '30-45%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '普通摔投抓空只有 30 幀，你落地時他已經恢復了 —— 躲掉，僅此而已。',
+              en: 'A whiffed normal throw is only 30 frames and they have recovered by the time you land. You escaped, and that is all.',
+              ja: '通常投げの空振りは30Fしかなく、着地する頃には回復している。避けただけ。',
+            },
+          },
+          {
+            vs: 'command-grab',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant':
+                '抓空的指令投是 60 幀上下 —— 你落地他還站在那裡。五五的距離下這是這一頁回報最高的一格。',
+              en: 'A whiffed command grab is around sixty frames, so you land while they are still standing in it. At even frames this is the highest-paying cell on the page.',
+              ja: '空振りしたコマンド投げは60F前後で、着地したとき相手はまだそこに立っている。五分の状況ではこのページで最もリターンの高いマス。',
+            },
+          },
+          { vs: 'shimmy', outcome: 'loss' },
+          { vs: 'low-overhead-mix', outcome: 'loss' },
+          { vs: 'poke', outcome: 'even' },
+          { vs: 'bait-block', outcome: 'loss' },
+          { vs: 'dash-in', outcome: 'loss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/zangief',
+            patch: '2026-08',
+            note: 'Screw Piledriver 抓空 61 幀。同一頁的普通前摔抓空 30 幀 —— 差距就是落地打不打得到的分界。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/ryu',
+            patch: '2026-08',
+            note: 'Prejump Frames — 4。起跳前這 4 幀還在地上，也是投抓得到的幀 —— 所以對手有利的時候跳躲不掉投。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '五五的時候它才成立 —— 你要跟他同時動，跳才走得掉。這是它跟後衝刺最大的差別：後衝刺從第一幀就有投擲無敵，有劣勢也用得了，垂直跳不行。',
+          en: 'It only works at even frames, because the jump has to start with them to leave the ground in time. That is the difference from a backdash, which is throw invincible from frame one and still works while you are minus.',
+          ja: '成立するのは五分のときだけで、相手と同時に動かなければ地面を離れるのが間に合わない。ここがバックダッシュとの差で、あちらは1Fから投げ無敵なので不利フレームでも機能する。',
+        },
+      },
+    {
         optionId: 'backdash',
         risk: 'high',
         reward: 'low',
@@ -592,6 +775,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'poke', outcome: 'loss' },
           { vs: 'dash-in', outcome: 'loss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '4-7%',
         verified: 'sourced',
@@ -635,6 +819,7 @@ export const GROUP_C: Situation[] = [
           { vs: 'poke', outcome: 'win' },
           { vs: 'low-overhead-mix', outcome: 'even' },
           { vs: 'dash-in', outcome: 'win' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '11-15%',
         verified: 'sourced',
@@ -674,6 +859,16 @@ export const GROUP_C: Situation[] = [
           { vs: 'poke', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'dash-in', outcome: 'win' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '4 幀的小技比 5 幀的指令投先打到。他延遲一拍，這一手就變成他的確反。',
+              en: 'A 4-frame light hits before a 5-frame command grab. Delayed by a beat, the same button becomes their punish.',
+              ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たる。一拍遅らされれば同じボタンが相手の確反になる。',
+            },
+          },
         ],
         mixRatio: '11-15%',
         verified: 'sourced',
@@ -718,6 +913,16 @@ export const GROUP_C: Situation[] = [
           { vs: 'shimmy', outcome: 'win' },
           { vs: 'dash-in', outcome: 'win' },
           { vs: 'bait-block', outcome: 'even' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant':
+                '抓空的指令投 60 幀上下，是全遊戲最好確反的東西之一 —— 守住你的距離，等他伸手。',
+              en: 'A whiffed command grab is around sixty frames, which makes it one of the most punishable things in the game. Hold your range and let them reach.',
+              ja: '空振りしたコマンド投げは60F前後で、ゲーム中でも屈指の確定反撃対象になる。自分の間合いを保って相手が手を出すのを待てばよい。',
+            },
+          },
         ],
         mixRatio: '7-11%',
         verified: 'sourced',

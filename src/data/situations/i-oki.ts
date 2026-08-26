@@ -25,7 +25,7 @@ export const GROUP_I: Situation[] = [
     position: ['midscreen', 'nearCorner', 'cornered'],
     distance: 'pointBlank',
     stance: 'theyAreDown',
-    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal', 'backdash', 'drive-reversal'],
+    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal', 'backdash', 'jump-neutral', 'drive-reversal'],
     evaluations: [
       {
         optionId: 'meaty',
@@ -63,6 +63,16 @@ export const GROUP_I: Situation[] = [
               'zh-Hant': '硬直短的招壓起身（詐欺重ね）來得及擋下 18 幀的起身動力反攻；壓一招收招長的就會被無敵打斷。壓什麼決定這一格是輸是贏。',
               en: 'A low-recovery meaty — a safe meaty — recovers in time to block an 18-frame wakeup Drive Reversal; a long one gets blown through by the invincibility. Which button you meaty with decides this cell.',
               ja: '硬直の短い技で重ねる（詐欺重ね）なら発生18Fの起き上がりドライブリバーサルをガードで間に合わせられるが、硬直の長い技だと無敵で割られる。何を重ねるかでこのマスの勝敗が決まる。',
+            },
+          },
+          {
+            vs: 'jump-neutral',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '起跳前的 4 幀還在地上，壓起身照樣抓得到 —— 這是垂直跳唯一的破口。對面會跳不是不壓的理由，是壓準一點的理由。',
+              en: 'The four prejump frames are still grounded and the meaty catches them anyway. This is the only hole in a neutral jump: someone who jumps is a reason to time the meaty, not a reason to stop meatying.',
+              ja: '跳び上がる前の4Fはまだ地上で、重ねはそこを普通に狩る。垂直ジャンプ唯一の穴がここで、相手が跳ぶことは重ねをやめる理由ではなく、重ねを丁寧にする理由になる。',
             },
           },
         ],
@@ -125,6 +135,16 @@ export const GROUP_I: Situation[] = [
               'zh-Hant': '起身動力反攻發生時全程無敵，摔投抓不到 —— 摔會直接穿過去，然後你被打倒。',
               en: 'The wakeup Drive Reversal is invincible through its startup, so the throw simply whiffs through it and you get knocked down.',
               ja: '起き上がりドライブリバーサルは発生中ずっと無敵で、投げは素通りして空振りし、そのまま倒される。',
+            },
+          },
+          {
+            vs: 'jump-neutral',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '摔投抓不到空中的人。但普通摔抓空只有 30 幀，他落地時你已經恢復 —— 你摔空了，不是被確反。',
+              en: 'A throw cannot catch someone airborne. But a whiffed normal throw is only 30 frames and you are recovered by the time they land: you missed, you did not get punished.',
+              ja: '投げは空中の相手を掴めない。ただし通常投げの空振りは30Fしかなく、相手が着地する頃には回復している。外しただけで、確反にはならない。',
             },
           },
         ],
@@ -210,6 +230,16 @@ export const GROUP_I: Situation[] = [
             },
           },
           { vs: 'drive-reversal', outcome: 'loss' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '這是指令投在起攻裡唯一真正怕的東西 —— 抓空 60 幀上下，他落地就是一整套。要投之前先確認他不會跳，或者用壓起身把跳按死。',
+              en: 'This is the one thing a command grab on oki genuinely fears: around sixty frames of whiff, and they land on you for a full combo. Establish that they will not jump before you grab, or shut the jump down with a meaty.',
+              ja: '起き攻めでのコマンド投げが本当に怖いのはこれだけ。空振りは60F前後で、相手は着地してフルコンボを入れてくる。投げに行く前に跳ばないことを確認するか、重ねでジャンプを潰しておくこと。',
+            },
+          },
         ],
         notes: {
           'zh-Hant': '只有 11 隻角色有，所以它不在「預設打法」的比例裡 —— 那條是通用的。但對有的角色來說，它不是選項之一，而是整個起攻的核心：對手一旦不能靠防禦解決，你的壓起身和退康才真的有威脅。',
@@ -268,6 +298,7 @@ export const GROUP_I: Situation[] = [
               ja: 'シミーが最大の天敵。2ゲージの無敵技が空振りし、しかも硬直が長い。画面上で最も高くつく空振りになる。',
             },
           },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '10-13%',
         verified: 'sourced',
@@ -314,6 +345,7 @@ export const GROUP_I: Situation[] = [
           { vs: 'reversal', outcome: 'bigLoss' },
           { vs: 'backdash', outcome: 'win' },
           { vs: 'drive-reversal', outcome: 'loss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '10-13%',
         verified: 'sourced',
@@ -364,6 +396,7 @@ export const GROUP_I: Situation[] = [
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
           { vs: 'drive-reversal', outcome: 'loss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '10-17%',
         verified: 'sourced',
@@ -418,6 +451,7 @@ export const GROUP_I: Situation[] = [
               ja: 'ガードするだけで十分。ガードされたドライブリバーサルは−6で確定反撃が入り、相手の2ゲージはすでに消えている。',
             },
           },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '7-13%',
         verified: 'sourced',
@@ -512,6 +546,7 @@ export const GROUP_I: Situation[] = [
           { vs: 'delayed-tech', outcome: 'even' },
           { vs: 'backdash', outcome: 'even' },
           { vs: 'drive-reversal', outcome: 'win' },
+          { vs: 'jump-neutral', outcome: 'even' },
         ],
         mixRatio: '3-7%',
         verified: 'sourced',
@@ -547,7 +582,7 @@ export const GROUP_I: Situation[] = [
     position: ['midscreen', 'nearCorner', 'cornered'],
     distance: 'pointBlank',
     stance: 'theyAreDown',
-    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal', 'backdash', 'drive-reversal'],
+    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal', 'backdash', 'jump-neutral', 'drive-reversal'],
     evaluations: [
       {
         optionId: 'meaty',
@@ -585,6 +620,16 @@ export const GROUP_I: Situation[] = [
               'zh-Hant': '硬直短的招壓起身（詐欺重ね）來得及擋下 18 幀的起身動力反攻；壓一招收招長的就會被無敵打斷。壓什麼決定這一格是輸是贏。',
               en: 'A low-recovery meaty — a safe meaty — recovers in time to block an 18-frame wakeup Drive Reversal; a long one gets blown through by the invincibility. Which button you meaty with decides this cell.',
               ja: '硬直の短い技で重ねる（詐欺重ね）なら発生18Fの起き上がりドライブリバーサルをガードで間に合わせられるが、硬直の長い技だと無敵で割られる。何を重ねるかでこのマスの勝敗が決まる。',
+            },
+          },
+          {
+            vs: 'jump-neutral',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '起跳前的 4 幀還在地上，壓起身照樣抓得到 —— 這是垂直跳唯一的破口。對面會跳不是不壓的理由，是壓準一點的理由。',
+              en: 'The four prejump frames are still grounded and the meaty catches them anyway. This is the only hole in a neutral jump: someone who jumps is a reason to time the meaty, not a reason to stop meatying.',
+              ja: '跳び上がる前の4Fはまだ地上で、重ねはそこを普通に狩る。垂直ジャンプ唯一の穴がここで、相手が跳ぶことは重ねをやめる理由ではなく、重ねを丁寧にする理由になる。',
             },
           },
         ],
@@ -654,6 +699,16 @@ export const GROUP_I: Situation[] = [
               ja: '起き上がりドライブリバーサルは発生中ずっと無敵で、投げは素通りして空振りし、そのまま倒される。',
             },
           },
+          {
+            vs: 'jump-neutral',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '摔投抓不到空中的人。但普通摔抓空只有 30 幀，他落地時你已經恢復 —— 你摔空了，不是被確反。',
+              en: 'A throw cannot catch someone airborne. But a whiffed normal throw is only 30 frames and you are recovered by the time they land: you missed, you did not get punished.',
+              ja: '投げは空中の相手を掴めない。ただし通常投げの空振りは30Fしかなく、相手が着地する頃には回復している。外しただけで、確反にはならない。',
+            },
+          },
         ],
         mixRatio: '17-23%',
         verified: 'sourced',
@@ -737,6 +792,16 @@ export const GROUP_I: Situation[] = [
             },
           },
           { vs: 'drive-reversal', outcome: 'loss' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '這是指令投在起攻裡唯一真正怕的東西 —— 抓空 60 幀上下，他落地就是一整套。要投之前先確認他不會跳，或者用壓起身把跳按死。',
+              en: 'This is the one thing a command grab on oki genuinely fears: around sixty frames of whiff, and they land on you for a full combo. Establish that they will not jump before you grab, or shut the jump down with a meaty.',
+              ja: '起き攻めでのコマンド投げが本当に怖いのはこれだけ。空振りは60F前後で、相手は着地してフルコンボを入れてくる。投げに行く前に跳ばないことを確認するか、重ねでジャンプを潰しておくこと。',
+            },
+          },
         ],
         notes: {
           'zh-Hant': '只有 11 隻角色有，所以它不在「預設打法」的比例裡 —— 那條是通用的。但對有的角色來說，它不是選項之一，而是整個起攻的核心：對手一旦不能靠防禦解決，你的壓起身和退康才真的有威脅。',
@@ -795,6 +860,7 @@ export const GROUP_I: Situation[] = [
               ja: 'シミーが最大の天敵。2ゲージの無敵技が空振りし、しかも硬直が長い。画面上で最も高くつく空振りになる。',
             },
           },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '10-13%',
         verified: 'sourced',
@@ -841,6 +907,7 @@ export const GROUP_I: Situation[] = [
           { vs: 'reversal', outcome: 'bigLoss' },
           { vs: 'backdash', outcome: 'win' },
           { vs: 'drive-reversal', outcome: 'loss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '10-13%',
         verified: 'sourced',
@@ -891,6 +958,7 @@ export const GROUP_I: Situation[] = [
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
           { vs: 'drive-reversal', outcome: 'loss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '10-17%',
         verified: 'sourced',
@@ -945,6 +1013,7 @@ export const GROUP_I: Situation[] = [
               ja: 'ガードするだけで十分。ガードされたドライブリバーサルは−6で確定反撃が入り、相手の2ゲージはすでに消えている。',
             },
           },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '7-13%',
         verified: 'sourced',
@@ -1039,6 +1108,7 @@ export const GROUP_I: Situation[] = [
           { vs: 'delayed-tech', outcome: 'even' },
           { vs: 'backdash', outcome: 'even' },
           { vs: 'drive-reversal', outcome: 'win' },
+          { vs: 'jump-neutral', outcome: 'even' },
         ],
         mixRatio: '3-7%',
         verified: 'sourced',
@@ -1074,7 +1144,7 @@ export const GROUP_I: Situation[] = [
     position: ['midscreen', 'nearCorner', 'cornered'],
     distance: 'pointBlank',
     stance: 'theyAreDown',
-    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal', 'backdash', 'drive-reversal'],
+    opponentOptions: ['do-nothing', 'delayed-tech', 'drive-parry', 'mash-light', 'reversal', 'backdash', 'jump-neutral', 'drive-reversal'],
     evaluations: [
       {
         optionId: 'meaty',
@@ -1112,6 +1182,16 @@ export const GROUP_I: Situation[] = [
               'zh-Hant': '硬直短的招壓起身（詐欺重ね）來得及擋下 18 幀的起身動力反攻；壓一招收招長的就會被無敵打斷。壓什麼決定這一格是輸是贏。',
               en: 'A low-recovery meaty — a safe meaty — recovers in time to block an 18-frame wakeup Drive Reversal; a long one gets blown through by the invincibility. Which button you meaty with decides this cell.',
               ja: '硬直の短い技で重ねる（詐欺重ね）なら発生18Fの起き上がりドライブリバーサルをガードで間に合わせられるが、硬直の長い技だと無敵で割られる。何を重ねるかでこのマスの勝敗が決まる。',
+            },
+          },
+          {
+            vs: 'jump-neutral',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '起跳前的 4 幀還在地上，壓起身照樣抓得到 —— 這是垂直跳唯一的破口。對面會跳不是不壓的理由，是壓準一點的理由。',
+              en: 'The four prejump frames are still grounded and the meaty catches them anyway. This is the only hole in a neutral jump: someone who jumps is a reason to time the meaty, not a reason to stop meatying.',
+              ja: '跳び上がる前の4Fはまだ地上で、重ねはそこを普通に狩る。垂直ジャンプ唯一の穴がここで、相手が跳ぶことは重ねをやめる理由ではなく、重ねを丁寧にする理由になる。',
             },
           },
         ],
@@ -1181,6 +1261,16 @@ export const GROUP_I: Situation[] = [
               ja: '起き上がりドライブリバーサルは発生中ずっと無敵で、投げは素通りして空振りし、そのまま倒される。',
             },
           },
+          {
+            vs: 'jump-neutral',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '摔投抓不到空中的人。但普通摔抓空只有 30 幀，他落地時你已經恢復 —— 你摔空了，不是被確反。',
+              en: 'A throw cannot catch someone airborne. But a whiffed normal throw is only 30 frames and you are recovered by the time they land: you missed, you did not get punished.',
+              ja: '投げは空中の相手を掴めない。ただし通常投げの空振りは30Fしかなく、相手が着地する頃には回復している。外しただけで、確反にはならない。',
+            },
+          },
         ],
         mixRatio: '17-23%',
         verified: 'sourced',
@@ -1264,6 +1354,16 @@ export const GROUP_I: Situation[] = [
             },
           },
           { vs: 'drive-reversal', outcome: 'loss' },
+          {
+            vs: 'jump-neutral',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '這是指令投在起攻裡唯一真正怕的東西 —— 抓空 60 幀上下，他落地就是一整套。要投之前先確認他不會跳，或者用壓起身把跳按死。',
+              en: 'This is the one thing a command grab on oki genuinely fears: around sixty frames of whiff, and they land on you for a full combo. Establish that they will not jump before you grab, or shut the jump down with a meaty.',
+              ja: '起き攻めでのコマンド投げが本当に怖いのはこれだけ。空振りは60F前後で、相手は着地してフルコンボを入れてくる。投げに行く前に跳ばないことを確認するか、重ねでジャンプを潰しておくこと。',
+            },
+          },
         ],
         notes: {
           'zh-Hant': '只有 11 隻角色有，所以它不在「預設打法」的比例裡 —— 那條是通用的。但對有的角色來說，它不是選項之一，而是整個起攻的核心：對手一旦不能靠防禦解決，你的壓起身和退康才真的有威脅。',
@@ -1322,6 +1422,7 @@ export const GROUP_I: Situation[] = [
               ja: 'シミーが最大の天敵。2ゲージの無敵技が空振りし、しかも硬直が長い。画面上で最も高くつく空振りになる。',
             },
           },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '10-13%',
         verified: 'sourced',
@@ -1368,6 +1469,7 @@ export const GROUP_I: Situation[] = [
           { vs: 'reversal', outcome: 'bigLoss' },
           { vs: 'backdash', outcome: 'win' },
           { vs: 'drive-reversal', outcome: 'loss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '10-13%',
         verified: 'sourced',
@@ -1418,6 +1520,7 @@ export const GROUP_I: Situation[] = [
           { vs: 'mash-light', outcome: 'loss' },
           { vs: 'reversal', outcome: 'bigLoss' },
           { vs: 'drive-reversal', outcome: 'loss' },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '10-17%',
         verified: 'sourced',
@@ -1472,6 +1575,7 @@ export const GROUP_I: Situation[] = [
               ja: 'ガードするだけで十分。ガードされたドライブリバーサルは−6で確定反撃が入り、相手の2ゲージはすでに消えている。',
             },
           },
+          { vs: 'jump-neutral', outcome: 'win' },
         ],
         mixRatio: '7-13%',
         verified: 'sourced',
@@ -1566,6 +1670,7 @@ export const GROUP_I: Situation[] = [
           { vs: 'delayed-tech', outcome: 'even' },
           { vs: 'backdash', outcome: 'even' },
           { vs: 'drive-reversal', outcome: 'win' },
+          { vs: 'jump-neutral', outcome: 'even' },
         ],
         mixRatio: '3-7%',
         verified: 'sourced',

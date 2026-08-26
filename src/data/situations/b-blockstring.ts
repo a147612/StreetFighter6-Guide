@@ -234,6 +234,7 @@ export const GROUP_B: Situation[] = [
           {
             vs: 'throw',
             outcome: 'loss',
+            orderDependent: true,
             note: {
               'zh-Hant': '這一格看起來跟起攻頁矛盾，其實不是：防禦硬直中的動力反攻要「正在防禦」才出得來。對手收手、走過來摔你，你根本不在硬直裡，這一手不存在。起身版才是打擊和摔投都擋得掉的那個。',
               en: 'This looks like it contradicts the oki page and does not: a Drive Reversal out of blockstun needs you to be in blockstun. If they stop hitting and walk up to throw, you are not in it, and the option does not exist. The wakeup version is the one that covers both.',
@@ -674,6 +675,7 @@ export const GROUP_B: Situation[] = [
           {
             vs: 'throw',
             outcome: 'loss',
+            orderDependent: true,
             note: {
               'zh-Hant': '這一格看起來跟起攻頁矛盾，其實不是：防禦硬直中的動力反攻要「正在防禦」才出得來。對手收手、走過來摔你，你根本不在硬直裡，這一手不存在。起身版才是打擊和摔投都擋得掉的那個。',
               en: 'This looks like it contradicts the oki page and does not: a Drive Reversal out of blockstun needs you to be in blockstun. If they stop hitting and walk up to throw, you are not in it, and the option does not exist. The wakeup version is the one that covers both.',
@@ -1114,6 +1116,7 @@ export const GROUP_B: Situation[] = [
           {
             vs: 'throw',
             outcome: 'loss',
+            orderDependent: true,
             note: {
               'zh-Hant': '這一格看起來跟起攻頁矛盾，其實不是：防禦硬直中的動力反攻要「正在防禦」才出得來。對手收手、走過來摔你，你根本不在硬直裡，這一手不存在。起身版才是打擊和摔投都擋得掉的那個。',
               en: 'This looks like it contradicts the oki page and does not: a Drive Reversal out of blockstun needs you to be in blockstun. If they stop hitting and walk up to throw, you are not in it, and the option does not exist. The wakeup version is the one that covers both.',

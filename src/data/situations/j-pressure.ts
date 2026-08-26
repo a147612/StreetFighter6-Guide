@@ -164,7 +164,16 @@ export const GROUP_J: Situation[] = [
           },
           { vs: 'drive-parry', outcome: 'bigWin' },
           { vs: 'drive-reversal', outcome: 'loss' },
-          { vs: 'drive-impact', outcome: 'loss' },
+          {
+            vs: 'drive-impact',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant':
+                '霸體吃打擊，吃不了投 —— 這是動力衝擊永遠的破口，而指令投是那個洞裡最貴的一顆。這一格原本寫成指令投輸，跟本站其他十二個地方寫的「摔投打穿動力衝擊」互相矛盾。',
+              en: 'Armour eats strikes and not throws — Drive Impact\'s permanent hole, and a command grab is the most expensive thing that fits through it. This cell used to say the command grab lost, contradicting the twelve other places here that grade a throw as beating Drive Impact.',
+              ja: 'アーマーは打撃を吸うが投げは吸わない。ドライブインパクトの恒久的な穴であり、コマンド投げはその穴を通る最も高い一手になる。このマスは以前コマンド投げが負けると書かれており、本サイトの他12箇所の「投げはドライブインパクトを潰す」という記述と矛盾していた。',
+            },
+          },
           {
             vs: 'mash-light',
             outcome: 'loss',
@@ -368,7 +377,11 @@ export const GROUP_J: Situation[] = [
               ja: 'ドライブリバーサルはアーマーブレイク属性で発生中は無敵。アーマーでは受け止められず、そのまま割られる。',
             },
           },
-          { vs: 'drive-impact', outcome: 'loss' },
+          {
+            vs: 'drive-impact',
+            outcome: 'loss',
+            orderDependent: true,
+          },
           { vs: 'delayed-tech', outcome: 'loss' },
         ],
         mixRatio: '6-9%',

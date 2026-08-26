@@ -158,9 +158,10 @@ export const OPPONENT_TRAITS: TraitDef[] = [
         ja: 'このキャラに対して最もリターンの高い択。コマ投げの空振りは60F前後で、着地したとき相手はまだそこに立っており、フルコンボが入る。代償は跳び上がる前の4Fで、起き上がり1F目に合わせた投げには掴まれる。',
       },
       'mash-light': {
-        'zh-Hant': '速點跟 5 幀的指令投是純比快，你不會贏。要躲就跳或後衝刺。',
-        en: 'Mashing a light against a 5-frame grab is a race you lose. If you are escaping, jump or backdash.',
-        ja: '5Fのコマ投げに暴れで勝つ速度勝負は成立しない。逃げるならジャンプかバックダッシュ。',
+        'zh-Hant':
+          '4 幀的小技比 5 幀的指令投先打到 —— 速點在這裡是有效的，而且是最便宜的答案。但他只要延遲一拍，同一顆按鈕就變成他的確反。',
+        en: 'A 4-frame light hits before a 5-frame command grab, so mashing does work here and it is the cheapest answer there is. Delay it by a beat, though, and the same button becomes their punish.',
+        ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たるため、ここでの暴れは有効で、しかも最も安い対策になる。ただし一拍遅らされれば、同じボタンがそのまま相手の確反になる。',
       },
     },
     sources: [ufd('zangief'), ufd('ehonda'), ufd('jamie')],

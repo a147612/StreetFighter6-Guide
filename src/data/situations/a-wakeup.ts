@@ -23,7 +23,7 @@ export const GROUP_A: Situation[] = [
     position: ['midscreen'],
     distance: 'pointBlank',
     stance: 'iAmDown',
-    opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
+    opponentOptions: ['meaty', 'throw', 'command-grab', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
     evaluations: [
       {
         optionId: 'back-rise',
@@ -58,6 +58,16 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'throw', outcome: 'win' },
           { vs: 'delayed-attack', outcome: 'even' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '指令投的距離比普通摔還短。後受身把你放到他構不到的地方，他得先走回來 —— 走的那幾幀你看得到。',
+              en: 'A command grab reaches even less far than a normal throw. A back rise puts you outside it and he has to walk back in, and those walking frames are visible.',
+              ja: 'コマンド投げの間合いは通常投げよりさらに短い。後ろ受け身で届かない位置に離れれば、相手は歩いて詰め直すしかなく、その数フレームは見える。',
+            },
+          },
         ],
         mixRatio: '60-80%',
         notes: {
@@ -158,6 +168,7 @@ export const GROUP_A: Situation[] = [
             },
           },
           { vs: 'delayed-attack', outcome: 'win' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '12-19%',
         verified: 'sourced',
@@ -200,6 +211,16 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'shimmy', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '延遲解摔一樣解不掉，而且延遲多出來的那段站立時間正好是他抓的時間。',
+              en: 'A delay tech is equally useless, and the extra standing frames the delay spends are exactly the frames he grabs in.',
+              ja: '遅らせ投げ抜けも同様に無効で、遅らせた分の立ち時間がそのまま掴まれる時間になる。',
+            },
+          },
         ],
         mixRatio: '19-25%',
         verified: 'sourced',
@@ -250,6 +271,16 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '解摔的輸入對指令投完全不會發生作用 —— 它沒有解摔窗口。這一格是指令投角色跟其他人最大的差別：對別人最划算的防守猜測，對他等於沒按。',
+              en: 'The tech input does nothing at all against a command grab, because there is no tech window to hit. This cell is the whole difference between a grappler and everyone else: the defensive guess that pays best against the rest of the cast is a button you did not press.',
+              ja: '投げ抜けの入力はコマンド投げに対して一切作用しない。抜ける窓が存在しないからである。このマスがコマ投げキャラとそれ以外の決定的な差で、他キャラ相手に最も得な防御択が、ここでは押していないのと同じになる。',
+            },
+          },
         ],
         mixRatio: '9-16%',
         verified: 'sourced',
@@ -292,6 +323,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'win' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '12-19%',
         verified: 'sourced',
@@ -338,6 +370,16 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '霸體擋打擊，擋不了投 —— 動力衝擊在這裡是被抓的最貴的一種方式。',
+              en: 'Armour stops strikes, not throws. Drive Impact here is the most expensive way there is to be grabbed.',
+              ja: 'アーマーは打撃を止めるが投げは止めない。ここでのドライブインパクトは最も高くつく掴まれ方になる。',
+            },
+          },
         ],
         mixRatio: '6-9%',
         verified: 'sourced',
@@ -401,6 +443,7 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'bigLoss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '3-6%',
         notes: {
@@ -448,6 +491,16 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'shimmy', outcome: 'win' },
           { vs: 'delayed-attack', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '後衝刺的無敵幀吃得下指令投，而且它距離短 —— 退出去就是空揮。躲得掉，但換不到傷害。',
+              en: 'The backdash is invincible through it, and a command grab is short-ranged: leaving the range makes it a whiff. It escapes, and buys nothing else.',
+              ja: 'バックダッシュの無敵で回避でき、間合いも短いので離れれば空振りになる。逃げられるが、それ以上の見返りは無い。',
+            },
+          },
         ],
         mixRatio: '6-9%',
         verified: 'sourced',
@@ -500,6 +553,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '3-6%',
         verified: 'sourced',
@@ -558,6 +612,16 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant':
+                '抓空的指令投是 60 幀上下的硬直，你落地時他還在裡面 —— 這是全表唯一「躲掉之後還能拿一套」的格子。',
+              en: 'A whiffed command grab is around sixty frames of recovery and you land while he is still inside it. This is the one cell on the page where escaping also pays.',
+              ja: '空振りしたコマンド投げの硬直は60F前後で、着地したとき相手はまだその中にいる。この表で唯一、避けたうえにリターンまで取れるマス。',
+            },
+          },
         ],
         verified: 'sourced',
         sources: [
@@ -622,6 +686,16 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '4 幀的小技比 5 幀的指令投先打到 —— 這是對指令投最便宜的答案。但他只要延遲一拍，你的速點就變成他的確反。',
+              en: 'A 4-frame light hits before a 5-frame command grab, which makes it the cheapest answer there is. Delay it by a beat, though, and your mash is his punish.',
+              ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たる。最も安い対策だが、相手が一拍遅らせれば暴れがそのまま確定反撃の的になる。',
+            },
+          },
         ],
         mixRatio: '3-6%',
         verified: 'sourced',
@@ -679,6 +753,7 @@ export const GROUP_A: Situation[] = [
               ja: '相手が何もしなければ無敵技は損しかしない。唯一の穴だが致命的である。',
             },
           },
+          { vs: 'command-grab', outcome: 'bigWin' },
         ],
         mixRatio: '3-6%',
         verified: 'sourced',
@@ -709,7 +784,7 @@ export const GROUP_A: Situation[] = [
     position: ['nearCorner'],
     distance: 'pointBlank',
     stance: 'iAmDown',
-    opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
+    opponentOptions: ['meaty', 'throw', 'command-grab', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
     evaluations: [
       {
         optionId: 'back-rise',
@@ -736,6 +811,16 @@ export const GROUP_A: Situation[] = [
           { vs: 'meaty', outcome: 'win' },
           { vs: 'throw', outcome: 'win' },
           { vs: 'delayed-attack', outcome: 'even' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '指令投的距離比普通摔還短。後受身把你放到他構不到的地方，他得先走回來 —— 走的那幾幀你看得到。',
+              en: 'A command grab reaches even less far than a normal throw. A back rise puts you outside it and he has to walk back in, and those walking frames are visible.',
+              ja: 'コマンド投げの間合いは通常投げよりさらに短い。後ろ受け身で届かない位置に離れれば、相手は歩いて詰め直すしかなく、その数フレームは見える。',
+            },
+          },
         ],
         mixRatio: '40-60%',
         notes: {
@@ -836,6 +921,7 @@ export const GROUP_A: Situation[] = [
             },
           },
           { vs: 'delayed-attack', outcome: 'win' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '12-19%',
         verified: 'sourced',
@@ -878,6 +964,16 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'shimmy', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '延遲解摔一樣解不掉，而且延遲多出來的那段站立時間正好是他抓的時間。',
+              en: 'A delay tech is equally useless, and the extra standing frames the delay spends are exactly the frames he grabs in.',
+              ja: '遅らせ投げ抜けも同様に無効で、遅らせた分の立ち時間がそのまま掴まれる時間になる。',
+            },
+          },
         ],
         mixRatio: '19-25%',
         verified: 'sourced',
@@ -928,6 +1024,16 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '解摔的輸入對指令投完全不會發生作用 —— 它沒有解摔窗口。這一格是指令投角色跟其他人最大的差別：對別人最划算的防守猜測，對他等於沒按。',
+              en: 'The tech input does nothing at all against a command grab, because there is no tech window to hit. This cell is the whole difference between a grappler and everyone else: the defensive guess that pays best against the rest of the cast is a button you did not press.',
+              ja: '投げ抜けの入力はコマンド投げに対して一切作用しない。抜ける窓が存在しないからである。このマスがコマ投げキャラとそれ以外の決定的な差で、他キャラ相手に最も得な防御択が、ここでは押していないのと同じになる。',
+            },
+          },
         ],
         mixRatio: '9-16%',
         verified: 'sourced',
@@ -970,6 +1076,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'win' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '12-19%',
         verified: 'sourced',
@@ -1016,6 +1123,16 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '霸體擋打擊，擋不了投 —— 動力衝擊在這裡是被抓的最貴的一種方式。',
+              en: 'Armour stops strikes, not throws. Drive Impact here is the most expensive way there is to be grabbed.',
+              ja: 'アーマーは打撃を止めるが投げは止めない。ここでのドライブインパクトは最も高くつく掴まれ方になる。',
+            },
+          },
         ],
         mixRatio: '6-9%',
         verified: 'sourced',
@@ -1079,6 +1196,7 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'bigLoss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '3-7%',
         notes: {
@@ -1126,6 +1244,16 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'shimmy', outcome: 'win' },
           { vs: 'delayed-attack', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '後衝刺的無敵幀吃得下指令投，而且它距離短 —— 退出去就是空揮。躲得掉，但換不到傷害。',
+              en: 'The backdash is invincible through it, and a command grab is short-ranged: leaving the range makes it a whiff. It escapes, and buys nothing else.',
+              ja: 'バックダッシュの無敵で回避でき、間合いも短いので離れれば空振りになる。逃げられるが、それ以上の見返りは無い。',
+            },
+          },
         ],
         mixRatio: '6-9%',
         verified: 'sourced',
@@ -1178,6 +1306,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '3-6%',
         verified: 'sourced',
@@ -1236,6 +1365,16 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant':
+                '抓空的指令投是 60 幀上下的硬直，你落地時他還在裡面 —— 這是全表唯一「躲掉之後還能拿一套」的格子。',
+              en: 'A whiffed command grab is around sixty frames of recovery and you land while he is still inside it. This is the one cell on the page where escaping also pays.',
+              ja: '空振りしたコマンド投げの硬直は60F前後で、着地したとき相手はまだその中にいる。この表で唯一、避けたうえにリターンまで取れるマス。',
+            },
+          },
         ],
         verified: 'sourced',
         sources: [
@@ -1300,6 +1439,16 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '4 幀的小技比 5 幀的指令投先打到 —— 這是對指令投最便宜的答案。但他只要延遲一拍，你的速點就變成他的確反。',
+              en: 'A 4-frame light hits before a 5-frame command grab, which makes it the cheapest answer there is. Delay it by a beat, though, and your mash is his punish.',
+              ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たる。最も安い対策だが、相手が一拍遅らせれば暴れがそのまま確定反撃の的になる。',
+            },
+          },
         ],
         mixRatio: '3-6%',
         verified: 'sourced',
@@ -1357,6 +1506,7 @@ export const GROUP_A: Situation[] = [
               ja: '相手が何もしなければ無敵技は損しかしない。唯一の穴だが致命的である。',
             },
           },
+          { vs: 'command-grab', outcome: 'bigWin' },
         ],
         mixRatio: '3-6%',
         verified: 'sourced',
@@ -1387,7 +1537,7 @@ export const GROUP_A: Situation[] = [
     position: ['cornered'],
     distance: 'pointBlank',
     stance: 'iAmDown',
-    opponentOptions: ['meaty', 'throw', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
+    opponentOptions: ['meaty', 'throw', 'command-grab', 'shimmy', 'delayed-attack', 'bait-block', 'anti-air'],
     evaluations: [
       {
         optionId: 'back-rise',
@@ -1422,6 +1572,16 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'throw', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '指令投的距離比普通摔還短。後受身把你放到他構不到的地方，他得先走回來 —— 走的那幾幀你看得到。',
+              en: 'A command grab reaches even less far than a normal throw. A back rise puts you outside it and he has to walk back in, and those walking frames are visible.',
+              ja: 'コマンド投げの間合いは通常投げよりさらに短い。後ろ受け身で届かない位置に離れれば、相手は歩いて詰め直すしかなく、その数フレームは見える。',
+            },
+          },
         ],
         notes: {
           'zh-Hant': '角落是後受身唯一沒有用的地方 —— 沒有空間可以翻。這一格值得記，因為場中養成的習慣在這裡完全不會生效。',
@@ -1521,6 +1681,7 @@ export const GROUP_A: Situation[] = [
             },
           },
           { vs: 'delayed-attack', outcome: 'win' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '13-19%',
         verified: 'sourced',
@@ -1563,6 +1724,16 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'shimmy', outcome: 'loss' },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '延遲解摔一樣解不掉，而且延遲多出來的那段站立時間正好是他抓的時間。',
+              en: 'A delay tech is equally useless, and the extra standing frames the delay spends are exactly the frames he grabs in.',
+              ja: '遅らせ投げ抜けも同様に無効で、遅らせた分の立ち時間がそのまま掴まれる時間になる。',
+            },
+          },
         ],
         mixRatio: '19-26%',
         verified: 'sourced',
@@ -1613,6 +1784,16 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'shimmy', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '解摔的輸入對指令投完全不會發生作用 —— 它沒有解摔窗口。這一格是指令投角色跟其他人最大的差別：對別人最划算的防守猜測，對他等於沒按。',
+              en: 'The tech input does nothing at all against a command grab, because there is no tech window to hit. This cell is the whole difference between a grappler and everyone else: the defensive guess that pays best against the rest of the cast is a button you did not press.',
+              ja: '投げ抜けの入力はコマンド投げに対して一切作用しない。抜ける窓が存在しないからである。このマスがコマ投げキャラとそれ以外の決定的な差で、他キャラ相手に最も得な防御択が、ここでは押していないのと同じになる。',
+            },
+          },
         ],
         mixRatio: '10-16%',
         verified: 'sourced',
@@ -1655,6 +1836,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'win' },
+          { vs: 'command-grab', outcome: 'bigLoss' },
         ],
         mixRatio: '13-19%',
         verified: 'sourced',
@@ -1706,6 +1888,16 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'bigLoss' },
           { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigLoss',
+            note: {
+              'zh-Hant':
+                '霸體擋打擊，擋不了投 —— 動力衝擊在這裡是被抓的最貴的一種方式。',
+              en: 'Armour stops strikes, not throws. Drive Impact here is the most expensive way there is to be grabbed.',
+              ja: 'アーマーは打撃を止めるが投げは止めない。ここでのドライブインパクトは最も高くつく掴まれ方になる。',
+            },
+          },
         ],
         mixRatio: '6-10%',
         verified: 'sourced',
@@ -1769,6 +1961,7 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'delayed-attack', outcome: 'win' },
           { vs: 'bait-block', outcome: 'bigLoss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '5-10%',
         notes: {
@@ -1816,6 +2009,16 @@ export const GROUP_A: Situation[] = [
           { vs: 'throw', outcome: 'win' },
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '後衝刺的無敵幀吃得下指令投，而且它距離短 —— 退出去就是空揮。躲得掉，但換不到傷害。',
+              en: 'The backdash is invincible through it, and a command grab is short-ranged: leaving the range makes it a whiff. It escapes, and buys nothing else.',
+              ja: 'バックダッシュの無敵で回避でき、間合いも短いので離れれば空振りになる。逃げられるが、それ以上の見返りは無い。',
+            },
+          },
         ],
         mixRatio: '3%',
         verified: 'sourced',
@@ -1873,6 +2076,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         mixRatio: '3-6%',
         verified: 'sourced',
@@ -1931,6 +2135,16 @@ export const GROUP_A: Situation[] = [
           { vs: 'delayed-attack', outcome: 'loss' },
           { vs: 'bait-block', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
+          {
+            vs: 'command-grab',
+            outcome: 'bigWin',
+            note: {
+              'zh-Hant':
+                '抓空的指令投是 60 幀上下的硬直，你落地時他還在裡面 —— 這是全表唯一「躲掉之後還能拿一套」的格子。',
+              en: 'A whiffed command grab is around sixty frames of recovery and you land while he is still inside it. This is the one cell on the page where escaping also pays.',
+              ja: '空振りしたコマンド投げの硬直は60F前後で、着地したとき相手はまだその中にいる。この表で唯一、避けたうえにリターンまで取れるマス。',
+            },
+          },
         ],
         verified: 'sourced',
         sources: [
@@ -1978,6 +2192,7 @@ export const GROUP_A: Situation[] = [
           { vs: 'shimmy', outcome: 'even' },
           { vs: 'delayed-attack', outcome: 'loss' },
           { vs: 'anti-air', outcome: 'bigLoss' },
+          { vs: 'command-grab', outcome: 'win' },
         ],
         verified: 'sourced',
         sources: [
@@ -2042,6 +2257,16 @@ export const GROUP_A: Situation[] = [
           },
           { vs: 'delayed-attack', outcome: 'bigLoss' },
           { vs: 'bait-block', outcome: 'loss' },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '4 幀的小技比 5 幀的指令投先打到 —— 這是對指令投最便宜的答案。但他只要延遲一拍，你的速點就變成他的確反。',
+              en: 'A 4-frame light hits before a 5-frame command grab, which makes it the cheapest answer there is. Delay it by a beat, though, and your mash is his punish.',
+              ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たる。最も安い対策だが、相手が一拍遅らせれば暴れがそのまま確定反撃の的になる。',
+            },
+          },
         ],
         mixRatio: '3-6%',
         verified: 'sourced',
@@ -2099,6 +2324,7 @@ export const GROUP_A: Situation[] = [
               ja: '相手が何もしなければ無敵技は損しかしない。唯一の穴だが致命的である。',
             },
           },
+          { vs: 'command-grab', outcome: 'bigWin' },
         ],
         mixRatio: '3-6%',
         verified: 'sourced',

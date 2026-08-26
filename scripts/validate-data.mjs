@@ -219,10 +219,17 @@ for (const situation of SITUATIONS) {
    `win` here and `even` there is real content — a shimmy is worth more midscreen
    than cornered. Both seats winning is not a judgement call, it is arithmetic.
 
-   Two interactions are legitimately order-dependent and say so in a note, which
-   is what `note` exempts: Drive Impact against Drive Impact (the later one
-   wins, so who is "the attacker" flips by situation), and Drive Reversal, whose
-   blockstun and wakeup versions differ in whether the option exists at all. */
+   Exemption is by the explicit `orderDependent` flag, never by the presence of
+   a note. It used to be by note, and that meant explaining a cell switched the
+   check off on it: 21% of pairings were exempt, and one of them was hiding a
+   flat contradiction — a command grab graded as losing to Drive Impact while
+   twelve other cells said a throw beats armour.
+
+   Six cells carry the flag. Drive Impact against Drive Impact (the later one
+   wins, so who is "the attacker" flips by situation); Drive Reversal, whose
+   blockstun and wakeup versions differ in whether the option exists at all;
+   and a neutral jump against either throw, which escapes at even frames and
+   does not while you are minus, because the four prejump frames are grounded. */
 
 const sign = (outcome) =>
   outcome === 'bigWin' || outcome === 'win' ? 1 : outcome === 'bigLoss' || outcome === 'loss' ? -1 : 0
@@ -237,7 +244,11 @@ for (const situation of SITUATIONS) {
       const bag = situation.side === 'offense' ? fromOffense : fromDefense
       const key = `${attacker}|${defender}`
       if (!bag.has(key)) bag.set(key, [])
-      bag.get(key).push({ id: situation.id, outcome: entry.outcome, excused: Boolean(entry.note) })
+      bag.get(key).push({
+        id: situation.id,
+        outcome: entry.outcome,
+        excused: entry.orderDependent === true,
+      })
     }
   }
 }
