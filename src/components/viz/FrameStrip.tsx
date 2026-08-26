@@ -16,6 +16,7 @@ import { useT } from '~/i18n/useT'
  * whole difference between them.
  */
 function polarity(value: string): string {
+  if (/^[+-]?0$/.test(value)) return ''
   if (value.startsWith('+')) return 'is-plus'
   if (value.startsWith('-') || value.startsWith('−')) return 'is-minus'
   return ''
@@ -24,7 +25,9 @@ function polarity(value: string): string {
 /** Values are stored exactly as UFD writes them, so the prettying is here:
  *  a real minus sign, an ellipsis, and ±0 for a zero that means "even". */
 function typeset(value: string): string {
-  if (value === '0') return '±0'
+  // UFD writes an even trade as `0` for some characters and `+0` for others.
+  // Both mean the same thing and neither is a plus, so both become ±0.
+  if (/^[+-]?0$/.test(value)) return '±0'
   return value.replace(/^-/, '−').replace(/\.\.\./g, '…')
 }
 

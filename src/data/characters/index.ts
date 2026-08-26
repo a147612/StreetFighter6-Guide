@@ -35,6 +35,14 @@ export const CHARACTERS: CharacterOverlay[] = [
           onHit: '+4',
           total: '13',
         },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+5',
+          total: '14',
+        },
       ],
       meaty: [
         {
@@ -226,6 +234,26 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     removesOptions: ['projectile'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-2',
+          onHit: '+5',
+          total: '13',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-2',
+          onHit: '+5',
+          total: '13',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Spin Drive Smasher (SA1)',
@@ -305,6 +333,26 @@ export const CHARACTERS: CharacterOverlay[] = [
     health: 9000,
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '13',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+5',
+          total: '14',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Messatsu Gohado (SA1)',
@@ -397,6 +445,18 @@ export const CHARACTERS: CharacterOverlay[] = [
     health: 10000,
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-2',
+          onHit: '+4',
+          total: '15',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Pale Rider (SA3)',
@@ -485,6 +545,26 @@ export const CHARACTERS: CharacterOverlay[] = [
     health: 10000,
     removesOptions: ['command-grab', 'super-reversal', 'air-throw'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '13',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '14',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Shinku Hadoken (SA1)',
@@ -571,6 +651,34 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     removesOptions: ['command-grab'],
     backdashFrames: 25,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-3',
+          onHit: '+5',
+          total: '13',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-2',
+          onHit: '+4',
+          total: '13',
+        },
+        {
+          move: 'Crouching Light Kick',
+          input: '2 LK',
+          startup: '4',
+          onBlock: '-2',
+          onHit: '+0',
+          total: '15',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Kikosho (SA1)',
@@ -796,6 +904,26 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     removesOptions: ['command-grab'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+5',
+          total: '14',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '14',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Sakkai Fuhazan (SA1)',
@@ -874,6 +1002,18 @@ export const CHARACTERS: CharacterOverlay[] = [
     health: 10000,
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+5',
+          total: '15',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Tiger Cannon (SA1)',
@@ -961,6 +1101,26 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '13',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '14',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Buster Wolf (SA1)',
@@ -1039,6 +1199,26 @@ export const CHARACTERS: CharacterOverlay[] = [
     health: 10000,
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '13',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-3',
+          onHit: '+3',
+          total: '13',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Psycho Storm (SA1)',
@@ -1126,6 +1306,18 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     removesOptions: ['command-grab', 'projectile'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '14',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Revival Dance (SA2)',
@@ -1223,6 +1415,18 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '12',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'The Greatest Sobat (SA1)',
@@ -1313,6 +1517,18 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     removesOptions: ['projectile', 'air-throw'],
     backdashFrames: 25,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+5',
+          total: '14',
+        },
+      ],
+    },
     reversals: [
       {
         move: "Breakin' (SA1)",
@@ -1412,6 +1628,18 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     backdashFrames: 23,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Kick',
+          input: '5 LK',
+          startup: '4',
+          onBlock: '-2',
+          onHit: '+5',
+          total: '14',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Shout of Earth (SA1)',
@@ -1495,6 +1723,26 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     removesOptions: ['command-grab'],
     backdashFrames: 25,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '14',
+        },
+        {
+          move: 'Standing Light Kick',
+          input: '5 LK',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+3',
+          total: '16',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Super Rashid Kick (SA1)',
@@ -1582,6 +1830,34 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-2',
+          onHit: '+5',
+          total: '13',
+        },
+        {
+          move: 'Standing Light Kick',
+          input: '5 LK',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+1',
+          total: '14',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '13',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Shiranui Ryuu: Enbu Ada Zakura (SA3)',
@@ -1665,6 +1941,18 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     removesOptions: ['command-grab', 'projectile', 'super-reversal', 'air-throw'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': [
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '14',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Hiwa ng Kalangitan (SA1)',
@@ -1747,6 +2035,18 @@ export const CHARACTERS: CharacterOverlay[] = [
           ja: 'JPの切り返しは無敵技ではなく当て身（Amnesia）。OD版は1F目から打撃と投げの両方をカバーし、20Fの受付は通常の無敵技の10Fよりはるかに広いため、遅らせ打撃に特に強い。',
         },
       },
+    },
+    frames: {
+      'mash-light': [
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '16',
+        },
+      ],
     },
     reversals: [
       {
@@ -1871,9 +2171,9 @@ export const CHARACTERS: CharacterOverlay[] = [
           total: '18',
           note: {
             'zh-Hant':
-              '他最快的小技是**蹲弱腳**，4 幀，跟全場所有角色一樣快 —— 但它是**下段**，而且**命中 ±0**。搶贏了那一下換不到後續，這是他跟其他角色最大的差別。',
-            en: 'His fastest light is a **crouching light kick** at 4 frames, exactly as fast as everyone else on the roster — but it is a **low**, and it is **±0 on hit**. Winning the exchange buys him nothing after it, which is the real difference.',
-            ja: '彼の最速の弱攻撃は**しゃがみ弱K**の4Fで、速さはロスター全員と同じ。ただし**下段**であり、**ヒットで±0**。競り勝っても後が続かないのが他キャラとの本当の差。',
+              '**他只有這一顆 4 幀的選擇，而且命中 ±0**。搶贏了那一下換不到任何後續 —— 別人搶中還有 +4、+5 可以接著壓，他沒有。這是他那個「贏了也拿不到回合」的體質，不是速度問題。',
+            en: '**It is his only 4-frame option, and it is ±0 on hit.** Winning the exchange buys him nothing after it — everyone else is +4 or +5 and gets to keep pressing. That is his real constraint, and it is not about speed.',
+            ja: '**彼の4F択はこれ一つだけで、しかもヒットで±0**。競り勝っても後が続かない——他キャラは+4や+5でそのまま攻めを継続できるが、彼にはそれが無い。速さではなくここが本当の制約。',
           },
         },
       ],
@@ -2031,6 +2331,26 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+5',
+          total: '13',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '14',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Shining Sun (SA1)',
@@ -2145,6 +2465,26 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '16',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-2',
+          onHit: '+3',
+          total: '16',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Arabesque (SA1)',
@@ -2246,6 +2586,26 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Kick',
+          input: '5 LK',
+          startup: '4',
+          onBlock: '-3',
+          onHit: '+3',
+          total: '18',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '14',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Deadly Implication (SA1)',
@@ -2307,6 +2667,18 @@ export const CHARACTERS: CharacterOverlay[] = [
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
         },
       },
+    },
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+5',
+          total: '14',
+        },
+      ],
     },
     reversals: [
       {
@@ -2395,6 +2767,26 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-2',
+          onHit: '+4',
+          total: '14',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+5',
+          total: '14',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Limit Decoupler (SA1)',
@@ -2481,6 +2873,32 @@ export const CHARACTERS: CharacterOverlay[] = [
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
         },
       },
+    },
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Punch',
+          input: '5 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '14',
+        },
+        {
+          move: 'Crouching Light Kick',
+          input: '2 LK',
+          startup: '4',
+          onBlock: '-10...-4',
+          onHit: '-5...+1',
+          total: '26',
+          note: {
+            'zh-Hant':
+              '**防禦時 −10 到 −4，看距離**。這是達爾錫的腳，離得遠是安全的、貼著出就是被確反。同一顆按鈕的risk完全由間距決定 —— 他的立弱拳（4 幀、−1）才是貼身要按的那顆。',
+            en: '**Minus ten to minus four on block, depending on range.** This is a Dhalsim limb: safe at its tip and a full punish point blank. The same button\'s risk is decided entirely by spacing — his standing light punch (4 frames, -1) is the one to press up close.',
+            ja: '**ガードで−10〜−4、間合い次第**。ダルシムの伸びる足で、先端なら安全、密着で出せば確定反撃。同じボタンのリスクが間合いだけで決まる——密着で押すべきは立ち弱P（4F、−1）のほう。',
+          },
+        },
+      ],
     },
     reversals: [
       {
@@ -2574,6 +2992,26 @@ export const CHARACTERS: CharacterOverlay[] = [
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
         },
       },
+    },
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Kick',
+          input: '5 LK',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+5',
+          total: '14',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '16',
+        },
+      ],
     },
     reversals: [
       {
@@ -2673,6 +3111,18 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
+    frames: {
+      'mash-light': [
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '13',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Bushin Beats (SA1)',
@@ -2767,6 +3217,18 @@ export const CHARACTERS: CharacterOverlay[] = [
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
         },
       },
+    },
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Kick',
+          input: '5 LK',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+5',
+          total: '18',
+        },
+      ],
     },
     reversals: [
       {
@@ -2870,6 +3332,26 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
+    frames: {
+      'mash-light': [
+        {
+          move: 'Standing Light Kick',
+          input: '5 LK',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+3',
+          total: '15',
+        },
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-2',
+          onHit: '+4',
+          total: '15',
+        },
+      ],
+    },
     reversals: [
       {
         move: 'Knee Press Nightmare (SA1)',
@@ -2942,6 +3424,18 @@ export const CHARACTERS: CharacterOverlay[] = [
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
         },
       },
+    },
+    frames: {
+      'mash-light': [
+        {
+          move: 'Crouching Light Punch',
+          input: '2 LP',
+          startup: '4',
+          onBlock: '-1',
+          onHit: '+4',
+          total: '15',
+        },
+      ],
     },
     reversals: [
       {
