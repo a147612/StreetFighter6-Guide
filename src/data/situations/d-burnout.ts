@@ -209,9 +209,9 @@ export const GROUP_D: Situation[] = [
             outcome: 'win',
             note: {
               'zh-Hant':
-                '4 幀的小技比 5 幀的指令投先打到 —— 最便宜的答案。他延遲一拍，同一顆按鈕就變成他的確反。',
-              en: 'A 4-frame light hits before a 5-frame command grab — the cheapest answer there is. Delayed by a beat, the same button becomes their punish.',
-              ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たる。最も安い対策だが、一拍遅らされれば同じボタンが確反の的になる。',
+                '最快的小技多半 4-5 幀，比 5 幀的指令投先打到 —— 最便宜的答案。不是每隻都這麼快（桑吉爾夫要 7 幀），選了角色會顯示你的實際數字。',
+              en: 'The fastest light is usually 4 or 5 frames and beats a 5-frame command grab — the cheapest answer there is. Not every character is that fast (Zangief needs 7); pick one and the row shows your actual number.',
+              ja: '最速の弱攻撃はたいてい4〜5Fで、5Fのコマンド投げより先に当たる。最も安い対策。ただし全キャラがその速さではなく（ザンギエフは7F）、キャラを選べば実際の数字が出る。',
             },
           },
         ],
@@ -536,9 +536,9 @@ export const GROUP_D: Situation[] = [
             outcome: 'win',
             note: {
               'zh-Hant':
-                '4 幀的小技比 5 幀的指令投先打到 —— 最便宜的答案。他延遲一拍，同一顆按鈕就變成他的確反。',
-              en: 'A 4-frame light hits before a 5-frame command grab — the cheapest answer there is. Delayed by a beat, the same button becomes their punish.',
-              ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たる。最も安い対策だが、一拍遅らされれば同じボタンが確反の的になる。',
+                '最快的小技多半 4-5 幀，比 5 幀的指令投先打到 —— 最便宜的答案。不是每隻都這麼快（桑吉爾夫要 7 幀），選了角色會顯示你的實際數字。',
+              en: 'The fastest light is usually 4 or 5 frames and beats a 5-frame command grab — the cheapest answer there is. Not every character is that fast (Zangief needs 7); pick one and the row shows your actual number.',
+              ja: '最速の弱攻撃はたいてい4〜5Fで、5Fのコマンド投げより先に当たる。最も安い対策。ただし全キャラがその速さではなく（ザンギエフは7F）、キャラを選べば実際の数字が出る。',
             },
           },
         ],

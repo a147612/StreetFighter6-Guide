@@ -347,6 +347,33 @@ export interface CharacterKnockdown {
  * is take that row off the table instead of leaving a reader planning around an
  * option they do not have.
  */
+/**
+ * The frame data for the move this character actually uses for an option.
+ *
+ * Numbers live on the character, never in a situation cell. A balance patch
+ * invalidates moves, not judgements: "a shimmy beats a delay tech" survives a
+ * patch and "-6 on block" does not, so the two must not be stored together. It
+ * also keeps the re-check bounded — roughly a dozen rows per character rather
+ * than every cell those numbers touch.
+ *
+ * `move` is UFD's own name for it, verbatim, so a row can always be traced back
+ * to the line it was read from.
+ */
+export interface MoveFrames {
+  move: string
+  /** Numpad notation, when the move has one. Normals do not need it. */
+  input?: string
+  /** Frames before the first active frame. */
+  startup: string
+  /** Advantage on block. Absent for a throw, which cannot be blocked. */
+  onBlock?: string
+  /** Advantage on hit — or what it gives instead, for a knockdown. */
+  onHit?: string
+  /** Total frames on a whiff: what a whiff punish is worth against it. */
+  whiff?: string
+  note?: I18nText
+}
+
 export interface CharacterOverlay {
   id: string
   name: I18nText
@@ -398,6 +425,15 @@ export interface CharacterOverlay {
       input?: string
     }
   >
+  /**
+   * Frame data, keyed by the option the move plays the part of.
+   *
+   * The join between the universal option registry and this character's actual
+   * buttons: `mash-light` is a 4-frame jab for Ken, a 5-frame one for Guile and
+   * a 7-frame one that is *plus on block* for Zangief. The option row can only
+   * say "press a light"; this says which light and what it does.
+   */
+  frames?: Record<string, MoveFrames>
   reversals?: Reversal[]
   knockdowns?: CharacterKnockdown[]
   /** Author-facing completeness, surfaced in the UI. */

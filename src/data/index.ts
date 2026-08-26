@@ -1,4 +1,4 @@
-import type { I18nText, OptionDef, OptionEval, Situation, Source } from './schema'
+import type { I18nText, MoveFrames, OptionDef, OptionEval, Situation, Source } from './schema'
 import { getOption } from './options'
 import { traitsFor, type OpponentTrait } from './traits'
 import type { CharacterOverlay } from './schema'
@@ -32,6 +32,8 @@ export interface OptionRow {
   /** What the *opponent's* character changes about pressing this. Attached by
    *  trait, so one sentence covers everyone who shares the property. */
   opponentNotes?: OpponentNote[]
+  /** Which move this option is for the picked character, and its numbers. */
+  frames?: MoveFrames
 }
 
 /** One trait's advice about one option, resolved for the picked opponent. */
@@ -97,8 +99,10 @@ export function applyOverlay(rows: OptionRow[], character?: CharacterOverlay): O
     .filter((row) => !removed.has(row.def.id))
     .map((row) => {
       const override = character.overrides?.[row.def.id]
-      if (!override) return row
+      const frames = character.frames?.[row.def.id]
+      if (!override) return frames ? { ...row, frames } : row
       return {
+        ...(frames ? { frames } : {}),
         // A new def rather than a mutation: the option registry is shared, and
         // one character's notation must not leak into the next one's tables.
         def: override.input ? { ...row.def, input: override.input } : row.def,

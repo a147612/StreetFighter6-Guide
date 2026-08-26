@@ -198,9 +198,10 @@ export const GROUP_J: Situation[] = [
             vs: 'mash-light',
             outcome: 'loss',
             note: {
-              'zh-Hant': '指令投發生慢，4 幀的小技先打到 —— 這是對付指令投最便宜的答案。',
-              en: 'A command grab is slow to start and a 4-frame light hits first. It is the cheapest answer there is.',
-              ja: 'コマンド投げは発生が遅く、4Fの弱攻撃が先に当たる。最も安上がりな対策。',
+              'zh-Hant':
+                '對面最快的小技多半 4-5 幀，比 5 幀的指令投先打到 —— 對付指令投最便宜的答案。慢一點的角色（桑吉爾夫自己的小技是 7 幀）就不一定贏得了。',
+              en: 'Their fastest light is usually 4 or 5 frames and hits before a 5-frame command grab — the cheapest answer to one there is. A slower character does not necessarily win the race; Zangief\'s own light is 7.',
+              ja: '相手の最速の弱攻撃はたいてい4〜5Fで、5Fのコマンド投げより先に当たる。コマンド投げへの最も安い対策。ただし遅いキャラなら勝てるとは限らない（ザンギエフ自身の弱攻撃は7F）。',
             },
           },
           {
@@ -703,9 +704,10 @@ export const GROUP_J: Situation[] = [
             vs: 'mash-light',
             outcome: 'loss',
             note: {
-              'zh-Hant': '指令投發生慢，4 幀的小技先打到 —— 這是對付指令投最便宜的答案。',
-              en: 'A command grab is slow to start and a 4-frame light hits first. It is the cheapest answer there is.',
-              ja: 'コマンド投げは発生が遅く、4Fの弱攻撃が先に当たる。最も安上がりな対策。',
+              'zh-Hant':
+                '對面最快的小技多半 4-5 幀，比 5 幀的指令投先打到 —— 對付指令投最便宜的答案。慢一點的角色（桑吉爾夫自己的小技是 7 幀）就不一定贏得了。',
+              en: 'Their fastest light is usually 4 or 5 frames and hits before a 5-frame command grab — the cheapest answer to one there is. A slower character does not necessarily win the race; Zangief\'s own light is 7.',
+              ja: '相手の最速の弱攻撃はたいてい4〜5Fで、5Fのコマンド投げより先に当たる。コマンド投げへの最も安い対策。ただし遅いキャラなら勝てるとは限らない（ザンギエフ自身の弱攻撃は7F）。',
             },
           },
           { vs: 'reversal', outcome: 'bigLoss' },
@@ -1199,9 +1201,10 @@ export const GROUP_J: Situation[] = [
             vs: 'mash-light',
             outcome: 'loss',
             note: {
-              'zh-Hant': '指令投發生慢，4 幀的小技先打到 —— 這是對付指令投最便宜的答案。',
-              en: 'A command grab is slow to start and a 4-frame light hits first. It is the cheapest answer there is.',
-              ja: 'コマンド投げは発生が遅く、4Fの弱攻撃が先に当たる。最も安上がりな対策。',
+              'zh-Hant':
+                '對面最快的小技多半 4-5 幀，比 5 幀的指令投先打到 —— 對付指令投最便宜的答案。慢一點的角色（桑吉爾夫自己的小技是 7 幀）就不一定贏得了。',
+              en: 'Their fastest light is usually 4 or 5 frames and hits before a 5-frame command grab — the cheapest answer to one there is. A slower character does not necessarily win the race; Zangief\'s own light is 7.',
+              ja: '相手の最速の弱攻撃はたいてい4〜5Fで、5Fのコマンド投げより先に当たる。コマンド投げへの最も安い対策。ただし遅いキャラなら勝てるとは限らない（ザンギエフ自身の弱攻撃は7F）。',
             },
           },
           { vs: 'super-reversal', outcome: 'bigLoss' },

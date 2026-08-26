@@ -386,6 +386,12 @@ export function OptionTable({
                               you picked. Marked here because the reason is in
                               the detail panel, and nothing else on the closed
                               row would tell you there was one to open. */}
+                          {/* Startup only. The rest needs the detail panel, but
+                              "how fast is it" is the one number worth scanning
+                              a whole column of. */}
+                          {row.frames && (
+                            <span className="opt-row__frames mono">{row.frames.startup}F</span>
+                          )}
                           {row.opponentNotes && row.opponentNotes.length > 0 && (
                             <span
                               className="opt-row__matchup"

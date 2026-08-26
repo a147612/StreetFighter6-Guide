@@ -25,6 +25,47 @@ export const CHARACTERS: CharacterOverlay[] = [
     health: 10000,
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': {
+        move: 'Standing Light Punch',
+        input: '5 LP',
+        startup: '4',
+        onBlock: '-1',
+        onHit: '+4',
+        whiff: '13',
+      },
+      poke: {
+        move: 'Crouching Medium Kick',
+        input: '2 MK',
+        startup: '7',
+        onBlock: '-6',
+        onHit: '-2',
+        whiff: '28',
+      },
+      projectile: {
+        move: 'Hadoken (Light Punch)',
+        input: '236 LP',
+        startup: '16',
+        onBlock: '-7 or better',
+        onHit: '-1 or better',
+        whiff: '49',
+      },
+      reversal: {
+        move: 'Shoryuken (Overdrive)',
+        input: '623 PP',
+        startup: '6',
+        onBlock: '-40',
+        onHit: 'Knockdown +22',
+        whiff: '67',
+      },
+      throw: {
+        move: 'Forward Throw',
+        input: 'LP+LK',
+        startup: '5',
+        onHit: '+20',
+        whiff: '30',
+      },
+    },
     reversals: [
       {
         move: 'Dragonlash Flame (SA1)',
@@ -544,6 +585,53 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     removesOptions: ['command-grab'],
     backdashFrames: 23,
+    frames: {
+      'mash-light': {
+        move: 'Standing Light Punch',
+        input: '5 LP',
+        startup: '5',
+        onBlock: '-2',
+        onHit: '+4',
+        whiff: '14',
+      },
+      poke: {
+        move: 'Crouching Medium Kick',
+        input: '2 MK',
+        startup: '8',
+        onBlock: '-4',
+        onHit: '+4',
+        whiff: '28',
+      },
+      projectile: {
+        move: 'Sonic Boom',
+        input: '[4] 6 P',
+        startup: '10',
+        onBlock: '-3 or better',
+        onHit: '+3 or better',
+        whiff: '40',
+        note: {
+          'zh-Hant':
+            '**發生 10 幀**，隆的波要 16 —— 這是隆在中距離贏不了對波的原因，不是傷害或硬直的問題。',
+          en: 'Ten frames of startup against Ryu\'s sixteen. That is why Ryu loses the fireball war at mid range, and it is not about damage or recovery.',
+          ja: '**発生10F**、リュウの波動拳は16F。中距離の飛び道具戦でリュウが勝てない理由はここにあり、ダメージや硬直の問題ではない。',
+        },
+      },
+      reversal: {
+        move: 'Flash Kick (Overdrive)',
+        input: '[2] 8 KK',
+        startup: '6',
+        onBlock: '-33',
+        onHit: 'Knockdown +29 or better',
+        whiff: '55',
+      },
+      throw: {
+        move: 'Forward Throw',
+        input: 'LP+LK',
+        startup: '5',
+        onHit: '+15',
+        whiff: '30',
+      },
+    },
     reversals: [
       {
         move: 'Sonic Hurricane (SA1)',
@@ -1680,6 +1768,49 @@ export const CHARACTERS: CharacterOverlay[] = [
           en: 'This character has no fully invincible OD reversal. Going through a strike and a throw on wakeup costs Super gauge, so with no meter the wakeup has no reversal button at all.',
           ja: 'このキャラは完全無敵のOD昇龍系を持たない。起き上がりで打撃と投げを貫通するにはSAゲージが必要で、ゲージがなければ「一手で覆す」択が存在しない。',
         },
+      },
+    },
+    frames: {
+      'mash-light': {
+        move: 'Standing Light Punch',
+        input: '5 LP',
+        startup: '7',
+        onBlock: '+2',
+        onHit: '+4',
+        whiff: '18',
+        note: {
+          'zh-Hant':
+            '**7 幀，而且防禦時 +2** —— 全場最慢的小技之一，卻是少數擋了還有利的。搶招搶不贏 5 幀的指令投，但按中之後這一輪是他的。',
+          en: 'Seven frames, and **plus two on block** — one of the slowest lights on the roster and one of the few that keeps its turn. It loses the race to a 5-frame command grab, but once it lands the turn is his.',
+          ja: '**7F、しかもガードで+2**。ロスター屈指の遅い弱攻撃でありながら、ガードされてもターンが続く数少ない技。5Fのコマ投げには速度で負けるが、当たればターンは彼のもの。',
+        },
+      },
+      poke: {
+        move: 'Crouching Medium Kick',
+        input: '2 MK',
+        startup: '9',
+        onBlock: '-2',
+        onHit: '+3',
+        whiff: '29',
+      },
+      'command-grab': {
+        move: 'Screw Piledriver (Light Punch)',
+        input: '360 LP',
+        startup: '5',
+        onHit: 'Knockdown +30',
+        whiff: '61',
+        note: {
+          'zh-Hant': '抓空 61 幀 —— 這個數字就是垂直跳那一列存在的理由。',
+          en: 'Sixty-one frames on a whiff. That number is the entire reason the neutral-jump row exists.',
+          ja: '空振り61F。この数字こそが垂直ジャンプの行が存在する理由。',
+        },
+      },
+      throw: {
+        move: 'Forward Throw',
+        input: 'LP+LK',
+        startup: '5',
+        onHit: '+10',
+        whiff: '30',
       },
     },
     reversals: [

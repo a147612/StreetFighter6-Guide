@@ -872,6 +872,72 @@ html[data-theme='dark'] .notation__btn--h {
   white-space: nowrap;
 }
 
+/* ── Frame data ──────────────────────────────────────────────────────
+   Set apart from the tiers deliberately. Risk and reward are judgements that
+   survive a balance patch; these are measurements that do not, and a reader
+   should be able to see at a glance which kind of claim they are reading. */
+.frames {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem var(--space-3);
+  margin: var(--space-3) 0;
+  padding: 0.5rem 0.7rem;
+  border-radius: var(--radius);
+  background: var(--surface-inset);
+}
+
+.frames__move {
+  color: var(--text);
+  font-weight: 650;
+}
+
+.frames__cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem var(--space-3);
+}
+
+.frames__cell {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.frames__label {
+  color: var(--text-muted);
+  font-size: var(--step--1);
+}
+
+/* The sign carries the meaning and the hue only reinforces it — a real minus
+   sign rather than a hyphen, so the two columns stay apart without colour. */
+.frames__value {
+  font-weight: 700;
+}
+
+.frames__value.is-plus {
+  color: var(--reward-high);
+}
+
+.frames__value.is-minus {
+  color: var(--risk-high);
+}
+
+.frames__note {
+  flex-basis: 100%;
+  margin: 0.15rem 0 0;
+  color: var(--text-muted);
+}
+
+/* Startup, riding along in the option name. Faint on purpose: it is a detail
+   you scan a column for, not something competing with the option's name. */
+.opt-row__frames {
+  margin-left: 0.4rem;
+  color: var(--text-faint);
+  font-size: 0.78em;
+  font-weight: 600;
+}
+
 /* ── What the opponent seat did ──────────────────────────────────────
    Printed in both directions, including "nothing changed" — see MatchupNote
    for why a silent filter is worse than a loud one. Dashed while it is only

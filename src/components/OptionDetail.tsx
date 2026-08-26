@@ -4,6 +4,7 @@ import { VerifiedTag } from './viz/VerifiedTag'
 import { RewardPips } from './viz/Tier'
 import { OutcomeCell } from './viz/OutcomeCell'
 import { Emphasis } from './viz/Emphasis'
+import { FrameStrip } from './viz/FrameStrip'
 import { getOption, type OptionRow } from '~/data'
 import { counteredBy } from '~/data/schema'
 import { getCharacter } from '~/data'
@@ -16,7 +17,7 @@ import { useCharacter, useOpponent } from '~/lib/prefs'
  */
 export function OptionDetail({ row }: { row: OptionRow }) {
   const { t, text } = useT()
-  const { def, evaluation, characterNote, inputIsCharacters, opponentNotes } = row
+  const { def, evaluation, characterNote, inputIsCharacters, opponentNotes, frames } = row
   const character = getCharacter(useCharacter())
   const opponent = getCharacter(useOpponent())
   const { cost } = def
@@ -41,6 +42,11 @@ export function OptionDetail({ row }: { row: OptionRow }) {
           {def.hint && <Emphasis text={text(def.hint)} />}
         </p>
       )}
+
+      {/* Above the tiers, because when the number exists it is the more
+          specific answer — and because it is the one thing here that a balance
+          patch can invalidate on its own. */}
+      {frames && <FrameStrip frames={frames} />}
 
       <dl className="detail__meta">
         {/* Nothing universal to print for a character-specific option, and a

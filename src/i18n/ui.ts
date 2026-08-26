@@ -95,6 +95,14 @@ export interface UiStrings {
    *  that changes nothing has to say so, or a filter that quietly did nothing
    *  reads as a filter that is broken. */
   matchup: { removed: string; same: string; traits: string; affects: string }
+  /** The frame-data strip. Labels only — every number is per character. */
+  frames: {
+    startup: string
+    onBlock: string
+    onHit: string
+    whiff: string
+    hint: string
+  }
   browse: { groups: string; situations: string; notWritten: string; coverage: string }
 
   risk: { label: string; safe: string; low: string; medium: string; high: string; extreme: string }
@@ -228,6 +236,13 @@ const zhHant: UiStrings = {
     same: '這個情境沒有差別 —— 對手的選項跟通用表完全一樣',
     traits: '對手特性',
     affects: '對上這隻角色',
+  },
+  frames: {
+    startup: '發生',
+    onBlock: '防禦時',
+    onHit: '命中',
+    whiff: '打空',
+    hint: '這一項對這隻角色實際上是哪一招，以及它的幀數',
   },
   glossary: {
     intro: '三種語言並排，方便對照日文或英文攻略裡的說法。括號裡是同義的別稱。',
@@ -388,6 +403,13 @@ const en: UiStrings = {
     traits: 'This opponent',
     affects: 'Against this opponent',
   },
+  frames: {
+    startup: 'Startup',
+    onBlock: 'On block',
+    onHit: 'On hit',
+    whiff: 'Whiff',
+    hint: 'Which move this option actually is for this character, and its numbers',
+  },
   glossary: {
     intro: 'All three languages side by side, so a Japanese or English guide maps onto what you read here. Aliases follow the main name.',
     origin: 'English term',
@@ -547,6 +569,13 @@ const ja: UiStrings = {
     same: 'この状況では差がない —— 相手は汎用表の択をすべて持っている',
     traits: '相手の特性',
     affects: 'この相手に対して',
+  },
+  frames: {
+    startup: '発生',
+    onBlock: 'ガード時',
+    onHit: 'ヒット時',
+    whiff: '空振り',
+    hint: 'この択がこのキャラでは実際どの技になるか、そのフレーム',
   },
   glossary: {
     intro: '三言語を並べて表示する。日本語や英語の攻略で使われる呼び方との対応が取れる。括弧内は別称。',

@@ -267,10 +267,22 @@ for (const [key, attacks] of fromOffense) {
   }
 }
 
+/* Every id that is a row somewhere, and every id that is a column somewhere.
+   Both the character checks and the matchup checks below turn on these, so
+   they are derived once, here, above the first thing that reads them. */
+const roster = CHARACTERS ?? []
+const columnIds = new Set()
+const rowIds = new Set()
+for (const situation of SITUATIONS) {
+  for (const id of situation.opponentOptions ?? []) columnIds.add(id)
+  for (const evaluation of situation.evaluations) rowIds.add(evaluation.optionId)
+}
+
 /* ── Characters ──────────────────────────────────────────────────── */
 
 const characterIds = new Set()
 let noReversalCount = 0
+let frameRows = 0
 for (const character of CHARACTERS ?? []) {
   const where = `character "${character.id}"`
   if (characterIds.has(character.id)) errors.push(`duplicate ${where}`)
@@ -287,6 +299,32 @@ for (const character of CHARACTERS ?? []) {
   for (const [id, override] of Object.entries(character.overrides ?? {})) {
     if (!optionIds.has(id)) errors.push(`${where} overrides unknown option "${id}"`)
     if (override.note) checkLocales(override.note, `${where} override ${id} note`)
+  }
+
+  // Frame data hangs off an option, so it has to be an option this character
+  // can actually be shown pressing — and a startup with no digit in it is a
+  // string that will render as a number and mean nothing.
+  for (const [optionId, move] of Object.entries(character.frames ?? {})) {
+    frameRows++
+    if (!optionIds.has(optionId)) {
+      errors.push(`${where} has frame data for unknown option "${optionId}"`)
+    } else if (!rowIds.has(optionId)) {
+      errors.push(
+        `${where} has frame data for "${optionId}", which is never graded as a ` +
+          `row — nothing would ever render it`,
+      )
+    }
+    if ((character.removesOptions ?? []).includes(optionId)) {
+      errors.push(
+        `${where} has frame data for "${optionId}" while also removing it — the ` +
+          `overlay says they do not have the move it measures`,
+      )
+    }
+    if (!move.move) errors.push(`${where} frames "${optionId}" names no move`)
+    if (!/\d/.test(move.startup ?? '')) {
+      errors.push(`${where} frames "${optionId}" startup "${move.startup}" has no number`)
+    }
+    if (move.note) checkLocales(move.note, `${where} frames ${optionId} note`)
   }
 
   for (const reversal of character.reversals ?? []) {
@@ -324,14 +362,6 @@ for (const character of CHARACTERS ?? []) {
    empty. `air-throw` appeared in nobody's list, because for as long as nothing
    filtered columns nothing could tell; the hint named four characters when
    nine have one, and no check could have caught it. These can. */
-
-const roster = CHARACTERS ?? []
-const columnIds = new Set()
-const rowIds = new Set()
-for (const situation of SITUATIONS) {
-  for (const id of situation.opponentOptions ?? []) columnIds.add(id)
-  for (const evaluation of situation.evaluations) rowIds.add(evaluation.optionId)
-}
 
 const removedBy = new Map()
 for (const character of roster) {
@@ -498,6 +528,7 @@ console.log(
     `${evaluationCount} evaluations (${sourcedCount} sourced / ${estimated} estimated), ` +
     `${cutPages}/${SITUATIONS.length * roster.length} matchup pages drop a column, ` +
     `${traitIds.size} opponent traits (${traitNotes} notes), ` +
+    `${frameRows} moves with frame data, ` +
     `${errors.length} error(s), ${warnings.length} warning(s)`,
 )
 

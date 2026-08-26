@@ -159,9 +159,9 @@ export const OPPONENT_TRAITS: TraitDef[] = [
       },
       'mash-light': {
         'zh-Hant':
-          '4 幀的小技比 5 幀的指令投先打到 —— 速點在這裡是有效的，而且是最便宜的答案。但他只要延遲一拍，同一顆按鈕就變成他的確反。',
-        en: 'A 4-frame light hits before a 5-frame command grab, so mashing does work here and it is the cheapest answer there is. Delay it by a beat, though, and the same button becomes their punish.',
-        ja: '4Fの弱攻撃は5Fのコマンド投げより先に当たるため、ここでの暴れは有効で、しかも最も安い対策になる。ただし一拍遅らされれば、同じボタンがそのまま相手の確反になる。',
+          '最快的小技多半 4-5 幀，比 5 幀的指令投先打到 —— 速點在這裡有效，而且是最便宜的答案。但這取決於**你的**小技有多快（桑吉爾夫要 7 幀，就搶不贏），選了角色會顯示實際數字。而且他延遲一拍，同一顆按鈕就變成他的確反。',
+        en: 'The fastest light is usually 4 or 5 frames and beats a 5-frame command grab, so mashing does work here and it is the cheapest answer there is. It depends on how fast **your** light is, though — Zangief needs 7 and loses the race — and picking a character shows the number. Delay the grab by a beat and the same button becomes their punish.',
+        ja: '最速の弱攻撃はたいてい4〜5Fで、5Fのコマンド投げより先に当たるため、ここでの暴れは有効かつ最も安い対策になる。ただし**自分の**弱攻撃の速さ次第で、ザンギエフは7Fなので競り勝てない。キャラを選べば実際の数字が出る。さらに一拍遅らされれば、同じボタンが相手の確反になる。',
       },
     },
     sources: [ufd('zangief'), ufd('ehonda'), ufd('jamie')],
