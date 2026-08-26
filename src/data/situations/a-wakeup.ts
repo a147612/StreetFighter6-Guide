@@ -522,6 +522,63 @@ export const GROUP_A: Situation[] = [
         },
       },
       {
+        optionId: 'jump-neutral',
+        risk: 'high',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '摔投從你腳下落空，你原地落回他面前 —— 他還在硬直裡，你已經站著了。',
+            en: 'The throw passes under you and you come straight back down in front of them: still inside their recovery, and you are already standing.',
+            ja: '投げが足元を空振りし、そのまま相手の目の前に落ちる。相手はまだ硬直中で、こちらは既に立っている。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '起跳的 4 幀還在地上，壓起身或壓在第一幀的摔投照樣抓得到；被看到就是確定對空。',
+            en: 'The four prejump frames are still grounded, so a meaty — or a throw timed on frame one — catches it anyway. Seen, it is a guaranteed anti-air.',
+            ja: '跳び上がる4Fはまだ地上なので、重ねや1F目に合わせた投げには掴まれる。見られれば対空が確定する。',
+          },
+          hpLoss: '30-45%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'meaty', outcome: 'loss' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '普通摔投抓空只有 30 幀，你落地時他已經恢復了 —— 躲掉，僅此而已。指令投抓空是 60 幀上下，那才是落地還打得到的情況。',
+              en: 'A whiffed normal throw is only 30 frames and they have recovered by the time you land — you escaped, and that is all. A whiffed command grab is around 60, and that is the version you land on top of.',
+              ja: '通常投げの空振りは30Fしかなく、着地する頃には相手は回復している——避けただけ。コマ投げの空振りは60F前後で、そちらが着地して殴れる側になる。',
+            },
+          },
+          { vs: 'shimmy', outcome: 'loss' },
+          { vs: 'delayed-attack', outcome: 'loss' },
+          { vs: 'bait-block', outcome: 'loss' },
+          { vs: 'anti-air', outcome: 'bigLoss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/zangief',
+            patch: '2026-08',
+            note: 'Screw Piledriver 抓空 61 幀（恢復 54）。瑪濃 Manège Doré 60 幀、E.本田 Oicho 61 幀、傑米 Tenshin 61 幀、艾力克斯 Power Bomb 61 幀、莉莉 Mexican Typhoon 恢復 53 幀。同一頁的普通前摔抓空是 30 幀 —— 兩倍的差距就是垂直跳落地還打得到的原因。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/ryu',
+            patch: '2026-08',
+            note: 'Prejump Frames — 4（桑吉爾夫與莉莉是 5）。起跳前這幾幀還在地上，所以壓在起身第一幀的摔投照樣抓得到跳。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '只在讀到摔投的時候用。對面不是指令投角色的話，它比後跳好不了多少 —— 差別全部來自對方抓空要站多久。',
+          en: 'Only worth pressing on a throw read. Against anyone without a command grab it is barely better than a back jump — the entire difference is how long their whiff leaves them standing there.',
+          ja: '投げを読んだときにだけ出す択。コマ投げを持たない相手には後ろジャンプとほとんど変わらない。差はすべて、相手の空振りが何F立ちっぱなしになるかで決まる。',
+        },
+      },
+      {
         optionId: 'mash-light',
         risk: 'high',
         reward: 'low',
@@ -1140,6 +1197,63 @@ export const GROUP_A: Situation[] = [
           'zh-Hant': '回報最高也最容易被讀。最好在對手剛剛壓空一次之後用 —— 那是他最沒準備對空的時候。',
           en: 'The highest payoff and the easiest to read. Use it right after a setup of theirs has whiffed, when they are least ready to anti-air.',
           ja: 'リターンが最も高く、最も読まれやすい。相手の重ねが空振りした直後、対空の準備が最も薄い瞬間に使う。',
+        },
+      },
+      {
+        optionId: 'jump-neutral',
+        risk: 'high',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '摔投落空，你原地落回他面前。靠角的時候這一點比後跳重要 —— 後跳把你推得更靠近角落，垂直跳不會。',
+            en: 'The throw whiffs and you come straight back down in front of them. Near the corner that matters more than it sounds: a back jump pushes you further into it, and this does not.',
+            ja: '投げが空振りし、そのまま相手の目の前に落ちる。画面端が近いときはこれが効いてくる——後ろジャンプは端に押し込まれるが、垂直ジャンプはそうならない。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '起跳的 4 幀還在地上，壓起身或壓在第一幀的摔投照樣抓得到；被看到就是確定對空。',
+            en: 'The four prejump frames are still grounded, so a meaty — or a throw timed on frame one — catches it anyway. Seen, it is a guaranteed anti-air.',
+            ja: '跳び上がる4Fはまだ地上なので、重ねや1F目に合わせた投げには掴まれる。見られれば対空が確定する。',
+          },
+          hpLoss: '30-45%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'meaty', outcome: 'loss' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '普通摔投抓空只有 30 幀，你落地時他已經恢復了 —— 躲掉，僅此而已。指令投抓空是 60 幀上下，那才是落地還打得到的情況。',
+              en: 'A whiffed normal throw is only 30 frames and they have recovered by the time you land — you escaped, and that is all. A whiffed command grab is around 60, and that is the version you land on top of.',
+              ja: '通常投げの空振りは30Fしかなく、着地する頃には相手は回復している——避けただけ。コマ投げの空振りは60F前後で、そちらが着地して殴れる側になる。',
+            },
+          },
+          { vs: 'shimmy', outcome: 'loss' },
+          { vs: 'delayed-attack', outcome: 'loss' },
+          { vs: 'bait-block', outcome: 'loss' },
+          { vs: 'anti-air', outcome: 'bigLoss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/zangief',
+            patch: '2026-08',
+            note: 'Screw Piledriver 抓空 61 幀（恢復 54）。瑪濃 Manège Doré 60 幀、E.本田 Oicho 61 幀、傑米 Tenshin 61 幀、艾力克斯 Power Bomb 61 幀、莉莉 Mexican Typhoon 恢復 53 幀。同一頁的普通前摔抓空是 30 幀 —— 兩倍的差距就是垂直跳落地還打得到的原因。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/ryu',
+            patch: '2026-08',
+            note: 'Prejump Frames — 4（桑吉爾夫與莉莉是 5）。起跳前這幾幀還在地上，所以壓在起身第一幀的摔投照樣抓得到跳。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '靠角時後跳的成本開始上升，垂直跳的成本不變。同樣是讀摔投，這裡它是比較便宜的那一個。',
+          en: 'Near the corner a back jump starts costing you ground and this does not. On the same throw read, this is the cheaper of the two.',
+          ja: '画面端が近づくと後ろジャンプは位置を失い始めるが、垂直ジャンプは失わない。同じ投げ読みなら、ここではこちらが安い。',
         },
       },
       {
@@ -1778,6 +1892,63 @@ export const GROUP_A: Situation[] = [
           'zh-Hant': '回報最高也最容易被讀。最好在對手剛剛壓空一次之後用 —— 那是他最沒準備對空的時候。另外角落被打下來不一定是最差結果：空中互毆換到的有時候等於一次犧牲打，落地後反而拿回一次進攻權。',
           en: 'The highest payoff and the easiest to read. Use it right after a setup of theirs has whiffed, when they are least ready to anti-air. And being knocked out of it is not uniformly the worst case: an air-to-air trade can amount to a sacrifice that hands you back a turn on landing.',
           ja: 'リターンが最も高く、最も読まれやすい。相手の重ねが空振りした直後、対空の準備が最も薄い瞬間に使う。また画面端で撃ち落とされることが常に最悪とは限らない。空中での相打ちは捨て身の一撃となり、着地後にこちらの攻め番が戻ることもある。',
+        },
+      },
+      {
+        optionId: 'jump-neutral',
+        risk: 'high',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '摔投落空，你落回原地。角落沒有拿走它任何東西 —— 它本來就不靠位移。',
+            en: 'The throw whiffs and you land where you started. The corner takes nothing away from this one, because it never relied on travelling anywhere.',
+            ja: '投げが空振りし、元の位置に着地する。この択は移動に頼っていないので、画面端でも失うものが無い。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '起跳的 4 幀還在地上，壓起身或壓在第一幀的摔投照樣抓得到；被看到就是確定對空。',
+            en: 'The four prejump frames are still grounded, so a meaty — or a throw timed on frame one — catches it anyway. Seen, it is a guaranteed anti-air.',
+            ja: '跳び上がる4Fはまだ地上なので、重ねや1F目に合わせた投げには掴まれる。見られれば対空が確定する。',
+          },
+          hpLoss: '30-45%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'meaty', outcome: 'loss' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '普通摔投抓空只有 30 幀，你落地時他已經恢復了 —— 躲掉，僅此而已。指令投抓空是 60 幀上下，那才是落地還打得到的情況。',
+              en: 'A whiffed normal throw is only 30 frames and they have recovered by the time you land — you escaped, and that is all. A whiffed command grab is around 60, and that is the version you land on top of.',
+              ja: '通常投げの空振りは30Fしかなく、着地する頃には相手は回復している——避けただけ。コマ投げの空振りは60F前後で、そちらが着地して殴れる側になる。',
+            },
+          },
+          { vs: 'shimmy', outcome: 'loss' },
+          { vs: 'delayed-attack', outcome: 'loss' },
+          { vs: 'bait-block', outcome: 'loss' },
+          { vs: 'anti-air', outcome: 'bigLoss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/zangief',
+            patch: '2026-08',
+            note: 'Screw Piledriver 抓空 61 幀（恢復 54）。瑪濃 Manège Doré 60 幀、E.本田 Oicho 61 幀、傑米 Tenshin 61 幀、艾力克斯 Power Bomb 61 幀、莉莉 Mexican Typhoon 恢復 53 幀。同一頁的普通前摔抓空是 30 幀 —— 兩倍的差距就是垂直跳落地還打得到的原因。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/ryu',
+            patch: '2026-08',
+            note: 'Prejump Frames — 4（桑吉爾夫與莉莉是 5）。起跳前這幾幀還在地上，所以壓在起身第一幀的摔投照樣抓得到跳。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '後跳在角落幾乎不能用，垂直跳的評價完全沒變 —— 決定後跳的是位置，而這一項跟位置無關。對指令投角色來說，角落反而是最該用它的地方：你也沒有別的地方可以去。',
+          en: 'A back jump is close to unusable cornered and this grade does not move at all — position is what decides a back jump, and this option does not involve any. Against a grappler the corner is where it matters most, because there is nowhere else left to go.',
+          ja: '後ろジャンプは画面端でほぼ使えなくなるが、この択の評価は動かない。後ろジャンプを決めるのは位置であり、これは位置を使わないからである。コマ投げキャラ相手なら、他に行き場が無い画面端こそ最も使うべき場所になる。',
         },
       },
       {

@@ -227,6 +227,29 @@ const DEFENSIVE: OptionDef[] = [
     category: 'movement',
   },
   {
+    id: 'jump-neutral',
+    side: 'defense',
+    name: { 'zh-Hant': '垂直跳', en: 'Neutral jump', ja: '垂直ジャンプ' },
+    short: { 'zh-Hant': '垂直跳', en: 'Neutral jump', ja: '垂直J' },
+    origin: 'neutral jump',
+    hint: {
+      'zh-Hant':
+        '原地往上跳，不往前也不往後。摔投抓不到空中的人，而且落地時你還在他面前 —— 這就是它跟後跳的差別：後跳躲得掉，但換不到東西。真正的價值在指令投：**普通摔投抓空 30 幀，指令投抓空 60 幀上下**，你落地時他還站在那裡。代價是起跳前的 4 幀還在地上，壓在起身第一幀的投照樣抓得到。',
+      en: 'Jump straight up, going nowhere. A throw cannot catch someone in the air, and you land in front of them instead of away from them — which is the whole difference from a back jump, where you escape and get nothing for it. The real value is against a command grab: **a whiffed normal throw is 30 frames, a whiffed command grab is around 60**, so you land while they are still standing in it. The price is the four prejump frames, which are still on the ground: a throw timed on your first wakeup frame catches the jump anyway.',
+      ja: '真上に跳ぶ。前にも後ろにも動かない。投げは空中の相手を掴めず、しかも着地するのは相手の目の前——後ろジャンプとの決定的な違いがそこで、後ろジャンプは避けられても何も返せない。本当の価値はコマ投げに対してで、**通常投げの空振りが30F、コマ投げの空振りは60F前後**。着地したとき相手はまだそこに立っている。代償は跳び上がる前の4Fで、そこはまだ地上なので、起き上がり1F目に重ねられた投げには掴まれる。',
+    },
+    aka: {
+      'zh-Hant': ['原地跳', '垂直 J'],
+      en: ['neutral jump', 'nj'],
+      ja: ['垂直J', 'ニュートラルジャンプ'],
+    },
+    input: '8',
+    cost: { drive: 0, sa: 0 },
+    difficulty: 1,
+    characterSpecific: false,
+    category: 'movement',
+  },
+  {
     id: 'jump-back',
     side: 'defense',
     name: { 'zh-Hant': '後跳', en: 'Back jump', ja: 'バックジャンプ' },

@@ -146,9 +146,16 @@ export const OPPONENT_TRAITS: TraitDef[] = [
         ja: 'パリィは打撃を受けるが投げは受けない。このキャラ相手には最も掴まれやすい択になる。',
       },
       backdash: {
-        'zh-Hant': '這是真的躲得掉的一個 —— 後衝刺的無敵幀吃得下指令投。代價是猜錯會被確反。',
-        en: 'This one genuinely escapes: a backdash is invincible through the grab. The price is a full punish when you guess wrong.',
-        ja: 'これは本当に逃げられる択で、バックダッシュの無敵が投げを回避する。代償は読み負けたときの確定反撃。',
+        'zh-Hant':
+          '躲得掉 —— 後衝刺的無敵幀吃得下指令投。但它只是躲掉：你退開了，換不到傷害。要拿回一套就得垂直跳。',
+        en: 'It escapes: a backdash is invincible through the grab. But escaping is all it does — you end up further away with nothing to show for it. The version that pays is a neutral jump.',
+        ja: '逃げられる。バックダッシュの無敵が投げを回避する。ただし逃げるだけで、離れた分の見返りは無い。リターンを取りに行くなら垂直ジャンプ。',
+      },
+      'jump-neutral': {
+        'zh-Hant':
+          '對這隻角色，這是回報最高的一手 —— 指令投抓空 60 幀上下，你落地他還站在那裡，直接一套。代價是起跳前 4 幀還在地上，壓在起身第一幀的投照樣抓得到。',
+        en: 'The highest-payoff answer to this character: a whiffed command grab is around 60 frames, so you land on top of them for a full combo. The price is the four prejump frames, which a throw timed on your first wakeup frame still catches.',
+        ja: 'このキャラに対して最もリターンの高い択。コマ投げの空振りは60F前後で、着地したとき相手はまだそこに立っており、フルコンボが入る。代償は跳び上がる前の4Fで、起き上がり1F目に合わせた投げには掴まれる。',
       },
       'mash-light': {
         'zh-Hant': '速點跟 5 幀的指令投是純比快，你不會贏。要躲就跳或後衝刺。',
@@ -184,6 +191,12 @@ export const OPPONENT_TRAITS: TraitDef[] = [
         en: 'Blocking does not answer the throw, but the setup itself is punishable. The answer is hitting that move, not defending the grab.',
         ja: 'ガードでは投げに対応できないが、前置き技自体には確定反撃がある。守るのではなく前置きを潰すのが答え。',
       },
+      'jump-neutral': {
+        'zh-Hant':
+          '看到前置招再跳就好 —— 抓空一樣是 60 幀上下的硬直。不必每次起身都跳，他沒辦法直接投你。',
+        en: 'Jump when you see the setup, not before — the whiff is the same sixty-odd frames. You do not need it every wakeup, because they cannot grab you raw.',
+        ja: '前置き技を見てから跳べばよい。空振りの硬直は同じく60F前後。相手は生で投げられないので、毎回の起き上がりで跳ぶ必要は無い。',
+      },
       'mash-light': {
         'zh-Hant': '前置招有起始幀可以打，速點在這裡是有意義的 —— 跟純 5 幀的指令投不一樣。',
         en: 'The setup has startup you can hit, so a light actually does something here — unlike against a raw 5-frame grab.',
@@ -217,6 +230,12 @@ export const OPPONENT_TRAITS: TraitDef[] = [
         'zh-Hant': '純防禦擋不住，可是它慢到你來得及改。守著，看到再動。',
         en: 'Blocking does not stop it, but it is slow enough to change your mind. Hold the block and react.',
         ja: 'ガードでは止まらないが、見てから変えられる遅さ。ガードしたまま反応すればよい。',
+      },
+      'jump-neutral': {
+        'zh-Hant':
+          '不用預判，看到再跳 —— 25 幀以上的前置足夠你反應，而且抓空的硬直長到你落地綽綽有餘。',
+        en: 'No read required: twenty-five-plus frames of startup is enough to react to, and the whiff leaves far more than enough time to land on it.',
+        ja: '読む必要が無く、見てから跳べる。25F以上の発生は反応でき、空振りの硬直は着地して殴るのに十分すぎる。',
       },
       'mash-light': {
         'zh-Hant': '速點打得穿 —— 25 幀以上的前置足夠你先出手。',
@@ -292,6 +311,12 @@ export const OPPONENT_TRAITS: TraitDef[] = [
         en: 'The jump can simply be grabbed out of the air — a risk that is not there against most of the roster.',
         ja: '飛び込みがそのまま空中で掴まれる可能性がある。大半のキャラ相手には存在しないリスク。',
       },
+      'jump-neutral': {
+        'zh-Hant':
+          '垂直跳對這隻角色沒那麼安全 —— 他空中也抓得到你，而且空中投贏過你所有的空中普通技。',
+        en: 'A neutral jump is less safe than it looks here: they can grab you in the air as well, and the air throw beats every air normal you have.',
+        ja: 'このキャラ相手では垂直ジャンプは見た目ほど安全ではない。空中でも掴まれるうえ、空中投げはこちらのどの空中通常技にも勝つ。',
+      },
       'anti-air': {
         'zh-Hant': '用跳的去對空對這隻角色特別差。留在地上出對空技。',
         en: 'Anti-airing by jumping is at its worst against this character. Stay grounded and use the anti-air button.',
@@ -326,6 +351,12 @@ export const OPPONENT_TRAITS: TraitDef[] = [
         'zh-Hant': '他剛前衝或前走的時候沒有下蓄，那個瞬間跳過去只會遇到普通技對空。',
         en: 'Right after they dash or walk forward there is no down charge, so a jump then meets a normal, not a Flash Kick.',
         ja: '前ダッシュや前歩きの直後は下溜めが無く、その瞬間のジャンプは通常技対空にしか当たらない。',
+      },
+      'jump-neutral': {
+        'zh-Hant':
+          '他在壓你起身，代表他剛剛往前移動過 —— 下蓄多半是空的，蓄力對空這一瞬間出不來。要防的是普通技對空。',
+        en: 'They are pressuring your wakeup, which means they just moved forward — so the down charge is probably empty and the charge anti-air is not there in that moment. What is left is a normal.',
+        ja: '起き攻めをしているということは直前に前へ動いている——下溜めはたいてい空で、その瞬間は溜め対空が出ない。警戒すべきは通常技対空のほう。',
       },
       'jump-in': {
         'zh-Hant': '同樣看他前一秒在做什麼 —— 但他起身時通常壓著下後，起身的下蓄是滿的。別把兩件事搞混。',
