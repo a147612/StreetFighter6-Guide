@@ -647,7 +647,87 @@ export const GROUP_A: Situation[] = [
           ja: '投げを読んだときにだけ出す択。コマ投げを持たない相手には後ろジャンプとほとんど変わらない。差はすべて、相手の空振りが何F立ちっぱなしになるかで決まる。',
         },
       },
-      {
+        {
+        optionId: 'teleport',
+        risk: 'high',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '人不在原地了，壓過來的摔投抓空。',
+            en: 'You are not where you were, and the throw closes on nothing.',
+            ja: '元の位置に居らず、投げは空を掴む。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '收招長，對手只要等你出現就打得到 —— 而且除了 JP 以外都沒有無敵。',
+            en: 'The recovery is long and anyone waiting for you to reappear gets to hit it — and outside of JP there is no invincibility at all.',
+            ja: '硬直が長く、出現を待たれれば狩られる。しかもJP以外に無敵は無い。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'meaty', outcome: 'loss' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '摔投抓不到已經不在那裡的人 —— 這是瞬移真正拿手的一格，四種版本都成立。',
+              en: 'A throw cannot catch someone who is no longer there. This is the cell a teleport is actually for, and all four versions manage it.',
+              ja: '投げはもうそこに居ない相手を掴めない。テレポートが本当に得意なのはこのマスで、4種すべてが成立する。',
+            },
+          },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '同樣抓不到。對指令投角色來說，這是少數「不用猜對時機」的逃脫方式。',
+              en: 'Equally uncatchable, and against a grappler it is one of the few escapes that does not need the timing guessed right.',
+              ja: '同じく掴めない。コマ投げキャラ相手には、タイミングを読む必要のない数少ない逃げ手段になる。',
+            },
+          },
+          { vs: 'shimmy', outcome: 'even' },
+          {
+            vs: 'delayed-attack',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '收招 44 到 59 幀。對手不出招、等你出現再打，這一手就是純虧 —— 它躲得掉摔投，躲不掉耐心。',
+              en: 'Forty-four to fifty-nine frames of recovery. Someone who presses nothing and waits for you to reappear beats it outright: it escapes a throw, not patience.',
+              ja: '硬直は44〜59F。技を出さずに出現を待たれると一方的に負ける。投げからは逃げられても、待ちからは逃げられない。',
+            },
+          },
+          { vs: 'bait-block', outcome: 'loss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/jp',
+            patch: '2026-08',
+            note: 'Departure > Window：發生 5 幀、6-20 幀無敵、全長 44。全場唯一無敵的瞬移，但要先放好傳送門。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/akuma',
+            patch: '2026-08',
+            note: 'Ashura Senku：UFD 明寫「Teleports through opponents but does *not* have invincibility」，全長 51。這是四種瞬移裡最容易被誤會的一種。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/dhalsim',
+            patch: '2026-08',
+            note: 'Yoga Teleport：拳版距離長可穿過對手，腳版短且不穿過。英格麗特 Vanishing Sun 後版純逃脫、前／下版帶攻擊。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '起身瞬移只對摔投有用，而且只有 JP 的有無敵。其他三隻是在賭對手這一次選了摔 —— 賭錯就是換個位置吃同一套。',
+          en: 'A wakeup teleport only answers a throw, and only JP\'s has invincibility. The other three are betting that this was the throw; lose the bet and you eat the same combo somewhere else.',
+          ja: '起き上がりのテレポートは投げにしか効かず、無敵があるのはJPだけ。他の3キャラは「今回は投げ」に賭けているだけで、外せば場所が変わって同じコンボを食らう。',
+        },
+      },
+    {
         optionId: 'mash-light',
         risk: 'high',
         reward: 'low',
@@ -1405,7 +1485,87 @@ export const GROUP_A: Situation[] = [
           ja: '画面端が近づくと後ろジャンプは位置を失い始めるが、垂直ジャンプは失わない。同じ投げ読みなら、ここではこちらが安い。',
         },
       },
-      {
+        {
+        optionId: 'teleport',
+        risk: 'high',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '人不在原地了，壓過來的摔投抓空。',
+            en: 'You are not where you were, and the throw closes on nothing.',
+            ja: '元の位置に居らず、投げは空を掴む。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '收招長，對手只要等你出現就打得到 —— 而且除了 JP 以外都沒有無敵。',
+            en: 'The recovery is long and anyone waiting for you to reappear gets to hit it — and outside of JP there is no invincibility at all.',
+            ja: '硬直が長く、出現を待たれれば狩られる。しかもJP以外に無敵は無い。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'meaty', outcome: 'loss' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '摔投抓不到已經不在那裡的人 —— 這是瞬移真正拿手的一格，四種版本都成立。',
+              en: 'A throw cannot catch someone who is no longer there. This is the cell a teleport is actually for, and all four versions manage it.',
+              ja: '投げはもうそこに居ない相手を掴めない。テレポートが本当に得意なのはこのマスで、4種すべてが成立する。',
+            },
+          },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '同樣抓不到。對指令投角色來說，這是少數「不用猜對時機」的逃脫方式。',
+              en: 'Equally uncatchable, and against a grappler it is one of the few escapes that does not need the timing guessed right.',
+              ja: '同じく掴めない。コマ投げキャラ相手には、タイミングを読む必要のない数少ない逃げ手段になる。',
+            },
+          },
+          { vs: 'shimmy', outcome: 'even' },
+          {
+            vs: 'delayed-attack',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '收招 44 到 59 幀。對手不出招、等你出現再打，這一手就是純虧 —— 它躲得掉摔投，躲不掉耐心。',
+              en: 'Forty-four to fifty-nine frames of recovery. Someone who presses nothing and waits for you to reappear beats it outright: it escapes a throw, not patience.',
+              ja: '硬直は44〜59F。技を出さずに出現を待たれると一方的に負ける。投げからは逃げられても、待ちからは逃げられない。',
+            },
+          },
+          { vs: 'bait-block', outcome: 'loss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/jp',
+            patch: '2026-08',
+            note: 'Departure > Window：發生 5 幀、6-20 幀無敵、全長 44。全場唯一無敵的瞬移，但要先放好傳送門。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/akuma',
+            patch: '2026-08',
+            note: 'Ashura Senku：UFD 明寫「Teleports through opponents but does *not* have invincibility」，全長 51。這是四種瞬移裡最容易被誤會的一種。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/dhalsim',
+            patch: '2026-08',
+            note: 'Yoga Teleport：拳版距離長可穿過對手，腳版短且不穿過。英格麗特 Vanishing Sun 後版純逃脫、前／下版帶攻擊。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '起身瞬移只對摔投有用，而且只有 JP 的有無敵。其他三隻是在賭對手這一次選了摔 —— 賭錯就是換個位置吃同一套。',
+          en: 'A wakeup teleport only answers a throw, and only JP\'s has invincibility. The other three are betting that this was the throw; lose the bet and you eat the same combo somewhere else.',
+          ja: '起き上がりのテレポートは投げにしか効かず、無敵があるのはJPだけ。他の3キャラは「今回は投げ」に賭けているだけで、外せば場所が変わって同じコンボを食らう。',
+        },
+      },
+    {
         optionId: 'mash-light',
         risk: 'high',
         reward: 'low',
@@ -2228,7 +2388,87 @@ export const GROUP_A: Situation[] = [
           ja: '中央では混ぜる価値があり、画面端ではほぼ選べない。評価を決めるのは択ではなく位置である。',
         },
       },
-      {
+        {
+        optionId: 'teleport',
+        risk: 'high',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '人不在原地了，壓過來的摔投抓空。',
+            en: 'You are not where you were, and the throw closes on nothing.',
+            ja: '元の位置に居らず、投げは空を掴む。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '收招長，對手只要等你出現就打得到 —— 而且除了 JP 以外都沒有無敵。',
+            en: 'The recovery is long and anyone waiting for you to reappear gets to hit it — and outside of JP there is no invincibility at all.',
+            ja: '硬直が長く、出現を待たれれば狩られる。しかもJP以外に無敵は無い。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'meaty', outcome: 'loss' },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '摔投抓不到已經不在那裡的人 —— 這是瞬移真正拿手的一格，四種版本都成立。',
+              en: 'A throw cannot catch someone who is no longer there. This is the cell a teleport is actually for, and all four versions manage it.',
+              ja: '投げはもうそこに居ない相手を掴めない。テレポートが本当に得意なのはこのマスで、4種すべてが成立する。',
+            },
+          },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '同樣抓不到。對指令投角色來說，這是少數「不用猜對時機」的逃脫方式。',
+              en: 'Equally uncatchable, and against a grappler it is one of the few escapes that does not need the timing guessed right.',
+              ja: '同じく掴めない。コマ投げキャラ相手には、タイミングを読む必要のない数少ない逃げ手段になる。',
+            },
+          },
+          { vs: 'shimmy', outcome: 'even' },
+          {
+            vs: 'delayed-attack',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '收招 44 到 59 幀。對手不出招、等你出現再打，這一手就是純虧 —— 它躲得掉摔投，躲不掉耐心。',
+              en: 'Forty-four to fifty-nine frames of recovery. Someone who presses nothing and waits for you to reappear beats it outright: it escapes a throw, not patience.',
+              ja: '硬直は44〜59F。技を出さずに出現を待たれると一方的に負ける。投げからは逃げられても、待ちからは逃げられない。',
+            },
+          },
+          { vs: 'bait-block', outcome: 'loss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/jp',
+            patch: '2026-08',
+            note: 'Departure > Window：發生 5 幀、6-20 幀無敵、全長 44。全場唯一無敵的瞬移，但要先放好傳送門。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/akuma',
+            patch: '2026-08',
+            note: 'Ashura Senku：UFD 明寫「Teleports through opponents but does *not* have invincibility」，全長 51。這是四種瞬移裡最容易被誤會的一種。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/dhalsim',
+            patch: '2026-08',
+            note: 'Yoga Teleport：拳版距離長可穿過對手，腳版短且不穿過。英格麗特 Vanishing Sun 後版純逃脫、前／下版帶攻擊。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '起身瞬移只對摔投有用，而且只有 JP 的有無敵。其他三隻是在賭對手這一次選了摔 —— 賭錯就是換個位置吃同一套。',
+          en: 'A wakeup teleport only answers a throw, and only JP\'s has invincibility. The other three are betting that this was the throw; lose the bet and you eat the same combo somewhere else.',
+          ja: '起き上がりのテレポートは投げにしか効かず、無敵があるのはJPだけ。他の3キャラは「今回は投げ」に賭けているだけで、外せば場所が変わって同じコンボを食らう。',
+        },
+      },
+    {
         optionId: 'mash-light',
         risk: 'high',
         reward: 'low',

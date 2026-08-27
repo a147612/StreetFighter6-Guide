@@ -23,7 +23,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ケン',
     },
     health: 10000,
-    removesOptions: ['command-grab', 'air-throw'],
+    removesOptions: ['command-grab', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
       poke: [
@@ -361,7 +361,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
-    removesOptions: ['projectile'],
+    removesOptions: ['projectile', 'teleport'],
     backdashFrames: 23,
     frames: {
       poke: [
@@ -651,6 +651,24 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      teleport: [
+        {
+          move: 'Ashura Senku',
+          name: {
+            'zh-Hant': '阿修羅閃空',
+            en: 'Ashura Senku',
+            ja: '阿修羅閃空',
+          },
+          input: '6/4 KKK',
+          total: '51 (49)',
+          note: {
+            'zh-Hant':
+              '**完全沒有無敵。** 它只是讓你穿過對手，不是讓你躲掉招式 —— 對方壓一顆打擊，你就是換個位置挨打。前版可以取消成朧（指令投）。',
+            en: '**No invincibility at all.** It passes you through them rather than through anything they do — meaty a button and he takes it in a different spot. The forward version cancels into Oboro Throw.',
+            ja: '**無敵が一切ない**。相手をすり抜けるだけで、技を避けるわけではない——重ねられれば場所が変わって食らうだけ。前方版は朧（コマンド投げ）にキャンセルできる。',
+          },
+        },
+      ],
       poke: [
         {
           move: 'Standing Heavy Punch',
@@ -950,7 +968,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ルーク',
     },
     health: 10000,
-    removesOptions: ['command-grab', 'air-throw'],
+    removesOptions: ['command-grab', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
       poke: [
@@ -1208,7 +1226,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'リュウ',
     },
     health: 10000,
-    removesOptions: ['command-grab', 'super-reversal', 'air-throw'],
+    removesOptions: ['command-grab', 'super-reversal', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
       poke: [
@@ -1517,7 +1535,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         input: '[4] 6 P',
       },
     },
-    removesOptions: ['command-grab'],
+    removesOptions: ['command-grab', 'teleport'],
     backdashFrames: 25,
     frames: {
       poke: [
@@ -1800,7 +1818,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         input: '[4] 6 P',
       },
     },
-    removesOptions: ['command-grab'],
+    removesOptions: ['command-grab', 'teleport'],
     backdashFrames: 23,
     frames: {
       poke: [
@@ -2132,7 +2150,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         input: '214 K',
       },
     },
-    removesOptions: ['command-grab'],
+    removesOptions: ['command-grab', 'teleport'],
     backdashFrames: 23,
     frames: {
       poke: [
@@ -2385,7 +2403,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'サガット',
     },
     health: 10000,
-    removesOptions: ['command-grab', 'air-throw'],
+    removesOptions: ['command-grab', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
       poke: [
@@ -2658,7 +2676,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
-    removesOptions: ['command-grab', 'air-throw'],
+    removesOptions: ['command-grab', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
       poke: [
@@ -2905,7 +2923,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'エド',
     },
     health: 10000,
-    removesOptions: ['command-grab', 'air-throw'],
+    removesOptions: ['command-grab', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
       poke: [
@@ -3167,7 +3185,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
-    removesOptions: ['command-grab', 'projectile'],
+    removesOptions: ['command-grab', 'projectile', 'teleport'],
     backdashFrames: 23,
     frames: {
       poke: [
@@ -3408,7 +3426,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         input: '[4] 6 P',
       },
     },
-    removesOptions: ['command-grab', 'air-throw'],
+    removesOptions: ['command-grab', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
       poke: [
@@ -3701,7 +3719,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         input: '63214 K',
       },
     },
-    removesOptions: ['projectile', 'air-throw'],
+    removesOptions: ['projectile', 'air-throw', 'teleport'],
     backdashFrames: 25,
     frames: {
       poke: [
@@ -3988,7 +4006,7 @@ export const CHARACTERS: CharacterOverlay[] = [
       ja: 'ブランカ',
     },
     health: 10000,
-    removesOptions: ['air-throw'],
+    removesOptions: ['air-throw', 'teleport'],
     overrides: {
       'anti-air': {
         input: '[2] 8 K',
@@ -4372,7 +4390,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         input: '236 P',
       },
     },
-    removesOptions: ['command-grab'],
+    removesOptions: ['command-grab', 'teleport'],
     backdashFrames: 25,
     frames: {
       poke: [
@@ -4615,7 +4633,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
-    removesOptions: ['command-grab', 'air-throw'],
+    removesOptions: ['command-grab', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
       poke: [
@@ -4946,7 +4964,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
     },
-    removesOptions: ['command-grab', 'projectile', 'super-reversal', 'air-throw'],
+    removesOptions: ['command-grab', 'projectile', 'super-reversal', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
       poke: [
@@ -5190,6 +5208,25 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      teleport: [
+        {
+          move: 'Departure > Window',
+          name: {
+            'zh-Hant': '出發·窗口',
+            en: 'Departure > Window',
+            ja: 'ヴィーハト＞окно',
+          },
+          input: '214 P > 214 K',
+          startup: '5',
+          total: '44',
+          note: {
+            'zh-Hant':
+              '**發生 5 幀、6-20 幀無敵** —— 全場唯一真正能當起身逃脫用的瞬移。代價是要先放好傳送門，沒門就沒有這一手。',
+            en: '**Five frames of startup and invincible on 6-20** — the only teleport on the roster that genuinely works as a wakeup escape. The price is that the portal has to be out already; with no portal there is no option.',
+            ja: '**発生5F、6-20F無敵**——起き上がりの逃げとして本当に機能する唯一のテレポート。代償は先にポータルを設置しておく必要があることで、無ければこの択自体が存在しない。',
+          },
+        },
+      ],
       poke: [
         {
           move: 'Standing Medium Kick',
@@ -5508,7 +5545,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 11000,
     backdashFrames: 25,
-    removesOptions: ['projectile', 'reversal'],
+    removesOptions: ['projectile', 'reversal', 'teleport'],
     overrides: {
       'anti-air': {
         input: 'PP',
@@ -5852,6 +5889,27 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      teleport: [
+        {
+          move: 'Vanishing Sun',
+          name: {
+            'zh-Hant': '太陽瞬移',
+            en: 'Vanishing Sun',
+            ja: 'サンパニッシュ',
+          },
+          input: '4/2/6 KKK',
+          startup: '13 | 36 | 43',
+          onBlock: '-- | -3 | +2',
+          onHit: '** | Knockdown +44 | Limited Juggle Knockdown +48',
+          total: '48 | 57 | 59',
+          note: {
+            'zh-Hant':
+              '**只有後版是純逃脫**，前版和下版都會出招（下版還是中段）。要拿它當起身逃脫用，記得是「後」。',
+            en: '**Only the back version is a pure escape** — forward and down both attack, and down is an overhead. If the plan is to leave, the direction is back.',
+            ja: '**純粋な逃げになるのは後ろ版だけ**。前・下版は攻撃を伴い、下版は中段でもある。逃げるつもりなら方向は後ろ。',
+          },
+        },
+      ],
       poke: [
         {
           move: 'Standing Medium Punch',
@@ -6183,7 +6241,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 25,
-    removesOptions: ['projectile', 'reversal', 'air-throw'],
+    removesOptions: ['projectile', 'reversal', 'air-throw', 'teleport'],
     overrides: {
       'anti-air': {
         input: '236 K',
@@ -6542,7 +6600,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['reversal', 'air-throw'],
+    removesOptions: ['reversal', 'air-throw', 'teleport'],
     overrides: {
       'anti-air': {
         input: '236 HP',
@@ -6819,7 +6877,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10500,
     backdashFrames: 23,
-    removesOptions: ['projectile', 'reversal', 'air-throw'],
+    removesOptions: ['projectile', 'reversal', 'air-throw', 'teleport'],
     overrides: {
       'command-grab': {
         input: '63214 P',
@@ -7103,7 +7161,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['command-grab', 'reversal', 'air-throw'],
+    removesOptions: ['command-grab', 'reversal', 'air-throw', 'teleport'],
     overrides: {
       'super-reversal': {
         note: {
@@ -7395,6 +7453,24 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      teleport: [
+        {
+          move: 'Yoga Teleport',
+          name: {
+            'zh-Hant': '瑜伽轉移',
+            en: 'Yoga Teleport',
+            ja: 'ヨガテレポート',
+          },
+          input: '6/4 PPP/KKK',
+          startup: '(5) (4) (9) (9)',
+          note: {
+            'zh-Hant':
+              '**拳版走得遠、會穿過對手，腳版短、不會穿過。** 同一顆按鈕的兩種距離就是兩種用途：換邊，或者只是拉開。',
+            en: '**Punches travel further and can cross up; kicks are shorter and never do.** Two distances out of one move, and they are two different jobs: switching sides, or simply leaving.',
+            ja: '**P版は遠くまで移動して表裏になり、K版は短く表裏にならない。** 同じ技の二つの距離がそのまま二つの用途になる——サイドを変えるか、単に離れるか。',
+          },
+        },
+      ],
       poke: [
         {
           move: 'Back + Medium Punch (Yoga Uppercut)',
@@ -7605,7 +7681,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10500,
     backdashFrames: 23,
-    removesOptions: ['projectile', 'reversal'],
+    removesOptions: ['projectile', 'reversal', 'teleport'],
     overrides: {
       'anti-air': {
         input: '[2] 8 K',
@@ -7920,7 +7996,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['reversal'],
+    removesOptions: ['reversal', 'teleport'],
     overrides: {
       'anti-air': {
         input: '214 K',
@@ -8183,7 +8259,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10000,
     backdashFrames: 24,
-    removesOptions: ['projectile', 'reversal', 'air-throw'],
+    removesOptions: ['projectile', 'reversal', 'air-throw', 'teleport'],
     overrides: {
       'command-grab': {
         input: '360 P',
@@ -8479,7 +8555,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     latin: 'Vega',
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['command-grab', 'reversal', 'air-throw'],
+    removesOptions: ['command-grab', 'reversal', 'air-throw', 'teleport'],
     overrides: {
       'super-reversal': {
         note: {
@@ -8706,7 +8782,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     health: 10500,
     backdashFrames: 25,
-    removesOptions: ['command-grab', 'projectile', 'reversal', 'air-throw'],
+    removesOptions: ['command-grab', 'projectile', 'reversal', 'air-throw', 'teleport'],
     overrides: {
       'super-reversal': {
         note: {

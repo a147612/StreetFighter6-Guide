@@ -227,6 +227,25 @@ const DEFENSIVE: OptionDef[] = [
     category: 'movement',
   },
   {
+    id: 'teleport',
+    side: 'defense',
+    name: { 'zh-Hant': '瞬移', en: 'Teleport', ja: '瞬間移動' },
+    short: { 'zh-Hant': '瞬移', en: 'Teleport', ja: '瞬移' },
+    origin: 'teleport',
+    hint: {
+      'zh-Hant':
+        '一瞬間換到別的位置的必殺技。**31 隻裡只有四隻有，而且四種完全不同**：JP 的「出發·窗口」發生 5 幀、**6-20 幀無敵**，但要先放好傳送門；豪鬼的「阿修羅閃空」**完全沒有無敵**，只是穿過對手；達爾西姆的「瑜伽轉移」拳版走得遠、會穿過去，腳版短、不穿過；英格麗特的「太陽瞬移」後版是純逃脫，前版和下版都會出招。\n\n共通的代價是**收招很長**（44 到 59 幀），所以它躲得掉摔投，躲不掉「等你出現再打」。選了角色會顯示你的那一種。',
+      en: 'A special that puts you somewhere else instantly. **Four characters out of thirty-one have one, and no two are alike**: JP\'s Departure > Window starts in 5 frames and is **invincible on frames 6-20**, but needs a portal placed first; Akuma\'s Ashura Senku has **no invincibility at all** and simply passes through you; Dhalsim\'s Yoga Teleport goes further and can cross up on punches, shorter and never crosses up on kicks; Ingrid\'s back version is a pure escape while her forward and down versions both attack.\n\nWhat they share is **a long recovery** — 44 to 59 frames — so a teleport escapes a throw and does not escape someone who simply waits for you to reappear. Pick a character to see which one is yours.',
+      ja: '一瞬で別の位置に移動する必殺技。**31キャラ中4キャラのみが所持し、しかも四者四様**。JPの「出発・窓」は発生5Fで**6-20F無敵**だが、先にポータルを置く必要がある。豪鬼の「阿修羅閃空」は**無敵が一切なく**、ただ相手をすり抜けるだけ。ダルシムの「ヨガテレポート」はP版が遠く移動して表裏になり、K版は短く表裏にならない。イングリッドは後ろ版が純粋な逃げで、前・下版は攻撃を伴う。\n\n共通するのは**硬直の長さ**（44〜59F）で、投げからは逃げられるが「出てきたところを狩る」相手からは逃げられない。キャラを選べば自分のものが表示される。',
+    },
+    aka: { 'zh-Hant': ['傳送', '瞬間移動'], en: ['teleport'], ja: ['テレポート'] },
+    input: '',
+    cost: { drive: 0, sa: 0 },
+    difficulty: 2,
+    characterSpecific: true,
+    category: 'movement',
+  },
+  {
     id: 'jump-neutral',
     side: 'defense',
     name: { 'zh-Hant': '垂直跳', en: 'Neutral jump', ja: '垂直ジャンプ' },

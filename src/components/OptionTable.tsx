@@ -395,7 +395,7 @@ export function OptionTable({
                               there are several. Stored as UFD writes it, which
                               can be "3 (1)" or "16...32" — the badge wants the
                               number you would say out loud. */}
-                          {row.frames?.length === 1 && row.frames[0] && (
+                          {row.frames?.length === 1 && row.frames[0]?.startup && (
                             <span className="opt-row__frames mono">
                               {row.frames[0].startup.match(/\d+/)?.[0] ?? row.frames[0].startup}F
                             </span>

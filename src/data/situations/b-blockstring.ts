@@ -335,7 +335,88 @@ export const GROUP_B: Situation[] = [
           },
         ],
       },
-      {
+        {
+        optionId: 'teleport',
+        risk: 'high',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '壓制中找到空隙換位置，摔投和貼身的招都構不到。',
+            en: 'A gap in the pressure becomes a change of address, and the throw and the close normals reach nothing.',
+            ja: '固めの隙間で位置を変える。投げも近距離技も届かなくなる。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '沒有空隙就出不來，出得來也還有 44 幀以上的收招要對手不抓。',
+            en: 'With no gap it does not come out, and when it does there are still forty-plus frames for them not to punish.',
+            ja: '隙間が無ければ出せず、出せたとしても44F以上の硬直を見逃してもらう必要がある。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'blockstring', outcome: 'loss' },
+          {
+            vs: 'delayed-attack',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '收招 44 到 59 幀。對手不出招、等你出現再打，這一手就是純虧 —— 它躲得掉摔投，躲不掉耐心。',
+              en: 'Forty-four to fifty-nine frames of recovery. Someone who presses nothing and waits for you to reappear beats it outright: it escapes a throw, not patience.',
+              ja: '硬直は44〜59F。技を出さずに出現を待たれると一方的に負ける。投げからは逃げられても、待ちからは逃げられない。',
+            },
+          },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '摔投抓不到已經不在那裡的人 —— 這是瞬移真正拿手的一格，四種版本都成立。',
+              en: 'A throw cannot catch someone who is no longer there. This is the cell a teleport is actually for, and all four versions manage it.',
+              ja: '投げはもうそこに居ない相手を掴めない。テレポートが本当に得意なのはこのマスで、4種すべてが成立する。',
+            },
+          },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '同樣抓不到。對指令投角色來說，這是少數「不用猜對時機」的逃脫方式。',
+              en: 'Equally uncatchable, and against a grappler it is one of the few escapes that does not need the timing guessed right.',
+              ja: '同じく掴めない。コマ投げキャラ相手には、タイミングを読む必要のない数少ない逃げ手段になる。',
+            },
+          },
+          { vs: 'low-overhead-mix', outcome: 'loss' },
+          { vs: 'bait-block', outcome: 'loss' },
+          { vs: 'drive-impact', outcome: 'loss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/jp',
+            patch: '2026-08',
+            note: 'Departure > Window：發生 5 幀、6-20 幀無敵、全長 44。全場唯一無敵的瞬移，但要先放好傳送門。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/akuma',
+            patch: '2026-08',
+            note: 'Ashura Senku：UFD 明寫「Teleports through opponents but does *not* have invincibility」，全長 51。這是四種瞬移裡最容易被誤會的一種。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/dhalsim',
+            patch: '2026-08',
+            note: 'Yoga Teleport：拳版距離長可穿過對手，腳版短且不穿過。英格麗特 Vanishing Sun 後版純逃脫、前／下版帶攻擊。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '壓制中的瞬移是「他這次會摔」的讀，不是萬能逃脫鍵。連防不留縫就出不來，而收招長到任何一個等待都能罰。',
+          en: 'A teleport out of pressure is a read that this one is the throw, not a general escape button. A gapless string does not let it out, and the recovery is long enough for any wait to punish.',
+          ja: '固めからのテレポートは「今回は投げ」という読みであって、万能の逃げボタンではない。隙間の無い連係では出せず、硬直はどんな待ちにも狩られる長さ。',
+        },
+      },
+    {
         optionId: 'mash-light',
         risk: 'extreme',
         reward: 'none',
@@ -888,7 +969,88 @@ export const GROUP_B: Situation[] = [
           },
         ],
       },
-      {
+        {
+        optionId: 'teleport',
+        risk: 'high',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '壓制中找到空隙換位置，摔投和貼身的招都構不到。',
+            en: 'A gap in the pressure becomes a change of address, and the throw and the close normals reach nothing.',
+            ja: '固めの隙間で位置を変える。投げも近距離技も届かなくなる。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '沒有空隙就出不來，出得來也還有 44 幀以上的收招要對手不抓。',
+            en: 'With no gap it does not come out, and when it does there are still forty-plus frames for them not to punish.',
+            ja: '隙間が無ければ出せず、出せたとしても44F以上の硬直を見逃してもらう必要がある。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'blockstring', outcome: 'loss' },
+          {
+            vs: 'delayed-attack',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '收招 44 到 59 幀。對手不出招、等你出現再打，這一手就是純虧 —— 它躲得掉摔投，躲不掉耐心。',
+              en: 'Forty-four to fifty-nine frames of recovery. Someone who presses nothing and waits for you to reappear beats it outright: it escapes a throw, not patience.',
+              ja: '硬直は44〜59F。技を出さずに出現を待たれると一方的に負ける。投げからは逃げられても、待ちからは逃げられない。',
+            },
+          },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '摔投抓不到已經不在那裡的人 —— 這是瞬移真正拿手的一格，四種版本都成立。',
+              en: 'A throw cannot catch someone who is no longer there. This is the cell a teleport is actually for, and all four versions manage it.',
+              ja: '投げはもうそこに居ない相手を掴めない。テレポートが本当に得意なのはこのマスで、4種すべてが成立する。',
+            },
+          },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '同樣抓不到。對指令投角色來說，這是少數「不用猜對時機」的逃脫方式。',
+              en: 'Equally uncatchable, and against a grappler it is one of the few escapes that does not need the timing guessed right.',
+              ja: '同じく掴めない。コマ投げキャラ相手には、タイミングを読む必要のない数少ない逃げ手段になる。',
+            },
+          },
+          { vs: 'low-overhead-mix', outcome: 'loss' },
+          { vs: 'bait-block', outcome: 'loss' },
+          { vs: 'drive-impact', outcome: 'loss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/jp',
+            patch: '2026-08',
+            note: 'Departure > Window：發生 5 幀、6-20 幀無敵、全長 44。全場唯一無敵的瞬移，但要先放好傳送門。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/akuma',
+            patch: '2026-08',
+            note: 'Ashura Senku：UFD 明寫「Teleports through opponents but does *not* have invincibility」，全長 51。這是四種瞬移裡最容易被誤會的一種。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/dhalsim',
+            patch: '2026-08',
+            note: 'Yoga Teleport：拳版距離長可穿過對手，腳版短且不穿過。英格麗特 Vanishing Sun 後版純逃脫、前／下版帶攻擊。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '壓制中的瞬移是「他這次會摔」的讀，不是萬能逃脫鍵。連防不留縫就出不來，而收招長到任何一個等待都能罰。',
+          en: 'A teleport out of pressure is a read that this one is the throw, not a general escape button. A gapless string does not let it out, and the recovery is long enough for any wait to punish.',
+          ja: '固めからのテレポートは「今回は投げ」という読みであって、万能の逃げボタンではない。隙間の無い連係では出せず、硬直はどんな待ちにも狩られる長さ。',
+        },
+      },
+    {
         optionId: 'mash-light',
         risk: 'extreme',
         reward: 'none',
@@ -1515,6 +1677,87 @@ export const GROUP_B: Situation[] = [
           'zh-Hant': '後跳在角落等於不能用，垂直跳的評價完全沒變 —— 角落唯一還在的跳。對指令投角色來說，這裡也是最該用它的地方。',
           en: 'A back jump is unusable cornered and this grade does not move — it is the only jump left. Against a grappler the corner is also where it matters most.',
           ja: '後ろジャンプは画面端で使えなくなるが、この評価は動かない。端に残る唯一のジャンプであり、コマ投げキャラ相手ならここが最も重要な場所でもある。',
+        },
+      },
+      {
+        optionId: 'teleport',
+        risk: 'high',
+        reward: 'low',
+        onSuccess: {
+          text: {
+            'zh-Hant': '壓制中找到空隙換位置，摔投和貼身的招都構不到。',
+            en: 'A gap in the pressure becomes a change of address, and the throw and the close normals reach nothing.',
+            ja: '固めの隙間で位置を変える。投げも近距離技も届かなくなる。',
+          },
+          followUp: 'neutral',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '沒有空隙就出不來，出得來也還有 44 幀以上的收招要對手不抓。',
+            en: 'With no gap it does not come out, and when it does there are still forty-plus frames for them not to punish.',
+            ja: '隙間が無ければ出せず、出せたとしても44F以上の硬直を見逃してもらう必要がある。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          { vs: 'blockstring', outcome: 'loss' },
+          {
+            vs: 'delayed-attack',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '收招 44 到 59 幀。對手不出招、等你出現再打，這一手就是純虧 —— 它躲得掉摔投，躲不掉耐心。',
+              en: 'Forty-four to fifty-nine frames of recovery. Someone who presses nothing and waits for you to reappear beats it outright: it escapes a throw, not patience.',
+              ja: '硬直は44〜59F。技を出さずに出現を待たれると一方的に負ける。投げからは逃げられても、待ちからは逃げられない。',
+            },
+          },
+          {
+            vs: 'throw',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '摔投抓不到已經不在那裡的人 —— 這是瞬移真正拿手的一格，四種版本都成立。',
+              en: 'A throw cannot catch someone who is no longer there. This is the cell a teleport is actually for, and all four versions manage it.',
+              ja: '投げはもうそこに居ない相手を掴めない。テレポートが本当に得意なのはこのマスで、4種すべてが成立する。',
+            },
+          },
+          {
+            vs: 'command-grab',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '同樣抓不到。對指令投角色來說，這是少數「不用猜對時機」的逃脫方式。',
+              en: 'Equally uncatchable, and against a grappler it is one of the few escapes that does not need the timing guessed right.',
+              ja: '同じく掴めない。コマ投げキャラ相手には、タイミングを読む必要のない数少ない逃げ手段になる。',
+            },
+          },
+          { vs: 'low-overhead-mix', outcome: 'loss' },
+          { vs: 'bait-block', outcome: 'loss' },
+          { vs: 'drive-impact', outcome: 'loss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/jp',
+            patch: '2026-08',
+            note: 'Departure > Window：發生 5 幀、6-20 幀無敵、全長 44。全場唯一無敵的瞬移，但要先放好傳送門。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/akuma',
+            patch: '2026-08',
+            note: 'Ashura Senku：UFD 明寫「Teleports through opponents but does *not* have invincibility」，全長 51。這是四種瞬移裡最容易被誤會的一種。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/dhalsim',
+            patch: '2026-08',
+            note: 'Yoga Teleport：拳版距離長可穿過對手，腳版短且不穿過。英格麗特 Vanishing Sun 後版純逃脫、前／下版帶攻擊。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '壓制中的瞬移是「他這次會摔」的讀，不是萬能逃脫鍵。連防不留縫就出不來，而收招長到任何一個等待都能罰。',
+          en: 'A teleport out of pressure is a read that this one is the throw, not a general escape button. A gapless string does not let it out, and the recovery is long enough for any wait to punish.',
+          ja: '固めからのテレポートは「今回は投げ」という読みであって、万能の逃げボタンではない。隙間の無い連係では出せず、硬直はどんな待ちにも狩られる長さ。',
         },
       },
     {

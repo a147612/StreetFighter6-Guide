@@ -391,7 +391,8 @@ export interface MoveFrames {
   name?: I18nText
   /** Numpad notation. Authored, not from UFD, which writes inputs as prose. */
   input?: string
-  startup: string
+  /** Absent where UFD gives none — a teleport has no attack to start up. */
+  startup?: string
   /**
    * UFD's active frames. Authored only where the late-meaty arithmetic matters,
    * because that is the only place it is worth a column: a meaty timed on the

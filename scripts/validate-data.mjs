@@ -336,10 +336,14 @@ for (const character of CHARACTERS ?? []) {
         errors.push(`${where} frames "${optionId}" lists "${move.move}" twice`)
       }
       seenMoves.add(move.move)
-      if (!/\d/.test(move.startup ?? '')) {
+      if (move.startup !== undefined && !/\d/.test(move.startup)) {
         errors.push(
           `${where} frames "${optionId}" / "${move.move}" startup "${move.startup}" has no number`,
         )
+      }
+      // A row with a name and no numbers at all is a move list, not frame data.
+      if (!['startup', 'active', 'onBlock', 'onHit', 'total'].some((f) => move[f])) {
+        errors.push(`${where} frames "${optionId}" / "${move.move}" carries no frame data`)
       }
       if (move.name) checkLocales(move.name, `${where} frames ${optionId} "${move.move}" name`)
       if (move.note) checkLocales(move.note, `${where} frames ${optionId} "${move.move}" note`)
