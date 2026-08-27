@@ -102,6 +102,13 @@ a throw's total stays `30 (whiff) / 123 (hit)`. That is what lets `npm run frame
 diff the whole layer by string match. Prettying (real minus signs, `±0`, `…`)
 happens in `FrameStrip`, not in the data.
 
+**Move names are the community's, not Capcom's.** `MoveFrames.move` is UFD's
+English and is the join key; `name` is what the reader sees. Normals and throws
+are derived from notation. Special moves get a name only where the community has
+a settled one (波動拳, 螺旋打樁機, 大銀杏投); where it does not, the field is
+absent and all three locales show the original, because that is what players say
+and an invented translation is worse than the English it replaced.
+
 **There is deliberately no universal tier.** An averaged frame number is true of
 nobody, and the reason to look one up is that it is yours; nothing renders until
 a character is picked.

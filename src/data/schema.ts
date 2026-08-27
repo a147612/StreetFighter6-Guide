@@ -368,9 +368,20 @@ export interface MoveFrames {
   move: string
   /**
    * The move's name in each language, when it has one worth showing. Falls
-   * back to `move`. Normals are derived from their notation — "Standing Medium
-   * Punch" is not a name, it is a description, and every language already has
-   * its own way of writing it.
+   * back to `move`.
+   *
+   * Normals and throws are derived from their notation — "Standing Medium
+   * Punch" is a description rather than a name, and 站中拳 and 立ち中P are
+   * simply how the other two languages write the same thing.
+   *
+   * Special moves carry **community renderings, not Capcom's official ones**.
+   * The official Chinese list is only inside the game: the character pages
+   * return 403 and the web manual serves nothing to a fetch, and neither is
+   * worth working around. So a name appears here only where the community has
+   * a settled one that has been in use for years — 波動拳, 螺旋打樁機, 大銀杏投.
+   * Where it has not, the field is absent and all three locales show UFD's
+   * original, which is also what players actually say for those moves. An
+   * invented translation would be worse than the English it replaced.
    */
   name?: I18nText
   /** Numpad notation. Authored, not from UFD, which writes inputs as prose. */
