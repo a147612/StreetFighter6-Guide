@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { Topbar } from './components/Topbar'
 import { OptionTable } from './components/OptionTable'
 import { DefaultMix } from './components/viz/DefaultMix'
@@ -30,10 +30,24 @@ export default function App() {
   const [searchOpen, setSearchOpen] = useState(false)
   const [glossary, setGlossary] = useState(false)
   const [targetOption, setTargetOption] = useState<string | undefined>(undefined)
-  /** One switch for both character panels. Side by side, opening one left the
-   *  other as an empty column of the same height — and the two are read
-   *  against each other, so wanting one open almost always means both. */
+  /**
+   * The character panels open together — but only while they are side by side.
+   *
+   * That is the whole reason for it: opening one of two columns leaves the
+   * other as an empty column of the same height, and the two are read against
+   * each other anyway. Stacked, neither of those is true, and opening the one
+   * you did not ask for just pushes the one you did further down the page.
+   *
+   * Measured rather than guessed from a breakpoint. The layout is
+   * `auto-fit, minmax(20rem, 1fr)`, so where it wraps depends on the container
+   * rather than on the viewport, and a media query would be a second copy of
+   * that rule waiting to disagree with it.
+   */
+  const panelsRef = useRef<HTMLDivElement | null>(null)
+  const [sideBySide, setSideBySide] = useState(false)
   const [panelsOpen, setPanelsOpen] = useState(false)
+  const [openMine, setOpenMine] = useState(false)
+  const [openTheirs, setOpenTheirs] = useState(false)
   const characterId = useCharacter()
   const opponentId = useOpponent()
   const situation = getSituation(situationId)
@@ -45,6 +59,28 @@ export default function App() {
         : { rows: [], opponentOptions: [], removedColumns: [], traits: [] },
     [situation, characterId, opponentId],
   )
+
+  // No dependency array: the panels mount and unmount with the character
+  // selection, and their height changes as they open — measuring on every
+  // commit cannot go stale the way a one-shot measurement can.
+  useLayoutEffect(() => {
+    const node = panelsRef.current
+    const measure = (): void => {
+      const kids = node ? (Array.from(node.children) as HTMLElement[]) : []
+      setSideBySide(kids.length === 2 && Math.abs(kids[0]!.offsetTop - kids[1]!.offsetTop) < 4)
+    }
+    measure()
+    if (!node) return
+    const observer = new ResizeObserver(measure)
+    observer.observe(node)
+    window.addEventListener('resize', measure, { passive: true })
+    document.addEventListener('visibilitychange', measure)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', measure)
+      document.removeEventListener('visibilitychange', measure)
+    }
+  })
 
   /** Picking a group jumps to its first situation; leaving the reader on a
    *  situation from the previous group would be a dead end. */
@@ -197,9 +233,16 @@ export default function App() {
               </div>
             </div>
 
-            <div className="charpanels">
-              <CharacterPanel open={panelsOpen} onToggle={setPanelsOpen} />
-              <CharacterPanel seat="them" open={panelsOpen} onToggle={setPanelsOpen} />
+            <div className="charpanels" ref={panelsRef}>
+              <CharacterPanel
+                open={sideBySide ? panelsOpen : openMine}
+                onToggle={sideBySide ? setPanelsOpen : setOpenMine}
+              />
+              <CharacterPanel
+                seat="them"
+                open={sideBySide ? panelsOpen : openTheirs}
+                onToggle={sideBySide ? setPanelsOpen : setOpenTheirs}
+              />
             </div>
 
             <DefaultMix rows={matchup.rows} />

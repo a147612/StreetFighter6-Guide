@@ -1954,6 +1954,15 @@ html[data-theme='dark'] .notation__btn--h {
   font-weight: 600;
 }
 
+/* Grid items default to `min-width: auto`, which means "at least as wide as my
+   widest child" — so the frame table inside refused to shrink and dragged the
+   whole panel body out past the screen instead of scrolling in its own box.
+   On a phone the page is `overflow-x: clip`, so the overflow was invisible
+   rather than scrollable: the panel simply lost its right-hand half. */
+.charpanel__body > * {
+  min-width: 0;
+}
+
 .charpanel__body {
   display: grid;
   gap: var(--space-4);
