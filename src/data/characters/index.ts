@@ -278,6 +278,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Dragonlash Flame (SA1)',
+        name: {
+          'zh-Hant': '龍尾烈腳（SA1）',
+          en: 'Dragonlash Flame (SA1)',
+          ja: '龍尾烈腳（SA1）',
+        },
         input: '214 214 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-10 幀',
@@ -288,6 +293,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Shoryuken (OD)',
+        name: {
+          'zh-Hant': '昇龍拳（OD）',
+          en: 'Shoryuken (OD)',
+          ja: '昇龍拳（OD）',
+        },
         input: '623 PP',
         invincibility: {
           'zh-Hant': '完全無敵 1-10 幀',
@@ -302,6 +312,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Shoryuken (LP/MP/HP)',
+        name: {
+          'zh-Hant': '昇龍拳（輕拳）',
+          en: 'Shoryuken (LP/MP/HP)',
+          ja: '昇龍拳（弱）',
+        },
         input: '623 P',
         invincibility: {
           'zh-Hant': '僅對空無敵 1-14 幀 —— 打不贏算好時間點的壓起身',
@@ -316,6 +331,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Shinryu Reppa (SA3)',
+        name: {
+          'zh-Hant': '神龍裂破（SA3）',
+          en: 'Shinryu Reppa (SA3)',
+          ja: '神龍裂破（SA3）',
+        },
         input: '236236 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-18 幀',
@@ -330,9 +350,36 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Crouching Heavy Kick', type: 'hard', advantage: '+40' },
-      { move: 'Tatsumaki Senpu-kyaku (LK)', type: 'hard', advantage: '+46' },
-      { move: 'Shoryuken (LP)', type: 'hard', advantage: '+33' },
+      {
+        move: 'Crouching Heavy Kick',
+        name: {
+          'zh-Hant': '蹲重腳',
+          en: 'Crouching Heavy Kick',
+          ja: 'しゃがみ強K',
+        },
+        type: 'hard',
+        advantage: '+40',
+      },
+      {
+        move: 'Tatsumaki Senpu-kyaku (LK)',
+        name: {
+          'zh-Hant': '龍捲旋風腳（輕腳）',
+          en: 'Tatsumaki Senpu-kyaku (LK)',
+          ja: '龍捲旋風腳（弱）',
+        },
+        type: 'hard',
+        advantage: '+46',
+      },
+      {
+        move: 'Shoryuken (LP)',
+        name: {
+          'zh-Hant': '昇龍拳（輕拳）',
+          en: 'Shoryuken (LP)',
+          ja: '昇龍拳（弱）',
+        },
+        type: 'hard',
+        advantage: '+33',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -574,6 +621,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Spin Drive Smasher (SA1)',
+        name: {
+          'zh-Hant': '螺旋神槍（SA1）',
+          en: 'Spin Drive Smasher (SA1)',
+          ja: '螺旋神槍（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-11 幀',
@@ -584,6 +636,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Cannon Spike (OD)',
+        name: {
+          'zh-Hant': '神槍砲（OD）',
+          en: 'Cannon Spike (OD)',
+          ja: 'キャノンスパイク（OD）',
+        },
         input: '623 KK',
         invincibility: {
           'zh-Hant': '完全無敵 1-7 幀',
@@ -598,6 +655,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Cannon Spike (LK/MK/HK)',
+        name: {
+          'zh-Hant': '神槍砲（輕腳）',
+          en: 'Cannon Spike (LK/MK/HK)',
+          ja: 'キャノンスパイク（弱）',
+        },
         input: '623 K',
         invincibility: {
           'zh-Hant': '僅對空無敵 1-14 幀 —— 打不贏算好時間點的壓起身',
@@ -612,6 +674,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Delta Red Assault (SA3)',
+        name: {
+          'zh-Hant': '紅三角強襲（SA3）',
+          en: 'Delta Red Assault (SA3)',
+          ja: '紅三角強襲（SA3）',
+        },
         input: '236236 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-13 幀',
@@ -626,9 +693,36 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Back + Heavy Kick', type: 'hard', advantage: '+54' },
-      { move: 'Crouching Heavy Kick', type: 'hard', advantage: '+38' },
-      { move: 'Spiral Arrow (OD)', type: 'hard', advantage: '+47' },
+      {
+        move: 'Back + Heavy Kick',
+        name: {
+          'zh-Hant': '後重腳',
+          en: 'Back + Heavy Kick',
+          ja: '後ろ強K',
+        },
+        type: 'hard',
+        advantage: '+54',
+      },
+      {
+        move: 'Crouching Heavy Kick',
+        name: {
+          'zh-Hant': '蹲重腳',
+          en: 'Crouching Heavy Kick',
+          ja: 'しゃがみ強K',
+        },
+        type: 'hard',
+        advantage: '+38',
+      },
+      {
+        move: 'Spiral Arrow (OD)',
+        name: {
+          'zh-Hant': '螺旋飛箭（OD）',
+          en: 'Spiral Arrow (OD)',
+          ja: 'スパイラルアロー（OD）',
+        },
+        type: 'hard',
+        advantage: '+47',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -936,6 +1030,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Messatsu Gohado (SA1)',
+        name: {
+          'zh-Hant': '滅殺豪波動（SA1）',
+          en: 'Messatsu Gohado (SA1)',
+          ja: '滅殺豪波動（SA1）',
+        },
         input: '236 236 P',
         invincibility: {
           'zh-Hant': '只有打擊無敵 1-9 幀 —— 擋不掉摔投，起身用會被摔',
@@ -946,6 +1045,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Gou Shoryuken (OD)',
+        name: {
+          'zh-Hant': '豪昇龍拳（OD）',
+          en: 'Gou Shoryuken (OD)',
+          ja: '豪昇龍拳（OD）',
+        },
         input: '623 PP',
         invincibility: {
           'zh-Hant': '完全無敵 1-8 幀',
@@ -960,6 +1064,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Gou Shoryuken (LP/MP/HP)',
+        name: {
+          'zh-Hant': '豪昇龍拳（輕拳）',
+          en: 'Gou Shoryuken (LP/MP/HP)',
+          ja: '豪昇龍拳（弱）',
+        },
         input: '623 P',
         invincibility: {
           'zh-Hant': '僅對空無敵 1-14 幀 —— 打不贏算好時間點的壓起身',
@@ -988,6 +1097,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Sip of Calamity (SA3)',
+        name: {
+          'zh-Hant': '禍壞（SA3）',
+          en: 'Sip of Calamity (SA3)',
+          ja: '禍壞（SA3）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-8 幀',
@@ -1002,9 +1116,36 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Crouching Heavy Kick', type: 'hard', advantage: '+40' },
-      { move: 'Tatsumaki Zanku-kyaku (MK)', type: 'hard', advantage: '+41' },
-      { move: 'Gou Shoryuken (LP)', type: 'hard', advantage: '+38' },
+      {
+        move: 'Crouching Heavy Kick',
+        name: {
+          'zh-Hant': '蹲重腳',
+          en: 'Crouching Heavy Kick',
+          ja: 'しゃがみ強K',
+        },
+        type: 'hard',
+        advantage: '+40',
+      },
+      {
+        move: 'Tatsumaki Zanku-kyaku (MK)',
+        name: {
+          'zh-Hant': '龍捲斬空腳（中腳）',
+          en: 'Tatsumaki Zanku-kyaku (MK)',
+          ja: '龍捲斬空腳（中）',
+        },
+        type: 'hard',
+        advantage: '+41',
+      },
+      {
+        move: 'Gou Shoryuken (LP)',
+        name: {
+          'zh-Hant': '豪昇龍拳（輕拳）',
+          en: 'Gou Shoryuken (LP)',
+          ja: '豪昇龍拳（弱）',
+        },
+        type: 'hard',
+        advantage: '+38',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -1253,6 +1394,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Pale Rider (SA3)',
+        name: {
+          'zh-Hant': '蒼白騎士（SA3）',
+          en: 'Pale Rider (SA3)',
+          ja: '蒼白騎士（SA3）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-30 幀 —— 全角色最長的一段無敵，而且破霸體',
@@ -1263,6 +1409,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Vulcan Blast (SA1)',
+        name: {
+          'zh-Hant': '火神爆（SA1）',
+          en: 'Vulcan Blast (SA1)',
+          ja: '火神爆（SA1）',
+        },
         input: '236 236 P',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-6 幀',
@@ -1273,6 +1424,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Rising Uppercut (OD)',
+        name: {
+          'zh-Hant': '昇勾拳（OD）',
+          en: 'Rising Uppercut (OD)',
+          ja: '昇勾拳（OD）',
+        },
         input: '623 PP',
         invincibility: {
           'zh-Hant': '完全無敵 1-10 幀',
@@ -1287,6 +1443,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Rising Uppercut (LP/MP/HP)',
+        name: {
+          'zh-Hant': '昇勾拳（輕拳）',
+          en: 'Rising Uppercut (LP/MP/HP)',
+          ja: '昇勾拳（弱）',
+        },
         input: '623 P',
         invincibility: {
           'zh-Hant': '僅對空無敵 1-14 幀 —— 打不贏算好時間點的壓起身',
@@ -1301,6 +1462,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Eraser (SA2)',
+        name: {
+          'zh-Hant': '毀滅者（SA2）',
+          en: 'Eraser (SA2)',
+          ja: '毀滅者（SA2）',
+        },
         input: '214214 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-7 幀',
@@ -1315,8 +1481,26 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Crouching Heavy Kick', type: 'hard', advantage: '+40' },
-      { move: 'Flash Knuckle (HP)', type: 'hard', advantage: '+42' },
+      {
+        move: 'Crouching Heavy Kick',
+        name: {
+          'zh-Hant': '蹲重腳',
+          en: 'Crouching Heavy Kick',
+          ja: 'しゃがみ強K',
+        },
+        type: 'hard',
+        advantage: '+40',
+      },
+      {
+        move: 'Flash Knuckle (HP)',
+        name: {
+          'zh-Hant': '閃光拳（重拳）',
+          en: 'Flash Knuckle (HP)',
+          ja: '閃光拳（強）',
+        },
+        type: 'hard',
+        advantage: '+42',
+      },
       { move: 'Fatal Shot (OD followup)', type: 'hard', advantage: '+48' },
     ],
     coverage: 'partial',
@@ -1619,6 +1803,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Shinku Hadoken (SA1)',
+        name: {
+          'zh-Hant': '真空波動拳（SA1）',
+          en: 'Shinku Hadoken (SA1)',
+          ja: '真空波動拳（SA1）',
+        },
         input: '236 236 P',
         invincibility: {
           'zh-Hant': '只有打擊無敵 1-6 幀 —— 擋不掉摔投，起身用會被摔',
@@ -1629,6 +1818,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Shoryuken (OD)',
+        name: {
+          'zh-Hant': '昇龍拳（OD）',
+          en: 'Shoryuken (OD)',
+          ja: '昇龍拳（OD）',
+        },
         input: '623 PP',
         invincibility: {
           'zh-Hant': '完全無敵 1-8 幀',
@@ -1643,6 +1837,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Shin Hashogeki (SA2)',
+        name: {
+          'zh-Hant': '真·波掌擊（SA2）',
+          en: 'Shin Hashogeki (SA2)',
+          ja: '真·波掌擊（SA2）',
+        },
         input: '214214 P',
         invincibility: {
           'zh-Hant': '打擊無敵 1-11 幀（防不住摔投）',
@@ -1657,6 +1856,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Shin Shoryuken (SA3)',
+        name: {
+          'zh-Hant': '真·昇龍拳（SA3）',
+          en: 'Shin Shoryuken (SA3)',
+          ja: '真·昇龍拳（SA3）',
+        },
         input: '236236 P',
         invincibility: {
           'zh-Hant': '打擊無敵 1-4 幀（防不住摔投）',
@@ -1671,9 +1875,36 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'High Blade Kick (HK)', type: 'hard', advantage: '+44' },
-      { move: 'Crouching Heavy Kick', type: 'hard', advantage: '+40' },
-      { move: 'High Blade Kick (MK)', type: 'hard', advantage: '+40' },
+      {
+        move: 'High Blade Kick (HK)',
+        name: {
+          'zh-Hant': '上段足刀（重腳）',
+          en: 'High Blade Kick (HK)',
+          ja: '上段足刀（強）',
+        },
+        type: 'hard',
+        advantage: '+44',
+      },
+      {
+        move: 'Crouching Heavy Kick',
+        name: {
+          'zh-Hant': '蹲重腳',
+          en: 'Crouching Heavy Kick',
+          ja: 'しゃがみ強K',
+        },
+        type: 'hard',
+        advantage: '+40',
+      },
+      {
+        move: 'High Blade Kick (MK)',
+        name: {
+          'zh-Hant': '上段足刀（中腳）',
+          en: 'High Blade Kick (MK)',
+          ja: '上段足刀（中）',
+        },
+        type: 'hard',
+        advantage: '+40',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -1957,6 +2188,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Kikosho (SA1)',
+        name: {
+          'zh-Hant': '氣功掌（SA1）',
+          en: 'Kikosho (SA1)',
+          ja: '氣功掌（SA1）',
+        },
         input: '236 236 P',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-7 幀',
@@ -1967,6 +2203,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Tensho Kicks (OD)',
+        name: {
+          'zh-Hant': '天昇腳（OD）',
+          en: 'Tensho Kicks (OD)',
+          ja: '天昇腳（OD）',
+        },
         input: '22 KK',
         invincibility: {
           'zh-Hant': '完全無敵 1-7 幀',
@@ -1981,6 +2222,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Hoyoku-sen (SA2)',
+        name: {
+          'zh-Hant': '鳳翼扇（SA2）',
+          en: 'Hoyoku-sen (SA2)',
+          ja: '鳳翼扇（SA2）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-10 幀',
@@ -1995,6 +2241,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Soten Ranka (SA3)',
+        name: {
+          'zh-Hant': '蒼天亂華（SA3）',
+          en: 'Soten Ranka (SA3)',
+          ja: '蒼天亂華（SA3）',
+        },
         input: '214214 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-9 幀',
@@ -2011,7 +2262,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     knockdowns: [
       { move: 'Spinning Bird Kick (OD)', type: 'hard', advantage: '+55' },
       { move: 'Hazanshu (OD)', type: 'hard', advantage: '+52' },
-      { move: 'Hundred Lightning Kicks (HK)', type: 'hard', advantage: '+50' },
+      {
+        move: 'Hundred Lightning Kicks (HK)',
+        name: {
+          'zh-Hant': '百裂腳（重腳）',
+          en: 'Hundred Lightning Kicks (HK)',
+          ja: '百裂腳（強）',
+        },
+        type: 'hard',
+        advantage: '+50',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -2301,6 +2561,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Sonic Hurricane (SA1)',
+        name: {
+          'zh-Hant': '音速龍捲風（SA1）',
+          en: 'Sonic Hurricane (SA1)',
+          ja: '音速龍捲風（SA1）',
+        },
         input: '[4] 6 4 6 P',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-10 幀，但只有輕手和中手版本有',
@@ -2311,6 +2576,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Flash Kick (OD)',
+        name: {
+          'zh-Hant': '空翻腳刀（OD）',
+          en: 'Flash Kick (OD)',
+          ja: '空翻腳刀（OD）',
+        },
         input: '[2]8 KK',
         invincibility: {
           'zh-Hant': '完全無敵 1-11 幀',
@@ -2325,6 +2595,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Crossfire Somersault (SA3)',
+        name: {
+          'zh-Hant': '空翻交叉砲火（SA3）',
+          en: 'Crossfire Somersault (SA3)',
+          ja: '空翻交叉砲火（SA3）',
+        },
         input: '[4]646 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-14 幀',
@@ -2339,9 +2614,36 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Sonic Blade (OD)', type: 'hard', advantage: '+54' },
-      { move: 'Sonic Hurricane (SA1)', type: 'hard', advantage: '+41' },
-      { move: 'Flash Kick (MK)', type: 'hard', advantage: '+37' },
+      {
+        move: 'Sonic Blade (OD)',
+        name: {
+          'zh-Hant': '音速刃（OD）',
+          en: 'Sonic Blade (OD)',
+          ja: '音速刃（OD）',
+        },
+        type: 'hard',
+        advantage: '+54',
+      },
+      {
+        move: 'Sonic Hurricane (SA1)',
+        name: {
+          'zh-Hant': '音速龍捲風（SA1）',
+          en: 'Sonic Hurricane (SA1)',
+          ja: '音速龍捲風（SA1）',
+        },
+        type: 'hard',
+        advantage: '+41',
+      },
+      {
+        move: 'Flash Kick (MK)',
+        name: {
+          'zh-Hant': '空翻腳刀（中腳）',
+          en: 'Flash Kick (MK)',
+          ja: '空翻腳刀（中）',
+        },
+        type: 'hard',
+        advantage: '+37',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -2605,6 +2907,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Sakkai Fuhazan (SA1)',
+        name: {
+          'zh-Hant': '殺界風破斬（SA1）',
+          en: 'Sakkai Fuhazan (SA1)',
+          ja: '殺界風破斬（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-8 幀',
@@ -2615,6 +2922,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Tensenrin (OD)',
+        name: {
+          'zh-Hant': '天穿輪（OD）',
+          en: 'Tensenrin (OD)',
+          ja: '天穿輪（OD）',
+        },
         input: '623 PP',
         invincibility: {
           'zh-Hant': '完全無敵 1-9 幀',
@@ -2629,6 +2941,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Tensenrin (MP)',
+        name: {
+          'zh-Hant': '天穿輪（中拳）',
+          en: 'Tensenrin (MP)',
+          ja: '天穿輪（中）',
+        },
         input: '623 MP',
         invincibility: {
           'zh-Hant': '僅對空無敵 1-8 幀 —— 打不贏算好時間點的壓起身',
@@ -2643,6 +2960,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Kaisen Dankai Raku (SA3)',
+        name: {
+          'zh-Hant': '回旋斷界落（SA3）',
+          en: 'Kaisen Dankai Raku (SA3)',
+          ja: '回旋斷界落（SA3）',
+        },
         input: '214214 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-13 幀',
@@ -2657,9 +2979,36 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Fuhajin (HK)', type: 'hard', advantage: '+46' },
-      { move: 'Fuhajin (OD)', type: 'hard', advantage: '+45' },
-      { move: 'Saihasho (OD)', type: 'hard', advantage: '+39' },
+      {
+        move: 'Fuhajin (HK)',
+        name: {
+          'zh-Hant': '風破刃（重腳）',
+          en: 'Fuhajin (HK)',
+          ja: '風破刃（強）',
+        },
+        type: 'hard',
+        advantage: '+46',
+      },
+      {
+        move: 'Fuhajin (OD)',
+        name: {
+          'zh-Hant': '風破刃（OD）',
+          en: 'Fuhajin (OD)',
+          ja: '風破刃（OD）',
+        },
+        type: 'hard',
+        advantage: '+45',
+      },
+      {
+        move: 'Saihasho (OD)',
+        name: {
+          'zh-Hant': '歲破衝（OD）',
+          en: 'Saihasho (OD)',
+          ja: '歲破衝（OD）',
+        },
+        type: 'hard',
+        advantage: '+39',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -2925,6 +3274,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Tiger Cannon (SA1)',
+        name: {
+          'zh-Hant': '猛虎炮（SA1）',
+          en: 'Tiger Cannon (SA1)',
+          ja: '猛虎炮（SA1）',
+        },
         input: '236 236 P',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-13 幀',
@@ -2935,6 +3289,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Tiger Uppercut (OD)',
+        name: {
+          'zh-Hant': '猛虎上勾拳（OD）',
+          en: 'Tiger Uppercut (OD)',
+          ja: '猛虎上勾拳（OD）',
+        },
         input: '623 PP',
         invincibility: {
           'zh-Hant': '完全無敵 1-12 幀',
@@ -2949,6 +3308,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Savage Tiger (SA2)',
+        name: {
+          'zh-Hant': '殘暴虎擊（SA2）',
+          en: 'Savage Tiger (SA2)',
+          ja: '殘暴虎擊（SA2）',
+        },
         input: '214214 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-14 幀',
@@ -2963,6 +3327,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Tiger Vanquisher (SA3)',
+        name: {
+          'zh-Hant': '猛虎潰擊（SA3）',
+          en: 'Tiger Vanquisher (SA3)',
+          ja: '猛虎潰擊（SA3）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-15 幀',
@@ -2978,8 +3347,26 @@ export const CHARACTERS: CharacterOverlay[] = [
     ],
     knockdowns: [
       { move: 'High Tiger Shot (OD)', type: 'hard', advantage: '+63' },
-      { move: 'Low Tiger Shot (OD)', type: 'hard', advantage: '+52' },
-      { move: 'Tiger Knee Crush (HK)', type: 'hard', advantage: '+41' },
+      {
+        move: 'Low Tiger Shot (OD)',
+        name: {
+          'zh-Hant': '下段猛虎波',
+          en: 'Low Tiger Shot (OD)',
+          ja: '下段猛虎波',
+        },
+        type: 'hard',
+        advantage: '+52',
+      },
+      {
+        move: 'Tiger Knee Crush (HK)',
+        name: {
+          'zh-Hant': '猛虎膝（重腳）',
+          en: 'Tiger Knee Crush (HK)',
+          ja: '猛虎膝（強）',
+        },
+        type: 'hard',
+        advantage: '+41',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -3209,6 +3596,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Buster Wolf (SA1)',
+        name: {
+          'zh-Hant': '非凡之狼（SA1）',
+          en: 'Buster Wolf (SA1)',
+          ja: '非凡之狼（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-8 幀',
@@ -3219,6 +3611,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Rising Tackle (OD)',
+        name: {
+          'zh-Hant': '昇龍摔（OD）',
+          en: 'Rising Tackle (OD)',
+          ja: '昇龍摔（OD）',
+        },
         input: '623 PP',
         invincibility: {
           'zh-Hant': '完全無敵 1-10 幀',
@@ -3233,6 +3630,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Power Geyser (SA2)',
+        name: {
+          'zh-Hant': '能量噴泉（SA2）',
+          en: 'Power Geyser (SA2)',
+          ja: '能量噴泉（SA2）',
+        },
         input: '214214 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-17 幀',
@@ -3247,6 +3649,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Rising Fang (SA3)',
+        name: {
+          'zh-Hant': '昇龍牙（SA3）',
+          en: 'Rising Fang (SA3)',
+          ja: '昇龍牙（SA3）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-16 幀',
@@ -3262,8 +3669,26 @@ export const CHARACTERS: CharacterOverlay[] = [
     ],
     knockdowns: [
       { move: 'Burning Knuckle (OD)', type: 'hard', advantage: '+60' },
-      { move: 'Crack Shoot (HK)', type: 'hard', advantage: '+43' },
-      { move: 'Crouching Heavy Kick', type: 'hard', advantage: '+40' },
+      {
+        move: 'Crack Shoot (HK)',
+        name: {
+          'zh-Hant': '崩裂噴射（重腳）',
+          en: 'Crack Shoot (HK)',
+          ja: '崩裂噴射（強）',
+        },
+        type: 'hard',
+        advantage: '+43',
+      },
+      {
+        move: 'Crouching Heavy Kick',
+        name: {
+          'zh-Hant': '蹲重腳',
+          en: 'Crouching Heavy Kick',
+          ja: 'しゃがみ強K',
+        },
+        type: 'hard',
+        advantage: '+40',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -3477,6 +3902,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Psycho Storm (SA1)',
+        name: {
+          'zh-Hant': '念力風暴（SA1）',
+          en: 'Psycho Storm (SA1)',
+          ja: '念力風暴（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-? 幀',
@@ -3487,6 +3917,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Psycho Uppercut (OD)',
+        name: {
+          'zh-Hant': '念力上鉤拳（OD）',
+          en: 'Psycho Uppercut (OD)',
+          ja: '念力上鉤拳（OD）',
+        },
         input: '623 PP',
         invincibility: {
           'zh-Hant': '完全無敵 1-12 幀',
@@ -3501,6 +3936,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Psycho Uppercut (LP/MP/HP)',
+        name: {
+          'zh-Hant': '念力上鉤拳（輕拳）',
+          en: 'Psycho Uppercut (LP/MP/HP)',
+          ja: '念力上鉤拳（弱）',
+        },
         input: '623 P',
         invincibility: {
           'zh-Hant': '僅對空無敵 1-? 幀 —— 打不贏算好時間點的壓起身',
@@ -3515,6 +3955,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Psycho Chamber (SA3)',
+        name: {
+          'zh-Hant': '念力空間（SA3）',
+          en: 'Psycho Chamber (SA3)',
+          ja: '念力空間（SA3）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-? 幀',
@@ -3529,9 +3974,36 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Psycho Blitz (OD)', type: 'hard', advantage: '+42' },
-      { move: 'Psycho Blitz (HP)', type: 'hard', advantage: '+40' },
-      { move: 'Psycho Uppercut (MP)', type: 'hard', advantage: '+39' },
+      {
+        move: 'Psycho Blitz (OD)',
+        name: {
+          'zh-Hant': '念力迅擊拳（OD）',
+          en: 'Psycho Blitz (OD)',
+          ja: '念力迅擊拳（OD）',
+        },
+        type: 'hard',
+        advantage: '+42',
+      },
+      {
+        move: 'Psycho Blitz (HP)',
+        name: {
+          'zh-Hant': '念力迅擊拳（重拳）',
+          en: 'Psycho Blitz (HP)',
+          ja: '念力迅擊拳（強）',
+        },
+        type: 'hard',
+        advantage: '+40',
+      },
+      {
+        move: 'Psycho Uppercut (MP)',
+        name: {
+          'zh-Hant': '念力上鉤拳（中拳）',
+          en: 'Psycho Uppercut (MP)',
+          ja: '念力上鉤拳（中）',
+        },
+        type: 'hard',
+        advantage: '+39',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -3708,6 +4180,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Revival Dance (SA2)',
+        name: {
+          'zh-Hant': '復活之舞（SA2）',
+          en: 'Revival Dance (SA2)',
+          ja: '復活之舞（SA2）',
+        },
         input: '236 236 P',
         invincibility: {
           'zh-Hant':
@@ -3719,6 +4196,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Meteor Volley (SA1)',
+        name: {
+          'zh-Hant': '隕石昇踢（SA1）',
+          en: 'Meteor Volley (SA1)',
+          ja: '隕石昇踢（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '沒有無敵 —— 這一招不能拿來起身脫身',
@@ -3757,6 +4239,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Song of the Grasslands (SA3)',
+        name: {
+          'zh-Hant': '草原之歌（SA3）',
+          en: 'Song of the Grasslands (SA3)',
+          ja: '草原之歌（SA3）',
+        },
         input: '214214 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-7 幀',
@@ -4061,6 +4548,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'The Greatest Sobat (SA1)',
+        name: {
+          'zh-Hant': '終極迴旋踢（SA1）',
+          en: 'The Greatest Sobat (SA1)',
+          ja: '終極迴旋踢（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '沒有無敵 —— 這一招不能拿來起身脫身',
@@ -4071,6 +4563,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Jackknife Maximum (OD)',
+        name: {
+          'zh-Hant': '連環折刀（OD）',
+          en: 'Jackknife Maximum (OD)',
+          ja: '連環折刀（OD）',
+        },
         input: '[2]8 KK',
         invincibility: {
           'zh-Hant': '完全無敵 1-11 幀',
@@ -4099,6 +4596,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Weekend Pleasure (SA3)',
+        name: {
+          'zh-Hant': '週六狂歡夜（SA3）',
+          en: 'Weekend Pleasure (SA3)',
+          ja: '週六狂歡夜（SA3）',
+        },
         input: '214214 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-13 幀',
@@ -4113,9 +4615,27 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Machine Gun Upper (OD)', type: 'hard', advantage: '+52' },
+      {
+        move: 'Machine Gun Upper (OD)',
+        name: {
+          'zh-Hant': '機關槍上勾拳（OD）',
+          en: 'Machine Gun Upper (OD)',
+          ja: '機關槍上勾拳（OD）',
+        },
+        type: 'hard',
+        advantage: '+52',
+      },
       { move: 'Jus Cool > HK', type: 'hard', advantage: '+45' },
-      { move: 'Crouching Heavy Kick', type: 'hard', advantage: '+33' },
+      {
+        move: 'Crouching Heavy Kick',
+        name: {
+          'zh-Hant': '蹲重腳',
+          en: 'Crouching Heavy Kick',
+          ja: 'しゃがみ強K',
+        },
+        type: 'hard',
+        advantage: '+33',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -4370,6 +4890,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Arrow Kick (OD)',
+        name: {
+          'zh-Hant': '張弓腳（OD）',
+          en: 'Arrow Kick (OD)',
+          ja: '張弓腳（OD）',
+        },
         input: '623 KK',
         invincibility: {
           'zh-Hant': '完全無敵 1-9 幀',
@@ -4384,6 +4909,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Arrow Kick (LK/MK)',
+        name: {
+          'zh-Hant': '張弓腳（輕腳）',
+          en: 'Arrow Kick (LK/MK)',
+          ja: '張弓腳（弱）',
+        },
         input: '623 K',
         invincibility: {
           'zh-Hant': '僅對空無敵 1-11 幀 —— 打不贏算好時間點的壓起身',
@@ -4398,6 +4928,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Getsuga Saiho (SA3)',
+        name: {
+          'zh-Hant': '月牙叉砲（SA3）',
+          en: 'Getsuga Saiho (SA3)',
+          ja: '月牙叉砲（SA3）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-11 幀',
@@ -4412,7 +4947,16 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Getsuga Saiho (SA3)', type: 'hard', advantage: '+71' },
+      {
+        move: 'Getsuga Saiho (SA3)',
+        name: {
+          'zh-Hant': '月牙叉砲（SA3）',
+          en: 'Getsuga Saiho (SA3)',
+          ja: '月牙叉砲（SA3）',
+        },
+        type: 'hard',
+        advantage: '+71',
+      },
       { move: 'Down + KK', type: 'hard', advantage: '+53' },
       { move: 'Luminous Dive Kick', type: 'hard', advantage: '+43' },
     ],
@@ -4758,6 +5302,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Shout of Earth (SA1)',
+        name: {
+          'zh-Hant': '大地咆哮（SA1）',
+          en: 'Shout of Earth (SA1)',
+          ja: '大地咆哮（SA1）',
+        },
         input: '236 236 P',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-9 幀',
@@ -4768,6 +5317,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Coward Crouch',
+        name: {
+          'zh-Hant': '膽小趴地',
+          en: 'Coward Crouch',
+          ja: '膽小趴地',
+        },
         input: '2 PP',
         invincibility: {
           'zh-Hant': '第 9 幀起低姿態，可按住最多 148 幀 —— 鑽過中段用的，不是起身反擊',
@@ -4782,6 +5336,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Vertical Rolling Attack (OD)',
+        name: {
+          'zh-Hant': '垂直旋轉突擊（OD）',
+          en: 'Vertical Rolling Attack (OD)',
+          ja: '垂直旋轉突擊（OD）',
+        },
         input: '[2]8 KK',
         invincibility: {
           'zh-Hant': '完全無敵 1-7 幀',
@@ -4796,6 +5355,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Ground Shave Cannonball (SA3)',
+        name: {
+          'zh-Hant': '削地滾動大砲（SA3）',
+          en: 'Ground Shave Cannonball (SA3)',
+          ja: '削地滾動大砲（SA3）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-12 幀',
@@ -4810,8 +5374,26 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Wild Hunt (OD)', type: 'hard', advantage: '+64' },
-      { move: 'Rolling Attack (OD)', type: 'hard', advantage: '+57' },
+      {
+        move: 'Wild Hunt (OD)',
+        name: {
+          'zh-Hant': '野生狩獵（OD）',
+          en: 'Wild Hunt (OD)',
+          ja: '野生狩獵（OD）',
+        },
+        type: 'hard',
+        advantage: '+64',
+      },
+      {
+        move: 'Rolling Attack (OD)',
+        name: {
+          'zh-Hant': '旋轉突擊（OD）',
+          en: 'Rolling Attack (OD)',
+          ja: '旋轉突擊（OD）',
+        },
+        type: 'hard',
+        advantage: '+57',
+      },
       { move: 'Amazon River Run (3HP)', type: 'hard', advantage: '+29' },
     ],
     coverage: 'partial',
@@ -5012,6 +5594,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Super Rashid Kick (SA1)',
+        name: {
+          'zh-Hant': '超級拉希德踢擊（SA1）',
+          en: 'Super Rashid Kick (SA1)',
+          ja: '超級拉希德踢擊（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-15 幀',
@@ -5022,6 +5609,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Spinning Mixer (OD)',
+        name: {
+          'zh-Hant': '旋風擊（OD）',
+          en: 'Spinning Mixer (OD)',
+          ja: '旋風擊（OD）',
+        },
         input: '236 PP',
         invincibility: {
           'zh-Hant': '完全無敵 1-8 幀',
@@ -5036,6 +5628,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Spinning Mixer (MP)',
+        name: {
+          'zh-Hant': '旋風擊（中拳）',
+          en: 'Spinning Mixer (MP)',
+          ja: '旋風擊（中）',
+        },
         input: '236 MP',
         invincibility: {
           'zh-Hant': '僅對空無敵 6-14 幀 —— 打不贏算好時間點的壓起身',
@@ -5050,6 +5647,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Altair (SA3)',
+        name: {
+          'zh-Hant': '飛翔大鷹（SA3）',
+          en: 'Altair (SA3)',
+          ja: '飛翔大鷹（SA3）',
+        },
         input: '236236 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-15 幀',
@@ -5064,9 +5666,36 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Ysaar (SA2)', type: 'hard', advantage: '+104' },
-      { move: 'Eagle Spike (MK)', type: 'hard', advantage: '+56' },
-      { move: 'Eagle Spike (HK)', type: 'hard', advantage: '+52' },
+      {
+        move: 'Ysaar (SA2)',
+        name: {
+          'zh-Hant': '龍捲風（SA2）',
+          en: 'Ysaar (SA2)',
+          ja: '龍捲風（SA2）',
+        },
+        type: 'hard',
+        advantage: '+104',
+      },
+      {
+        move: 'Eagle Spike (MK)',
+        name: {
+          'zh-Hant': '鷹襲（中腳）',
+          en: 'Eagle Spike (MK)',
+          ja: '鷹襲（中）',
+        },
+        type: 'hard',
+        advantage: '+56',
+      },
+      {
+        move: 'Eagle Spike (HK)',
+        name: {
+          'zh-Hant': '鷹襲（重腳）',
+          en: 'Eagle Spike (HK)',
+          ja: '鷹襲（強）',
+        },
+        type: 'hard',
+        advantage: '+52',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -5422,6 +6051,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Hishou Ryuuenjin (OD)',
+        name: {
+          'zh-Hant': '飛翔龍炎陣（OD）',
+          en: 'Hishou Ryuuenjin (OD)',
+          ja: '飛翔龍炎陣（OD）',
+        },
         input: '623 KK',
         invincibility: {
           'zh-Hant': '完全無敵 1-8 幀',
@@ -5450,9 +6084,36 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Crouching Heavy Kick', type: 'hard', advantage: '+38' },
-      { move: 'Ryuuenbu (MP)', type: 'hard', advantage: '+35' },
-      { move: 'Hishou Ryuuenjin (MK)', type: 'hard', advantage: '+31' },
+      {
+        move: 'Crouching Heavy Kick',
+        name: {
+          'zh-Hant': '蹲重腳',
+          en: 'Crouching Heavy Kick',
+          ja: 'しゃがみ強K',
+        },
+        type: 'hard',
+        advantage: '+38',
+      },
+      {
+        move: 'Ryuuenbu (MP)',
+        name: {
+          'zh-Hant': '龍炎舞（中拳）',
+          en: 'Ryuuenbu (MP)',
+          ja: '龍炎舞（中）',
+        },
+        type: 'hard',
+        advantage: '+35',
+      },
+      {
+        move: 'Hishou Ryuuenjin (MK)',
+        name: {
+          'zh-Hant': '飛翔龍炎陣（中腳）',
+          en: 'Hishou Ryuuenjin (MK)',
+          ja: '飛翔龍炎陣（中）',
+        },
+        type: 'hard',
+        advantage: '+31',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -5682,8 +6343,26 @@ export const CHARACTERS: CharacterOverlay[] = [
     ],
     knockdowns: [
       { move: 'Pamumukadkad ng Sampaguita (SA3)', type: 'hard', advantage: '+42' },
-      { move: 'Crouching Heavy Kick', type: 'hard', advantage: '+40' },
-      { move: 'Back + Heavy Kick', type: 'hard', advantage: '+31' },
+      {
+        move: 'Crouching Heavy Kick',
+        name: {
+          'zh-Hant': '蹲重腳',
+          en: 'Crouching Heavy Kick',
+          ja: 'しゃがみ強K',
+        },
+        type: 'hard',
+        advantage: '+40',
+      },
+      {
+        move: 'Back + Heavy Kick',
+        name: {
+          'zh-Hant': '後重腳',
+          en: 'Back + Heavy Kick',
+          ja: '後ろ強K',
+        },
+        type: 'hard',
+        advantage: '+31',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -6028,6 +6707,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Chornobog (SA1)',
+        name: {
+          'zh-Hant': '混沌黑神（SA1）',
+          en: 'Chornobog (SA1)',
+          ja: '混沌黑神（SA1）',
+        },
         input: '236 236 P',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-10 幀',
@@ -6038,6 +6722,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Amnesia (OD)',
+        name: {
+          'zh-Hant': '失憶（OD）',
+          en: 'Amnesia (OD)',
+          ja: 'アムネジア（OD）',
+        },
         input: '22 KK',
         invincibility: {
           'zh-Hant': '反擊打擊與摔投，1-20 幀 —— 窗口長達 20 幀，比無敵技更容易抓到延遲打擊。成功是 +131 的巨大回報',
@@ -6052,6 +6741,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Amnesia',
+        name: {
+          'zh-Hant': '失憶',
+          en: 'Amnesia',
+          ja: 'アムネジア',
+        },
         input: '22 K',
         invincibility: {
           'zh-Hant': '只反擊打擊，3-18 幀。防不住摔投，起身第 1-2 幀也沒有覆蓋',
@@ -6066,6 +6760,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Interdiction (SA3)',
+        name: {
+          'zh-Hant': '禁忌（SA3）',
+          en: 'Interdiction (SA3)',
+          ja: '禁忌（SA3）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-23 幀',
@@ -6094,8 +6793,26 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Stribog (HP)', type: 'hard', advantage: '+86' },
-      { move: 'Triglav (OD)', type: 'hard', advantage: '+53' },
+      {
+        move: 'Stribog (HP)',
+        name: {
+          'zh-Hant': '風神（重拳）',
+          en: 'Stribog (HP)',
+          ja: 'ストリボーグ（強）',
+        },
+        type: 'hard',
+        advantage: '+86',
+      },
+      {
+        move: 'Triglav (OD)',
+        name: {
+          'zh-Hant': '戰神（OD）',
+          en: 'Triglav (OD)',
+          ja: 'トリグラフ（OD）',
+        },
+        type: 'hard',
+        advantage: '+53',
+      },
       { move: 'Bylina (6HK)', type: 'hard', advantage: '+38' },
     ],
     coverage: 'partial',
@@ -6358,6 +7075,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Aerial Russian Slam (SA1)',
+        name: {
+          'zh-Hant': '空中俄式背摔（SA1）',
+          en: 'Aerial Russian Slam (SA1)',
+          ja: '空中俄式背摔（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-17 幀 —— 連飛道具都擋得掉，全場最好的 SA1',
@@ -6368,6 +7090,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Tundra Storm',
+        name: {
+          'zh-Hant': '凍原風暴',
+          en: 'Tundra Storm',
+          ja: '凍原風暴',
+        },
         input: '22 HK',
         invincibility: {
           'zh-Hant': '只反擊「站立踢擊」（含普通技、必殺技、動力衝擊）—— 範圍極窄，不能當通用起身反擊',
@@ -6382,6 +7109,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Cyclone Lariat (SA2)',
+        name: {
+          'zh-Hant': '旋風碎頸臂（SA2）',
+          en: 'Cyclone Lariat (SA2)',
+          ja: '旋風碎頸臂（SA2）',
+        },
         input: '236236 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-18 幀',
@@ -6424,7 +7156,16 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Crouching Heavy Kick', type: 'hard', advantage: '+36' },
+      {
+        move: 'Crouching Heavy Kick',
+        name: {
+          'zh-Hant': '蹲重腳',
+          en: 'Crouching Heavy Kick',
+          ja: 'しゃがみ強K',
+        },
+        type: 'hard',
+        advantage: '+36',
+      },
       { move: 'Screw Piledriver (LP)', type: 'hard', advantage: '+30' },
       { move: 'Double Lariat', type: 'hard', advantage: '+27' },
     ],
@@ -6779,6 +7520,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Shining Sun (SA1)',
+        name: {
+          'zh-Hant': '旭日光耀（SA1）',
+          en: 'Shining Sun (SA1)',
+          ja: 'サンシャイン（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-11 幀',
@@ -6789,6 +7535,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Sun Veil (OD)',
+        name: {
+          'zh-Hant': '太陽面紗（OD）',
+          en: 'Sun Veil (OD)',
+          ja: 'サンヴェール（OD）',
+        },
         input: '22 KK',
         invincibility: {
           'zh-Hant': '吸收打擊、摔投與投射物，1-20 幀。吸到之後轉為攻擊，命中 +52',
@@ -6803,6 +7554,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Sun Veil',
+        name: {
+          'zh-Hant': '太陽面紗',
+          en: 'Sun Veil',
+          ja: 'サンヴェール',
+        },
         input: '22 K',
         invincibility: {
           'zh-Hant': '只吸收打擊與投射物，6-20 幀。防不住摔投，而且第 1-5 幀沒有覆蓋 —— 對算好時間的壓起身來不及',
@@ -6817,6 +7573,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Sun Rise (LK)',
+        name: {
+          'zh-Hant': '太陽旋昇（輕腳）',
+          en: 'Sun Rise (LK)',
+          ja: 'サンライズ（弱）',
+        },
         input: '236 LK',
         invincibility: {
           'zh-Hant': '僅對空無敵 1-14 幀 —— 打不贏算好時間點的壓起身',
@@ -6831,6 +7592,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Sun Rise (MK/HK/OD)',
+        name: {
+          'zh-Hant': '太陽旋昇（中腳）',
+          en: 'Sun Rise (MK/HK/OD)',
+          ja: 'サンライズ（中）',
+        },
         input: '236 K',
         invincibility: {
           'zh-Hant': '沒有無敵',
@@ -6845,7 +7611,16 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Sun Flare (MP/HP)', type: 'hard', advantage: '+47' },
+      {
+        move: 'Sun Flare (MP/HP)',
+        name: {
+          'zh-Hant': '太陽閃光',
+          en: 'Sun Flare (MP/HP)',
+          ja: 'サンフレア',
+        },
+        type: 'hard',
+        advantage: '+47',
+      },
       { move: 'Glowing Touch (4MK,HP)', type: 'hard', advantage: '+44' },
       { move: 'Halo Flight (6HP)', type: 'hard', advantage: '+38' },
     ],
@@ -7152,6 +7927,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Arabesque (SA1)',
+        name: {
+          'zh-Hant': '阿拉伯斯卡舞姿（SA1）',
+          en: 'Arabesque (SA1)',
+          ja: '阿拉伯斯卡舞姿（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-13 幀',
@@ -7162,6 +7942,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Étoile (SA2)',
+        name: {
+          'zh-Hant': '阿拉伯斯卡舞姿（SA2）',
+          en: 'Étoile (SA2)',
+          ja: '阿拉伯斯卡舞姿（SA2）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-9 幀',
@@ -7176,6 +7961,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Pas de Deux (SA3)',
+        name: {
+          'zh-Hant': '雙人舞（SA3）',
+          en: 'Pas de Deux (SA3)',
+          ja: '雙人舞（SA3）',
+        },
         input: '236236 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-8 幀',
@@ -7204,8 +7994,26 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Rond-point (MK)', type: 'hard', advantage: '+34' },
-      { move: 'Rond-point (LK)', type: 'hard', advantage: '+31' },
+      {
+        move: 'Rond-point (MK)',
+        name: {
+          'zh-Hant': '畫圈（中腳）',
+          en: 'Rond-point (MK)',
+          ja: '畫圈（中）',
+        },
+        type: 'hard',
+        advantage: '+34',
+      },
+      {
+        move: 'Rond-point (LK)',
+        name: {
+          'zh-Hant': '畫圈（輕腳）',
+          en: 'Rond-point (LK)',
+          ja: '畫圈（弱）',
+        },
+        type: 'hard',
+        advantage: '+31',
+      },
       { move: 'Manège Doré', type: 'throw', advantage: '+19' },
     ],
     coverage: 'partial',
@@ -7486,6 +8294,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Deadly Implication (SA1)',
+        name: {
+          'zh-Hant': '死屍累累（SA1）',
+          en: 'Deadly Implication (SA1)',
+          ja: '死屍累累（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-12 幀',
@@ -7496,6 +8309,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Claws of Ya Zi (SA3)',
+        name: {
+          'zh-Hant': '睚眥（SA3）',
+          en: 'Claws of Ya Zi (SA3)',
+          ja: '睚眥（SA3）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-12 幀',
@@ -7510,7 +8328,16 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Nightshade Pulse (OD)', type: 'hard', advantage: '+45' },
+      {
+        move: 'Nightshade Pulse (OD)',
+        name: {
+          'zh-Hant': '紫煙炮（OD）',
+          en: 'Nightshade Pulse (OD)',
+          ja: '紫煙炮（OD）',
+        },
+        type: 'hard',
+        advantage: '+45',
+      },
       { move: 'Nightshade Chaser (OD)', type: 'hard', advantage: '+43' },
       { move: 'Venomous Fang', type: 'hard', advantage: '+20' },
     ],
@@ -7742,6 +8569,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Raging Spear (SA1)',
+        name: {
+          'zh-Hant': '憤怒突刺（SA1）',
+          en: 'Raging Spear (SA1)',
+          ja: '憤怒突刺（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-11 幀',
@@ -7752,6 +8584,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Sledgecross Hammer (SA2)',
+        name: {
+          'zh-Hant': '十字大榔頭',
+          en: 'Sledgecross Hammer (SA2)',
+          ja: '十字大榔頭',
+        },
         input: '214214 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-12 幀',
@@ -7766,6 +8603,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'The Final Prison (SA3)',
+        name: {
+          'zh-Hant': '終結俘虜摔（SA3）',
+          en: 'The Final Prison (SA3)',
+          ja: '終結俘虜摔（SA3）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-11 幀',
@@ -7780,6 +8622,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Aerial Knee Smash (LK/MK)',
+        name: {
+          'zh-Hant': '飛天膝擊（輕腳）',
+          en: 'Aerial Knee Smash (LK/MK)',
+          ja: '飛天膝擊（弱）',
+        },
         input: '623 K',
         invincibility: {
           'zh-Hant': '僅對空無敵 1-10 幀 —— 打不贏算好時間點的壓起身',
@@ -8326,6 +9173,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Yoga Inferno (SA1)',
+        name: {
+          'zh-Hant': '瑜伽煉獄（SA1）',
+          en: 'Yoga Inferno (SA1)',
+          ja: '瑜伽煉獄（SA1）',
+        },
         input: '236 236 P',
         invincibility: {
           'zh-Hant': '沒有無敵 —— 這一招不能拿來起身脫身',
@@ -8336,6 +9188,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Yoga Sunburst (SA2)',
+        name: {
+          'zh-Hant': '瑜伽陽爆（SA2）',
+          en: 'Yoga Sunburst (SA2)',
+          ja: '瑜伽陽爆（SA2）',
+        },
         input: '214214 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-6 幀',
@@ -8350,6 +9207,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Merciless Yoga (SA3)',
+        name: {
+          'zh-Hant': '瑜伽無慈悲（SA3）',
+          en: 'Merciless Yoga (SA3)',
+          ja: '瑜伽無慈悲（SA3）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-14 幀',
@@ -8378,9 +9240,36 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Yoga Flame (OD)', type: 'hard', advantage: '+51' },
-      { move: 'Yoga Fire (OD)', type: 'hard', advantage: '+49' },
-      { move: 'Crouching Heavy Kick', type: 'hard', advantage: '+22' },
+      {
+        move: 'Yoga Flame (OD)',
+        name: {
+          'zh-Hant': '瑜伽火焰（OD）',
+          en: 'Yoga Flame (OD)',
+          ja: '瑜伽火焰（OD）',
+        },
+        type: 'hard',
+        advantage: '+51',
+      },
+      {
+        move: 'Yoga Fire (OD)',
+        name: {
+          'zh-Hant': '瑜伽火球（OD）',
+          en: 'Yoga Fire (OD)',
+          ja: '瑜伽火球（OD）',
+        },
+        type: 'hard',
+        advantage: '+49',
+      },
+      {
+        move: 'Crouching Heavy Kick',
+        name: {
+          'zh-Hant': '蹲重腳',
+          en: 'Crouching Heavy Kick',
+          ja: 'しゃがみ強K',
+        },
+        type: 'hard',
+        advantage: '+22',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -8644,6 +9533,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Sumo Smash (OD)',
+        name: {
+          'zh-Hant': '超級百貫落',
+          en: 'Sumo Smash (OD)',
+          ja: '超級百貫落',
+        },
         input: '[2] 8 PP',
         invincibility: {
           'zh-Hant':
@@ -8655,6 +9549,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Show of Force (SA1)',
+        name: {
+          'zh-Hant': '發揮爆碎（SA1）',
+          en: 'Show of Force (SA1)',
+          ja: '發揮爆碎（SA1）',
+        },
         input: '236 236 P',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-7 幀',
@@ -8679,6 +9578,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'The Final Bout (SA3)',
+        name: {
+          'zh-Hant': '千秋樂（SA3）',
+          en: 'The Final Bout (SA3)',
+          ja: '千秋樂（SA3）',
+        },
         input: '214214 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-11 幀',
@@ -8695,7 +9599,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     knockdowns: [
       { move: 'Triple Slap (OD)', type: 'hard', advantage: '+45' },
       { move: 'Triple Slap', type: 'hard', advantage: '+42' },
-      { move: 'Sumo Headbutt (LP)', type: 'hard', advantage: '+40' },
+      {
+        move: 'Sumo Headbutt (LP)',
+        name: {
+          'zh-Hant': '超級飛頭槌（輕拳）',
+          en: 'Sumo Headbutt (LP)',
+          ja: '超級飛頭槌（弱）',
+        },
+        type: 'hard',
+        advantage: '+40',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -8924,6 +9837,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Bushin Beats (SA1)',
+        name: {
+          'zh-Hant': '武神亂拍子（SA1）',
+          en: 'Bushin Beats (SA1)',
+          ja: '武神亂拍子（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-10 幀',
@@ -8934,6 +9852,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Bushin Ninjastar Cypher (SA3)',
+        name: {
+          'zh-Hant': '武神亂拍子（SA3）',
+          en: 'Bushin Ninjastar Cypher (SA3)',
+          ja: '武神亂拍子（SA3）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-11 幀',
@@ -8948,6 +9871,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Hidden Variable',
+        name: {
+          'zh-Hant': '彩隱形',
+          en: 'Hidden Variable',
+          ja: '彩隱形',
+        },
         input: '214 P',
         invincibility: {
           'zh-Hant': '無敵從第 19 幀才開始 —— 不能當起身反擊',
@@ -8962,6 +9890,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Bushin Senpukyaku (LK)',
+        name: {
+          'zh-Hant': '武神旋風腳（輕腳）',
+          en: 'Bushin Senpukyaku (LK)',
+          ja: '武神旋風腳（弱）',
+        },
         input: '214 LK',
         invincibility: {
           'zh-Hant': '僅對空無敵 5-11 幀 —— 打不贏算好時間點的壓起身',
@@ -8977,8 +9910,26 @@ export const CHARACTERS: CharacterOverlay[] = [
     ],
     knockdowns: [
       { move: 'Shuriken Bomb', type: 'hard', advantage: '+88' },
-      { move: 'Vagabond Edge (HP)', type: 'hard', advantage: '+56' },
-      { move: 'Vagabond Edge (OD)', type: 'hard', advantage: '+56' },
+      {
+        move: 'Vagabond Edge (HP)',
+        name: {
+          'zh-Hant': '流轉一文字（重拳）',
+          en: 'Vagabond Edge (HP)',
+          ja: '流轉一文字（強）',
+        },
+        type: 'hard',
+        advantage: '+56',
+      },
+      {
+        move: 'Vagabond Edge (OD)',
+        name: {
+          'zh-Hant': '流轉一文字（OD）',
+          en: 'Vagabond Edge (OD)',
+          ja: '流轉一文字（OD）',
+        },
+        type: 'hard',
+        advantage: '+56',
+      },
     ],
     coverage: 'partial',
     sources: [
@@ -9205,6 +10156,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Breezing Hawk (SA1)',
+        name: {
+          'zh-Hant': '吹風鷹（SA1）',
+          en: 'Breezing Hawk (SA1)',
+          ja: '吹風鷹（SA1）',
+        },
         input: '236 236 P',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-14 幀',
@@ -9215,6 +10171,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Tomahawk Buster (OD)',
+        name: {
+          'zh-Hant': '戰斧爆摔（OD）',
+          en: 'Tomahawk Buster (OD)',
+          ja: '戰斧爆摔（OD）',
+        },
         input: '623 PP',
         invincibility: {
           'zh-Hant': '對空與「摔投」無敵 1-10 幀 —— 打得贏摔投，但打不贏地面的壓起身',
@@ -9229,6 +10190,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Thunderbird (SA2)',
+        name: {
+          'zh-Hant': '雷鳥（SA2）',
+          en: 'Thunderbird (SA2)',
+          ja: '雷鳥（SA2）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-12 幀',
@@ -9243,6 +10209,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Raging Typhoon (SA3)',
+        name: {
+          'zh-Hant': '怒火颱風（SA3）',
+          en: 'Raging Typhoon (SA3)',
+          ja: '怒火颱風（SA3）',
+        },
         input: '214214 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-8 幀',
@@ -9257,6 +10228,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Tomahawk Buster (LP)',
+        name: {
+          'zh-Hant': '戰斧爆摔（輕拳）',
+          en: 'Tomahawk Buster (LP)',
+          ja: '戰斧爆摔（弱）',
+        },
         input: '623 LP',
         invincibility: {
           'zh-Hant': '僅對空無敵 1-10 幀 —— 打不贏算好時間點的壓起身',
@@ -9271,8 +10247,26 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Condor Spire (OD)', type: 'hard', advantage: '+43' },
-      { move: 'Thunderbird (SA2)', type: 'hard', advantage: '+42' },
+      {
+        move: 'Condor Spire (OD)',
+        name: {
+          'zh-Hant': '鷹塔（OD）',
+          en: 'Condor Spire (OD)',
+          ja: '鷹塔（OD）',
+        },
+        type: 'hard',
+        advantage: '+43',
+      },
+      {
+        move: 'Thunderbird (SA2)',
+        name: {
+          'zh-Hant': '雷鳥（SA2）',
+          en: 'Thunderbird (SA2)',
+          ja: '雷鳥（SA2）',
+        },
+        type: 'hard',
+        advantage: '+42',
+      },
       { move: 'Condor Dive (OD)', type: 'hard', advantage: '+40' },
     ],
     coverage: 'partial',
@@ -9461,6 +10455,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Knee Press Nightmare (SA1)',
+        name: {
+          'zh-Hant': '膝壓夢魘（SA1）',
+          en: 'Knee Press Nightmare (SA1)',
+          ja: '膝壓夢魘（SA1）',
+        },
         input: '236 236 K',
         invincibility: {
           'zh-Hant': '打擊／投擲無敵 1-11 幀',
@@ -9471,6 +10470,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Psycho Punisher (SA2)',
+        name: {
+          'zh-Hant': '念力制裁（SA2）',
+          en: 'Psycho Punisher (SA2)',
+          ja: '念力制裁（SA2）',
+        },
         input: '214214 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-26 幀',
@@ -9485,6 +10489,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Unlimited Psycho Crusher (SA3)',
+        name: {
+          'zh-Hant': '無限念力粉碎（SA3）',
+          en: 'Unlimited Psycho Crusher (SA3)',
+          ja: '無限念力粉碎（SA3）',
+        },
         input: '236236 K',
         invincibility: {
           'zh-Hant': '完全無敵 1-15 幀',
@@ -9500,7 +10509,16 @@ export const CHARACTERS: CharacterOverlay[] = [
     ],
     knockdowns: [
       { move: 'Devil Reverse', type: 'hard', advantage: '+39' },
-      { move: 'Psycho Crusher (OD)', type: 'hard', advantage: '+35' },
+      {
+        move: 'Psycho Crusher (OD)',
+        name: {
+          'zh-Hant': '念力粉碎擊（OD）',
+          en: 'Psycho Crusher (OD)',
+          ja: '念力粉碎擊（OD）',
+        },
+        type: 'hard',
+        advantage: '+35',
+      },
       { move: 'Devil Reverse (OD)', type: 'hard', advantage: '+35' },
     ],
     coverage: 'partial',
@@ -9754,6 +10772,11 @@ export const CHARACTERS: CharacterOverlay[] = [
     reversals: [
       {
         move: 'Javelin of Marisa (SA1)',
+        name: {
+          'zh-Hant': '瑪麗莎標槍/Javelin of Marisa（SA1）',
+          en: 'Javelin of Marisa (SA1)',
+          ja: '瑪麗莎標槍/Javelin of Marisa（SA1）',
+        },
         input: '236 236 P',
         invincibility: {
           'zh-Hant': '沒有無敵 —— 這一招不能拿來起身脫身',
@@ -9764,6 +10787,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Meteorite (SA2)',
+        name: {
+          'zh-Hant': '隕石/Meteorite（SA2）',
+          en: 'Meteorite (SA2)',
+          ja: '隕石/Meteorite（SA2）',
+        },
         input: '214214 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-16 幀',
@@ -9778,6 +10806,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
       {
         move: 'Goddess of the Hunt (SA3)',
+        name: {
+          'zh-Hant': '瑪麗莎標槍/Javelin of Marisa（SA3）',
+          en: 'Goddess of the Hunt (SA3)',
+          ja: '瑪麗莎標槍/Javelin of Marisa（SA3）',
+        },
         input: '236236 P',
         invincibility: {
           'zh-Hant': '完全無敵 1-19 幀',
@@ -9792,9 +10825,27 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     ],
     knockdowns: [
-      { move: 'Phalanx (OD)', type: 'hard', advantage: '+70' },
+      {
+        move: 'Phalanx (OD)',
+        name: {
+          'zh-Hant': '步兵陣（OD）',
+          en: 'Phalanx (OD)',
+          ja: '[Phalanx]/ファランクス（OD）',
+        },
+        type: 'hard',
+        advantage: '+70',
+      },
       { move: 'Dimachaerus (OD)', type: 'hard', advantage: '+42' },
-      { move: 'Phalanx (LP)', type: 'hard', advantage: '+42' },
+      {
+        move: 'Phalanx (LP)',
+        name: {
+          'zh-Hant': '步兵陣（輕拳）',
+          en: 'Phalanx (LP)',
+          ja: '[Phalanx]/ファランクス（弱）',
+        },
+        type: 'hard',
+        advantage: '+42',
+      },
     ],
     coverage: 'partial',
     sources: [

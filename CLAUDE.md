@@ -102,6 +102,12 @@ a throw's total stays `30 (whiff) / 123 (hit)`. That is what lets `npm run frame
 diff the whole layer by string match. Prettying (real minus signs, `±0`, `…`)
 happens in `FrameStrip`, not in the data.
 
+**Reversals and knockdowns carry names too.** `Reversal.name` and
+`CharacterKnockdown.name` work exactly like `MoveFrames.name` — `move` stays
+UFD's English as the key, `name` is what the panel shows. 163 of the 218 are
+joined; the rest are stance follow-ups, a few Supers whose motion does not
+normalise cleanly, and Yasmine, who has no page on 1cc yet.
+
 **Move names come from the 1cc lists, matched by input.** `MoveFrames.move` is
 UFD's English and is the join key; `name` is what the reader sees. Normals and
 throws are derived from notation. Special-move names come from

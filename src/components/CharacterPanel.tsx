@@ -89,7 +89,9 @@ function CharacterCard({
           <ul className="charlist">
             {character.reversals?.map((reversal) => (
               <li key={reversal.move}>
-                <span className="charlist__move">{reversal.move}</span>
+                <span className="charlist__move">
+                  {reversal.name ? text(reversal.name) : reversal.move}
+                </span>
                 {/* The universal option rows print no notation, because there
                     is no universal one. Here there is: this motion is this
                     character's, so draw it the way the rest of the guide does. */}
@@ -106,7 +108,9 @@ function CharacterCard({
           <ul className="charlist">
             {character.knockdowns?.map((knockdown) => (
               <li key={knockdown.move}>
-                <span className="charlist__move">{knockdown.move}</span>
+                <span className="charlist__move">
+                  {knockdown.name ? text(knockdown.name) : knockdown.move}
+                </span>
                 <span className="charlist__cost mono">{knockdown.advantage}</span>
               </li>
             ))}

@@ -323,7 +323,10 @@ export interface MatrixCell {
 
 /** One of the character's invincible escape options, as documented. */
 export interface Reversal {
+  /** UFD's English name, kept as the key everything else joins on. */
   move: string
+  /** What the reader sees, per locale. Falls back to `move`. */
+  name?: I18nText
   input: string
   /** What it is actually invincible to, and when. The distinction that matters:
    *  most LP/MP/HP DPs are anti-air invincible only and lose to a meaty. */
@@ -332,7 +335,10 @@ export interface Reversal {
 }
 
 export interface CharacterKnockdown {
+  /** UFD's English name, kept as the key everything else joins on. */
   move: string
+  /** What the reader sees, per locale. Falls back to `move`. */
+  name?: I18nText
   type: KnockdownType
   /** Frame advantage on hit, e.g. "+40". */
   advantage?: string
