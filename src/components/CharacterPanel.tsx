@@ -16,7 +16,16 @@ import { useT } from '~/i18n/useT'
  * universal — but it costs two bars and deals white damage, which is a
  * different option, not the same one.
  */
-export function CharacterPanel({ seat = 'me' }: { seat?: 'me' | 'them' }) {
+export function CharacterPanel({
+  seat = 'me',
+  open,
+  onToggle,
+}: {
+  seat?: 'me' | 'them'
+  /** Both seats open together — see App for why. */
+  open: boolean
+  onToggle: (next: boolean) => void
+}) {
   // Both hooks every render — see CharacterPicker for the black screen that
   // taught this component the rule.
   const mineId = useCharacter()
@@ -28,10 +37,20 @@ export function CharacterPanel({ seat = 'me' }: { seat?: 'me' | 'them' }) {
   // exactly what happened when the name became bilingual: two hooks on
   // Universal, three on a character, and React unmounted the page on the switch.
   if (!character) return null
-  return <CharacterCard character={character} seat={seat} />
+  return <CharacterCard character={character} seat={seat} open={open} onToggle={onToggle} />
 }
 
-function CharacterCard({ character, seat }: { character: CharacterOverlay; seat: 'me' | 'them' }) {
+function CharacterCard({
+  character,
+  seat,
+  open,
+  onToggle,
+}: {
+  character: CharacterOverlay
+  seat: 'me' | 'them'
+  open: boolean
+  onToggle: (next: boolean) => void
+}) {
   const { t, text } = useT()
   const { primary, latin } = useCharacterName(character.name, character.latin)
   const hasOdReversal = !character.removesOptions?.includes('reversal')
@@ -39,7 +58,13 @@ function CharacterCard({ character, seat }: { character: CharacterOverlay; seat:
   const theirs = seat === 'them'
 
   return (
-    <details className={`card card--padded charpanel ${theirs ? 'charpanel--them' : ''}`}>
+    <details
+      className={`card card--padded charpanel ${theirs ? 'charpanel--them' : ''}`}
+      open={open}
+      // Fires for the panel the reader clicked *and* for the one that followed
+      // it; the second call is a no-op because the value already matches.
+      onToggle={(event) => onToggle(event.currentTarget.open)}
+    >
       <summary>
         <span className="charpanel__seat small">
           {theirs ? t.character.theirs : t.character.mine}

@@ -114,7 +114,64 @@ export const GROUP_K: Situation[] = [
           },
         ],
       },
-      {
+        {
+        optionId: 'teleport',
+        risk: 'high',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '一次跨過彈幕能覆蓋的整段距離，直接站到他面前或背後。',
+            en: 'One move covers the whole stretch the fireball was holding, and puts you in front of them or behind them.',
+            ja: '飛び道具が押さえていた距離を一手で飛び越え、相手の正面か背後に立てる。',
+          },
+          followUp: 'pressure',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '沒有對波無敵 —— 時機不對就是在波裡面出現。而且落地的收招夠對方確反。',
+            en: 'There is no projectile invincibility, so bad timing means appearing inside the fireball — and the recovery on arrival is long enough to punish.',
+            ja: '飛び道具無敵は無いので、タイミングを外せば弾の中に出現することになる。しかも到着後の硬直は確反を取られる長さ。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'projectile',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '瞬移直接跳過彈幕的距離 —— 對達爾西姆和豪鬼來說，這是中距離對波之外的第三條路。但它沒有對波無敵，是「不在那裡」不是「穿過去」。',
+              en: 'The teleport skips the distance the fireball was covering, which gives Dhalsim and Akuma a third answer to a fireball war at mid range. It is not projectile invincible, though: it works by not being there, not by going through.',
+              ja: 'テレポートは飛び道具が埋めていた距離を丸ごと飛ばす。ダルシムと豪鬼にとって中距離の弾幕戦への第三の答えになる。ただし飛び道具無敵ではなく、「そこに居ない」だけで「通り抜ける」わけではない。',
+            },
+          },
+          { vs: 'walk-back', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'whiff-punish', outcome: 'loss' },
+          { vs: 'poke', outcome: 'even' },
+          { vs: 'anti-air', outcome: 'win' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/akuma',
+            patch: '2026-08',
+            note: 'Ashura Senku：UFD 寫明可以穿過對手，前版能取消成朧（指令投）。沒有無敵，所以它是換位置的工具不是穿招的工具。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/dhalsim',
+            patch: '2026-08',
+            note: 'Yoga Teleport：拳版距離長、可以穿到背後；腳版短、不會穿過。兩種距離就是兩種用途。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '達爾西姆和豪鬼中距離的第三條路：不是對波，也不是跳，是把距離整段取消掉。代價是它不穿彈幕，只是不在那裡。',
+          en: 'Dhalsim\'s and Akuma\'s third answer at mid range: not trading fireballs and not jumping, but deleting the distance. The price is that it does not pass through the fireball, it is merely elsewhere.',
+          ja: 'ダルシムと豪鬼の中距離における第三の答え。撃ち合いでもジャンプでもなく、距離そのものを消す。代償は弾を貫通しないこと——単にそこに居ないだけである。',
+        },
+      },
+    {
         optionId: 'jump-in',
         risk: 'high',
         reward: 'extreme',
@@ -407,7 +464,64 @@ export const GROUP_K: Situation[] = [
           },
         ],
       },
-      {
+        {
+        optionId: 'teleport',
+        risk: 'high',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '一次跨過彈幕能覆蓋的整段距離，直接站到他面前或背後。',
+            en: 'One move covers the whole stretch the fireball was holding, and puts you in front of them or behind them.',
+            ja: '飛び道具が押さえていた距離を一手で飛び越え、相手の正面か背後に立てる。',
+          },
+          followUp: 'pressure',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '沒有對波無敵 —— 時機不對就是在波裡面出現。而且落地的收招夠對方確反。',
+            en: 'There is no projectile invincibility, so bad timing means appearing inside the fireball — and the recovery on arrival is long enough to punish.',
+            ja: '飛び道具無敵は無いので、タイミングを外せば弾の中に出現することになる。しかも到着後の硬直は確反を取られる長さ。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'projectile',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '瞬移直接跳過彈幕的距離 —— 對達爾西姆和豪鬼來說，這是中距離對波之外的第三條路。但它沒有對波無敵，是「不在那裡」不是「穿過去」。',
+              en: 'The teleport skips the distance the fireball was covering, which gives Dhalsim and Akuma a third answer to a fireball war at mid range. It is not projectile invincible, though: it works by not being there, not by going through.',
+              ja: 'テレポートは飛び道具が埋めていた距離を丸ごと飛ばす。ダルシムと豪鬼にとって中距離の弾幕戦への第三の答えになる。ただし飛び道具無敵ではなく、「そこに居ない」だけで「通り抜ける」わけではない。',
+            },
+          },
+          { vs: 'walk-back', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'even' },
+          { vs: 'whiff-punish', outcome: 'loss' },
+          { vs: 'poke', outcome: 'even' },
+          { vs: 'anti-air', outcome: 'win' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/akuma',
+            patch: '2026-08',
+            note: 'Ashura Senku：UFD 寫明可以穿過對手，前版能取消成朧（指令投）。沒有無敵，所以它是換位置的工具不是穿招的工具。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/dhalsim',
+            patch: '2026-08',
+            note: 'Yoga Teleport：拳版距離長、可以穿到背後；腳版短、不會穿過。兩種距離就是兩種用途。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '達爾西姆和豪鬼中距離的第三條路：不是對波，也不是跳，是把距離整段取消掉。代價是它不穿彈幕，只是不在那裡。',
+          en: 'Dhalsim\'s and Akuma\'s third answer at mid range: not trading fireballs and not jumping, but deleting the distance. The price is that it does not pass through the fireball, it is merely elsewhere.',
+          ja: 'ダルシムと豪鬼の中距離における第三の答え。撃ち合いでもジャンプでもなく、距離そのものを消す。代償は弾を貫通しないこと——単にそこに居ないだけである。',
+        },
+      },
+    {
         optionId: 'jump-in',
         risk: 'high',
         reward: 'extreme',

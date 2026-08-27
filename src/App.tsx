@@ -30,6 +30,10 @@ export default function App() {
   const [searchOpen, setSearchOpen] = useState(false)
   const [glossary, setGlossary] = useState(false)
   const [targetOption, setTargetOption] = useState<string | undefined>(undefined)
+  /** One switch for both character panels. Side by side, opening one left the
+   *  other as an empty column of the same height — and the two are read
+   *  against each other, so wanting one open almost always means both. */
+  const [panelsOpen, setPanelsOpen] = useState(false)
   const characterId = useCharacter()
   const opponentId = useOpponent()
   const situation = getSituation(situationId)
@@ -194,8 +198,8 @@ export default function App() {
             </div>
 
             <div className="charpanels">
-              <CharacterPanel />
-              <CharacterPanel seat="them" />
+              <CharacterPanel open={panelsOpen} onToggle={setPanelsOpen} />
+              <CharacterPanel seat="them" open={panelsOpen} onToggle={setPanelsOpen} />
             </div>
 
             <DefaultMix rows={matchup.rows} />

@@ -534,7 +534,74 @@ export const GROUP_I: Situation[] = [
           },
         ],
       },
-      {
+        {
+        optionId: 'teleport',
+        risk: 'high',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '穿到對手背後，他起身防的方向就是反的 —— 一次不用貼身的左右擇。',
+            en: 'You arrive behind them and the way they are holding on wakeup is the wrong way — a left-right that did not need you point blank.',
+            ja: '相手の背後に出現し、起き上がりのガード方向がそのまま逆になる。密着を必要としない左右択。',
+          },
+          followUp: 'pressure',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '收招長，出現的位置就是他等你的位置 —— 亂動、後衝刺、無敵技都罰得到。',
+            en: 'The recovery is long and where you appear is where they were waiting: a mash, a backdash or a reversal all punish it.',
+            ja: '硬直が長く、出現地点は相手が待っている場所でもある。暴れ・バックダッシュ・無敵技のいずれにも狩られる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'do-nothing',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '穿到背後，他防的方向就是錯的 —— 起身的左右擇，而且不用貼身也做得出來。',
+              en: 'Arriving behind them makes the way they are holding the wrong way. A left-right on wakeup, and one you do not have to be point blank to set up.',
+              ja: '背後に回れば、相手のガード方向がそのまま逆になる。起き上がりの左右択であり、密着していなくても仕掛けられる。',
+            },
+          },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'even' },
+          {
+            vs: 'mash-light',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '收招 44 幀以上，你出現的時候他的 4 幀小技已經在等了。這一擇要在他不敢亂動的時候用。',
+              en: 'Forty-plus frames of recovery, so their 4-frame light is already waiting where you land. This mix-up wants an opponent who is afraid to press.',
+              ja: '硬直が44F以上あり、出現地点には相手の4F弱攻撃が既に置かれている。この択は相手が暴れられない状況でこそ通る。',
+            },
+          },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'loss' },
+          { vs: 'drive-reversal', outcome: 'loss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/akuma',
+            patch: '2026-08',
+            note: 'Ashura Senku：UFD 寫明可以穿過對手，前版能取消成朧（指令投）。沒有無敵，所以它是換位置的工具不是穿招的工具。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/dhalsim',
+            patch: '2026-08',
+            note: 'Yoga Teleport：拳版距離長、可以穿到背後；腳版短、不會穿過。兩種距離就是兩種用途。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '起攻用瞬移是「他這次會乖乖防」的讀。他敢亂動就不要用 —— 你付的是 44 幀以上的收招，換一次左右猜。',
+          en: 'A teleport in oki is a read that they will hold still and block. Against someone willing to press, do not: you are paying forty-plus frames of recovery for one left-right guess.',
+          ja: '起き攻めでのテレポートは「今回は素直にガードする」という読み。暴れる相手には使わないこと——44F以上の硬直を、左右択一回と交換していることになる。',
+        },
+      },
+    {
         optionId: 'reset-neutral',
         risk: 'safe',
         reward: 'none',
@@ -1113,7 +1180,74 @@ export const GROUP_I: Situation[] = [
           },
         ],
       },
-      {
+        {
+        optionId: 'teleport',
+        risk: 'high',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '穿到對手背後，他起身防的方向就是反的 —— 一次不用貼身的左右擇。',
+            en: 'You arrive behind them and the way they are holding on wakeup is the wrong way — a left-right that did not need you point blank.',
+            ja: '相手の背後に出現し、起き上がりのガード方向がそのまま逆になる。密着を必要としない左右択。',
+          },
+          followUp: 'pressure',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '收招長，出現的位置就是他等你的位置 —— 亂動、後衝刺、無敵技都罰得到。',
+            en: 'The recovery is long and where you appear is where they were waiting: a mash, a backdash or a reversal all punish it.',
+            ja: '硬直が長く、出現地点は相手が待っている場所でもある。暴れ・バックダッシュ・無敵技のいずれにも狩られる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'do-nothing',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '穿到背後，他防的方向就是錯的 —— 起身的左右擇，而且不用貼身也做得出來。',
+              en: 'Arriving behind them makes the way they are holding the wrong way. A left-right on wakeup, and one you do not have to be point blank to set up.',
+              ja: '背後に回れば、相手のガード方向がそのまま逆になる。起き上がりの左右択であり、密着していなくても仕掛けられる。',
+            },
+          },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'even' },
+          {
+            vs: 'mash-light',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '收招 44 幀以上，你出現的時候他的 4 幀小技已經在等了。這一擇要在他不敢亂動的時候用。',
+              en: 'Forty-plus frames of recovery, so their 4-frame light is already waiting where you land. This mix-up wants an opponent who is afraid to press.',
+              ja: '硬直が44F以上あり、出現地点には相手の4F弱攻撃が既に置かれている。この択は相手が暴れられない状況でこそ通る。',
+            },
+          },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'loss' },
+          { vs: 'drive-reversal', outcome: 'loss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/akuma',
+            patch: '2026-08',
+            note: 'Ashura Senku：UFD 寫明可以穿過對手，前版能取消成朧（指令投）。沒有無敵，所以它是換位置的工具不是穿招的工具。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/dhalsim',
+            patch: '2026-08',
+            note: 'Yoga Teleport：拳版距離長、可以穿到背後；腳版短、不會穿過。兩種距離就是兩種用途。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '起攻用瞬移是「他這次會乖乖防」的讀。他敢亂動就不要用 —— 你付的是 44 幀以上的收招，換一次左右猜。',
+          en: 'A teleport in oki is a read that they will hold still and block. Against someone willing to press, do not: you are paying forty-plus frames of recovery for one left-right guess.',
+          ja: '起き攻めでのテレポートは「今回は素直にガードする」という読み。暴れる相手には使わないこと——44F以上の硬直を、左右択一回と交換していることになる。',
+        },
+      },
+    {
         optionId: 'reset-neutral',
         risk: 'safe',
         reward: 'none',
@@ -1692,7 +1826,74 @@ export const GROUP_I: Situation[] = [
           },
         ],
       },
-      {
+        {
+        optionId: 'teleport',
+        risk: 'high',
+        reward: 'medium',
+        onSuccess: {
+          text: {
+            'zh-Hant': '穿到對手背後，他起身防的方向就是反的 —— 一次不用貼身的左右擇。',
+            en: 'You arrive behind them and the way they are holding on wakeup is the wrong way — a left-right that did not need you point blank.',
+            ja: '相手の背後に出現し、起き上がりのガード方向がそのまま逆になる。密着を必要としない左右択。',
+          },
+          followUp: 'pressure',
+        },
+        onFail: {
+          text: {
+            'zh-Hant': '收招長，出現的位置就是他等你的位置 —— 亂動、後衝刺、無敵技都罰得到。',
+            en: 'The recovery is long and where you appear is where they were waiting: a mash, a backdash or a reversal all punish it.',
+            ja: '硬直が長く、出現地点は相手が待っている場所でもある。暴れ・バックダッシュ・無敵技のいずれにも狩られる。',
+          },
+          hpLoss: '25-40%',
+          driveLoss: 0,
+        },
+        versus: [
+          {
+            vs: 'do-nothing',
+            outcome: 'win',
+            note: {
+              'zh-Hant':
+                '穿到背後，他防的方向就是錯的 —— 起身的左右擇，而且不用貼身也做得出來。',
+              en: 'Arriving behind them makes the way they are holding the wrong way. A left-right on wakeup, and one you do not have to be point blank to set up.',
+              ja: '背後に回れば、相手のガード方向がそのまま逆になる。起き上がりの左右択であり、密着していなくても仕掛けられる。',
+            },
+          },
+          { vs: 'delayed-tech', outcome: 'win' },
+          { vs: 'drive-parry', outcome: 'even' },
+          {
+            vs: 'mash-light',
+            outcome: 'loss',
+            note: {
+              'zh-Hant':
+                '收招 44 幀以上，你出現的時候他的 4 幀小技已經在等了。這一擇要在他不敢亂動的時候用。',
+              en: 'Forty-plus frames of recovery, so their 4-frame light is already waiting where you land. This mix-up wants an opponent who is afraid to press.',
+              ja: '硬直が44F以上あり、出現地点には相手の4F弱攻撃が既に置かれている。この択は相手が暴れられない状況でこそ通る。',
+            },
+          },
+          { vs: 'reversal', outcome: 'bigLoss' },
+          { vs: 'backdash', outcome: 'loss' },
+          { vs: 'drive-reversal', outcome: 'loss' },
+        ],
+        verified: 'sourced',
+        sources: [
+          {
+            url: 'https://ultimateframedata.com/sf6/akuma',
+            patch: '2026-08',
+            note: 'Ashura Senku：UFD 寫明可以穿過對手，前版能取消成朧（指令投）。沒有無敵，所以它是換位置的工具不是穿招的工具。來源未標註遊戲版本',
+          },
+          {
+            url: 'https://ultimateframedata.com/sf6/dhalsim',
+            patch: '2026-08',
+            note: 'Yoga Teleport：拳版距離長、可以穿到背後；腳版短、不會穿過。兩種距離就是兩種用途。來源未標註遊戲版本',
+          },
+        ],
+        notes: {
+          'zh-Hant': '起攻用瞬移是「他這次會乖乖防」的讀。他敢亂動就不要用 —— 你付的是 44 幀以上的收招，換一次左右猜。',
+          en: 'A teleport in oki is a read that they will hold still and block. Against someone willing to press, do not: you are paying forty-plus frames of recovery for one left-right guess.',
+          ja: '起き攻めでのテレポートは「今回は素直にガードする」という読み。暴れる相手には使わないこと——44F以上の硬直を、左右択一回と交換していることになる。',
+        },
+      },
+    {
         optionId: 'reset-neutral',
         risk: 'safe',
         reward: 'none',
