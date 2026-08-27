@@ -56,6 +56,10 @@ function parse(page) {
       .replace(/&amp;/g, '&')
       .replace(/&#39;/g, "'")
       .replace(/&quot;/g, '"')
+      // Some fields wrap across lines on the page — Mai's Kachousen lists a
+      // normal and a flame column. Collapse to one line so the value can live
+      // in a single-quoted string here and still compare equal.
+      .replace(/\s+/g, ' ')
       .trim()
   }
   const moves = new Map()

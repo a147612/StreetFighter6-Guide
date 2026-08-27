@@ -651,6 +651,61 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw'],
     backdashFrames: 23,
     frames: {
+      projectile: [
+        {
+          move: 'Gou Hadoken (Light Punch)',
+          name: {
+            'zh-Hant': '豪波動拳（輕拳）',
+            en: 'Gou Hadoken (Light Punch)',
+            ja: '豪波動拳（弱）',
+          },
+          input: '236 P',
+          startup: '16 (...30...56)',
+          onBlock: '-4...',
+          onHit: '+0...',
+          total: '46',
+        },
+        {
+          move: 'Gou Hadoken (Medium Punch)',
+          name: {
+            'zh-Hant': '豪波動拳（中拳）',
+            en: 'Gou Hadoken (Medium Punch)',
+            ja: '豪波動拳（中）',
+          },
+          input: '236 P',
+          startup: '14 (...30...56)',
+          onBlock: '-6...',
+          onHit: '-2...',
+          total: '47',
+        },
+        {
+          move: 'Gou Hadoken (Heavy Punch)',
+          name: {
+            'zh-Hant': '豪波動拳（重拳）',
+            en: 'Gou Hadoken (Heavy Punch)',
+            ja: '豪波動拳（強）',
+          },
+          input: '236 P',
+          startup: '12 (...30...56)',
+          onBlock: '-8...',
+          onHit: '-4...',
+          total: '46',
+        },
+        {
+          move: 'Gou Hadoken (Overdrive)',
+          name: {
+            'zh-Hant': '豪波動拳（OD）',
+            en: 'Gou Hadoken (Overdrive)',
+            ja: '豪波動拳（OD）',
+          },
+          input: '236 P',
+          cost: { drive: 2, sa: 0 },
+          startup: '12 (...31)',
+          onBlock: '+2...',
+          onHit: 'Limited Juggle State on hit. Variable knockdown of +55 minimum.',
+          total: '41',
+        },
+      ],
       teleport: [
         {
           move: 'Ashura Senku',
@@ -971,6 +1026,61 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
+      projectile: [
+        {
+          move: 'Sand Blast (Light Punch)',
+          name: {
+            'zh-Hant': '噴沙（輕拳）',
+            en: 'Sand Blast (Light Punch)',
+            ja: 'サンドブラスト（弱）',
+          },
+          input: '236 P',
+          startup: '14',
+          onBlock: '-8...',
+          onHit: '-3...',
+          total: '47',
+        },
+        {
+          move: 'Sand Blast (Medium Punch)',
+          name: {
+            'zh-Hant': '噴沙（中拳）',
+            en: 'Sand Blast (Medium Punch)',
+            ja: 'サンドブラスト（中）',
+          },
+          input: '236 P',
+          startup: '17',
+          onBlock: '-5...',
+          onHit: '0...',
+          total: '47',
+        },
+        {
+          move: 'Sand Blast (Heavy Punch)',
+          name: {
+            'zh-Hant': '噴沙（重拳）',
+            en: 'Sand Blast (Heavy Punch)',
+            ja: 'サンドブラスト（強）',
+          },
+          input: '236 P',
+          startup: '20',
+          onBlock: '-2...',
+          onHit: '+3...',
+          total: '47',
+        },
+        {
+          move: 'Sand Blast (Overdrive)',
+          name: {
+            'zh-Hant': '噴沙（OD）',
+            en: 'Sand Blast (Overdrive)',
+            ja: 'サンドブラスト（OD）',
+          },
+          input: '236 P',
+          cost: { drive: 2, sa: 0 },
+          startup: '16',
+          onBlock: '-2...',
+          onHit: 'Knockdown +41',
+          total: '40',
+        },
+      ],
       poke: [
         {
           move: 'Standing Medium Punch',
@@ -1229,6 +1339,61 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'super-reversal', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
+      projectile: [
+        {
+          move: 'Hadoken (Light Punch)',
+          name: {
+            'zh-Hant': '波動拳（輕拳）',
+            en: 'Hadoken (Light Punch)',
+            ja: '波動拳（弱）',
+          },
+          input: '236 P',
+          startup: '16',
+          onBlock: '-5...',
+          onHit: '+2...',
+          total: '47',
+        },
+        {
+          move: 'Hadoken (Medium Punch)',
+          name: {
+            'zh-Hant': '波動拳（中拳）',
+            en: 'Hadoken (Medium Punch)',
+            ja: '波動拳（中）',
+          },
+          input: '236 P',
+          startup: '14',
+          onBlock: '-7...',
+          onHit: '0...',
+          total: '47',
+        },
+        {
+          move: 'Hadoken (Heavy Punch)',
+          name: {
+            'zh-Hant': '波動拳（重拳）',
+            en: 'Hadoken (Heavy Punch)',
+            ja: '波動拳（強）',
+          },
+          input: '236 P',
+          startup: '12',
+          onBlock: '-9...',
+          onHit: '-2...',
+          total: '47',
+        },
+        {
+          move: 'Hadoken (Overdrive)',
+          name: {
+            'zh-Hant': '波動拳（OD）',
+            en: 'Hadoken (Overdrive)',
+            ja: '波動拳（OD）',
+          },
+          input: '236 P',
+          cost: { drive: 2, sa: 0 },
+          startup: '12',
+          onBlock: '-1...',
+          onHit: 'Limited Juggle State, variable knockdown of +54 minimum',
+          total: '40',
+        },
+      ],
       poke: [
         {
           move: 'Standing Medium Punch',
@@ -1538,6 +1703,61 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'teleport'],
     backdashFrames: 25,
     frames: {
+      projectile: [
+        {
+          move: 'Kikoken (Light Punch)',
+          name: {
+            'zh-Hant': '氣功拳（輕拳）',
+            en: 'Kikoken (Light Punch)',
+            ja: '気功拳（弱）',
+          },
+          input: '[4] 6 P',
+          startup: '15',
+          onBlock: '-7...',
+          onHit: '-3...',
+          total: '47',
+        },
+        {
+          move: 'Kikoken (Medium Punch)',
+          name: {
+            'zh-Hant': '氣功拳（中拳）',
+            en: 'Kikoken (Medium Punch)',
+            ja: '気功拳（中）',
+          },
+          input: '[4] 6 P',
+          startup: '12',
+          onBlock: '-7...',
+          onHit: '-3...',
+          total: '45',
+        },
+        {
+          move: 'Kikoken (Heavy Punch)',
+          name: {
+            'zh-Hant': '氣功拳（重拳）',
+            en: 'Kikoken (Heavy Punch)',
+            ja: '気功拳（強）',
+          },
+          input: '[4] 6 P',
+          startup: '11',
+          onBlock: '-6...',
+          onHit: '-2...',
+          total: '43',
+        },
+        {
+          move: 'Kikoken (Overdrive)',
+          name: {
+            'zh-Hant': '氣功拳（OD）',
+            en: 'Kikoken (Overdrive)',
+            ja: '気功拳（OD）',
+          },
+          input: '[4] 6 P',
+          cost: { drive: 2, sa: 0 },
+          startup: '11',
+          onBlock: '0...',
+          onHit: '+5...',
+          total: '39',
+        },
+      ],
       poke: [
         {
           move: 'Standing Medium Kick',
@@ -2153,6 +2373,61 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'teleport'],
     backdashFrames: 23,
     frames: {
+      projectile: [
+        {
+          move: 'Fuhajin (Light Kick)',
+          name: {
+            'zh-Hant': '風破刃（輕腳）',
+            en: 'Fuhajin (Light Kick)',
+            ja: '風破刃（弱）',
+          },
+          input: '214 K',
+          startup: '10',
+          onBlock: '-4',
+          onHit: 'Knockdown +37',
+          total: '34',
+        },
+        {
+          move: 'Fuhajin (Medium Kick)',
+          name: {
+            'zh-Hant': '風破刃（中腳）',
+            en: 'Fuhajin (Medium Kick)',
+            ja: '風破刃（中）',
+          },
+          input: '214 K',
+          startup: '13',
+          onBlock: '-6',
+          onHit: 'Knockdown +37',
+          total: '37',
+        },
+        {
+          move: 'Fuhajin (Heavy Kick)',
+          name: {
+            'zh-Hant': '風破刃（重腳）',
+            en: 'Fuhajin (Heavy Kick)',
+            ja: '風破刃（強）',
+          },
+          input: '214 K',
+          startup: '25',
+          onBlock: '-8',
+          onHit: 'Knockdown +46',
+          total: '48',
+        },
+        {
+          move: 'Fuhajin (Overdrive)',
+          name: {
+            'zh-Hant': '風破刃（OD）',
+            en: 'Fuhajin (Overdrive)',
+            ja: '風破刃（OD）',
+          },
+          input: '214 K',
+          cost: { drive: 2, sa: 0 },
+          startup: '12',
+          onBlock: '-12',
+          onHit: 'Knockdown +45',
+          total: '38',
+        },
+      ],
       poke: [
         {
           move: 'Standing Heavy Punch',
@@ -2406,6 +2681,62 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
+      projectile: [
+        {
+          move: 'High Tiger Shot (Medium Punch or Heavy Punch)',
+          name: {
+            'zh-Hant': '猛虎波（中／重拳）',
+            en: 'High Tiger Shot (Medium Punch or Heavy Punch)',
+            ja: 'タイガーショット（中／強）',
+          },
+          input: '236 MP/HP',
+          startup: '16 (12)',
+          onBlock: '+3... (-1...)',
+          onHit: '+3... (-1...)',
+          total: '42 (42)',
+        },
+        {
+          move: 'High Tiger Shot (Overdrive)',
+          name: {
+            'zh-Hant': '猛虎波（OD）',
+            en: 'High Tiger Shot (Overdrive)',
+            ja: 'タイガーショット（OD）',
+          },
+          input: '236 MP/HP',
+          cost: { drive: 2, sa: 0 },
+          startup: '21',
+          onBlock: '+6...',
+          onHit: 'Knockdown +63...',
+          total: '44',
+        },
+        {
+          move: 'Low Tiger Shot (Light Punch)',
+          name: {
+            'zh-Hant': '下段猛虎波（輕拳）',
+            en: 'Low Tiger Shot (Light Punch)',
+            ja: 'ローステップタイガーショット（弱）',
+          },
+          input: '236 LP',
+          startup: '16',
+          onBlock: '-7...',
+          onHit: '-3...',
+          total: '50',
+        },
+        {
+          move: 'Low Tiger Shot (Overdrive)',
+          name: {
+            'zh-Hant': '下段猛虎波（OD）',
+            en: 'Low Tiger Shot (Overdrive)',
+            ja: 'ローステップタイガーショット（OD）',
+          },
+          input: '236 LP',
+          cost: { drive: 2, sa: 0 },
+          startup: '12',
+          onBlock: '-1...',
+          onHit: 'Knockdown +52...',
+          total: '44',
+        },
+      ],
       poke: [
         {
           move: 'Standing Heavy Kick',
@@ -2679,6 +3010,34 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
+      projectile: [
+        {
+          move: 'Power Wave (Light Punch)',
+          name: {
+            'zh-Hant': '能量波（輕拳）',
+            en: 'Power Wave (Light Punch)',
+            ja: 'パワーウェイブ（弱）',
+          },
+          input: '236 LP/MP',
+          startup: '14',
+          onBlock: '-9...',
+          onHit: '-3...',
+          total: '49',
+        },
+        {
+          move: 'Power Wave (Medium Punch)',
+          name: {
+            'zh-Hant': '能量波（中拳）',
+            en: 'Power Wave (Medium Punch)',
+            ja: 'パワーウェイブ（中）',
+          },
+          input: '236 LP/MP',
+          startup: '16',
+          onBlock: '-6...',
+          onHit: '0...',
+          total: '48',
+        },
+      ],
       poke: [
         {
           move: 'Standing Medium Punch',
@@ -2926,6 +3285,21 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
+      projectile: [
+        {
+          move: 'Psycho Spark',
+          name: {
+            'zh-Hant': '念力閃擊',
+            en: 'Psycho Spark',
+            ja: 'サイコスパーク',
+          },
+          input: '236 P',
+          startup: '14 (14)',
+          onBlock: '-5 (-2)',
+          onHit: '+3 (Knockdown Juggle State +43)',
+          total: '33 (32)',
+        },
+      ],
       poke: [
         {
           move: 'Standing Medium Punch',
@@ -3429,6 +3803,59 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
+      projectile: [
+        {
+          move: 'Air Slasher (Light Punch)',
+          name: {
+            'zh-Hant': '斬風（輕拳）',
+            en: 'Air Slasher (Light Punch)',
+            ja: 'エアスラッシャー（弱）',
+          },
+          input: '[4] 6 P',
+          startup: '21',
+          total: '21',
+        },
+        {
+          move: 'Air Slasher (Medium Punch)',
+          name: {
+            'zh-Hant': '斬風（中拳）',
+            en: 'Air Slasher (Medium Punch)',
+            ja: 'エアスラッシャー（中）',
+          },
+          input: '[4] 6 P',
+          startup: '17',
+          onBlock: '-5...',
+          onHit: '0...',
+          total: '44',
+        },
+        {
+          move: 'Air Slasher (Heavy Punch)',
+          name: {
+            'zh-Hant': '斬風（重拳）',
+            en: 'Air Slasher (Heavy Punch)',
+            ja: 'エアスラッシャー（強）',
+          },
+          input: '[4] 6 P',
+          startup: '17',
+          onBlock: '-3...',
+          onHit: '+3...',
+          total: '60',
+        },
+        {
+          move: 'Air Slasher (Overdrive)',
+          name: {
+            'zh-Hant': '斬風（OD）',
+            en: 'Air Slasher (Overdrive)',
+            ja: 'エアスラッシャー（OD）',
+          },
+          input: '[4] 6 P',
+          cost: { drive: 2, sa: 0 },
+          startup: '10',
+          onBlock: '+2...',
+          onHit: '+5... (Knockdown +70...)',
+          total: '46',
+        },
+      ],
       poke: [
         {
           move: 'Standing Heavy Punch',
@@ -4030,6 +4457,25 @@ export const CHARACTERS: CharacterOverlay[] = [
     },
     backdashFrames: 23,
     frames: {
+      projectile: [
+        {
+          move: 'Blanka-chan Bomb',
+          name: {
+            'zh-Hant': '小小布蘭卡炸彈',
+            en: 'Blanka-chan Bomb',
+            ja: 'ブランカちゃんボム',
+          },
+          input: '22 P',
+          onHit: 'Knockdown **',
+          total: '50',
+          note: {
+            'zh-Hant':
+              '丟出去的娃娃，**不會自己爆** —— 要有人碰到它。它是場上的一個物件，不是一發飛過去的波。',
+            en: 'A doll he throws that **does not go off by itself** — someone has to touch it. It is an object on the screen rather than a shot travelling across it.',
+            ja: '投げ置く人形で、**自然には爆発しない**——誰かが触れる必要がある。飛んでいく弾ではなく、画面上に置かれるオブジェクト。',
+          },
+        },
+      ],
       poke: [
         {
           move: 'Standing Medium Punch',
@@ -4393,6 +4839,21 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'teleport'],
     backdashFrames: 25,
     frames: {
+      projectile: [
+        {
+          move: 'Whirlwind Shot',
+          name: {
+            'zh-Hant': '旋風彈',
+            en: 'Whirlwind Shot',
+            ja: 'ウィンドシュート',
+          },
+          input: '236 K',
+          startup: '17..., 34..., 51 [17..., 38]',
+          onBlock: '-9..., 0..., +8... [-2... (+10...)]',
+          onHit: '-1..., +5..., +16... [Knockdown +49... (Knockdown +65...)]',
+          total: '52..., 68..., 88 [52..., 76]',
+        },
+      ],
       poke: [
         {
           move: 'Standing Heavy Punch',
@@ -4636,6 +5097,61 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['command-grab', 'air-throw', 'teleport'],
     backdashFrames: 23,
     frames: {
+      projectile: [
+        {
+          move: 'Kachousen (Light Punch)',
+          name: {
+            'zh-Hant': '花蝶扇（輕拳）',
+            en: 'Kachousen (Light Punch)',
+            ja: '花蝶扇（弱）',
+          },
+          input: '236 P',
+          startup: '16',
+          onBlock: 'Normal -7..., Charged -1..., Followup +21... Flame -3..., Charged -1..., Followup +21...',
+          onHit: 'Normal -1..., Charged +1..., Followup +25... Flame +1..., Charged +1..., Followup +25...',
+          total: '48',
+        },
+        {
+          move: 'Kachousen (Medium Punch)',
+          name: {
+            'zh-Hant': '花蝶扇（中拳）',
+            en: 'Kachousen (Medium Punch)',
+            ja: '花蝶扇（中）',
+          },
+          input: '236 P',
+          startup: '14',
+          onBlock: 'Normal -9..., Charged -1..., Followup +21... Flame -5..., Charged -1..., Followup +21...',
+          onHit: 'Normal -3..., Charged +1..., Followup +25... Flame -1..., Charged +1..., Followup +25...',
+          total: '48',
+        },
+        {
+          move: 'Kachousen (Heavy Punch)',
+          name: {
+            'zh-Hant': '花蝶扇（重拳）',
+            en: 'Kachousen (Heavy Punch)',
+            ja: '花蝶扇（強）',
+          },
+          input: '236 P',
+          startup: '12',
+          onBlock: 'Normal -11..., Charged -1..., Followup +21... Flame -7..., Charged -1..., Followup +21...',
+          onHit: 'Normal -5..., Charged +1..., Followup +25... Flame -3..., Charged +1..., Followup +25...',
+          total: '48',
+        },
+        {
+          move: 'Kachousen (Overdrive)',
+          name: {
+            'zh-Hant': '花蝶扇（OD）',
+            en: 'Kachousen (Overdrive)',
+            ja: '花蝶扇（OD）',
+          },
+          input: '236 P',
+          cost: { drive: 2, sa: 0 },
+          startup: '16',
+          onBlock: 'Normal -7..., Charged -1..., Followup +21... Flame -3..., Charged -1..., Followup +21...',
+          onHit: 'Normal +3..., Charged +14..., Followup +25... (Knockdown +61) Flame +3..., Charged +46..., Followup +25... (Knockdown +60)',
+          total: '48',
+        },
+      ],
       poke: [
         {
           move: 'Standing Medium Punch',
@@ -5208,6 +5724,61 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      projectile: [
+        {
+          move: 'Stribog (Light Punch)',
+          name: {
+            'zh-Hant': '風神（輕拳）',
+            en: 'Stribog (Light Punch)',
+            ja: 'ストリボーグ（弱）',
+          },
+          input: '236 P',
+          startup: '16',
+          onBlock: '-10',
+          onHit: 'Knockdown +38',
+          total: '49',
+        },
+        {
+          move: 'Stribog (Medium Punch)',
+          name: {
+            'zh-Hant': '風神（中拳）',
+            en: 'Stribog (Medium Punch)',
+            ja: 'ストリボーグ（中）',
+          },
+          input: '236 P',
+          startup: '20',
+          onBlock: '-8',
+          onHit: 'Knockdown +42',
+          total: '53',
+        },
+        {
+          move: 'Stribog (Heavy Punch)',
+          name: {
+            'zh-Hant': '風神（重拳）',
+            en: 'Stribog (Heavy Punch)',
+            ja: 'ストリボーグ（強）',
+          },
+          input: '236 P',
+          startup: '28',
+          onBlock: '+4',
+          onHit: 'Knockdown +86',
+          total: '61',
+        },
+        {
+          move: 'Stribog (Overdrive)',
+          name: {
+            'zh-Hant': '風神（OD）',
+            en: 'Stribog (Overdrive)',
+            ja: 'ストリボーグ（OD）',
+          },
+          input: '236 P',
+          cost: { drive: 2, sa: 0 },
+          startup: '19',
+          onBlock: '+2',
+          onHit: 'Knockdown +69...',
+          total: '52',
+        },
+      ],
       teleport: [
         {
           move: 'Departure > Window',
@@ -5889,6 +6460,61 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      projectile: [
+        {
+          move: 'Sun Shot (Light Punch)',
+          name: {
+            'zh-Hant': '太陽射擊（輕拳）',
+            en: 'Sun Shot (Light Punch)',
+            ja: 'サンシュート（弱）',
+          },
+          input: '236 P',
+          startup: '17',
+          onBlock: '-6...+8...',
+          onHit: '-2...+12...',
+          total: '49',
+        },
+        {
+          move: 'Sun Shot (Medium Punch)',
+          name: {
+            'zh-Hant': '太陽射擊（中拳）',
+            en: 'Sun Shot (Medium Punch)',
+            ja: 'サンシュート（中）',
+          },
+          input: '236 P',
+          startup: '17',
+          onBlock: '-6...+13...',
+          onHit: '-2...+17...',
+          total: '49',
+        },
+        {
+          move: 'Sun Shot (Heavy Punch)',
+          name: {
+            'zh-Hant': '太陽射擊（重拳）',
+            en: 'Sun Shot (Heavy Punch)',
+            ja: 'サンシュート（強）',
+          },
+          input: '236 P',
+          startup: '15',
+          onBlock: '-5...+2...',
+          onHit: '-1...+6...',
+          total: '48',
+        },
+        {
+          move: 'Sun Shot (Overdrive)',
+          name: {
+            'zh-Hant': '太陽射擊（OD）',
+            en: 'Sun Shot (Overdrive)',
+            ja: 'サンシュート（OD）',
+          },
+          input: '236 P',
+          cost: { drive: 2, sa: 0 },
+          startup: '17 | 17 | 15',
+          onBlock: '+1...+15... | +1...+20... | +2...+9...',
+          onHit: 'Limited Juggle Knockdown +52... | +52... | +53...',
+          total: '45 | 45 | 44',
+        },
+      ],
       teleport: [
         {
           move: 'Vanishing Sun',
@@ -6625,6 +7251,35 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      projectile: [
+        {
+          move: 'Nightshade Pulse',
+          name: {
+            'zh-Hant': '紫煙炮',
+            en: 'Nightshade Pulse',
+            ja: 'ナイトシェイドパルス',
+          },
+          input: '214 P',
+          startup: '17',
+          onBlock: '-10...',
+          onHit: '-5...',
+          total: '42',
+        },
+        {
+          move: 'Nightshade Pulse (Overdrive)',
+          name: {
+            'zh-Hant': '紫煙炮（OD）',
+            en: 'Nightshade Pulse (Overdrive)',
+            ja: 'ナイトシェイドパルス（OD）',
+          },
+          input: '214 P',
+          cost: { drive: 2, sa: 0 },
+          startup: '16',
+          onBlock: '+1...',
+          onHit: 'Knockdown +45...',
+          total: '44',
+        },
+      ],
       poke: [
         {
           move: 'Standing Medium Punch',
@@ -7172,6 +7827,41 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      projectile: [
+        {
+          move: 'Seismic Hammer',
+          name: {
+            'zh-Hant': '震地槌',
+            en: 'Seismic Hammer',
+            ja: 'サイズミックハンマー',
+          },
+          input: '623 P',
+          startup: '24',
+          onBlock: '-10',
+          onHit: 'Limited Juggle Knockdown +53',
+          total: '57',
+          note: {
+            'zh-Hant':
+              '**UFD 明寫它「是」彈幕，但太低** —— 只跟低位彈幕相消，一般的波從它上面飛過去。拿它去對波會空。',
+            en: '**UFD says in as many words that it is a projectile, but a low one** — it only clashes with low projectiles, and ordinary fireballs sail over it. Using it to win a fireball war does not work.',
+            ja: '**UFDは明確に「飛び道具である」と書いているが、低すぎる**——低い飛び道具としか相殺せず、通常の波動拳類は上を通過する。飛び道具戦の道具としては機能しない。',
+          },
+        },
+        {
+          move: 'Seismic Hammer (Overdrive)',
+          name: {
+            'zh-Hant': '震地槌（OD）',
+            en: 'Seismic Hammer (Overdrive)',
+            ja: 'サイズミックハンマー（OD）',
+          },
+          input: '623 P',
+          cost: { drive: 2, sa: 0 },
+          startup: '19',
+          onBlock: '-8',
+          onHit: 'Limited Juggle Knockdown +53',
+          total: '57',
+        },
+      ],
       poke: [
         {
           move: 'Standing Medium Kick',
@@ -7453,6 +8143,35 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      projectile: [
+        {
+          move: 'Yoga Fire',
+          name: {
+            'zh-Hant': '瑜伽火球',
+            en: 'Yoga Fire',
+            ja: 'ヨガファイア',
+          },
+          input: '236 P',
+          startup: '15 (45)',
+          onBlock: '-2... (-1...)',
+          onHit: '-2... (Knockdown +49...)',
+          total: '48 (77)',
+        },
+        {
+          move: 'Yoga Fire (Overdrive)',
+          name: {
+            'zh-Hant': '瑜伽火球（OD）',
+            en: 'Yoga Fire (Overdrive)',
+            ja: 'ヨガファイア（OD）',
+          },
+          input: '236 P',
+          cost: { drive: 2, sa: 0 },
+          startup: '12',
+          onBlock: '-3...',
+          onHit: 'Knockdown +49...',
+          total: '45',
+        },
+      ],
       teleport: [
         {
           move: 'Yoga Teleport',
@@ -8021,6 +8740,26 @@ export const CHARACTERS: CharacterOverlay[] = [
       },
     },
     frames: {
+      projectile: [
+        {
+          move: 'Shuriken Bomb / Genius at Play',
+          name: {
+            'zh-Hant': '招雷彈',
+            en: 'Shuriken Bomb / Genius at Play',
+            ja: 'スプレー缶',
+          },
+          input: '22 P',
+          startup: '18',
+          onHit: 'Knockdown +88',
+          total: '44',
+          note: {
+            'zh-Hant':
+              '丟在地上的噴漆罐，**最多三罐**。它不是拿來對波的，價值在它做出來的起攻。',
+            en: 'A spray can thrown onto the ground, **three at most**. It is not a fireball-war tool; its value is the oki it manufactures.',
+            ja: '地面に置くスプレー缶で、**最大3本**。飛び道具戦の道具ではなく、価値はそこから作れる起き攻めにある。',
+          },
+        },
+      ],
       poke: [
         {
           move: 'Standing Medium Punch',
@@ -8555,7 +9294,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     latin: 'Vega',
     health: 10000,
     backdashFrames: 23,
-    removesOptions: ['command-grab', 'reversal', 'air-throw', 'teleport'],
+    removesOptions: ['command-grab', 'reversal', 'air-throw', 'teleport', 'projectile'],
     overrides: {
       'super-reversal': {
         note: {
