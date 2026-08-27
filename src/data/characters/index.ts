@@ -380,6 +380,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'command-grab': [
         {
           move: 'Hooligan Combination > Fatal Leg Twister (Throw)',
+          name: {
+            'zh-Hant': '流氓組合 > 致命腿絞',
+            en: 'Hooligan Combination > Fatal Leg Twister (Throw)',
+            ja: 'フーリガンコンビネーション',
+          },
           input: 'Hooligan > LP+LK',
           startup: '10',
           onHit: 'Knockdown +18',
@@ -388,6 +393,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Cannon Spike (Overdrive)',
+          name: {
+            'zh-Hant': '神槍砲（OD）',
+            en: 'Cannon Spike (Overdrive)',
+            ja: 'キャノンスパイク（OD）',
+          },
           cost: { drive: 2, sa: 0 },
           input: '623 KK',
           startup: '6',
@@ -698,6 +708,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Rising Uppercut (Overdrive)',
+          name: {
+            'zh-Hant': '昇勾拳（OD）',
+            en: 'Rising Uppercut (Overdrive)',
+            ja: 'Rising Uppercut（OD）',
+          },
           cost: { drive: 2, sa: 0 },
           input: '623 PP',
           startup: '6',
@@ -998,6 +1013,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Tensho Kicks (Overdrive)',
+          name: {
+            'zh-Hant': '天昇腳（OD）',
+            en: 'Tensho Kicks (Overdrive)',
+            ja: '天昇脚（OD）',
+          },
           cost: { drive: 2, sa: 0 },
           input: '22 KK',
           startup: '6',
@@ -1195,7 +1215,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         {
           move: 'Sonic Boom',
           name: {
-            'zh-Hant': '音速手刀',
+            'zh-Hant': '音速爆擊',
             en: 'Sonic Boom',
             ja: 'ソニックブーム',
           },
@@ -1208,7 +1228,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         {
           move: 'Sonic Boom (Overdrive)',
           name: {
-            'zh-Hant': '音速手刀（OD）',
+            'zh-Hant': '音速爆擊（OD）',
             en: 'Sonic Boom (Overdrive)',
             ja: 'ソニックブーム（OD）',
           },
@@ -1229,6 +1249,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Flash Kick (Overdrive)',
+          name: {
+            'zh-Hant': '空翻腳刀（OD）',
+            en: 'Flash Kick (Overdrive)',
+            ja: 'サマーソルトキック（OD）',
+          },
           cost: { drive: 2, sa: 0 },
           input: '[2] 8 KK',
           startup: '6',
@@ -1342,6 +1367,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Tensenrin (Overdrive)',
+          name: {
+            'zh-Hant': '天穿輪（OD）',
+            en: 'Tensenrin (Overdrive)',
+            ja: '天穿輪（OD）',
+          },
           cost: { drive: 2, sa: 0 },
           input: '623 PP',
           startup: '6',
@@ -1494,7 +1524,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         {
           move: 'Tiger Uppercut (Overdrive)',
           name: {
-            'zh-Hant': '虎昇拳（OD）',
+            'zh-Hant': '猛虎上勾拳（OD）',
             en: 'Tiger Uppercut (Overdrive)',
             ja: 'タイガーアッパーカット（OD）',
           },
@@ -1639,6 +1669,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Rising Tackle (Overdrive)',
+          name: {
+            'zh-Hant': '昇龍摔（OD）',
+            en: 'Rising Tackle (Overdrive)',
+            ja: 'Rising Tackle（OD）',
+          },
           cost: { drive: 2, sa: 0 },
           input: '623 PP',
           startup: '6',
@@ -1784,6 +1819,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Psycho Uppercut (Overdrive)',
+          name: {
+            'zh-Hant': '念力上鉤拳（OD）',
+            en: 'Psycho Uppercut (Overdrive)',
+            ja: 'Psycho Uppercut（OD）',
+          },
           cost: { drive: 2, sa: 0 },
           input: '623 PP',
           startup: '13',
@@ -1944,6 +1984,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Scratch Wheel (Overdrive)',
+          name: {
+            'zh-Hant': '刮輪踢（OD）',
+            en: 'Scratch Wheel (Overdrive)',
+            ja: 'Scratch Wheel（OD）',
+          },
           cost: { drive: 2, sa: 0 },
           input: '623 KK',
           startup: '6',
@@ -2095,6 +2140,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Jackknife Maximum (Overdrive)',
+          name: {
+            'zh-Hant': '連環折刀（OD）',
+            en: 'Jackknife Maximum (Overdrive)',
+            ja: 'Jackknife Maximum（OD）',
+          },
           cost: { drive: 2, sa: 0 },
           input: '[2] 8 KK',
           startup: '6',
@@ -2210,7 +2260,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
       },
       'command-grab': {
-        input: '41236 K',
+        input: '63214 K',
       },
     },
     removesOptions: ['projectile', 'air-throw'],
@@ -2257,7 +2307,12 @@ export const CHARACTERS: CharacterOverlay[] = [
       'command-grab': [
         {
           move: 'Tenshin',
-          input: '41236 K',
+          name: {
+            'zh-Hant': '點辰',
+            en: 'Tenshin',
+            ja: '点辰',
+          },
+          input: '63214 K',
           startup: '8',
           onHit: '+8 (Knockdown +86)',
           total: '61',
@@ -2266,6 +2321,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Arrow Kick (Overdrive)',
+          name: {
+            'zh-Hant': '張弓腳（OD）',
+            en: 'Arrow Kick (Overdrive)',
+            ja: 'Arrow Kick（OD）',
+          },
           cost: { drive: 2, sa: 0 },
           input: '623 KK',
           startup: '6',
@@ -2419,6 +2479,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'command-grab': [
         {
           move: 'Wild Hunt (Light Kick)',
+          name: {
+            'zh-Hant': '野生狩獵（輕腳）',
+            en: 'Wild Hunt (Light Kick)',
+            ja: 'Wild Hunt（弱）',
+          },
           input: '236 K',
           startup: '34',
           onHit: 'Knockdown +35',
@@ -2426,6 +2491,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Wild Hunt (Medium Kick)',
+          name: {
+            'zh-Hant': '野生狩獵（中腳）',
+            en: 'Wild Hunt (Medium Kick)',
+            ja: 'Wild Hunt（中）',
+          },
           input: '236 K',
           startup: '39',
           onHit: 'Knockdown +35',
@@ -2433,6 +2503,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Wild Hunt (Heavy Kick)',
+          name: {
+            'zh-Hant': '野生狩獵（重腳）',
+            en: 'Wild Hunt (Heavy Kick)',
+            ja: 'Wild Hunt（強）',
+          },
           input: '236 K',
           startup: '45',
           onHit: 'Knockdown +35',
@@ -2440,6 +2515,11 @@ export const CHARACTERS: CharacterOverlay[] = [
         },
         {
           move: 'Wild Hunt (Overdrive)',
+          name: {
+            'zh-Hant': '野生狩獵（OD）',
+            en: 'Wild Hunt (Overdrive)',
+            ja: 'Wild Hunt（OD）',
+          },
           cost: { drive: 2, sa: 0 },
           input: '236 K',
           startup: '32',
@@ -2457,7 +2537,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         {
           move: 'Vertical Rolling Attack (Overdrive)',
           name: {
-            'zh-Hant': '垂直滾動攻擊（OD）',
+            'zh-Hant': '垂直旋轉突擊（OD）',
             en: 'Vertical Rolling Attack (Overdrive)',
             ja: 'バーチカルローリングアタック（OD）',
           },
@@ -2598,6 +2678,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Spinning Mixer (Overdrive)',
+          name: {
+            'zh-Hant': '旋風擊（OD）',
+            en: 'Spinning Mixer (Overdrive)',
+            ja: 'Spinning Mixer（OD）',
+          },
           cost: { drive: 2, sa: 0 },
           input: '236 PP',
           startup: '5 [4]',
@@ -3057,6 +3142,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'command-grab': [
         {
           move: 'Embrace',
+          name: {
+            'zh-Hant': '擁抱',
+            en: 'Embrace',
+            ja: 'アブニマーチ',
+          },
           input: '214 K',
           startup: '(25...)+1',
           onHit: 'Knockdown +18',
@@ -3066,6 +3156,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Amnesia',
+          name: {
+            'zh-Hant': '失憶',
+            en: 'Amnesia',
+            ja: 'アムネジア',
+          },
           input: '22 KK',
           startup: '3 (1)',
           onBlock: '"+28" ("+28, +28")',
@@ -3520,6 +3615,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       reversal: [
         {
           move: 'Sun Veil',
+          name: {
+            'zh-Hant': '太陽面紗',
+            en: 'Sun Veil',
+            ja: 'サンヴェール',
+          },
           input: '22 KK',
           startup: '6 (1)',
           onHit: '+23 (+52)',
@@ -3658,7 +3758,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         input: '236 K',
       },
       'command-grab': {
-        input: '41236 P',
+        input: '63214 P',
         reward: 'extreme',
         note: {
           'zh-Hant':
@@ -3705,29 +3805,49 @@ export const CHARACTERS: CharacterOverlay[] = [
       'command-grab': [
         {
           move: 'Manège Doré (Light Punch)',
-          input: '41236 P',
+          name: {
+            'zh-Hant': '黃金旋轉木馬（輕拳）',
+            en: 'Manège Doré (Light Punch)',
+            ja: 'マネージュドレ（弱）',
+          },
+          input: '63214 P',
           startup: '10',
           onHit: 'Knockdown +19',
           total: '60',
         },
         {
           move: 'Manège Doré (Medium Punch)',
-          input: '41236 P',
+          name: {
+            'zh-Hant': '黃金旋轉木馬（中拳）',
+            en: 'Manège Doré (Medium Punch)',
+            ja: 'マネージュドレ（中）',
+          },
+          input: '63214 P',
           startup: '8',
           onHit: 'Knockdown +19',
           total: '60',
         },
         {
           move: 'Manège Doré (Heavy Punch)',
-          input: '41236 P',
+          name: {
+            'zh-Hant': '黃金旋轉木馬（重拳）',
+            en: 'Manège Doré (Heavy Punch)',
+            ja: 'マネージュドレ（強）',
+          },
+          input: '63214 P',
           startup: '5',
           onHit: 'Knockdown +19',
           total: '60',
         },
         {
           move: 'Manège Doré (Overdrive)',
+          name: {
+            'zh-Hant': '黃金旋轉木馬（OD）',
+            en: 'Manège Doré (Overdrive)',
+            ja: 'マネージュドレ（OD）',
+          },
           cost: { drive: 2, sa: 0 },
-          input: '41236 P',
+          input: '63214 P',
           startup: '8',
           onHit: 'Knockdown +19',
           total: '60',
@@ -3980,7 +4100,7 @@ export const CHARACTERS: CharacterOverlay[] = [
     removesOptions: ['projectile', 'reversal', 'air-throw'],
     overrides: {
       'command-grab': {
-        input: '41236 P',
+        input: '63214 P',
       },
       'super-reversal': {
         note: {
@@ -4020,15 +4140,25 @@ export const CHARACTERS: CharacterOverlay[] = [
       'command-grab': [
         {
           move: 'Power Bomb',
-          input: '41236 P',
+          name: {
+            'zh-Hant': '炸彈摔',
+            en: 'Power Bomb',
+            ja: 'Power Bomb',
+          },
+          input: '63214 P',
           startup: '9 / 7 / 5',
           onHit: 'Knockdown +15',
           total: '61 on whiff',
         },
         {
           move: 'Power Bomb (Overdrive)',
+          name: {
+            'zh-Hant': '炸彈摔（OD）',
+            en: 'Power Bomb (Overdrive)',
+            ja: 'Power Bomb（OD）',
+          },
           cost: { drive: 2, sa: 0 },
-          input: '41236 P',
+          input: '63214 P',
           startup: '5',
           onHit: 'Knockdown +15',
           total: '61 on whiff',
@@ -4355,9 +4485,9 @@ export const CHARACTERS: CharacterOverlay[] = [
         {
           move: 'Yoga Fire (Overdrive)',
           name: {
-            'zh-Hant': '瑜珈火焰（OD）',
+            'zh-Hant': '瑜伽火球（OD）',
             en: 'Yoga Fire (Overdrive)',
-            ja: 'ヨガファイアー（OD）',
+            ja: 'ヨガファイア（OD）',
           },
           cost: { drive: 2, sa: 0 },
           startup: '12',
@@ -4510,7 +4640,7 @@ export const CHARACTERS: CharacterOverlay[] = [
         input: '[2] 8 K',
       },
       'command-grab': {
-        input: '41236 K',
+        input: '63214 K',
       },
       'super-reversal': {
         note: {
@@ -4555,7 +4685,7 @@ export const CHARACTERS: CharacterOverlay[] = [
             en: 'Oicho Throw (Light Kick)',
             ja: '大銀杏投げ（弱）',
           },
-          input: '41236 K',
+          input: '63214 K',
           startup: '6',
           onHit: 'Knockdown +7',
           total: '61 (174)',
@@ -4573,7 +4703,7 @@ export const CHARACTERS: CharacterOverlay[] = [
             en: 'Oicho Throw (Medium Kick)',
             ja: '大銀杏投げ（中）',
           },
-          input: '41236 K',
+          input: '63214 K',
           startup: '6',
           onHit: 'Knockdown +7',
           total: '61 (174)',
@@ -4585,7 +4715,7 @@ export const CHARACTERS: CharacterOverlay[] = [
             en: 'Oicho Throw (Heavy Kick)',
             ja: '大銀杏投げ（強）',
           },
-          input: '41236 K',
+          input: '63214 K',
           startup: '6',
           onHit: 'Knockdown +7',
           total: '61 (174)',
@@ -4598,7 +4728,7 @@ export const CHARACTERS: CharacterOverlay[] = [
             ja: '大銀杏投げ（OD）',
           },
           cost: { drive: 2, sa: 0 },
-          input: '41236 K',
+          input: '63214 K',
           startup: '6',
           onHit: 'Knockdown +7',
           total: '61 (222)',
@@ -4913,6 +5043,11 @@ export const CHARACTERS: CharacterOverlay[] = [
       'command-grab': [
         {
           move: 'Mexican Typhoon',
+          name: {
+            'zh-Hant': '墨西哥颱風',
+            en: 'Mexican Typhoon',
+            ja: 'Mexican Typhoon',
+          },
           input: '360 P',
           startup: '5',
           onHit: 'Knockdown +28',

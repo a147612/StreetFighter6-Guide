@@ -374,14 +374,19 @@ export interface MoveFrames {
    * Punch" is a description rather than a name, and 站中拳 and 立ち中P are
    * simply how the other two languages write the same thing.
    *
-   * Special moves carry **community renderings, not Capcom's official ones**.
-   * The official Chinese list is only inside the game: the character pages
-   * return 403 and the web manual serves nothing to a fetch, and neither is
-   * worth working around. So a name appears here only where the community has
-   * a settled one that has been in use for years — 波動拳, 螺旋打樁機, 大銀杏投.
-   * Where it has not, the field is absent and all three locales show UFD's
-   * original, which is also what players actually say for those moves. An
-   * invented translation would be worse than the English it replaced.
+   * Special-move names come from the 1cc move lists
+   * (https://scrapbox.io/1cc/招式表), which are translated from Capcom's own
+   * per-character command lists and match what the game shows. Every one was
+   * matched to UFD's English by *input*, not by resemblance — which is what
+   * caught four of my own guesses: Sonic Boom is 音速爆擊 rather than 音速手刀,
+   * Tiger Uppercut is 猛虎上勾拳 rather than 虎昇拳, Vertical Rolling Attack is
+   * 垂直旋轉突擊, and 瑜珈火焰 is not Yoga Fire at all — it is Yoga Flame, a
+   * different move on a different motion.
+   *
+   * A name is absent where that source has no entry to match, and then all
+   * three locales show UFD's original. Japanese is filled only where the page
+   * annotated it, where the kanji are shared, or where the katakana is not in
+   * doubt; otherwise it shows the English, which is no worse than before.
    */
   name?: I18nText
   /** Numpad notation. Authored, not from UFD, which writes inputs as prose. */
